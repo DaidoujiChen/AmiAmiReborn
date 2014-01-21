@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109714188E616A00D14EC1 /* Foundation.framework */; };
+		01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109716188E616A00D14EC1 /* CoreGraphics.framework */; };
+		01109719188E616A00D14EC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109718188E616A00D14EC1 /* UIKit.framework */; };
+		0110971F188E616A00D14EC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0110971D188E616A00D14EC1 /* InfoPlist.strings */; };
+		01109721188E616A00D14EC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01109720188E616A00D14EC1 /* main.m */; };
+		01109725188E616A00D14EC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01109724188E616A00D14EC1 /* AppDelegate.m */; };
+		01109728188E616A00D14EC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01109726188E616A00D14EC1 /* Main.storyboard */; };
+		0110972B188E616A00D14EC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0110972A188E616A00D14EC1 /* ViewController.m */; };
+		0110972D188E616A00D14EC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0110972C188E616A00D14EC1 /* Images.xcassets */; };
+		01109734188E616B00D14EC1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109733188E616B00D14EC1 /* XCTest.framework */; };
+		01109735188E616B00D14EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109714188E616A00D14EC1 /* Foundation.framework */; };
+		01109736188E616B00D14EC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109718188E616A00D14EC1 /* UIKit.framework */; };
+		0110973E188E616B00D14EC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0110973C188E616B00D14EC1 /* InfoPlist.strings */; };
+		01109740188E616B00D14EC1 /* AmiAmiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0110973F188E616B00D14EC1 /* AmiAmiTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01109737188E616B00D14EC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01109709188E616A00D14EC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01109710188E616A00D14EC1;
+			remoteInfo = AmiAmi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01109711188E616A00D14EC1 /* AmiAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmiAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01109714188E616A00D14EC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		01109716188E616A00D14EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		01109718188E616A00D14EC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0110971C188E616A00D14EC1 /* AmiAmi-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AmiAmi-Info.plist"; sourceTree = "<group>"; };
+		0110971E188E616A00D14EC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		01109720188E616A00D14EC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		01109722188E616A00D14EC1 /* AmiAmi-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AmiAmi-Prefix.pch"; sourceTree = "<group>"; };
+		01109723188E616A00D14EC1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		01109724188E616A00D14EC1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		01109727188E616A00D14EC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01109729188E616A00D14EC1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0110972A188E616A00D14EC1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0110972C188E616A00D14EC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		01109732188E616B00D14EC1 /* AmiAmiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmiAmiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01109733188E616B00D14EC1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0110973B188E616B00D14EC1 /* AmiAmiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AmiAmiTests-Info.plist"; sourceTree = "<group>"; };
+		0110973D188E616B00D14EC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0110973F188E616B00D14EC1 /* AmiAmiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmiAmiTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0110970E188E616A00D14EC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */,
+				01109719188E616A00D14EC1 /* UIKit.framework in Frameworks */,
+				01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0110972F188E616B00D14EC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01109734188E616B00D14EC1 /* XCTest.framework in Frameworks */,
+				01109736188E616B00D14EC1 /* UIKit.framework in Frameworks */,
+				01109735188E616B00D14EC1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01109708188E616A00D14EC1 = {
+			isa = PBXGroup;
+			children = (
+				0110971A188E616A00D14EC1 /* AmiAmi */,
+				01109739188E616B00D14EC1 /* AmiAmiTests */,
+				01109713188E616A00D14EC1 /* Frameworks */,
+				01109712188E616A00D14EC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01109712188E616A00D14EC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01109711188E616A00D14EC1 /* AmiAmi.app */,
+				01109732188E616B00D14EC1 /* AmiAmiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01109713188E616A00D14EC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01109714188E616A00D14EC1 /* Foundation.framework */,
+				01109716188E616A00D14EC1 /* CoreGraphics.framework */,
+				01109718188E616A00D14EC1 /* UIKit.framework */,
+				01109733188E616B00D14EC1 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0110971A188E616A00D14EC1 /* AmiAmi */ = {
+			isa = PBXGroup;
+			children = (
+				01109723188E616A00D14EC1 /* AppDelegate.h */,
+				01109724188E616A00D14EC1 /* AppDelegate.m */,
+				01109726188E616A00D14EC1 /* Main.storyboard */,
+				01109729188E616A00D14EC1 /* ViewController.h */,
+				0110972A188E616A00D14EC1 /* ViewController.m */,
+				0110972C188E616A00D14EC1 /* Images.xcassets */,
+				0110971B188E616A00D14EC1 /* Supporting Files */,
+			);
+			path = AmiAmi;
+			sourceTree = "<group>";
+		};
+		0110971B188E616A00D14EC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0110971C188E616A00D14EC1 /* AmiAmi-Info.plist */,
+				0110971D188E616A00D14EC1 /* InfoPlist.strings */,
+				01109720188E616A00D14EC1 /* main.m */,
+				01109722188E616A00D14EC1 /* AmiAmi-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01109739188E616B00D14EC1 /* AmiAmiTests */ = {
+			isa = PBXGroup;
+			children = (
+				0110973F188E616B00D14EC1 /* AmiAmiTests.m */,
+				0110973A188E616B00D14EC1 /* Supporting Files */,
+			);
+			path = AmiAmiTests;
+			sourceTree = "<group>";
+		};
+		0110973A188E616B00D14EC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0110973B188E616B00D14EC1 /* AmiAmiTests-Info.plist */,
+				0110973C188E616B00D14EC1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01109710188E616A00D14EC1 /* AmiAmi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01109743188E616B00D14EC1 /* Build configuration list for PBXNativeTarget "AmiAmi" */;
+			buildPhases = (
+				0110970D188E616A00D14EC1 /* Sources */,
+				0110970E188E616A00D14EC1 /* Frameworks */,
+				0110970F188E616A00D14EC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmiAmi;
+			productName = AmiAmi;
+			productReference = 01109711188E616A00D14EC1 /* AmiAmi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		01109731188E616B00D14EC1 /* AmiAmiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01109746188E616B00D14EC1 /* Build configuration list for PBXNativeTarget "AmiAmiTests" */;
+			buildPhases = (
+				0110972E188E616B00D14EC1 /* Sources */,
+				0110972F188E616B00D14EC1 /* Frameworks */,
+				01109730188E616B00D14EC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01109738188E616B00D14EC1 /* PBXTargetDependency */,
+			);
+			name = AmiAmiTests;
+			productName = AmiAmiTests;
+			productReference = 01109732188E616B00D14EC1 /* AmiAmiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01109709188E616A00D14EC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = ChilunChen;
+				TargetAttributes = {
+					01109731188E616B00D14EC1 = {
+						TestTargetID = 01109710188E616A00D14EC1;
+					};
+				};
+			};
+			buildConfigurationList = 0110970C188E616A00D14EC1 /* Build configuration list for PBXProject "AmiAmi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01109708188E616A00D14EC1;
+			productRefGroup = 01109712188E616A00D14EC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01109710188E616A00D14EC1 /* AmiAmi */,
+				01109731188E616B00D14EC1 /* AmiAmiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0110970F188E616A00D14EC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0110972D188E616A00D14EC1 /* Images.xcassets in Resources */,
+				0110971F188E616A00D14EC1 /* InfoPlist.strings in Resources */,
+				01109728188E616A00D14EC1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01109730188E616B00D14EC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0110973E188E616B00D14EC1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0110970D188E616A00D14EC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0110972B188E616A00D14EC1 /* ViewController.m in Sources */,
+				01109725188E616A00D14EC1 /* AppDelegate.m in Sources */,
+				01109721188E616A00D14EC1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0110972E188E616B00D14EC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01109740188E616B00D14EC1 /* AmiAmiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01109738188E616B00D14EC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01109710188E616A00D14EC1 /* AmiAmi */;
+			targetProxy = 01109737188E616B00D14EC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0110971D188E616A00D14EC1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0110971E188E616A00D14EC1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		01109726188E616A00D14EC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01109727188E616A00D14EC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0110973C188E616B00D14EC1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0110973D188E616B00D14EC1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01109741188E616B00D14EC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		01109742188E616B00D14EC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01109744188E616B00D14EC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
+				INFOPLIST_FILE = "AmiAmi/AmiAmi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		01109745188E616B00D14EC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
+				INFOPLIST_FILE = "AmiAmi/AmiAmi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		01109747188E616B00D14EC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AmiAmi.app/AmiAmi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AmiAmiTests/AmiAmiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		01109748188E616B00D14EC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AmiAmi.app/AmiAmi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
+				INFOPLIST_FILE = "AmiAmiTests/AmiAmiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0110970C188E616A00D14EC1 /* Build configuration list for PBXProject "AmiAmi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01109741188E616B00D14EC1 /* Debug */,
+				01109742188E616B00D14EC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01109743188E616B00D14EC1 /* Build configuration list for PBXNativeTarget "AmiAmi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01109744188E616B00D14EC1 /* Debug */,
+				01109745188E616B00D14EC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		01109746188E616B00D14EC1 /* Build configuration list for PBXNativeTarget "AmiAmiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01109747188E616B00D14EC1 /* Debug */,
+				01109748188E616B00D14EC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01109709188E616A00D14EC1 /* Project object */;
+}
