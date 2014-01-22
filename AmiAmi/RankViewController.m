@@ -61,8 +61,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SpecProductViewController *next = [[SpecProductViewController alloc] init];
-    [self.navigationController pushViewController:next animated:YES];
+    
+    [AmiAmiParser parseSpecProductImages:^(AmiAmiParserStatus status, NSArray *result) {
+        if (status) {
+            
+            NSMutableArray *photos = [NSMutableArray array];
+            
+            for (NSString *imageURLString in result) {
+                MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]
+                                                                  name:@"O3O"];
+                [photos addObject:eachPhoto];
+            }
+            
+            MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:photos];
+            
+            EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
+            [self.navigationController pushViewController:photoController animated:YES];
+        }
+    }];
 }
 
 
@@ -70,6 +86,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"美少女排行";
     
     [_rankTableView registerClass:[RankCell class] forCellReuseIdentifier:@"RankCell"];
     [_rankTableView setBackgroundView:nil];
@@ -81,14 +99,6 @@
             [_rankTableView reloadData];
         }
     }];
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [self.view setBackgroundColor:[UIColor clearColor]];
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 @end

@@ -16,8 +16,14 @@ typedef enum {
     AmiAmiParserStatusSuccess
 } AmiAmiParserStatus;
 
+typedef enum {
+    AmiAmiParserEntryTypeRank       =   0,
+    AmiAmiParserEntryTypeSpecProduct
+} AmiAmiParserEntryType;
+
 @interface AmiAmiParser : NSObject <UIWebViewDelegate>
 
 +(void) parseRankCategory : (int) categoryNumber completion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
++(void) parseSpecProductImages : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
 
 @end

@@ -28,14 +28,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [self.view setBackgroundColor:[UIColor clearColor]];
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    [AmiAmiParser parseSpecProductImages:^(AmiAmiParserStatus status, NSArray *result) {
+        NSLog(@"%@", result);
+    }];
 }
 
 @end

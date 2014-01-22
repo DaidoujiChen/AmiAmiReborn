@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "UIImageView+WebCache.h"
+#import "MyPhoto.h"
+#import "MyPhotoSource.h"
 
 #import "RankCell.h"
 #import "SpecProductViewController.h"

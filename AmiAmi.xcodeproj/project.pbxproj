@@ -64,6 +64,28 @@
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
 		0169940D188F789D007E21C8 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169940C188F789D007E21C8 /* FXBlurView.m */; };
+		01E0CB56188FC33F009EA56C /* EGOPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB36188FC33F009EA56C /* EGOPhotoViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB57188FC33F009EA56C /* EGOQuickPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB3D188FC33F009EA56C /* EGOQuickPhoto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB58188FC33F009EA56C /* EGOQuickPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB3F188FC33F009EA56C /* EGOQuickPhotoSource.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB59188FC33F009EA56C /* egopv_error_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB41188FC33F009EA56C /* egopv_error_placeholder.png */; };
+		01E0CB5A188FC33F009EA56C /* egopv_error_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB42188FC33F009EA56C /* egopv_error_placeholder@2x.png */; };
+		01E0CB5B188FC33F009EA56C /* egopv_fullscreen_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB43188FC33F009EA56C /* egopv_fullscreen_button.png */; };
+		01E0CB5C188FC33F009EA56C /* egopv_fullscreen_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB44188FC33F009EA56C /* egopv_fullscreen_button@2x.png */; };
+		01E0CB5D188FC33F009EA56C /* egopv_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB45188FC33F009EA56C /* egopv_left.png */; };
+		01E0CB5E188FC33F009EA56C /* egopv_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB46188FC33F009EA56C /* egopv_left@2x.png */; };
+		01E0CB5F188FC33F009EA56C /* egopv_minimize_fullscreen_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB47188FC33F009EA56C /* egopv_minimize_fullscreen_button.png */; };
+		01E0CB60188FC33F009EA56C /* egopv_photo_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB48188FC33F009EA56C /* egopv_photo_placeholder.png */; };
+		01E0CB61188FC33F009EA56C /* egopv_photo_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB49188FC33F009EA56C /* egopv_photo_placeholder@2x.png */; };
+		01E0CB62188FC33F009EA56C /* egopv_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB4A188FC33F009EA56C /* egopv_right.png */; };
+		01E0CB63188FC33F009EA56C /* egopv_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E0CB4B188FC33F009EA56C /* egopv_right@2x.png */; };
+		01E0CB64188FC33F009EA56C /* EGOPhotoCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB4F188FC33F009EA56C /* EGOPhotoCaptionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB65188FC33F009EA56C /* EGOPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB52188FC33F009EA56C /* EGOPhotoImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB66188FC33F009EA56C /* EGOPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB55188FC33F009EA56C /* EGOPhotoScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB69188FC3C0009EA56C /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB68188FC3C0009EA56C /* EGOCache.m */; };
+		01E0CB6E188FC3F4009EA56C /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB6B188FC3F4009EA56C /* EGOImageLoadConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB6F188FC3F4009EA56C /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB6D188FC3F4009EA56C /* EGOImageLoader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB74188FC780009EA56C /* MyPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB71188FC780009EA56C /* MyPhoto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01E0CB75188FC780009EA56C /* MyPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB73188FC780009EA56C /* MyPhotoSource.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +195,41 @@
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		0169940B188F789D007E21C8 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		0169940C188F789D007E21C8 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		01E0CB35188FC33F009EA56C /* EGOPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoViewController.h; sourceTree = "<group>"; };
+		01E0CB36188FC33F009EA56C /* EGOPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoViewController.m; sourceTree = "<group>"; };
+		01E0CB37188FC33F009EA56C /* EGOPhotoGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoGlobal.h; sourceTree = "<group>"; };
+		01E0CB3A188FC33F009EA56C /* EGOPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoSource.h; sourceTree = "<group>"; };
+		01E0CB3C188FC33F009EA56C /* EGOQuickPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOQuickPhoto.h; sourceTree = "<group>"; };
+		01E0CB3D188FC33F009EA56C /* EGOQuickPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOQuickPhoto.m; sourceTree = "<group>"; };
+		01E0CB3E188FC33F009EA56C /* EGOQuickPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOQuickPhotoSource.h; sourceTree = "<group>"; };
+		01E0CB3F188FC33F009EA56C /* EGOQuickPhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOQuickPhotoSource.m; sourceTree = "<group>"; };
+		01E0CB41188FC33F009EA56C /* egopv_error_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_error_placeholder.png; sourceTree = "<group>"; };
+		01E0CB42188FC33F009EA56C /* egopv_error_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_error_placeholder@2x.png"; sourceTree = "<group>"; };
+		01E0CB43188FC33F009EA56C /* egopv_fullscreen_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_fullscreen_button.png; sourceTree = "<group>"; };
+		01E0CB44188FC33F009EA56C /* egopv_fullscreen_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_fullscreen_button@2x.png"; sourceTree = "<group>"; };
+		01E0CB45188FC33F009EA56C /* egopv_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_left.png; sourceTree = "<group>"; };
+		01E0CB46188FC33F009EA56C /* egopv_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_left@2x.png"; sourceTree = "<group>"; };
+		01E0CB47188FC33F009EA56C /* egopv_minimize_fullscreen_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_minimize_fullscreen_button.png; sourceTree = "<group>"; };
+		01E0CB48188FC33F009EA56C /* egopv_photo_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_photo_placeholder.png; sourceTree = "<group>"; };
+		01E0CB49188FC33F009EA56C /* egopv_photo_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_photo_placeholder@2x.png"; sourceTree = "<group>"; };
+		01E0CB4A188FC33F009EA56C /* egopv_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_right.png; sourceTree = "<group>"; };
+		01E0CB4B188FC33F009EA56C /* egopv_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_right@2x.png"; sourceTree = "<group>"; };
+		01E0CB4E188FC33F009EA56C /* EGOPhotoCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoCaptionView.h; sourceTree = "<group>"; };
+		01E0CB4F188FC33F009EA56C /* EGOPhotoCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoCaptionView.m; sourceTree = "<group>"; };
+		01E0CB51188FC33F009EA56C /* EGOPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoImageView.h; sourceTree = "<group>"; };
+		01E0CB52188FC33F009EA56C /* EGOPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoImageView.m; sourceTree = "<group>"; };
+		01E0CB54188FC33F009EA56C /* EGOPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoScrollView.h; sourceTree = "<group>"; };
+		01E0CB55188FC33F009EA56C /* EGOPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoScrollView.m; sourceTree = "<group>"; };
+		01E0CB67188FC3C0009EA56C /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		01E0CB68188FC3C0009EA56C /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		01E0CB6A188FC3F4009EA56C /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
+		01E0CB6B188FC3F4009EA56C /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
+		01E0CB6C188FC3F4009EA56C /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
+		01E0CB6D188FC3F4009EA56C /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
+		01E0CB70188FC780009EA56C /* MyPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhoto.h; sourceTree = "<group>"; };
+		01E0CB71188FC780009EA56C /* MyPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhoto.m; sourceTree = "<group>"; };
+		01E0CB72188FC780009EA56C /* MyPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhotoSource.h; sourceTree = "<group>"; };
+		01E0CB73188FC780009EA56C /* MyPhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhotoSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +296,7 @@
 		0110971A188E616A00D14EC1 /* AmiAmi */ = {
 			isa = PBXGroup;
 			children = (
+				01E0CB32188FC322009EA56C /* EGOPhotoViewer */,
 				0169940A188F787F007E21C8 /* FXBlurView */,
 				01699403188F7604007E21C8 /* OSNavigationController */,
 				016993C8188F6CA6007E21C8 /* SDWebImage */,
@@ -392,6 +450,128 @@
 			name = FXBlurView;
 			sourceTree = "<group>";
 		};
+		01E0CB32188FC322009EA56C /* EGOPhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB70188FC780009EA56C /* MyPhoto.h */,
+				01E0CB71188FC780009EA56C /* MyPhoto.m */,
+				01E0CB72188FC780009EA56C /* MyPhotoSource.h */,
+				01E0CB73188FC780009EA56C /* MyPhotoSource.m */,
+				01E0CB6A188FC3F4009EA56C /* EGOImageLoadConnection.h */,
+				01E0CB6B188FC3F4009EA56C /* EGOImageLoadConnection.m */,
+				01E0CB6C188FC3F4009EA56C /* EGOImageLoader.h */,
+				01E0CB6D188FC3F4009EA56C /* EGOImageLoader.m */,
+				01E0CB67188FC3C0009EA56C /* EGOCache.h */,
+				01E0CB68188FC3C0009EA56C /* EGOCache.m */,
+				01E0CB33188FC33F009EA56C /* Controller */,
+				01E0CB37188FC33F009EA56C /* EGOPhotoGlobal.h */,
+				01E0CB38188FC33F009EA56C /* Model */,
+				01E0CB40188FC33F009EA56C /* Resources */,
+				01E0CB4C188FC33F009EA56C /* Views */,
+			);
+			name = EGOPhotoViewer;
+			sourceTree = "<group>";
+		};
+		01E0CB33188FC33F009EA56C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB34188FC33F009EA56C /* EGOPhotoViewController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		01E0CB34188FC33F009EA56C /* EGOPhotoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB35188FC33F009EA56C /* EGOPhotoViewController.h */,
+				01E0CB36188FC33F009EA56C /* EGOPhotoViewController.m */,
+			);
+			path = EGOPhotoViewController;
+			sourceTree = "<group>";
+		};
+		01E0CB38188FC33F009EA56C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB39188FC33F009EA56C /* EGOPhotoSource */,
+				01E0CB3B188FC33F009EA56C /* EGOQuickPhoto */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01E0CB39188FC33F009EA56C /* EGOPhotoSource */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB3A188FC33F009EA56C /* EGOPhotoSource.h */,
+			);
+			path = EGOPhotoSource;
+			sourceTree = "<group>";
+		};
+		01E0CB3B188FC33F009EA56C /* EGOQuickPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB3C188FC33F009EA56C /* EGOQuickPhoto.h */,
+				01E0CB3D188FC33F009EA56C /* EGOQuickPhoto.m */,
+				01E0CB3E188FC33F009EA56C /* EGOQuickPhotoSource.h */,
+				01E0CB3F188FC33F009EA56C /* EGOQuickPhotoSource.m */,
+			);
+			path = EGOQuickPhoto;
+			sourceTree = "<group>";
+		};
+		01E0CB40188FC33F009EA56C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB41188FC33F009EA56C /* egopv_error_placeholder.png */,
+				01E0CB42188FC33F009EA56C /* egopv_error_placeholder@2x.png */,
+				01E0CB43188FC33F009EA56C /* egopv_fullscreen_button.png */,
+				01E0CB44188FC33F009EA56C /* egopv_fullscreen_button@2x.png */,
+				01E0CB45188FC33F009EA56C /* egopv_left.png */,
+				01E0CB46188FC33F009EA56C /* egopv_left@2x.png */,
+				01E0CB47188FC33F009EA56C /* egopv_minimize_fullscreen_button.png */,
+				01E0CB48188FC33F009EA56C /* egopv_photo_placeholder.png */,
+				01E0CB49188FC33F009EA56C /* egopv_photo_placeholder@2x.png */,
+				01E0CB4A188FC33F009EA56C /* egopv_right.png */,
+				01E0CB4B188FC33F009EA56C /* egopv_right@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		01E0CB4C188FC33F009EA56C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB4D188FC33F009EA56C /* EGOPhotoCaptionView */,
+				01E0CB50188FC33F009EA56C /* EGOPhotoImageView */,
+				01E0CB53188FC33F009EA56C /* EGOPhotoScrollView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		01E0CB4D188FC33F009EA56C /* EGOPhotoCaptionView */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB4E188FC33F009EA56C /* EGOPhotoCaptionView.h */,
+				01E0CB4F188FC33F009EA56C /* EGOPhotoCaptionView.m */,
+			);
+			path = EGOPhotoCaptionView;
+			sourceTree = "<group>";
+		};
+		01E0CB50188FC33F009EA56C /* EGOPhotoImageView */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB51188FC33F009EA56C /* EGOPhotoImageView.h */,
+				01E0CB52188FC33F009EA56C /* EGOPhotoImageView.m */,
+			);
+			path = EGOPhotoImageView;
+			sourceTree = "<group>";
+		};
+		01E0CB53188FC33F009EA56C /* EGOPhotoScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				01E0CB54188FC33F009EA56C /* EGOPhotoScrollView.h */,
+				01E0CB55188FC33F009EA56C /* EGOPhotoScrollView.m */,
+			);
+			path = EGOPhotoScrollView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -469,16 +649,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				014DCF4B188FB2AF00CC6400 /* SpecProductViewController.xib in Resources */,
+				01E0CB5E188FC33F009EA56C /* egopv_left@2x.png in Resources */,
+				01E0CB5A188FC33F009EA56C /* egopv_error_placeholder@2x.png in Resources */,
 				0110974D188E68E700D14EC1 /* RankViewController.xib in Resources */,
+				01E0CB61188FC33F009EA56C /* egopv_photo_placeholder@2x.png in Resources */,
+				01E0CB5D188FC33F009EA56C /* egopv_left.png in Resources */,
 				016993F8188F7178007E21C8 /* RankCell.xib in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
 				01699400188F73DB007E21C8 /* ranking_3.png in Resources */,
+				01E0CB5F188FC33F009EA56C /* egopv_minimize_fullscreen_button.png in Resources */,
 				014DCF54188FB96A00CC6400 /* OSNavigationController.xib in Resources */,
+				01E0CB5B188FC33F009EA56C /* egopv_fullscreen_button.png in Resources */,
 				0110972D188E616A00D14EC1 /* Images.xcassets in Resources */,
+				01E0CB5C188FC33F009EA56C /* egopv_fullscreen_button@2x.png in Resources */,
 				016993FE188F73DB007E21C8 /* ranking_1.png in Resources */,
+				01E0CB60188FC33F009EA56C /* egopv_photo_placeholder.png in Resources */,
 				01699401188F73DB007E21C8 /* ranking_4.png in Resources */,
+				01E0CB59188FC33F009EA56C /* egopv_error_placeholder.png in Resources */,
 				01699409188F772C007E21C8 /* background.jpg in Resources */,
 				0110971F188E616A00D14EC1 /* InfoPlist.strings in Resources */,
+				01E0CB63188FC33F009EA56C /* egopv_right@2x.png in Resources */,
+				01E0CB62188FC33F009EA56C /* egopv_right.png in Resources */,
 				016993FF188F73DB007E21C8 /* ranking_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,26 +700,37 @@
 				016993E7188F6CC1007E21C8 /* NSData+ImageContentType.m in Sources */,
 				01109779188E6CC000D14EC1 /* AmiAmiParser.m in Sources */,
 				0110974C188E68E700D14EC1 /* RankViewController.m in Sources */,
+				01E0CB6E188FC3F4009EA56C /* EGOImageLoadConnection.m in Sources */,
 				016993EA188F6CC1007E21C8 /* SDWebImageDecoder.m in Sources */,
 				01109773188E6C5700D14EC1 /* AFURLConnectionOperation.m in Sources */,
 				016993EF188F6CC1007E21C8 /* UIButton+WebCache.m in Sources */,
 				016993ED188F6CC1007E21C8 /* SDWebImageManager.m in Sources */,
+				01E0CB69188FC3C0009EA56C /* EGOCache.m in Sources */,
 				01109770188E6C5700D14EC1 /* AFHTTPSessionManager.m in Sources */,
+				01E0CB64188FC33F009EA56C /* EGOPhotoCaptionView.m in Sources */,
+				01E0CB56188FC33F009EA56C /* EGOPhotoViewController.m in Sources */,
+				01E0CB6F188FC3F4009EA56C /* EGOImageLoader.m in Sources */,
 				01109774188E6C5700D14EC1 /* AFURLRequestSerialization.m in Sources */,
 				01109755188E6AE900D14EC1 /* TFHpple.m in Sources */,
 				01109757188E6AE900D14EC1 /* XPathQuery.m in Sources */,
+				01E0CB74188FC780009EA56C /* MyPhoto.m in Sources */,
 				014DCF53188FB96A00CC6400 /* OSNavigationController.m in Sources */,
 				01109756188E6AE900D14EC1 /* TFHppleElement.m in Sources */,
+				01E0CB75188FC780009EA56C /* MyPhotoSource.m in Sources */,
 				016993EB188F6CC1007E21C8 /* SDWebImageDownloader.m in Sources */,
 				016993EE188F6CC1007E21C8 /* SDWebImagePrefetcher.m in Sources */,
 				0110976F188E6C5700D14EC1 /* AFHTTPRequestOperationManager.m in Sources */,
 				016993E8188F6CC1007E21C8 /* SDImageCache.m in Sources */,
 				016993EC188F6CC1007E21C8 /* SDWebImageDownloaderOperation.m in Sources */,
 				01109772188E6C5700D14EC1 /* AFSecurityPolicy.m in Sources */,
+				01E0CB57188FC33F009EA56C /* EGOQuickPhoto.m in Sources */,
+				01E0CB66188FC33F009EA56C /* EGOPhotoScrollView.m in Sources */,
 				016993E6188F6CC1007E21C8 /* MKAnnotationView+WebCache.m in Sources */,
 				016993F6188F716C007E21C8 /* RankCell.m in Sources */,
 				016993F1188F6CC1007E21C8 /* UIImage+MultiFormat.m in Sources */,
+				01E0CB65188FC33F009EA56C /* EGOPhotoImageView.m in Sources */,
 				016993E9188F6CC1007E21C8 /* SDWebImageCompat.m in Sources */,
+				01E0CB58188FC33F009EA56C /* EGOQuickPhotoSource.m in Sources */,
 				01109775188E6C5700D14EC1 /* AFURLResponseSerialization.m in Sources */,
 				014DCF4A188FB2AF00CC6400 /* SpecProductViewController.m in Sources */,
 				0110976E188E6C5700D14EC1 /* AFHTTPRequestOperation.m in Sources */,
