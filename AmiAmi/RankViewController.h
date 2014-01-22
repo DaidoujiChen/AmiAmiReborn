@@ -9,17 +9,16 @@
 #import <UIKit/UIKit.h>
 
 #import "UIImageView+WebCache.h"
-#import "FXBlurView.h"
 
 #import "RankCell.h"
+#import "SpecProductViewController.h"
 
-@interface RankViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface RankViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
     NSArray *rankInfoArray;
 }
 
 @property (nonatomic, strong) NSArray *rankInfoArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *rankTableView;
-@property (weak, nonatomic) IBOutlet FXBlurView *blurView;
 
 @end

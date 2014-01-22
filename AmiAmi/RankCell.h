@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FXBlurView.h"
+
 @interface RankCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *rankImageView;

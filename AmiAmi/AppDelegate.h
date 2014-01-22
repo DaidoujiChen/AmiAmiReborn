@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FXBlurView.h"
+#import "OSNavigationController.h"
+
 #import "RankViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

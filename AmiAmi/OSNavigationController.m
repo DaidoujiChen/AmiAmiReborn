@@ -60,6 +60,12 @@
 
 @implementation OSNavigationController
 
+#pragma mark - hidden status bar
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (instancetype)initWithRootViewController:(UIViewController *)viewController
 {
     if ((self = [self initWithNibName:nil bundle:nil]))
@@ -211,11 +217,11 @@
 - (void)viewWillLayoutSubviews
 {
     CGRect frame = _navigationBar.frame;
-    if (self.view.window.rootViewController == self && [[UIDevice currentDevice].systemVersion floatValue] >= 7)
+    /*if (self.view.window.rootViewController == self && [[UIDevice currentDevice].systemVersion floatValue] >= 7)
     {
         CGSize statusFrame = [UIApplication sharedApplication].statusBarFrame.size;
         frame.size.height = _navigationBarHeight + MIN(statusFrame.height, statusFrame.width);
-    }
+    }*/
     frame.origin.y = _navigationBarHidden? -frame.size.height: 0;
     _navigationBar.frame = frame;
     frame = _contentView.frame;
