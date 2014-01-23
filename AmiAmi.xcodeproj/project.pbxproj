@@ -65,6 +65,7 @@
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
 		0169940D188F789D007E21C8 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169940C188F789D007E21C8 /* FXBlurView.m */; };
+		01B44454189100350026F967 /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B44453189100350026F967 /* GlobalFunctions.m */; };
 		01D88EB21890ED6100EF0E6F /* RelationProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */; };
 		01D88EB31890ED6100EF0E6F /* RelationProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */; };
 		01D88EB61890EE0B00EF0E6F /* RelationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D88EB51890EE0B00EF0E6F /* RelationCell.m */; };
@@ -201,6 +202,8 @@
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		0169940B188F789D007E21C8 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		0169940C188F789D007E21C8 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		01B44452189100350026F967 /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
+		01B44453189100350026F967 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctions.m; sourceTree = "<group>"; };
 		01D88EAF1890ED6100EF0E6F /* RelationProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationProductViewController.h; sourceTree = "<group>"; };
 		01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationProductViewController.m; sourceTree = "<group>"; };
 		01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelationProductViewController.xib; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 				01109724188E616A00D14EC1 /* AppDelegate.m */,
 				01109777188E6CC000D14EC1 /* AmiAmiParser.h */,
 				01109778188E6CC000D14EC1 /* AmiAmiParser.m */,
+				01B44452189100350026F967 /* GlobalFunctions.h */,
+				01B44453189100350026F967 /* GlobalFunctions.m */,
 				01109749188E68E700D14EC1 /* RankViewController.h */,
 				0110974A188E68E700D14EC1 /* RankViewController.m */,
 				0110974B188E68E700D14EC1 /* RankViewController.xib */,
@@ -757,6 +762,7 @@
 				01109772188E6C5700D14EC1 /* AFSecurityPolicy.m in Sources */,
 				01E0CB57188FC33F009EA56C /* EGOQuickPhoto.m in Sources */,
 				01D88EB61890EE0B00EF0E6F /* RelationCell.m in Sources */,
+				01B44454189100350026F967 /* GlobalFunctions.m in Sources */,
 				01E0CB66188FC33F009EA56C /* EGOPhotoScrollView.m in Sources */,
 				016993E6188F6CC1007E21C8 /* MKAnnotationView+WebCache.m in Sources */,
 				016993F6188F716C007E21C8 /* RankCell.m in Sources */,

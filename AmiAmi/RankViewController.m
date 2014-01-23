@@ -9,12 +9,15 @@
 #import "RankViewController.h"
 
 @interface RankViewController (Private)
--(void) reloadRank;
+-(void) typeChangeAction;
+-(void) reload;
+-(void) loadRankData;
+-(void) loadAllBiShoJoData;
 @end
 
 @implementation RankViewController
 
-@synthesize rankInfoArray;
+@synthesize dataArray;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -28,23 +31,62 @@
 
 #pragma mark - private
 
--(void) reloadRank {
+-(void) loadRankData {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
     
-    [AmiAmiParser parseRankCategory:1 completion:^(AmiAmiParserStatus status, NSArray *result) {
+    [AmiAmiParser parseBiShoJoRank:^(AmiAmiParserStatus status, NSArray *result) {
         if (status) {
-            self.rankInfoArray = result;
-            [_rankTableView reloadData];
+            self.dataArray = result;
+            [_dataTableView reloadData];
         }
         
         [SVProgressHUD dismiss];
     }];
 }
 
+-(void) loadAllBiShoJoData {
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    [AmiAmiParser parseAllBiShouJo:^(AmiAmiParserStatus status, NSArray *result) {
+        if (status) {
+            self.dataArray = result;
+            [_dataTableView reloadData];
+        }
+        
+        [SVProgressHUD dismiss];
+    }];
+}
+
+-(void) typeChangeAction {
+    switch (typeSegment.selectedSegmentIndex) {
+        case 0:
+            [self loadRankData];
+            break;
+        case 1:
+            [self loadAllBiShoJoData];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void) reload {
+    switch (typeSegment.selectedSegmentIndex) {
+        case 0:
+            [self loadRankData];
+            break;
+        case 1:
+            [self loadAllBiShoJoData];
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [rankInfoArray count];
+    return [dataArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -57,7 +99,7 @@
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
-    NSDictionary *eachInfo = [rankInfoArray objectAtIndex:indexPath.section];
+    NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
     
     cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", indexPath.section + 1]];
     [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
@@ -77,7 +119,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *eachInfo = [rankInfoArray objectAtIndex:indexPath.section];
+    NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
     
     NSArray *splitArray = [[eachInfo objectForKey:@"Thumbnail"] componentsSeparatedByString:@"/"];
     
@@ -117,33 +159,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"美少女排行";
-    
-    [_rankTableView registerClass:[RankCell class] forCellReuseIdentifier:@"RankCell"];
-    [_rankTableView setBackgroundView:nil];
-    [_rankTableView setBackgroundColor:[UIColor clearColor]];
+    [_dataTableView registerClass:[RankCell class] forCellReuseIdentifier:@"RankCell"];
+    [_dataTableView setBackgroundView:nil];
+    [_dataTableView setBackgroundColor:[UIColor clearColor]];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                  target:self
-                                                                                 action:@selector(reloadRank)];
+                                                                                 action:@selector(reload)];
     
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
+    [typeSegment addTarget:self action:@selector(typeChangeAction) forControlEvents:UIControlEventValueChanged];
+    [typeSegment sizeToFit];
+    self.navigationItem.titleView = typeSegment;
 }
 
 -(void) viewDidAppear:(BOOL)animated {
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-        
-        [AmiAmiParser parseRankCategory:1 completion:^(AmiAmiParserStatus status, NSArray *result) {
-            if (status) {
-                self.rankInfoArray = result;
-                [_rankTableView reloadData];
-            }
-            
-            [SVProgressHUD dismiss];
-        }];
+        [self loadRankData];
     });
 }
 

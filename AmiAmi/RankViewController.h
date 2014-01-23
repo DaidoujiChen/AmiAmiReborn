@@ -15,11 +15,12 @@
 #import "RankCell.h"
 
 @interface RankViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
-    NSArray *rankInfoArray;
+    NSArray *dataArray;
+    UISegmentedControl *typeSegment;
 }
 
-@property (nonatomic, strong) NSArray *rankInfoArray;
+@property (nonatomic, strong) NSArray *dataArray;
 
-@property (weak, nonatomic) IBOutlet UITableView *rankTableView;
+@property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 
 @end

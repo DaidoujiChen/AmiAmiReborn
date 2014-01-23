@@ -48,6 +48,33 @@ static const char COMPLETIONPOINTER;
     return array;
 }
 
++ (void)biShoJoParser:(UIWebView *)webView {
+    NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+    
+    NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
+    NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//img"];
+    
+    if ([elements count] == 0) {
+        [[self webviewLoadsArray] removeAllObjects];
+        [webView reload];
+        return;
+    }
+    
+    NSMutableArray *returnArray = [NSMutableArray array];
+    
+    for (TFHppleElement *e in elements) {
+        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
+        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+        [returnArray addObject:dictionaryInArray];
+    }
+    
+    void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
+    completion(AmiAmiParserStatusSuccess, returnArray);
+}
+
 + (void)relationProductParser:(UIWebView *)webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
     
@@ -164,6 +191,9 @@ static const char COMPLETIONPOINTER;
             case AmiAmiParserEntryTypeRelationProduct:
                 [self relationProductParser:webView];
                 break;
+            case AmiAmiParserEntryTypeAllBiShouJo:
+                [self biShoJoParser:webView];
+                break;
         }
     }
 }
@@ -175,7 +205,16 @@ static const char COMPLETIONPOINTER;
 
 #pragma mark - class methods
 
-+(void) parseRankCategory : (int) categoryNumber completion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
++(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
+    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self setEntryType:AmiAmiParserEntryTypeAllBiShouJo];
+    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
+    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/bishoujo.html"]]];
+    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self setEntryType:AmiAmiParserEntryTypeRank];
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
