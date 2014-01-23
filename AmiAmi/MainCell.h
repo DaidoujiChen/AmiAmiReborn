@@ -1,5 +1,5 @@
 //
-//  RankCell.h
+//  MainCell.h
 //  AmiAmi
 //
 //  Created by 啟倫 陳 on 2014/1/22.
@@ -10,7 +10,7 @@
 
 #import "FXBlurView.h"
 
-@interface RankCell : UITableViewCell
+@interface MainCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *rankImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;

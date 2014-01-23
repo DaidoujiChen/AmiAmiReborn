@@ -10,4 +10,6 @@
 
 @interface GlobalFunctions : NSObject
 
++(NSString*) specProductStringFromThumbnail : (NSString*) thumbnailString;
+
 @end

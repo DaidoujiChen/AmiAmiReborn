@@ -1,21 +1,20 @@
 //
-//  RankViewController.m
+//  MainViewController.m
 //  AmiAmi
 //
 //  Created by 啟倫 陳 on 2014/1/21.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "RankViewController.h"
+#import "MainViewController.h"
 
-@interface RankViewController (Private)
+@interface MainViewController (Private)
 -(void) typeChangeAction;
--(void) reload;
 -(void) loadRankData;
 -(void) loadAllBiShoJoData;
 @end
 
-@implementation RankViewController
+@implementation MainViewController
 
 @synthesize dataArray;
 
@@ -70,19 +69,6 @@
     }
 }
 
--(void) reload {
-    switch (typeSegment.selectedSegmentIndex) {
-        case 0:
-            [self loadRankData];
-            break;
-        case 1:
-            [self loadAllBiShoJoData];
-            break;
-        default:
-            break;
-    }
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -94,40 +80,76 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"RankCell";
-    RankCell *cell = (RankCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
-    NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
+    switch (typeSegment.selectedSegmentIndex) {
+        case 0:
+        {
+            static NSString *CellIdentifier = @"MainCell";
+            MainCell *cell = (MainCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            
+            NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
+            
+            cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", indexPath.section + 1]];
+            [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+                                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                           }];
+            
+            cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
+            
+            return cell;
+            break;
+        }
+            
+        case 1:
+        {
+            static NSString *CellIdentifier = @"RelationCell";
+            RelationCell *cell = (RelationCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            
+            NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
+            
+            [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+                                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                           }];
+            
+            cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
+            
+            return cell;
+            break;
+        }
+            
+        default:
+            return nil;
+            break;
+    }
     
-    cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", indexPath.section + 1]];
-    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                   }];
     
-    cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
-
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 180.0f;
+    switch (typeSegment.selectedSegmentIndex) {
+        case 0:
+            return 180.0f;
+            break;
+        case 1:
+            return 160.0f;
+            break;
+        default:
+            return 0;
+            break;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
     
-    NSArray *splitArray = [[eachInfo objectForKey:@"Thumbnail"] componentsSeparatedByString:@"/"];
-    
-    NSString *finalString = [splitArray objectAtIndex:[splitArray count]-1];
-    
-    NSArray *finalArray = [finalString componentsSeparatedByString:@"."];
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://www.amiami.jp/top/detail/detail?scode=%@", [finalArray objectAtIndex:0]];
+    NSString *urlString = [GlobalFunctions specProductStringFromThumbnail:[eachInfo objectForKey:@"Thumbnail"]];
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
     
@@ -159,17 +181,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [_dataTableView registerClass:[RankCell class] forCellReuseIdentifier:@"RankCell"];
+    [_dataTableView registerClass:[MainCell class] forCellReuseIdentifier:@"MainCell"];
+    [_dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
     [_dataTableView setBackgroundView:nil];
     [_dataTableView setBackgroundColor:[UIColor clearColor]];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                  target:self
-                                                                                 action:@selector(reload)];
+                                                                                 action:@selector(typeChangeAction)];
     
     self.navigationItem.rightBarButtonItem = rightButton;
     
     typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
+    [typeSegment setSelectedSegmentIndex:0];
     [typeSegment addTarget:self action:@selector(typeChangeAction) forControlEvents:UIControlEventValueChanged];
     [typeSegment sizeToFit];
     self.navigationItem.titleView = typeSegment;

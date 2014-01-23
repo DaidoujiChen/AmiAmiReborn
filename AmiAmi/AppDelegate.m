@@ -14,7 +14,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     OSNavigationController *navi = [[OSNavigationController alloc] init];
-    RankViewController *next = [[RankViewController alloc] init];
+    MainViewController *next = [[MainViewController alloc] init];
     [navi pushViewController:next animated:NO];
     
     UIView *backgroundViews = [[UIView alloc] initWithFrame:navi.view.bounds];

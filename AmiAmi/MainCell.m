@@ -1,14 +1,14 @@
 //
-//  RankCell.m
+//  MainCell.m
 //  AmiAmi
 //
 //  Created by 啟倫 陳 on 2014/1/22.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "RankCell.h"
+#import "MainCell.h"
 
-@implementation RankCell
+@implementation MainCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

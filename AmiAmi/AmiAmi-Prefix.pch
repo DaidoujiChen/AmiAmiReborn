@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import "AmiAmiParser.h"
     #import "SVProgressHUD.h"
+    #import "GlobalFunctions.h"
 #endif

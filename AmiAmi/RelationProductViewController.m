@@ -113,13 +113,7 @@
     
     NSDictionary *eachInfo = [typeArray objectAtIndex:indexPath.row];
     
-    NSArray *splitArray = [[eachInfo objectForKey:@"Thumbnail"] componentsSeparatedByString:@"/"];
-    
-    NSString *finalString = [splitArray objectAtIndex:[splitArray count]-1];
-    
-    NSArray *finalArray = [finalString componentsSeparatedByString:@"."];
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://www.amiami.jp/top/detail/detail?scode=%@", [finalArray objectAtIndex:0]];
+    NSString *urlString = [GlobalFunctions specProductStringFromThumbnail:[eachInfo objectForKey:@"Thumbnail"]];
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
     

@@ -10,4 +10,14 @@
 
 @implementation GlobalFunctions
 
++(NSString*) specProductStringFromThumbnail : (NSString*) thumbnailString {
+    NSArray *splitArray = [thumbnailString componentsSeparatedByString:@"/"];
+    
+    NSString *finalString = [splitArray objectAtIndex:[splitArray count]-1];
+    
+    NSArray *finalArray = [finalString componentsSeparatedByString:@"."];
+
+    return [NSString stringWithFormat:@"http://www.amiami.jp/top/detail/detail?scode=%@", [finalArray objectAtIndex:0]];
+}
+
 @end

@@ -11,7 +11,7 @@
 #import "FXBlurView.h"
 #import "OSNavigationController.h"
 
-#import "RankViewController.h"
+#import "MainViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

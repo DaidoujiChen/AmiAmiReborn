@@ -1,5 +1,5 @@
 //
-//  RankViewController.h
+//  MainViewController.h
 //  AmiAmi
 //
 //  Created by 啟倫 陳 on 2014/1/21.
@@ -12,9 +12,10 @@
 #import "MyPhoto.h"
 #import "MyPhotoSource.h"
 
-#import "RankCell.h"
+#import "MainCell.h"
+#import "RelationCell.h"
 
-@interface RankViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
     NSArray *dataArray;
     UISegmentedControl *typeSegment;
 }

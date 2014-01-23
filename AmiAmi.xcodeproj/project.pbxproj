@@ -19,8 +19,8 @@
 		01109736188E616B00D14EC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109718188E616A00D14EC1 /* UIKit.framework */; };
 		0110973E188E616B00D14EC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0110973C188E616B00D14EC1 /* InfoPlist.strings */; };
 		01109740188E616B00D14EC1 /* AmiAmiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0110973F188E616B00D14EC1 /* AmiAmiTests.m */; };
-		0110974C188E68E700D14EC1 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0110974A188E68E700D14EC1 /* RankViewController.m */; };
-		0110974D188E68E700D14EC1 /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0110974B188E68E700D14EC1 /* RankViewController.xib */; };
+		0110974C188E68E700D14EC1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0110974A188E68E700D14EC1 /* MainViewController.m */; };
+		0110974D188E68E700D14EC1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0110974B188E68E700D14EC1 /* MainViewController.xib */; };
 		01109755188E6AE900D14EC1 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 01109750188E6AE900D14EC1 /* TFHpple.m */; };
 		01109756188E6AE900D14EC1 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 01109752188E6AE900D14EC1 /* TFHppleElement.m */; };
 		01109757188E6AE900D14EC1 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 01109754188E6AE900D14EC1 /* XPathQuery.m */; };
@@ -56,8 +56,8 @@
 		016993F1188F6CC1007E21C8 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993E1188F6CC1007E21C8 /* UIImage+MultiFormat.m */; };
 		016993F2188F6CC1007E21C8 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993E3188F6CC1007E21C8 /* UIImage+WebP.m */; };
 		016993F3188F6CC1007E21C8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993E5188F6CC1007E21C8 /* UIImageView+WebCache.m */; };
-		016993F6188F716C007E21C8 /* RankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993F5188F716C007E21C8 /* RankCell.m */; };
-		016993F8188F7178007E21C8 /* RankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016993F7188F7178007E21C8 /* RankCell.xib */; };
+		016993F6188F716C007E21C8 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993F5188F716C007E21C8 /* MainCell.m */; };
+		016993F8188F7178007E21C8 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016993F7188F7178007E21C8 /* MainCell.xib */; };
 		016993FE188F73DB007E21C8 /* ranking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993F9188F73DB007E21C8 /* ranking_1.png */; };
 		016993FF188F73DB007E21C8 /* ranking_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FA188F73DB007E21C8 /* ranking_2.png */; };
 		01699400188F73DB007E21C8 /* ranking_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FB188F73DB007E21C8 /* ranking_3.png */; };
@@ -121,9 +121,9 @@
 		0110973B188E616B00D14EC1 /* AmiAmiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AmiAmiTests-Info.plist"; sourceTree = "<group>"; };
 		0110973D188E616B00D14EC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0110973F188E616B00D14EC1 /* AmiAmiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmiAmiTests.m; sourceTree = "<group>"; };
-		01109749188E68E700D14EC1 /* RankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankViewController.h; sourceTree = "<group>"; };
-		0110974A188E68E700D14EC1 /* RankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankViewController.m; sourceTree = "<group>"; };
-		0110974B188E68E700D14EC1 /* RankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewController.xib; sourceTree = "<group>"; };
+		01109749188E68E700D14EC1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		0110974A188E68E700D14EC1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		0110974B188E68E700D14EC1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		0110974F188E6AE900D14EC1 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		01109750188E6AE900D14EC1 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		01109751188E6AE900D14EC1 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -191,9 +191,9 @@
 		016993E3188F6CC1007E21C8 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		016993E4188F6CC1007E21C8 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		016993E5188F6CC1007E21C8 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		016993F4188F716C007E21C8 /* RankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankCell.h; sourceTree = "<group>"; };
-		016993F5188F716C007E21C8 /* RankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankCell.m; sourceTree = "<group>"; };
-		016993F7188F7178007E21C8 /* RankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankCell.xib; sourceTree = "<group>"; };
+		016993F4188F716C007E21C8 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
+		016993F5188F716C007E21C8 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		016993F7188F7178007E21C8 /* MainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		016993F9188F73DB007E21C8 /* ranking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_1.png; sourceTree = "<group>"; };
 		016993FA188F73DB007E21C8 /* ranking_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_2.png; sourceTree = "<group>"; };
 		016993FB188F73DB007E21C8 /* ranking_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_3.png; sourceTree = "<group>"; };
@@ -326,12 +326,12 @@
 				01109778188E6CC000D14EC1 /* AmiAmiParser.m */,
 				01B44452189100350026F967 /* GlobalFunctions.h */,
 				01B44453189100350026F967 /* GlobalFunctions.m */,
-				01109749188E68E700D14EC1 /* RankViewController.h */,
-				0110974A188E68E700D14EC1 /* RankViewController.m */,
-				0110974B188E68E700D14EC1 /* RankViewController.xib */,
-				016993F4188F716C007E21C8 /* RankCell.h */,
-				016993F5188F716C007E21C8 /* RankCell.m */,
-				016993F7188F7178007E21C8 /* RankCell.xib */,
+				01109749188E68E700D14EC1 /* MainViewController.h */,
+				0110974A188E68E700D14EC1 /* MainViewController.m */,
+				0110974B188E68E700D14EC1 /* MainViewController.xib */,
+				016993F4188F716C007E21C8 /* MainCell.h */,
+				016993F5188F716C007E21C8 /* MainCell.m */,
+				016993F7188F7178007E21C8 /* MainCell.xib */,
 				01D88EAF1890ED6100EF0E6F /* RelationProductViewController.h */,
 				01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */,
 				01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */,
@@ -683,10 +683,10 @@
 			files = (
 				01E0CB5E188FC33F009EA56C /* egopv_left@2x.png in Resources */,
 				01E0CB5A188FC33F009EA56C /* egopv_error_placeholder@2x.png in Resources */,
-				0110974D188E68E700D14EC1 /* RankViewController.xib in Resources */,
+				0110974D188E68E700D14EC1 /* MainViewController.xib in Resources */,
 				01E0CB61188FC33F009EA56C /* egopv_photo_placeholder@2x.png in Resources */,
 				01E0CB5D188FC33F009EA56C /* egopv_left.png in Resources */,
-				016993F8188F7178007E21C8 /* RankCell.xib in Resources */,
+				016993F8188F7178007E21C8 /* MainCell.xib in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
 				01699400188F73DB007E21C8 /* ranking_3.png in Resources */,
 				01D88EB31890ED6100EF0E6F /* RelationProductViewController.xib in Resources */,
@@ -735,7 +735,7 @@
 				016993F2188F6CC1007E21C8 /* UIImage+WebP.m in Sources */,
 				016993E7188F6CC1007E21C8 /* NSData+ImageContentType.m in Sources */,
 				01109779188E6CC000D14EC1 /* AmiAmiParser.m in Sources */,
-				0110974C188E68E700D14EC1 /* RankViewController.m in Sources */,
+				0110974C188E68E700D14EC1 /* MainViewController.m in Sources */,
 				01E0CB6E188FC3F4009EA56C /* EGOImageLoadConnection.m in Sources */,
 				016993EA188F6CC1007E21C8 /* SDWebImageDecoder.m in Sources */,
 				01109773188E6C5700D14EC1 /* AFURLConnectionOperation.m in Sources */,
@@ -765,7 +765,7 @@
 				01B44454189100350026F967 /* GlobalFunctions.m in Sources */,
 				01E0CB66188FC33F009EA56C /* EGOPhotoScrollView.m in Sources */,
 				016993E6188F6CC1007E21C8 /* MKAnnotationView+WebCache.m in Sources */,
-				016993F6188F716C007E21C8 /* RankCell.m in Sources */,
+				016993F6188F716C007E21C8 /* MainCell.m in Sources */,
 				016993F1188F6CC1007E21C8 /* UIImage+MultiFormat.m in Sources */,
 				01E0CB65188FC33F009EA56C /* EGOPhotoImageView.m in Sources */,
 				016993E9188F6CC1007E21C8 /* SDWebImageCompat.m in Sources */,
