@@ -129,8 +129,7 @@
             NSMutableArray *photos = [NSMutableArray array];
             
             for (NSString *imageURLString in result) {
-                MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]
-                                                                  name:@"O3O"];
+                MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]];
                 [photos addObject:eachPhoto];
             }
             
