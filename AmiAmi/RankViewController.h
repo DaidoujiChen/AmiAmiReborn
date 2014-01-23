@@ -13,7 +13,6 @@
 #import "MyPhotoSource.h"
 
 #import "RankCell.h"
-#import "SpecProductViewController.h"
 
 @interface RankViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
     NSArray *rankInfoArray;

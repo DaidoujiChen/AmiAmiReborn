@@ -48,6 +48,50 @@ static const char COMPLETIONPOINTER;
     return array;
 }
 
++ (void)relationProductParser:(UIWebView *)webView {
+    NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+    
+    NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
+    NSArray *relationElements = [doc searchWithXPathQuery:@"//div [@class='logrecom_places']//img"];
+    
+    if ([relationElements count] == 0) {
+        [[self webviewLoadsArray] removeAllObjects];
+        [webView reload];
+        return;
+    }
+    
+    //NSMutableArray *returnArray = [NSMutableArray array];
+    NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
+    
+    NSMutableArray *relationArray = [NSMutableArray array];
+    
+    for (TFHppleElement *e in relationElements) {
+        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
+        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+        [relationArray addObject:dictionaryInArray];
+    }
+    
+    NSArray *popularElements = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//img"];
+    
+    NSMutableArray *popularArray = [NSMutableArray array];
+    
+    for (TFHppleElement *e in popularElements) {
+        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
+        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+        [popularArray addObject:dictionaryInArray];
+    }
+    
+    [returnDictionary setObject:relationArray forKey:@"Relation"];
+    [returnDictionary setObject:popularArray forKey:@"Popular"];
+    
+    void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
+    completion(AmiAmiParserStatusSuccess, returnDictionary);
+}
+
 + (void)specProductParser:(UIWebView *)webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
     
@@ -57,6 +101,8 @@ static const char COMPLETIONPOINTER;
     NSArray *elements = [doc searchWithXPathQuery:@"//div [@class='product_img_area']//a"];
     
     if ([elements count] == 0) {
+        [[self webviewLoadsArray] removeAllObjects];
+        [webView reload];
         return;
     }
     
@@ -79,6 +125,8 @@ static const char COMPLETIONPOINTER;
     NSArray *elements = [doc searchWithXPathQuery:@"//div [@class='productranking category2']//img"];
     
     if ([elements count] == 0) {
+        [[self webviewLoadsArray] removeAllObjects];
+        [webView reload];
         return;
     }
     
@@ -114,6 +162,9 @@ static const char COMPLETIONPOINTER;
             case AmiAmiParserEntryTypeSpecProduct:
                 [self specProductParser:webView];
                 break;
+            case AmiAmiParserEntryTypeRelationProduct:
+                [self relationProductParser:webView];
+                break;
         }
     }
 }
@@ -137,6 +188,15 @@ static const char COMPLETIONPOINTER;
 +(void) parseSpecProductImagesInURLString : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self setEntryType:AmiAmiParserEntryTypeSpecProduct];
+    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
+    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(void) parseRelationProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
+    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self setEntryType:AmiAmiParserEntryTypeRelationProduct];
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
     [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];

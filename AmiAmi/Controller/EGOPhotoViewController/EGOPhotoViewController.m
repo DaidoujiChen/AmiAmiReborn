@@ -38,11 +38,14 @@
 - (void)setViewState;
 - (void)setupViewForPopover;
 - (void)autosizePopoverToImageSize:(CGSize)imageSize photoImageView:(EGOPhotoImageView*)photoImageView;
+
+-(void) showRelationProduct;
 @end
 
 
 @implementation EGOPhotoViewController
 
+@synthesize pageURL;
 @synthesize scrollView=_scrollView;
 @synthesize photoSource=_photoSource; 
 @synthesize photoViews=_photoViews;
@@ -90,7 +93,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+
 	self.view.backgroundColor = [UIColor clearColor];
 	self.wantsFullScreenLayout = YES;
 	
@@ -318,6 +321,19 @@
     }];
 }
 
+-(void) showRelationProduct {
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+    [AmiAmiParser parseRelationProduct:pageURL completion:^(AmiAmiParserStatus status, NSDictionary *result) {
+        if (status) {
+            RelationProductViewController *next = [[RelationProductViewController alloc] init];
+            next.relationInfoDictionary = result;
+            [self.navigationController pushViewController:next animated:YES];
+            [next release];
+        }
+        [SVProgressHUD dismiss];
+    }];
+}
+
 - (void)setupToolbar {
 	
 	[self setupViewForPopover];
@@ -326,6 +342,12 @@
 		[self.navigationController setToolbarHidden:YES animated:NO];
 		return;
 	}
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                                 target:self
+                                                                                 action:@selector(showRelationProduct)];
+    
+    self.navigationItem.rightBarButtonItem = rightButton;
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
 	if (!_popover && UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad && !_fromPopover) {
@@ -1054,6 +1076,8 @@
 }
 
 - (void)dealloc {
+    
+    self.pageURL = nil;
 	
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	

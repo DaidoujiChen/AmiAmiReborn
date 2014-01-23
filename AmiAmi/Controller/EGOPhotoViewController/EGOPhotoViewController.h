@@ -28,8 +28,13 @@
 #import "EGOPhotoSource.h"
 #import "EGOPhotoGlobal.h"
 
+#import "RelationProductViewController.h"
+
 @class EGOPhotoImageView, EGOPhotoCaptionView;
 @interface EGOPhotoViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+    
+    NSString *pageURL;
+    
 @private
 	id <EGOPhotoSource> _photoSource;
 	EGOPhotoCaptionView *_captionView;
@@ -63,6 +68,8 @@
 	UIView *_transferView;
 	
 }
+
+@property (nonatomic, retain) NSString *pageURL;
 
 - (id)initWithPhoto:(id<EGOPhoto>)aPhoto;
 
