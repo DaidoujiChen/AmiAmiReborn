@@ -62,7 +62,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [AmiAmiParser parseSpecProductImages:^(AmiAmiParserStatus status, NSArray *result) {
+    NSDictionary *eachInfo = [rankInfoArray objectAtIndex:indexPath.section];
+    
+    NSArray *splitArray = [[eachInfo objectForKey:@"Thumbnail"] componentsSeparatedByString:@"/"];
+    
+    NSString *finalString = [splitArray objectAtIndex:[splitArray count]-1];
+    
+    NSArray *finalArray = [finalString componentsSeparatedByString:@"."];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://www.amiami.jp/top/detail/detail?scode=%@", [finalArray objectAtIndex:0]];
+    
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    [AmiAmiParser parseSpecProductImagesInURLString:urlString completion:^(AmiAmiParserStatus status, NSArray *result) {
         if (status) {
             
             NSMutableArray *photos = [NSMutableArray array];
@@ -78,6 +90,8 @@
             EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
             [self.navigationController pushViewController:photoController animated:YES];
         }
+        
+        [SVProgressHUD dismiss];
     }];
 }
 
@@ -86,18 +100,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.title = @"美少女排行";
     
     [_rankTableView registerClass:[RankCell class] forCellReuseIdentifier:@"RankCell"];
     [_rankTableView setBackgroundView:nil];
     [_rankTableView setBackgroundColor:[UIColor clearColor]];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
     
     [AmiAmiParser parseRankCategory:1 completion:^(AmiAmiParserStatus status, NSArray *result) {
         if (status) {
             self.rankInfoArray = result;
             [_rankTableView reloadData];
         }
+        
+        [SVProgressHUD dismiss];
     }];
 }
 

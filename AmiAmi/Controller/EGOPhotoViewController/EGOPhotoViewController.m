@@ -313,7 +313,9 @@
 }
 
 - (void)done:(id)sender {
-	[self dismissModalViewControllerAnimated:YES];
+	//[self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 - (void)setupToolbar {
@@ -542,7 +544,9 @@
 			}
 		}		
 		[self moveToPhotoAtIndex:pageIndex animated:NO];
-		[self.navigationController dismissModalViewControllerAnimated:NO];
+		//[self.navigationController dismissModalViewControllerAnimated:NO];
+        [self.navigationController dismissViewControllerAnimated:NO completion:^{
+        }];
 		
 	}
 	
@@ -609,7 +613,9 @@
 			UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
 			
 			navController.modalPresentationStyle = UIModalPresentationFullScreen;
-			[self.navigationController presentModalViewController:navController animated:NO];
+			//[self.navigationController presentModalViewController:navController animated:NO];
+            [self.navigationController presentViewController:navController animated:NO completion:^{
+            }];
 			[controller moveToPhotoAtIndex:_pageIndex animated:NO];
 			
 			[navController release];
@@ -684,7 +690,7 @@
 	}
 	
 	if ([self.photoSource numberOfPhotos] > 1) {
-		self.title = [NSString stringWithFormat:@"%i of %i", _pageIndex+1, [self.photoSource numberOfPhotos]];
+		self.title = [NSString stringWithFormat:@"%li of %li", _pageIndex+1, (long)[self.photoSource numberOfPhotos]];
 	} else {
 		self.title = @"";
 	}
@@ -942,14 +948,18 @@
 	}
 #endif
 	
-	[self presentModalViewController:mailViewController animated:YES];
+	//[self presentModalViewController:mailViewController animated:YES];
+    [self presentViewController:mailViewController animated:YES completion:^{
+    }];
 	[mailViewController release];
 	
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error{
 	
-	[self dismissModalViewControllerAnimated:YES];
+	//[self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 	
 	NSString *mailError = nil;
 	

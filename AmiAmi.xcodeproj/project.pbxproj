@@ -41,6 +41,9 @@
 		014DCF4B188FB2AF00CC6400 /* SpecProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014DCF49188FB2AF00CC6400 /* SpecProductViewController.xib */; };
 		014DCF53188FB96A00CC6400 /* OSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014DCF51188FB96A00CC6400 /* OSNavigationController.m */; };
 		014DCF54188FB96A00CC6400 /* OSNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014DCF52188FB96A00CC6400 /* OSNavigationController.xib */; };
+		015F9BF81890B15800AD5FF8 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 015F9BF51890B15800AD5FF8 /* SVProgressHUD.bundle */; };
+		015F9BF91890B15800AD5FF8 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 015F9BF71890B15800AD5FF8 /* SVProgressHUD.m */; };
+		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		016993E6188F6CC1007E21C8 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993CA188F6CC1007E21C8 /* MKAnnotationView+WebCache.m */; };
 		016993E7188F6CC1007E21C8 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993CC188F6CC1007E21C8 /* NSData+ImageContentType.m */; };
 		016993E8188F6CC1007E21C8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 016993CE188F6CC1007E21C8 /* SDImageCache.m */; };
@@ -155,6 +158,10 @@
 		014DCF50188FB96A00CC6400 /* OSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSNavigationController.h; sourceTree = "<group>"; };
 		014DCF51188FB96A00CC6400 /* OSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSNavigationController.m; sourceTree = "<group>"; };
 		014DCF52188FB96A00CC6400 /* OSNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSNavigationController.xib; sourceTree = "<group>"; };
+		015F9BF51890B15800AD5FF8 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		015F9BF61890B15800AD5FF8 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		015F9BF71890B15800AD5FF8 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		016993C9188F6CC1007E21C8 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		016993CA188F6CC1007E21C8 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		016993CB188F6CC1007E21C8 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -237,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */,
 				0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */,
 				0110977D188E6F5C00D14EC1 /* SystemConfiguration.framework in Frameworks */,
 				01109759188E6B0900D14EC1 /* libxml2.2.dylib in Frameworks */,
@@ -281,6 +289,7 @@
 		01109713188E616A00D14EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */,
 				0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */,
 				0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */,
 				0110977A188E6F5200D14EC1 /* CoreMedia.framework */,
@@ -296,6 +305,7 @@
 		0110971A188E616A00D14EC1 /* AmiAmi */ = {
 			isa = PBXGroup;
 			children = (
+				015F9BF31890B13F00AD5FF8 /* SVProgressHUD */,
 				01E0CB32188FC322009EA56C /* EGOPhotoViewer */,
 				0169940A188F787F007E21C8 /* FXBlurView */,
 				01699403188F7604007E21C8 /* OSNavigationController */,
@@ -393,6 +403,16 @@
 				0110976D188E6C5700D14EC1 /* AFURLSessionManager.m */,
 			);
 			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		015F9BF31890B13F00AD5FF8 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				015F9BF51890B15800AD5FF8 /* SVProgressHUD.bundle */,
+				015F9BF61890B15800AD5FF8 /* SVProgressHUD.h */,
+				015F9BF71890B15800AD5FF8 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		016993C8188F6CA6007E21C8 /* SDWebImage */ = {
@@ -667,6 +687,7 @@
 				01699401188F73DB007E21C8 /* ranking_4.png in Resources */,
 				01E0CB59188FC33F009EA56C /* egopv_error_placeholder.png in Resources */,
 				01699409188F772C007E21C8 /* background.jpg in Resources */,
+				015F9BF81890B15800AD5FF8 /* SVProgressHUD.bundle in Resources */,
 				0110971F188E616A00D14EC1 /* InfoPlist.strings in Resources */,
 				01E0CB63188FC33F009EA56C /* egopv_right@2x.png in Resources */,
 				01E0CB62188FC33F009EA56C /* egopv_right.png in Resources */,
@@ -722,6 +743,7 @@
 				0110976F188E6C5700D14EC1 /* AFHTTPRequestOperationManager.m in Sources */,
 				016993E8188F6CC1007E21C8 /* SDImageCache.m in Sources */,
 				016993EC188F6CC1007E21C8 /* SDWebImageDownloaderOperation.m in Sources */,
+				015F9BF91890B15800AD5FF8 /* SVProgressHUD.m in Sources */,
 				01109772188E6C5700D14EC1 /* AFSecurityPolicy.m in Sources */,
 				01E0CB57188FC33F009EA56C /* EGOQuickPhoto.m in Sources */,
 				01E0CB66188FC33F009EA56C /* EGOPhotoScrollView.m in Sources */,

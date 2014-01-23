@@ -134,12 +134,12 @@ static const char COMPLETIONPOINTER;
     objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+(void) parseSpecProductImages : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
++(void) parseSpecProductImagesInURLString : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self setEntryType:AmiAmiParserEntryTypeSpecProduct];
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
-    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/detail/detail?scode=FIGURE-004337"]]];
+    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
     objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
