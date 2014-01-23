@@ -8,8 +8,8 @@
 
 #import "RankViewController.h"
 
-@interface RankViewController ()
-
+@interface RankViewController (Private)
+-(void) reloadRank;
 @end
 
 @implementation RankViewController
@@ -24,6 +24,21 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+#pragma mark - private
+
+-(void) reloadRank {
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    [AmiAmiParser parseRankCategory:1 completion:^(AmiAmiParserStatus status, NSArray *result) {
+        if (status) {
+            self.rankInfoArray = result;
+            [_rankTableView reloadData];
+        }
+        
+        [SVProgressHUD dismiss];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -108,6 +123,12 @@
     [_rankTableView registerClass:[RankCell class] forCellReuseIdentifier:@"RankCell"];
     [_rankTableView setBackgroundView:nil];
     [_rankTableView setBackgroundColor:[UIColor clearColor]];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                 target:self
+                                                                                 action:@selector(reloadRank)];
+    
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 -(void) viewDidAppear:(BOOL)animated {

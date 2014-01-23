@@ -61,8 +61,7 @@ static const char COMPLETIONPOINTER;
         [webView reload];
         return;
     }
-    
-    //NSMutableArray *returnArray = [NSMutableArray array];
+
     NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
     
     NSMutableArray *relationArray = [NSMutableArray array];
