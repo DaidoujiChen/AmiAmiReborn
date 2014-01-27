@@ -40,6 +40,10 @@
 - (void)autosizePopoverToImageSize:(CGSize)imageSize photoImageView:(EGOPhotoImageView*)photoImageView;
 
 -(void) showRelationProduct;
+-(void) shareToGooglePlus;
+-(void) shareSingleImage;
+//-(void) prepareUploadImages;
+//-(void) uploadToGooglePlus : (NSArray*) imagesArray;
 @end
 
 
@@ -338,6 +342,79 @@
     }];
 }
 
+-(void) shareToGooglePlus {
+    if ([[GPPSignIn sharedInstance] authentication]) {
+        [self shareSingleImage];
+    } else {
+        GPPSignIn *signIn = [GPPSignIn sharedInstance];
+        signIn.shouldFetchGooglePlusUser = YES;
+        signIn.clientID = kClientId;
+        signIn.scopes = @[ kGTLAuthScopePlusLogin ];
+        signIn.delegate = self;
+        [signIn authenticate];
+    }
+}
+
+-(void) shareSingleImage {
+    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+    [shareBuilder setPrefillText:@"AmiAmi Share"];
+    [shareBuilder attachImage:((EGOPhotoImageView*)[self.photoViews objectAtIndex:_pageIndex]).imageView.image];
+    [shareBuilder open];
+}
+
+/*-(void) prepareUploadImages {
+    
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    NSMutableArray *imagesDataArray = [NSMutableArray array];
+    
+    dispatch_group_t group = dispatch_group_create();
+
+    for (MyPhoto *eachPhoto in self.photoSource.photos) {
+        dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            [manager GET:[eachPhoto.URL absoluteString]
+              parameters:nil
+                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                     [imagesDataArray addObject:responseObject];
+                     dispatch_semaphore_signal(semaphore);
+                 }
+                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     dispatch_semaphore_signal(semaphore);
+                 }];
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        });
+    }
+    
+    dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            [self uploadToGooglePlus:imagesDataArray];
+        });
+    });
+}
+
+-(void) uploadToGooglePlus : (NSArray*) imagesArray {
+    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+    [shareBuilder setPrefillText:@"AmiAmi Share"];
+    
+    for (NSData *eachImageData in imagesArray) {
+        [shareBuilder attachImage:[UIImage imageWithData:eachImageData]];
+    }
+
+    [shareBuilder open];
+}*/
+
+- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
+    if (!error) {
+        [self shareSingleImage];
+    }
+}
+
 - (void)setupToolbar {
 	
 	[self setupViewForPopover];
@@ -347,11 +424,15 @@
 		return;
 	}
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+    UIBarButtonItem *relationButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
                                                                                  target:self
                                                                                  action:@selector(showRelationProduct)];
     
-    self.navigationItem.rightBarButtonItem = rightButton;
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                                 target:self
+                                                                                 action:@selector(shareToGooglePlus)];
+    
+    self.navigationItem.rightBarButtonItems = @[relationButton, shareButton];
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
 	if (!_popover && UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad && !_fromPopover) {

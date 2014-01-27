@@ -66,6 +66,16 @@
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
 		0169940D188F789D007E21C8 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169940C188F789D007E21C8 /* FXBlurView.m */; };
 		01B44454189100350026F967 /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B44453189100350026F967 /* GlobalFunctions.m */; };
+		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
+		01D62F5D18962D9A00ABB2E0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */; };
+		01D62F5F18962DAC00ABB2E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */; };
+		01D62F6118962DB600ABB2E0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6018962DB600ABB2E0 /* CoreMotion.framework */; };
+		01D62F6318962DC600ABB2E0 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6218962DC600ABB2E0 /* CoreText.framework */; };
+		01D62F6518962DCE00ABB2E0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6418962DCE00ABB2E0 /* MediaPlayer.framework */; };
+		01D62F6718962DD400ABB2E0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6618962DD400ABB2E0 /* Security.framework */; };
+		01D62F6C18962E0800ABB2E0 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6918962E0800ABB2E0 /* GoogleOpenSource.framework */; };
+		01D62F6D18962E0800ABB2E0 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01D62F6A18962E0800ABB2E0 /* GooglePlus.bundle */; };
+		01D62F6E18962E0800ABB2E0 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6B18962E0800ABB2E0 /* GooglePlus.framework */; };
 		01D88EB21890ED6100EF0E6F /* RelationProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */; };
 		01D88EB31890ED6100EF0E6F /* RelationProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */; };
 		01D88EB61890EE0B00EF0E6F /* RelationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D88EB51890EE0B00EF0E6F /* RelationCell.m */; };
@@ -204,6 +214,16 @@
 		0169940C188F789D007E21C8 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		01B44452189100350026F967 /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
 		01B44453189100350026F967 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctions.m; sourceTree = "<group>"; };
+		01D62F5A18962D9400ABB2E0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		01D62F6018962DB600ABB2E0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		01D62F6218962DC600ABB2E0 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		01D62F6418962DCE00ABB2E0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		01D62F6618962DD400ABB2E0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		01D62F6918962E0800ABB2E0 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
+		01D62F6A18962E0800ABB2E0 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
+		01D62F6B18962E0800ABB2E0 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		01D88EAF1890ED6100EF0E6F /* RelationProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationProductViewController.h; sourceTree = "<group>"; };
 		01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationProductViewController.m; sourceTree = "<group>"; };
 		01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelationProductViewController.xib; sourceTree = "<group>"; };
@@ -252,13 +272,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01D62F6718962DD400ABB2E0 /* Security.framework in Frameworks */,
+				01D62F6E18962E0800ABB2E0 /* GooglePlus.framework in Frameworks */,
+				01D62F6518962DCE00ABB2E0 /* MediaPlayer.framework in Frameworks */,
+				01D62F6318962DC600ABB2E0 /* CoreText.framework in Frameworks */,
+				01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */,
+				01D62F6118962DB600ABB2E0 /* CoreMotion.framework in Frameworks */,
+				01D62F5F18962DAC00ABB2E0 /* CoreLocation.framework in Frameworks */,
+				01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */,
+				01D62F5D18962D9A00ABB2E0 /* AssetsLibrary.framework in Frameworks */,
+				01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */,
 				015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */,
+				01D62F6C18962E0800ABB2E0 /* GoogleOpenSource.framework in Frameworks */,
 				0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */,
 				0110977D188E6F5C00D14EC1 /* SystemConfiguration.framework in Frameworks */,
 				01109759188E6B0900D14EC1 /* libxml2.2.dylib in Frameworks */,
-				01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */,
 				01109719188E616A00D14EC1 /* UIKit.framework in Frameworks */,
-				01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +326,13 @@
 		01109713188E616A00D14EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01D62F6618962DD400ABB2E0 /* Security.framework */,
+				01D62F6418962DCE00ABB2E0 /* MediaPlayer.framework */,
+				01D62F6218962DC600ABB2E0 /* CoreText.framework */,
+				01D62F6018962DB600ABB2E0 /* CoreMotion.framework */,
+				01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */,
+				01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */,
+				01D62F5A18962D9400ABB2E0 /* AddressBook.framework */,
 				015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */,
 				0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */,
 				0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */,
@@ -313,6 +349,7 @@
 		0110971A188E616A00D14EC1 /* AmiAmi */ = {
 			isa = PBXGroup;
 			children = (
+				01D62F6818962DEF00ABB2E0 /* GooglePlus */,
 				015F9BF31890B13F00AD5FF8 /* SVProgressHUD */,
 				01E0CB32188FC322009EA56C /* EGOPhotoViewer */,
 				0169940A188F787F007E21C8 /* FXBlurView */,
@@ -481,6 +518,16 @@
 				0169940C188F789D007E21C8 /* FXBlurView.m */,
 			);
 			name = FXBlurView;
+			sourceTree = "<group>";
+		};
+		01D62F6818962DEF00ABB2E0 /* GooglePlus */ = {
+			isa = PBXGroup;
+			children = (
+				01D62F6918962E0800ABB2E0 /* GoogleOpenSource.framework */,
+				01D62F6A18962E0800ABB2E0 /* GooglePlus.bundle */,
+				01D62F6B18962E0800ABB2E0 /* GooglePlus.framework */,
+			);
+			name = GooglePlus;
 			sourceTree = "<group>";
 		};
 		01E0CB32188FC322009EA56C /* EGOPhotoViewer */ = {
@@ -691,6 +738,7 @@
 				01699400188F73DB007E21C8 /* ranking_3.png in Resources */,
 				01D88EB31890ED6100EF0E6F /* RelationProductViewController.xib in Resources */,
 				01E0CB5F188FC33F009EA56C /* egopv_minimize_fullscreen_button.png in Resources */,
+				01D62F6D18962E0800ABB2E0 /* GooglePlus.bundle in Resources */,
 				014DCF54188FB96A00CC6400 /* OSNavigationController.xib in Resources */,
 				01E0CB5B188FC33F009EA56C /* egopv_fullscreen_button.png in Resources */,
 				0110972D188E616A00D14EC1 /* Images.xcassets in Resources */,
@@ -890,6 +938,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ChilunChen/Documents/AmiAmi/AmiAmi,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -898,7 +950,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "AmiAmi/AmiAmi-Info.plist";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -910,6 +962,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ChilunChen/Documents/AmiAmi/AmiAmi,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -918,7 +974,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "AmiAmi/AmiAmi-Info.plist";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

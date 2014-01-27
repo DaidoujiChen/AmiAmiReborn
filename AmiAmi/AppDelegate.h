@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import <GooglePlus/GooglePlus.h>
 #import "FXBlurView.h"
 #import "OSNavigationController.h"
 

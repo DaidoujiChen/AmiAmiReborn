@@ -29,9 +29,11 @@
 #import "EGOPhotoGlobal.h"
 
 #import "RelationProductViewController.h"
+#import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
 
 @class EGOPhotoImageView, EGOPhotoCaptionView;
-@interface EGOPhotoViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+@interface EGOPhotoViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, GPPSignInDelegate> {
     
     NSString *pageURL;
     
