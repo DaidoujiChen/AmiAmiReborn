@@ -91,7 +91,7 @@
             
             NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
             
-            cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", indexPath.section + 1]];
+            cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", (int)indexPath.section + 1]];
             [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
                                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                            }];

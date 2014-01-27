@@ -70,7 +70,9 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoViewDidFinishLoading:) name:@"EGOPhotoDidFinishLoading" object:nil];
 		
 		self.hidesBottomBarWhenPushed = YES;
-		self.wantsFullScreenLayout = YES;		
+		//self.wantsFullScreenLayout = YES;
+        self.extendedLayoutIncludesOpaqueBars = YES;
+        self.edgesForExtendedLayout = UIRectEdgeAll;
 		_photoSource = [aSource retain];
 		_pageIndex=0;
 		
@@ -95,7 +97,9 @@
     [super viewDidLoad];
 
 	self.view.backgroundColor = [UIColor clearColor];
-	self.wantsFullScreenLayout = YES;
+	//self.wantsFullScreenLayout = YES;
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
 	
 	if (!_scrollView) {
 		
@@ -357,7 +361,7 @@
 			[doneButton release];
 		}
 	} else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 	}
 #else 
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
@@ -559,8 +563,8 @@
 	if (!_fullScreen) {
 		
 		NSInteger pageIndex = 0;
-		if (self.modalViewController && [self.modalViewController isKindOfClass:[UINavigationController class]]) {
-			UIViewController *controller = [((UINavigationController*)self.modalViewController) visibleViewController];
+		if (self.presentedViewController && [self.presentedViewController isKindOfClass:[UINavigationController class]]) {
+			UIViewController *controller = [((UINavigationController*)self.presentedViewController) visibleViewController];
 			if ([controller isKindOfClass:[self class]]) {
 				pageIndex = [(EGOPhotoViewController*)controller currentPhotoIndex];
 			}
@@ -712,7 +716,7 @@
 	}
 	
 	if ([self.photoSource numberOfPhotos] > 1) {
-		self.title = [NSString stringWithFormat:@"%li of %li", _pageIndex+1, (long)[self.photoSource numberOfPhotos]];
+		self.title = [NSString stringWithFormat:@"%li of %li", (long)_pageIndex+1, (long)[self.photoSource numberOfPhotos]];
 	} else {
 		self.title = @"";
 	}
@@ -727,7 +731,8 @@
 		
 		EGOPhotoImageView *imageView = [_photoViews objectAtIndex:[self centerPhotoIndex]];
 		if ((NSNull*)imageView != [NSNull null]) {
-			self.contentSizeForViewInPopover = [imageView sizeForPopover];
+			//self.contentSizeForViewInPopover = [imageView sizeForPopover];
+            self.preferredContentSize = [imageView sizeForPopover];
 		}
 		
 	}
