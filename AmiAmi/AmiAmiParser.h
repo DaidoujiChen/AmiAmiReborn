@@ -20,7 +20,8 @@ typedef enum {
     AmiAmiParserEntryTypeRank       =   0,
     AmiAmiParserEntryTypeSpecProduct,
     AmiAmiParserEntryTypeRelationProduct,
-    AmiAmiParserEntryTypeAllBiShouJo
+    AmiAmiParserEntryTypeAllBiShouJo,
+    AmiAmiParserEntryTypeProduct
 } AmiAmiParserEntryType;
 
 @interface AmiAmiParser : NSObject <UIWebViewDelegate>
@@ -29,5 +30,6 @@ typedef enum {
 +(void) parseSpecProductImagesInURLString : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
 +(void) parseRelationProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion;
 +(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
++(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion;
 
 @end

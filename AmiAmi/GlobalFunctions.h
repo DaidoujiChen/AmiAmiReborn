@@ -12,4 +12,7 @@
 
 +(NSString*) specProductStringFromThumbnail : (NSString*) thumbnailString;
 
++(void) imageEffect : (UIView*) view;
++(void) textEffect : (UIView*) view;
+
 @end

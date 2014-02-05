@@ -424,15 +424,16 @@
 		return;
 	}
     
-    UIBarButtonItem *relationButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+    /*UIBarButtonItem *relationButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
                                                                                  target:self
-                                                                                 action:@selector(showRelationProduct)];
+                                                                                 action:@selector(showRelationProduct)];*/
     
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                  target:self
                                                                                  action:@selector(shareToGooglePlus)];
     
-    self.navigationItem.rightBarButtonItems = @[relationButton, shareButton];
+    //self.navigationItem.rightBarButtonItems = @[relationButton, shareButton];
+    self.navigationItem.rightBarButtonItem = shareButton;
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
 	if (!_popover && UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad && !_fromPopover) {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0104C54918A220D700FD89D3 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0104C54718A220D700FD89D3 /* ProductViewController.m */; };
+		0104C54A18A220D700FD89D3 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0104C54818A220D700FD89D3 /* ProductViewController.xib */; };
+		0104C54D18A2264A00FD89D3 /* ProductCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */; };
+		0104C54F18A2271A00FD89D3 /* ProductCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */; };
 		01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109714188E616A00D14EC1 /* Foundation.framework */; };
 		01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109716188E616A00D14EC1 /* CoreGraphics.framework */; };
 		01109719188E616A00D14EC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109718188E616A00D14EC1 /* UIKit.framework */; };
@@ -115,6 +119,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0104C54618A220D700FD89D3 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
+		0104C54718A220D700FD89D3 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		0104C54818A220D700FD89D3 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
+		0104C54B18A2264A00FD89D3 /* ProductCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCollectionCell.h; sourceTree = "<group>"; };
+		0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCollectionCell.m; sourceTree = "<group>"; };
+		0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCollectionCell.xib; sourceTree = "<group>"; };
 		01109711188E616A00D14EC1 /* AmiAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmiAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01109714188E616A00D14EC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01109716188E616A00D14EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -375,6 +385,12 @@
 				01D88EB41890EE0B00EF0E6F /* RelationCell.h */,
 				01D88EB51890EE0B00EF0E6F /* RelationCell.m */,
 				01D88EB71890EE1700EF0E6F /* RelationCell.xib */,
+				0104C54618A220D700FD89D3 /* ProductViewController.h */,
+				0104C54718A220D700FD89D3 /* ProductViewController.m */,
+				0104C54818A220D700FD89D3 /* ProductViewController.xib */,
+				0104C54B18A2264A00FD89D3 /* ProductCollectionCell.h */,
+				0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */,
+				0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */,
 				0110972C188E616A00D14EC1 /* Images.xcassets */,
 				0110971B188E616A00D14EC1 /* Supporting Files */,
 			);
@@ -729,6 +745,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E0CB5E188FC33F009EA56C /* egopv_left@2x.png in Resources */,
+				0104C54A18A220D700FD89D3 /* ProductViewController.xib in Resources */,
 				01E0CB5A188FC33F009EA56C /* egopv_error_placeholder@2x.png in Resources */,
 				0110974D188E68E700D14EC1 /* MainViewController.xib in Resources */,
 				01E0CB61188FC33F009EA56C /* egopv_photo_placeholder@2x.png in Resources */,
@@ -750,6 +767,7 @@
 				01699409188F772C007E21C8 /* background.jpg in Resources */,
 				015F9BF81890B15800AD5FF8 /* SVProgressHUD.bundle in Resources */,
 				0110971F188E616A00D14EC1 /* InfoPlist.strings in Resources */,
+				0104C54F18A2271A00FD89D3 /* ProductCollectionCell.xib in Resources */,
 				01D88EB81890EE1700EF0E6F /* RelationCell.xib in Resources */,
 				01E0CB63188FC33F009EA56C /* egopv_right@2x.png in Resources */,
 				01E0CB62188FC33F009EA56C /* egopv_right.png in Resources */,
@@ -777,6 +795,7 @@
 				01109776188E6C5700D14EC1 /* AFURLSessionManager.m in Sources */,
 				016993F3188F6CC1007E21C8 /* UIImageView+WebCache.m in Sources */,
 				01109725188E616A00D14EC1 /* AppDelegate.m in Sources */,
+				0104C54D18A2264A00FD89D3 /* ProductCollectionCell.m in Sources */,
 				01109721188E616A00D14EC1 /* main.m in Sources */,
 				0169940D188F789D007E21C8 /* FXBlurView.m in Sources */,
 				01109771188E6C5700D14EC1 /* AFNetworkReachabilityManager.m in Sources */,
@@ -792,6 +811,7 @@
 				01E0CB69188FC3C0009EA56C /* EGOCache.m in Sources */,
 				01109770188E6C5700D14EC1 /* AFHTTPSessionManager.m in Sources */,
 				01E0CB64188FC33F009EA56C /* EGOPhotoCaptionView.m in Sources */,
+				0104C54918A220D700FD89D3 /* ProductViewController.m in Sources */,
 				01E0CB56188FC33F009EA56C /* EGOPhotoViewController.m in Sources */,
 				01E0CB6F188FC3F4009EA56C /* EGOImageLoader.m in Sources */,
 				01109774188E6C5700D14EC1 /* AFURLRequestSerialization.m in Sources */,

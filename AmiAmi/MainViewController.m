@@ -153,20 +153,14 @@
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
     
-    [AmiAmiParser parseSpecProductImagesInURLString:urlString completion:^(AmiAmiParserStatus status, NSArray *result) {
+    [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
+        
         if (status) {
-            NSMutableArray *photos = [NSMutableArray array];
-            
-            for (NSString *imageURLString in result) {
-                MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]];
-                [photos addObject:eachPhoto];
-            }
-            
-            MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:photos];
-            
-            EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
-            photoController.pageURL = urlString;
-            [self.navigationController pushViewController:photoController animated:YES];
+            ProductViewController *next = [[ProductViewController alloc] init];
+            NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
+            [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
+            next.productInfoDictionary = productDictionary;
+            [self.navigationController pushViewController:next animated:YES];
         }
         
         [SVProgressHUD dismiss];

@@ -20,4 +20,23 @@
     return [NSString stringWithFormat:@"http://www.amiami.jp/top/detail/detail?scode=%@", [finalArray objectAtIndex:0]];
 }
 
++(void) imageEffect : (UIView*) view {
+    view.layer.masksToBounds = NO;
+    view.layer.borderColor = [UIColor whiteColor].CGColor;
+    view.layer.borderWidth = 3.5f;
+    view.layer.contentsScale = [UIScreen mainScreen].scale;
+    view.layer.shadowOpacity = 0.75f;
+    view.layer.shadowRadius = 5.0f;
+    view.layer.shadowOffset = CGSizeZero;
+    view.layer.shadowPath = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;
+    view.layer.shouldRasterize = YES;
+}
+
++(void) textEffect : (UIView*) view {
+    view.layer.shadowColor = [[UIColor whiteColor] CGColor];
+    view.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    view.layer.shadowOpacity = 1.0f;
+    view.layer.shadowRadius = 1.0f;
+}
+
 @end
