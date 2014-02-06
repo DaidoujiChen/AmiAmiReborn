@@ -80,8 +80,6 @@
 		01D62F6C18962E0800ABB2E0 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6918962E0800ABB2E0 /* GoogleOpenSource.framework */; };
 		01D62F6D18962E0800ABB2E0 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01D62F6A18962E0800ABB2E0 /* GooglePlus.bundle */; };
 		01D62F6E18962E0800ABB2E0 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6B18962E0800ABB2E0 /* GooglePlus.framework */; };
-		01D88EB21890ED6100EF0E6F /* RelationProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */; };
-		01D88EB31890ED6100EF0E6F /* RelationProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */; };
 		01D88EB61890EE0B00EF0E6F /* RelationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D88EB51890EE0B00EF0E6F /* RelationCell.m */; };
 		01D88EB81890EE1700EF0E6F /* RelationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D88EB71890EE1700EF0E6F /* RelationCell.xib */; };
 		01E0CB56188FC33F009EA56C /* EGOPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E0CB36188FC33F009EA56C /* EGOPhotoViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -234,9 +232,6 @@
 		01D62F6918962E0800ABB2E0 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		01D62F6A18962E0800ABB2E0 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 		01D62F6B18962E0800ABB2E0 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
-		01D88EAF1890ED6100EF0E6F /* RelationProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationProductViewController.h; sourceTree = "<group>"; };
-		01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationProductViewController.m; sourceTree = "<group>"; };
-		01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelationProductViewController.xib; sourceTree = "<group>"; };
 		01D88EB41890EE0B00EF0E6F /* RelationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationCell.h; sourceTree = "<group>"; };
 		01D88EB51890EE0B00EF0E6F /* RelationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationCell.m; sourceTree = "<group>"; };
 		01D88EB71890EE1700EF0E6F /* RelationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelationCell.xib; sourceTree = "<group>"; };
@@ -379,9 +374,6 @@
 				016993F4188F716C007E21C8 /* MainCell.h */,
 				016993F5188F716C007E21C8 /* MainCell.m */,
 				016993F7188F7178007E21C8 /* MainCell.xib */,
-				01D88EAF1890ED6100EF0E6F /* RelationProductViewController.h */,
-				01D88EB01890ED6100EF0E6F /* RelationProductViewController.m */,
-				01D88EB11890ED6100EF0E6F /* RelationProductViewController.xib */,
 				01D88EB41890EE0B00EF0E6F /* RelationCell.h */,
 				01D88EB51890EE0B00EF0E6F /* RelationCell.m */,
 				01D88EB71890EE1700EF0E6F /* RelationCell.xib */,
@@ -753,7 +745,6 @@
 				016993F8188F7178007E21C8 /* MainCell.xib in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
 				01699400188F73DB007E21C8 /* ranking_3.png in Resources */,
-				01D88EB31890ED6100EF0E6F /* RelationProductViewController.xib in Resources */,
 				01E0CB5F188FC33F009EA56C /* egopv_minimize_fullscreen_button.png in Resources */,
 				01D62F6D18962E0800ABB2E0 /* GooglePlus.bundle in Resources */,
 				014DCF54188FB96A00CC6400 /* OSNavigationController.xib in Resources */,
@@ -790,7 +781,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01D88EB21890ED6100EF0E6F /* RelationProductViewController.m in Sources */,
 				016993F0188F6CC1007E21C8 /* UIImage+GIF.m in Sources */,
 				01109776188E6C5700D14EC1 /* AFURLSessionManager.m in Sources */,
 				016993F3188F6CC1007E21C8 /* UIImageView+WebCache.m in Sources */,

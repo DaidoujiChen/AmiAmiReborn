@@ -39,7 +39,6 @@
 - (void)setupViewForPopover;
 - (void)autosizePopoverToImageSize:(CGSize)imageSize photoImageView:(EGOPhotoImageView*)photoImageView;
 
--(void) showRelationProduct;
 -(void) shareToGooglePlus;
 -(void) shareSingleImage;
 //-(void) prepareUploadImages;
@@ -329,19 +328,6 @@
     }];
 }
 
--(void) showRelationProduct {
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-    [AmiAmiParser parseRelationProduct:pageURL completion:^(AmiAmiParserStatus status, NSDictionary *result) {
-        if (status) {
-            RelationProductViewController *next = [[RelationProductViewController alloc] init];
-            next.relationInfoDictionary = result;
-            [self.navigationController pushViewController:next animated:YES];
-            [next release];
-        }
-        [SVProgressHUD dismiss];
-    }];
-}
-
 -(void) shareToGooglePlus {
     if ([[GPPSignIn sharedInstance] authentication]) {
         [self shareSingleImage];
@@ -424,15 +410,10 @@
 		return;
 	}
     
-    /*UIBarButtonItem *relationButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-                                                                                 target:self
-                                                                                 action:@selector(showRelationProduct)];*/
-    
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                  target:self
                                                                                  action:@selector(shareToGooglePlus)];
     
-    //self.navigationItem.rightBarButtonItems = @[relationButton, shareButton];
     self.navigationItem.rightBarButtonItem = shareButton;
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200

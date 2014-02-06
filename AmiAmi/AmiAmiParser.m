@@ -12,12 +12,13 @@
 
 @interface AmiAmiParser (Private)
 +(NSMutableArray*) webviewLoadsArray;
-+ (void)rankParser:(UIWebView *)webView;
-+ (void)specProductParser:(UIWebView *)webView;
-+ (void)biShoJoParser:(UIWebView *)webView;
-+ (void)relationProductParser:(UIWebView *)webView;
+
 +(void) setEntryType : (AmiAmiParserEntryType) entryType;
 +(AmiAmiParserEntryType) entryType;
+
++ (void)rankParser:(UIWebView *)webView;
++ (void)biShoJoParser:(UIWebView *)webView;
++ (void)productParser:(UIWebView *)webView;
 @end
 
 @implementation AmiAmiParser
@@ -71,73 +72,6 @@ static const char COMPLETIONPOINTER;
         [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
         [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
         [returnArray addObject:dictionaryInArray];
-    }
-    
-    void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
-    completion(AmiAmiParserStatusSuccess, returnArray);
-}
-
-+ (void)relationProductParser:(UIWebView *)webView {
-    NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    
-    NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
-    NSArray *relationElements = [doc searchWithXPathQuery:@"//div [@class='logrecom_places']//img"];
-    
-    if ([relationElements count] == 0) {
-        [[self webviewLoadsArray] removeAllObjects];
-        [webView reload];
-        return;
-    }
-
-    NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
-    
-    NSMutableArray *relationArray = [NSMutableArray array];
-    
-    for (TFHppleElement *e in relationElements) {
-        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
-        [relationArray addObject:dictionaryInArray];
-    }
-    
-    NSArray *popularElements = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//img"];
-    
-    NSMutableArray *popularArray = [NSMutableArray array];
-    
-    for (TFHppleElement *e in popularElements) {
-        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
-        [popularArray addObject:dictionaryInArray];
-    }
-    
-    [returnDictionary setObject:relationArray forKey:@"Relation"];
-    [returnDictionary setObject:popularArray forKey:@"Popular"];
-    
-    void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
-    completion(AmiAmiParserStatusSuccess, returnDictionary);
-}
-
-+ (void)specProductParser:(UIWebView *)webView {
-    NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    
-    NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
-    NSArray *elements = [doc searchWithXPathQuery:@"//div [@class='product_img_area']//a"];
-    
-    if ([elements count] == 0) {
-        [[self webviewLoadsArray] removeAllObjects];
-        [webView reload];
-        return;
-    }
-    
-    NSMutableArray *returnArray = [NSMutableArray array];
-    
-    for (TFHppleElement *e in elements) {
-        [returnArray addObject:[e objectForKey:@"href"]];
     }
     
     void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
@@ -250,12 +184,6 @@ static const char COMPLETIONPOINTER;
             case AmiAmiParserEntryTypeRank:
                 [self rankParser:webView];
                 break;
-            case AmiAmiParserEntryTypeSpecProduct:
-                [self specProductParser:webView];
-                break;
-            case AmiAmiParserEntryTypeRelationProduct:
-                [self relationProductParser:webView];
-                break;
             case AmiAmiParserEntryTypeAllBiShouJo:
                 [self biShoJoParser:webView];
                 break;
@@ -288,24 +216,6 @@ static const char COMPLETIONPOINTER;
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
     [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]]];
-    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-+(void) parseSpecProductImagesInURLString : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
-    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self setEntryType:AmiAmiParserEntryTypeSpecProduct];
-    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
-    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
-    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-+(void) parseRelationProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
-    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self setEntryType:AmiAmiParserEntryTypeRelationProduct];
-    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
-    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
     objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

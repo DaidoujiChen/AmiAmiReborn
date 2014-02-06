@@ -28,7 +28,6 @@
 #import "EGOPhotoSource.h"
 #import "EGOPhotoGlobal.h"
 
-#import "RelationProductViewController.h"
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 
