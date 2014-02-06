@@ -13,6 +13,10 @@
 @interface AmiAmiParser (Private)
 +(NSMutableArray*) webviewLoadsArray;
 
++(NSMutableArray*) productImagesArray;
++(NSMutableArray*) relationProductsArray;
++(NSMutableArray*) popularProductsArray;
+
 +(void) setEntryType : (AmiAmiParserEntryType) entryType;
 +(AmiAmiParserEntryType) entryType;
 
@@ -28,7 +32,13 @@ static const char PARSEWEBVIEWPOINTER;
 static const char WEBVIEWLOADSCOUNT;
 static const char COMPLETIONPOINTER;
 
+static const char PRODUCTIMAGESPOINTER;
+static const char RELATIONPRODUCTSPOINTER;
+static const char POPULARPRODUCTSPOINTER;
+
 #pragma mark - private
+
+#pragma mark access object
 
 +(void) setEntryType : (AmiAmiParserEntryType) entryType {
     objc_setAssociatedObject(self, &ENTRYTYPEPOINTER, [NSNumber numberWithInt:entryType], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -40,7 +50,6 @@ static const char COMPLETIONPOINTER;
 }
 
 +(NSMutableArray*) webviewLoadsArray {
-    
     NSMutableArray *array = objc_getAssociatedObject(self, &WEBVIEWLOADSCOUNT);
     
     if (array == nil) {
@@ -50,6 +59,41 @@ static const char COMPLETIONPOINTER;
     
     return array;
 }
+
++(NSMutableArray*) productImagesArray {
+    NSMutableArray *array = objc_getAssociatedObject(self, &PRODUCTIMAGESPOINTER);
+    
+    if (array == nil) {
+        array = [NSMutableArray array];
+        objc_setAssociatedObject(self, &PRODUCTIMAGESPOINTER, array, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    
+    return array;
+}
+
++(NSMutableArray*) relationProductsArray {
+    NSMutableArray *array = objc_getAssociatedObject(self, &RELATIONPRODUCTSPOINTER);
+    
+    if (array == nil) {
+        array = [NSMutableArray array];
+        objc_setAssociatedObject(self, &RELATIONPRODUCTSPOINTER, array, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    
+    return array;
+}
+
++(NSMutableArray*) popularProductsArray {
+    NSMutableArray *array = objc_getAssociatedObject(self, &POPULARPRODUCTSPOINTER);
+    
+    if (array == nil) {
+        array = [NSMutableArray array];
+        objc_setAssociatedObject(self, &POPULARPRODUCTSPOINTER, array, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    
+    return array;
+}
+
+#pragma mark function
 
 + (void)biShoJoParser:(UIWebView *)webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
@@ -112,60 +156,91 @@ static const char COMPLETIONPOINTER;
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     
-    NSArray *elements = [doc searchWithXPathQuery:@"//div [@class='product_img_area']//a"];
+    dispatch_group_t group = dispatch_group_create();
+ 
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        //產品圖片
+        if ([[self productImagesArray] count] == 0) {
+            NSArray *productImagesElementsArray = [doc searchWithXPathQuery:@"//div [@class='product_img_area']//a"];
+            
+            if ([productImagesElementsArray count] == 0) {
+                [[self webviewLoadsArray] removeAllObjects];
+                [webView reload];
+                return;
+            }
+            
+            for (TFHppleElement *e in productImagesElementsArray) {
+                [[self productImagesArray] addObject:[e objectForKey:@"href"]];
+            }
+        }
+        
+    });
     
-    if ([elements count] == 0) {
-        [[self webviewLoadsArray] removeAllObjects];
-        [webView reload];
-        return;
-    }
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //相關產品
+        if ([[self relationProductsArray] count] == 0) {
+            NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='logrecom_places']//img"];
+            
+            if ([relationProductsElementsArray count] == 0) {
+                [[self webviewLoadsArray] removeAllObjects];
+                [webView reload];
+                return;
+            }
+            
+            for (TFHppleElement *e in relationProductsElementsArray) {
+                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+                [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
+                [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+                [[self relationProductsArray] addObject:dictionaryInArray];
+            }
+        }
+        
+    });
     
-    //產品圖片
-    NSMutableArray *productImagesArray = [NSMutableArray array];
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //熱門商品
+        if ([[self popularProductsArray] count] == 0) {
+            NSArray *popularProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//img"];
+            
+            if ([popularProductsElementsArray count] == 0) {
+                [[self webviewLoadsArray] removeAllObjects];
+                [webView reload];
+                return;
+            }
+            
+            for (TFHppleElement *e in popularProductsElementsArray) {
+                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+                [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
+                [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+                [[self popularProductsArray] addObject:dictionaryInArray];
+            }
+        }
+        
+    });
     
-    for (TFHppleElement *e in elements) {
-        [productImagesArray addObject:[e objectForKey:@"href"]];
-    }
-    
-    NSArray *relationElements = [doc searchWithXPathQuery:@"//div [@class='logrecom_places']//img"];
-    
-    if ([relationElements count] == 0) {
-        [[self webviewLoadsArray] removeAllObjects];
-        [webView reload];
-        return;
-    }
-    
-    //相關產品
-    NSMutableArray *relationArray = [NSMutableArray array];
-    
-    for (TFHppleElement *e in relationElements) {
-        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
-        [relationArray addObject:dictionaryInArray];
-    }
-    
-    NSArray *popularElements = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//img"];
-    
-    
-    //熱門商品
-    NSMutableArray *popularArray = [NSMutableArray array];
-    
-    for (TFHppleElement *e in popularElements) {
-        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
-        [popularArray addObject:dictionaryInArray];
-    }
-    
-    NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
-    
-    [returnDictionary setObject:productImagesArray forKey:@"ProductImages"];
-    [returnDictionary setObject:relationArray forKey:@"Relation"];
-    [returnDictionary setObject:popularArray forKey:@"Popular"];
-    
-    void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
-    completion(AmiAmiParserStatusSuccess, returnDictionary);
+    dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if ([[self productImagesArray] count] != 0 &&
+                [[self relationProductsArray] count] != 0 &&
+                [[self popularProductsArray] count] != 0) {
+                
+                NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
+                
+                [returnDictionary setObject:[self productImagesArray] forKey:@"ProductImages"];
+                [returnDictionary setObject:[self relationProductsArray] forKey:@"Relation"];
+                [returnDictionary setObject:[self popularProductsArray] forKey:@"Popular"];
+                
+                void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
+                completion(AmiAmiParserStatusSuccess, returnDictionary);
+
+            }
+        });
+    });
+
 }
 
 #pragma mark - UIWebViewDelegate
