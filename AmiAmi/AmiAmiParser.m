@@ -164,11 +164,7 @@ static const char POPULARPRODUCTSPOINTER;
         if ([[self productImagesArray] count] == 0) {
             NSArray *productImagesElementsArray = [doc searchWithXPathQuery:@"//div [@class='product_img_area']//a"];
             
-            if ([productImagesElementsArray count] == 0) {
-                [[self webviewLoadsArray] removeAllObjects];
-                [webView reload];
-                return;
-            }
+            if ([productImagesElementsArray count] == 0) return;
             
             for (TFHppleElement *e in productImagesElementsArray) {
                 [[self productImagesArray] addObject:[e objectForKey:@"href"]];
@@ -183,11 +179,7 @@ static const char POPULARPRODUCTSPOINTER;
         if ([[self relationProductsArray] count] == 0) {
             NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='logrecom_places']//img"];
             
-            if ([relationProductsElementsArray count] == 0) {
-                [[self webviewLoadsArray] removeAllObjects];
-                [webView reload];
-                return;
-            }
+            if ([relationProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in relationProductsElementsArray) {
                 NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
@@ -205,11 +197,7 @@ static const char POPULARPRODUCTSPOINTER;
         if ([[self popularProductsArray] count] == 0) {
             NSArray *popularProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//img"];
             
-            if ([popularProductsElementsArray count] == 0) {
-                [[self webviewLoadsArray] removeAllObjects];
-                [webView reload];
-                return;
-            }
+            if ([popularProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in popularProductsElementsArray) {
                 NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
@@ -230,14 +218,22 @@ static const char POPULARPRODUCTSPOINTER;
                 
                 NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
                 
-                [returnDictionary setObject:[self productImagesArray] forKey:@"ProductImages"];
-                [returnDictionary setObject:[self relationProductsArray] forKey:@"Relation"];
-                [returnDictionary setObject:[self popularProductsArray] forKey:@"Popular"];
+                [returnDictionary setObject:[[self productImagesArray] mutableCopy] forKey:@"ProductImages"];
+                [returnDictionary setObject:[[self relationProductsArray] mutableCopy] forKey:@"Relation"];
+                [returnDictionary setObject:[[self popularProductsArray] mutableCopy] forKey:@"Popular"];
                 
                 void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
                 completion(AmiAmiParserStatusSuccess, returnDictionary);
-
+                
+                [[self productImagesArray] removeAllObjects];
+                [[self relationProductsArray] removeAllObjects];
+                [[self popularProductsArray] removeAllObjects];
+            } else {
+                [[self webviewLoadsArray] removeAllObjects];
+                [webView reload];
             }
+            
+            
         });
     });
 
