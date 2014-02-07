@@ -107,12 +107,6 @@ static const char COMPLETIONPOINTER;
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//img"];
     
-    if ([elements count] == 0) {
-        [self.webviewLoadsArray removeAllObjects];
-        [webView reload];
-        return;
-    }
-    
     NSMutableArray *returnArray = [NSMutableArray array];
     
     for (TFHppleElement *e in elements) {
@@ -134,12 +128,6 @@ static const char COMPLETIONPOINTER;
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     NSArray *elements = [doc searchWithXPathQuery:@"//div [@class='productranking category2']//img"];
-    
-    if ([elements count] == 0) {
-        [self.webviewLoadsArray removeAllObjects];
-        [webView reload];
-        return;
-    }
     
     NSMutableArray *returnArray = [NSMutableArray array];
     
@@ -218,36 +206,19 @@ static const char COMPLETIONPOINTER;
     dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            if ([self.productImagesArray count] != 0 &&
-                [self.relationProductsArray count] != 0 &&
-                [self.popularProductsArray count] != 0) {
-                
-                NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
-                
-                [returnDictionary setObject:[self.productImagesArray mutableCopy] forKey:@"ProductImages"];
-                [returnDictionary setObject:[self.relationProductsArray mutableCopy] forKey:@"Relation"];
-                [returnDictionary setObject:[self.popularProductsArray mutableCopy] forKey:@"Popular"];
-                
-                void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
-                completion(AmiAmiParserStatusSuccess, returnDictionary);
-                [SVProgressHUD dismiss];
-                
-                [self.productImagesArray removeAllObjects];
-                [self.relationProductsArray removeAllObjects];
-                [self.popularProductsArray removeAllObjects];
-            } else {
-                
-                int successCount = 0;
-                
-                if ([self.productImagesArray count] > 0) successCount++;
-                if ([self.relationProductsArray count] > 0) successCount++;
-                if ([self.popularProductsArray count] > 0) successCount++;
-                
-                [SVProgressHUD showProgress:(float)successCount/3.0f status:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
-                
-                [self.webviewLoadsArray removeAllObjects];
-                [webView reload];
-            }
+            NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
+            
+            [returnDictionary setObject:[self.productImagesArray mutableCopy] forKey:@"ProductImages"];
+            [returnDictionary setObject:[self.relationProductsArray mutableCopy] forKey:@"Relation"];
+            [returnDictionary setObject:[self.popularProductsArray mutableCopy] forKey:@"Popular"];
+            
+            void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
+            completion(AmiAmiParserStatusSuccess, returnDictionary);
+            [SVProgressHUD dismiss];
+            
+            [self.productImagesArray removeAllObjects];
+            [self.relationProductsArray removeAllObjects];
+            [self.popularProductsArray removeAllObjects];
             
         });
     });
@@ -261,9 +232,15 @@ static const char COMPLETIONPOINTER;
 }
 
 + (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
     [self.webviewLoadsArray removeLastObject];
     
+    NSString *readyStateString = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
+    
     if ([self.webviewLoadsArray count] > 0) {
+        return;
+    } else if ([readyStateString isEqualToString:@"interactive"]) {
+        [webView performSelector:@selector(reload) withObject:nil afterDelay:1.0f];
         return;
     } else {
         switch (self.entryType) {
@@ -308,7 +285,7 @@ static const char COMPLETIONPOINTER;
 }
 
 +(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
-    [SVProgressHUD showProgress:0 status:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     self.entryType = AmiAmiParserEntryTypeProduct;
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
