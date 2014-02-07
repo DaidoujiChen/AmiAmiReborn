@@ -70,6 +70,7 @@
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
 		0169940D188F789D007E21C8 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169940C188F789D007E21C8 /* FXBlurView.m */; };
 		01B44454189100350026F967 /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B44453189100350026F967 /* GlobalFunctions.m */; };
+		01B6B90C18A482AA00C065A4 /* UITableViewCellBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B6B90B18A482AA00C065A4 /* UITableViewCellBase.m */; };
 		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
 		01D62F5D18962D9A00ABB2E0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */; };
 		01D62F5F18962DAC00ABB2E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */; };
@@ -222,6 +223,8 @@
 		0169940C188F789D007E21C8 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		01B44452189100350026F967 /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
 		01B44453189100350026F967 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctions.m; sourceTree = "<group>"; };
+		01B6B90A18A482AA00C065A4 /* UITableViewCellBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewCellBase.h; sourceTree = "<group>"; };
+		01B6B90B18A482AA00C065A4 /* UITableViewCellBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewCellBase.m; sourceTree = "<group>"; };
 		01D62F5A18962D9400ABB2E0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -368,15 +371,7 @@
 				01109778188E6CC000D14EC1 /* AmiAmiParser.m */,
 				01B44452189100350026F967 /* GlobalFunctions.h */,
 				01B44453189100350026F967 /* GlobalFunctions.m */,
-				01109749188E68E700D14EC1 /* MainViewController.h */,
-				0110974A188E68E700D14EC1 /* MainViewController.m */,
-				0110974B188E68E700D14EC1 /* MainViewController.xib */,
-				016993F4188F716C007E21C8 /* MainCell.h */,
-				016993F5188F716C007E21C8 /* MainCell.m */,
-				016993F7188F7178007E21C8 /* MainCell.xib */,
-				01D88EB41890EE0B00EF0E6F /* RelationCell.h */,
-				01D88EB51890EE0B00EF0E6F /* RelationCell.m */,
-				01D88EB71890EE1700EF0E6F /* RelationCell.xib */,
+				01B6B90D18A4830C00C065A4 /* Main */,
 				0104C54618A220D700FD89D3 /* ProductViewController.h */,
 				0104C54718A220D700FD89D3 /* ProductViewController.m */,
 				0104C54818A220D700FD89D3 /* ProductViewController.xib */,
@@ -526,6 +521,24 @@
 				0169940C188F789D007E21C8 /* FXBlurView.m */,
 			);
 			name = FXBlurView;
+			sourceTree = "<group>";
+		};
+		01B6B90D18A4830C00C065A4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				01109749188E68E700D14EC1 /* MainViewController.h */,
+				0110974A188E68E700D14EC1 /* MainViewController.m */,
+				0110974B188E68E700D14EC1 /* MainViewController.xib */,
+				01B6B90A18A482AA00C065A4 /* UITableViewCellBase.h */,
+				01B6B90B18A482AA00C065A4 /* UITableViewCellBase.m */,
+				016993F4188F716C007E21C8 /* MainCell.h */,
+				016993F5188F716C007E21C8 /* MainCell.m */,
+				016993F7188F7178007E21C8 /* MainCell.xib */,
+				01D88EB41890EE0B00EF0E6F /* RelationCell.h */,
+				01D88EB51890EE0B00EF0E6F /* RelationCell.m */,
+				01D88EB71890EE1700EF0E6F /* RelationCell.xib */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		01D62F6818962DEF00ABB2E0 /* GooglePlus */ = {
@@ -811,6 +824,7 @@
 				014DCF53188FB96A00CC6400 /* OSNavigationController.m in Sources */,
 				01109756188E6AE900D14EC1 /* TFHppleElement.m in Sources */,
 				01E0CB75188FC780009EA56C /* MyPhotoSource.m in Sources */,
+				01B6B90C18A482AA00C065A4 /* UITableViewCellBase.m in Sources */,
 				016993EB188F6CC1007E21C8 /* SDWebImageDownloader.m in Sources */,
 				016993EE188F6CC1007E21C8 /* SDWebImagePrefetcher.m in Sources */,
 				0110976F188E6C5700D14EC1 /* AFHTTPRequestOperationManager.m in Sources */,

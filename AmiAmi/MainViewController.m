@@ -8,8 +8,17 @@
 
 #import "MainViewController.h"
 
+@interface MainViewController ()
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, copy) void (^reloadRetultBlock)(AmiAmiParserStatus status, NSArray *result);
+@end
+
 @interface MainViewController (Private)
--(void) typeChangeAction;
+- (void)createNavigationRightButton;
+- (void)createNavigationTitleSegment;
+- (void)dataTableViewSetting;
+
+-(void) typeChangeOrReloadAction;
 -(void) loadRankData;
 -(void) loadAllBiShoJoData;
 @end
@@ -17,6 +26,7 @@
 @implementation MainViewController
 
 @synthesize dataArray;
+@synthesize reloadRetultBlock;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -30,33 +40,34 @@
 
 #pragma mark - private
 
--(void) loadRankData {
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-    
-    [AmiAmiParser parseBiShoJoRank:^(AmiAmiParserStatus status, NSArray *result) {
-        if (status) {
-            self.dataArray = result;
-            [_dataTableView reloadData];
-        }
-        
-        [SVProgressHUD dismiss];
-    }];
+#pragma mark ui create
+
+- (void)dataTableViewSetting {
+    [_dataTableView registerClass:[MainCell class] forCellReuseIdentifier:@"MainCell"];
+    [_dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
+    [_dataTableView setBackgroundView:nil];
+    [_dataTableView setBackgroundColor:[UIColor clearColor]];
 }
 
--(void) loadAllBiShoJoData {
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+- (void)createNavigationRightButton {
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                 target:self
+                                                                                 action:@selector(typeChangeOrReloadAction)];
     
-    [AmiAmiParser parseAllBiShouJo:^(AmiAmiParserStatus status, NSArray *result) {
-        if (status) {
-            self.dataArray = result;
-            [_dataTableView reloadData];
-        }
-        
-        [SVProgressHUD dismiss];
-    }];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
--(void) typeChangeAction {
+- (void)createNavigationTitleSegment {
+    typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
+    [typeSegment setSelectedSegmentIndex:0];
+    [typeSegment addTarget:self action:@selector(typeChangeOrReloadAction) forControlEvents:UIControlEventValueChanged];
+    [typeSegment sizeToFit];
+    self.navigationItem.titleView = typeSegment;
+}
+
+#pragma mark function
+
+-(void) typeChangeOrReloadAction {
     switch (typeSegment.selectedSegmentIndex) {
         case 0:
             [self loadRankData];
@@ -67,6 +78,14 @@
         default:
             break;
     }
+}
+
+-(void) loadRankData {
+    [AmiAmiParser parseBiShoJoRank:reloadRetultBlock];
+}
+
+-(void) loadAllBiShoJoData {
+    [AmiAmiParser parseAllBiShouJo:reloadRetultBlock];
 }
 
 #pragma mark - UITableViewDataSource
@@ -150,9 +169,7 @@
     NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
     
     NSString *urlString = [GlobalFunctions specProductStringFromThumbnail:[eachInfo objectForKey:@"Thumbnail"]];
-    
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-    
+
     [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         
         if (status) {
@@ -162,10 +179,8 @@
             next.productInfoDictionary = productDictionary;
             [self.navigationController pushViewController:next animated:YES];
         }
-        
-        [SVProgressHUD dismiss];
+
     }];
-    
     
 }
 
@@ -175,29 +190,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [_dataTableView registerClass:[MainCell class] forCellReuseIdentifier:@"MainCell"];
-    [_dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
-    [_dataTableView setBackgroundView:nil];
-    [_dataTableView setBackgroundColor:[UIColor clearColor]];
+    [self dataTableViewSetting];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                 target:self
-                                                                                 action:@selector(typeChangeAction)];
-    
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
-    typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
-    [typeSegment setSelectedSegmentIndex:0];
-    [typeSegment addTarget:self action:@selector(typeChangeAction) forControlEvents:UIControlEventValueChanged];
-    [typeSegment sizeToFit];
-    self.navigationItem.titleView = typeSegment;
+    [self createNavigationRightButton];
+    [self createNavigationTitleSegment];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self loadRankData];
+        
+        __weak MainViewController *weakSelf = self;
+        
+        reloadRetultBlock = ^(AmiAmiParserStatus status, NSArray *result) {
+            if (status) {
+                weakSelf.dataArray = result;
+                [weakSelf.dataTableView reloadData];
+                [weakSelf.dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                              atScrollPosition:UITableViewScrollPositionTop
+                                                      animated:YES];
+            }
+        };
+        
+        [self typeChangeOrReloadAction];
     });
 }
 

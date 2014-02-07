@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FXBlurView.h"
+#import "UITableViewCellBase.h"
 
-@interface MainCell : UITableViewCell
+@interface MainCell : UITableViewCellBase
 
 @property (weak, nonatomic) IBOutlet UIImageView *rankImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;

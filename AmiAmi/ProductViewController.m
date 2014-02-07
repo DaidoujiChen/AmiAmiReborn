@@ -87,9 +87,7 @@
     NSDictionary *eachInfo = [typeArray objectAtIndex:indexPath.row];
     
     NSString *urlString = [GlobalFunctions specProductStringFromThumbnail:[eachInfo objectForKey:@"Thumbnail"]];
-    
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-    
+
     [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         
         if (status) {
@@ -99,8 +97,7 @@
             next.productInfoDictionary = productDictionary;
             [self.navigationController pushViewController:next animated:YES];
         }
-        
-        [SVProgressHUD dismiss];
+
     }];
 }
 

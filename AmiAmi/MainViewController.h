@@ -14,12 +14,11 @@
 #import "MainCell.h"
 #import "RelationCell.h"
 
-@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *dataArray;
     UISegmentedControl *typeSegment;
+    void (^reloadRetultBlock)(AmiAmiParserStatus status, NSArray *result);
 }
-
-@property (nonatomic, strong) NSArray *dataArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 

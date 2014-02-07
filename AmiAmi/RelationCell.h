@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RelationCell : UITableViewCell
+#import "UITableViewCellBase.h"
+
+@interface RelationCell : UITableViewCellBase
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UITextView *titleTextView;

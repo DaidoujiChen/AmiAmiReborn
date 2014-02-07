@@ -124,6 +124,7 @@ static const char COMPLETIONPOINTER;
     
     void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
     completion(AmiAmiParserStatusSuccess, returnArray);
+    [SVProgressHUD dismiss];
 }
 
 + (void)rankParser:(UIWebView *)webView {
@@ -151,6 +152,7 @@ static const char COMPLETIONPOINTER;
     
     void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
     completion(AmiAmiParserStatusSuccess, returnArray);
+    [SVProgressHUD dismiss];
 }
 
 + (void)productParser:(UIWebView *)webView {
@@ -181,7 +183,7 @@ static const char COMPLETIONPOINTER;
         
         //相關產品
         if ([self.relationProductsArray count] == 0) {
-            NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='logrecom_places']//img"];
+            NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_purchase_result']//img"];
             
             if ([relationProductsElementsArray count] == 0) return;
             
@@ -228,11 +230,21 @@ static const char COMPLETIONPOINTER;
                 
                 void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
                 completion(AmiAmiParserStatusSuccess, returnDictionary);
+                [SVProgressHUD dismiss];
                 
                 [self.productImagesArray removeAllObjects];
                 [self.relationProductsArray removeAllObjects];
                 [self.popularProductsArray removeAllObjects];
             } else {
+                
+                int successCount = 0;
+                
+                if ([self.productImagesArray count] > 0) successCount++;
+                if ([self.relationProductsArray count] > 0) successCount++;
+                if ([self.popularProductsArray count] > 0) successCount++;
+                
+                [SVProgressHUD showProgress:(float)successCount/3.0f status:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
+                
                 [self.webviewLoadsArray removeAllObjects];
                 [webView reload];
             }
@@ -276,6 +288,7 @@ static const char COMPLETIONPOINTER;
 #pragma mark - class methods
 
 +(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
+    [SVProgressHUD showWithStatus:@"讀取最新美少女商品..." maskType:SVProgressHUDMaskTypeBlack];
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     self.entryType = AmiAmiParserEntryTypeAllBiShouJo;
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
@@ -285,6 +298,7 @@ static const char COMPLETIONPOINTER;
 }
 
 +(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
+    [SVProgressHUD showWithStatus:@"讀取美少女排行商品..." maskType:SVProgressHUDMaskTypeBlack];
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     self.entryType = AmiAmiParserEntryTypeRank;
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
@@ -294,6 +308,7 @@ static const char COMPLETIONPOINTER;
 }
 
 +(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
+    [SVProgressHUD showProgress:0 status:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
     self.entryType = AmiAmiParserEntryTypeProduct;
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
