@@ -20,7 +20,6 @@
 
 @property (nonatomic, strong) NSDictionary *productInfoDictionary;
 
-
 @property (weak, nonatomic) IBOutlet UIScrollView *productScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
 @property (weak, nonatomic) IBOutlet UITextView *productTitleTextView;

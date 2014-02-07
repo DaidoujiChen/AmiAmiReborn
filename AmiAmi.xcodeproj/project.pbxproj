@@ -372,12 +372,7 @@
 				01B44452189100350026F967 /* GlobalFunctions.h */,
 				01B44453189100350026F967 /* GlobalFunctions.m */,
 				01B6B90D18A4830C00C065A4 /* Main */,
-				0104C54618A220D700FD89D3 /* ProductViewController.h */,
-				0104C54718A220D700FD89D3 /* ProductViewController.m */,
-				0104C54818A220D700FD89D3 /* ProductViewController.xib */,
-				0104C54B18A2264A00FD89D3 /* ProductCollectionCell.h */,
-				0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */,
-				0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */,
+				01B0295918A48A1200ED0632 /* Product */,
 				0110972C188E616A00D14EC1 /* Images.xcassets */,
 				0110971B188E616A00D14EC1 /* Supporting Files */,
 			);
@@ -521,6 +516,19 @@
 				0169940C188F789D007E21C8 /* FXBlurView.m */,
 			);
 			name = FXBlurView;
+			sourceTree = "<group>";
+		};
+		01B0295918A48A1200ED0632 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				0104C54618A220D700FD89D3 /* ProductViewController.h */,
+				0104C54718A220D700FD89D3 /* ProductViewController.m */,
+				0104C54818A220D700FD89D3 /* ProductViewController.xib */,
+				0104C54B18A2264A00FD89D3 /* ProductCollectionCell.h */,
+				0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */,
+				0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */,
+			);
+			name = Product;
 			sourceTree = "<group>";
 		};
 		01B6B90D18A4830C00C065A4 /* Main */ = {

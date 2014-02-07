@@ -8,8 +8,10 @@
 
 #import "ProductViewController.h"
 
-@interface ProductViewController ()
-
+@interface ProductViewController (Private)
+- (void)collectionViewSetting;
+- (void)effectSetting;
+- (void)initDataShow;
 @end
 
 @implementation ProductViewController
@@ -18,6 +20,36 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - hidden status bar
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+#pragma mark - private
+
+- (void)initDataShow {
+    [_productImageView setImageWithURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                             }];
+    [_productTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
+}
+
+- (void)effectSetting {
+    for (id object in _productScrollView.subviews) {
+        if ([object respondsToSelector:@selector(setText:)]) {
+            [GlobalFunctions textEffect:object];
+        }
+    }
+    
+    [GlobalFunctions imageEffect:_productImageView];
+}
+
+- (void)collectionViewSetting {
+    [_relationCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
+    [_popularCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
 }
 
 #pragma mark - ibaction
@@ -50,9 +82,11 @@
     } else {
         return [[productInfoDictionary objectForKey:@"Popular"] count];
     }
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"ProductCollectionCell";
     ProductCollectionCell *cell = (ProductCollectionCell*) [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -71,11 +105,13 @@
                                    }];
     
     return cell;
+    
 }
 
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSArray *typeArray;
     
     if (collectionView == _relationCollectionView) {
@@ -106,22 +142,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_relationCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
-    [_popularCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
+    [self collectionViewSetting];
     
-    for (id object in _productScrollView.subviews) {
-        if ([object isKindOfClass:[UILabel class]]) {
-            [GlobalFunctions textEffect:object];
-        }
-    }
+    [self effectSetting];
     
-    [GlobalFunctions imageEffect:_productImageView];
-    [GlobalFunctions textEffect:_productTitleTextView];
-    
-    [_productImageView setImageWithURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]
-                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                             }];
-    [_productTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
+    [self initDataShow];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
