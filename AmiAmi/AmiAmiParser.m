@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableArray *productImagesArray;
 @property (nonatomic, strong) NSMutableArray *relationProductsArray;
 @property (nonatomic, strong) NSMutableArray *popularProductsArray;
+@property (nonatomic, strong) NSMutableArray *alsoLikeProductArray;
 @end
 
 @interface AmiAmiParser (Private)
@@ -27,6 +28,7 @@
 +(NSMutableArray*) productImagesArray;
 +(NSMutableArray*) relationProductsArray;
 +(NSMutableArray*) popularProductsArray;
++(NSMutableArray*) alsoLikeProductArray;
 
 + (void)rankParser:(UIWebView *)webView;
 + (void)biShoJoParser:(UIWebView *)webView;
@@ -48,6 +50,7 @@ static const char WEBVIEWLOADSCOUNTPOINTER;
 static const char PRODUCTIMAGESPOINTER;
 static const char RELATIONPRODUCTSPOINTER;
 static const char POPULARPRODUCTSPOINTER;
+static const char ALSOLIKEPRODUCTPOINTER;
 
 static const char PARSEWEBVIEWPOINTER;
 static const char COMPLETIONPOINTER;
@@ -95,6 +98,14 @@ static const char COMPLETIONPOINTER;
         objc_setAssociatedObject(self, &POPULARPRODUCTSPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     });
     return objc_getAssociatedObject(self, &POPULARPRODUCTSPOINTER);
+}
+
++(NSMutableArray*) alsoLikeProductArray {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        objc_setAssociatedObject(self, &ALSOLIKEPRODUCTPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    });
+    return objc_getAssociatedObject(self, &ALSOLIKEPRODUCTPOINTER);
 }
 
 #pragma mark function
@@ -171,7 +182,7 @@ static const char COMPLETIONPOINTER;
         
         //相關產品
         if ([self.relationProductsArray count] == 0) {
-            NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_purchase_result']//img"];
+            NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//ul [@class='recommend']//table//img"];
             
             if ([relationProductsElementsArray count] == 0) return;
             
@@ -180,6 +191,24 @@ static const char COMPLETIONPOINTER;
                 [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
                 [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
                 [self.relationProductsArray addObject:dictionaryInArray];
+            }
+        }
+
+    });
+    
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //也會喜歡
+        if ([self.alsoLikeProductArray count] == 0) {
+            NSArray *alsoLikeProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_purchase_result']//img"];
+            
+            if ([alsoLikeProductsElementsArray count] == 0) return;
+            
+            for (TFHppleElement *e in alsoLikeProductsElementsArray) {
+                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+                [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
+                [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+                [self.alsoLikeProductArray addObject:dictionaryInArray];
             }
         }
         
@@ -210,6 +239,7 @@ static const char COMPLETIONPOINTER;
             
             [returnDictionary setObject:[self.productImagesArray mutableCopy] forKey:@"ProductImages"];
             [returnDictionary setObject:[self.relationProductsArray mutableCopy] forKey:@"Relation"];
+            [returnDictionary setObject:[self.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
             [returnDictionary setObject:[self.popularProductsArray mutableCopy] forKey:@"Popular"];
             
             void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
@@ -218,6 +248,7 @@ static const char COMPLETIONPOINTER;
             
             [self.productImagesArray removeAllObjects];
             [self.relationProductsArray removeAllObjects];
+            [self.alsoLikeProductArray removeAllObjects];
             [self.popularProductsArray removeAllObjects];
             
         });
