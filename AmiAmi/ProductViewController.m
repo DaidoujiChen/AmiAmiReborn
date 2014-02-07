@@ -69,6 +69,12 @@
         
         cell.productsInfoArray = [productInfoDictionary objectForKey:[tableDataArray objectAtIndex:fixIndex]];
         
+        [cell setClickCellBlock:^(NSDictionary *result) {
+            ProductViewController *next = [[ProductViewController alloc] init];
+            next.productInfoDictionary = result;
+            [self.navigationController pushViewController:next animated:YES];
+        }];
+        
         return cell;
     }
     
@@ -85,6 +91,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 0) {
+        NSMutableArray *photos = [NSMutableArray array];
+        
+        for (NSString *imageURLString in [productInfoDictionary objectForKey:@"ProductImages"]) {
+            MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]];
+            [photos addObject:eachPhoto];
+        }
+        
+        MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:photos];
+        
+        EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
+        [self.navigationController pushViewController:photoController animated:YES];
+    }
+    
 }
 
 #pragma mark - life cycle

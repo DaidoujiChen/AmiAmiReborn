@@ -10,6 +10,7 @@
 
 @implementation OtherProductsCell
 
+@synthesize clickCellBlock;
 @synthesize productsInfoArray;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -56,16 +57,13 @@
     NSString *urlString = [GlobalFunctions specProductStringFromThumbnail:[eachInfo objectForKey:@"Thumbnail"]];
     
     [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
-        
-        /*if (status) {
-            ProductViewController *next = [[ProductViewController alloc] init];
+        if (status) {
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
-            next.productInfoDictionary = productDictionary;
-            [self.navigationController pushViewController:next animated:YES];
-        }*/
-        
+            clickCellBlock(productDictionary);
+        }
     }];
+
 }
 
 @end
