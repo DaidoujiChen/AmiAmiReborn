@@ -12,18 +12,15 @@
 #import "MyPhoto.h"
 #import "MyPhotoSource.h"
 
-#import "ProductCollectionCell.h"
+#import "CurrentProductInfoCell.h"
+#import "OtherProductsCell.h"
 
-@interface ProductViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource> {
+@interface ProductViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSDictionary *productInfoDictionary;
+    NSMutableArray *tableDataArray;
 }
 
 @property (nonatomic, strong) NSDictionary *productInfoDictionary;
-
-@property (weak, nonatomic) IBOutlet UIScrollView *productScrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
-@property (weak, nonatomic) IBOutlet UITextView *productTitleTextView;
-@property (weak, nonatomic) IBOutlet UICollectionView *relationCollectionView;
-@property (weak, nonatomic) IBOutlet UICollectionView *popularCollectionView;
+@property (weak, nonatomic) IBOutlet UITableView *productsTableView;
 
 @end

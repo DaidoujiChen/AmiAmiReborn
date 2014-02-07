@@ -9,9 +9,6 @@
 #import "ProductViewController.h"
 
 @interface ProductViewController (Private)
-- (void)collectionViewSetting;
-- (void)effectSetting;
-- (void)initDataShow;
 @end
 
 @implementation ProductViewController
@@ -30,111 +27,64 @@
 
 #pragma mark - private
 
-- (void)initDataShow {
-    [_productImageView setImageWithURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]
-                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                             }];
-    [_productTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
-}
+#pragma mark - UITableViewDataSource
 
-- (void)effectSetting {
-    for (id object in _productScrollView.subviews) {
-        if ([object respondsToSelector:@selector(setText:)]) {
-            [GlobalFunctions textEffect:object];
-        }
-    }
-    
-    [GlobalFunctions imageEffect:_productImageView];
-}
-
-- (void)collectionViewSetting {
-    [_relationCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
-    [_popularCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
-}
-
-#pragma mark - ibaction
-
-- (IBAction)ShowProductImagesAction:(id)sender {
-    
-    NSMutableArray *photos = [NSMutableArray array];
-    
-    for (NSString *imageURLString in [productInfoDictionary objectForKey:@"ProductImages"]) {
-        MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]];
-        [photos addObject:eachPhoto];
-    }
-    
-    MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:photos];
-    
-    EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
-    [self.navigationController pushViewController:photoController animated:YES];
-}
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    if (collectionView == _relationCollectionView) {
-        return [[productInfoDictionary objectForKey:@"Relation"] count];
-    } else {
-        return [[productInfoDictionary objectForKey:@"Popular"] count];
-    }
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [tableDataArray count] + 1;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"ProductCollectionCell";
-    ProductCollectionCell *cell = (ProductCollectionCell*) [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    NSArray *typeArray;
-    
-    if (collectionView == _relationCollectionView) {
-        typeArray = [productInfoDictionary objectForKey:@"Relation"];
-    } else {
-        typeArray = [productInfoDictionary objectForKey:@"Popular"];
-    }
-    
-    NSDictionary *eachInfo = [typeArray objectAtIndex:indexPath.row];
-    
-    [cell.productImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                   }];
-    
-    return cell;
-    
-}
-
-#pragma mark - UICollectionViewDelegate
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSArray *typeArray;
-    
-    if (collectionView == _relationCollectionView) {
-        typeArray = [productInfoDictionary objectForKey:@"Relation"];
-    } else {
-        typeArray = [productInfoDictionary objectForKey:@"Popular"];
-    }
-    
-    NSDictionary *eachInfo = [typeArray objectAtIndex:indexPath.row];
-    
-    NSString *urlString = [GlobalFunctions specProductStringFromThumbnail:[eachInfo objectForKey:@"Thumbnail"]];
-
-    [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
+    if (indexPath.row == 0) {
+        static NSString *CellIdentifier = @"CurrentProductInfoCell";
+        CurrentProductInfoCell *cell = (CurrentProductInfoCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
-        if (status) {
-            ProductViewController *next = [[ProductViewController alloc] init];
-            NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
-            [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
-            next.productInfoDictionary = productDictionary;
-            [self.navigationController pushViewController:next animated:YES];
+        [cell.currentProductImageView setImageWithURL:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]
+                                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                            }];
+        [cell.currentProductTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
+        
+        return cell;
+    } else {
+        static NSString *CellIdentifier = @"OtherProductsCell";
+        OtherProductsCell *cell = (OtherProductsCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        
+        NSInteger fixIndex = indexPath.row - 1;
+        
+        if ([[tableDataArray objectAtIndex:fixIndex] isEqualToString:@"Relation"]) {
+            [cell.productTypeLabel setText:@"相關商品"];
+        } else if ([[tableDataArray objectAtIndex:fixIndex] isEqualToString:@"AlsoLike"]) {
+            [cell.productTypeLabel setText:@"你也會喜歡"];
+        } else {
+            [cell.productTypeLabel setText:@"熱門商品"];
         }
+        
+        cell.productsInfoArray = [productInfoDictionary objectForKey:[tableDataArray objectAtIndex:fixIndex]];
+        
+        return cell;
+    }
+    
+}
 
-    }];
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 254.0f;
+    } else {
+        return 200.0f;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 #pragma mark - life cycle
@@ -142,15 +92,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self collectionViewSetting];
+    [_productsTableView registerClass:[CurrentProductInfoCell class] forCellReuseIdentifier:@"CurrentProductInfoCell"];
+    [_productsTableView registerClass:[OtherProductsCell class] forCellReuseIdentifier:@"OtherProductsCell"];
+    [_productsTableView setBackgroundView:nil];
+    [_productsTableView setBackgroundColor:[UIColor clearColor]];
     
-    [self effectSetting];
+    tableDataArray = [[NSMutableArray alloc] init];
     
-    [self initDataShow];
-}
-
--(void) viewDidAppear:(BOOL)animated {
-    [_productScrollView setContentSize:CGSizeMake(320, 568)];
+    if ([productInfoDictionary objectForKey:@"Relation"]) [tableDataArray addObject:@"Relation"];
+    if ([productInfoDictionary objectForKey:@"AlsoLike"]) [tableDataArray addObject:@"AlsoLike"];
+    if ([productInfoDictionary objectForKey:@"Popular"]) [tableDataArray addObject:@"Popular"];
 }
 
 @end

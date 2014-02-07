@@ -237,10 +237,21 @@ static const char COMPLETIONPOINTER;
             
             NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
             
-            [returnDictionary setObject:[self.productImagesArray mutableCopy] forKey:@"ProductImages"];
-            [returnDictionary setObject:[self.relationProductsArray mutableCopy] forKey:@"Relation"];
-            [returnDictionary setObject:[self.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
-            [returnDictionary setObject:[self.popularProductsArray mutableCopy] forKey:@"Popular"];
+            if ([self.productImagesArray count]) {
+                [returnDictionary setObject:[self.productImagesArray mutableCopy] forKey:@"ProductImages"];
+            }
+            
+            if ([self.relationProductsArray count]) {
+                [returnDictionary setObject:[self.relationProductsArray mutableCopy] forKey:@"Relation"];
+            }
+            
+            if ([self.alsoLikeProductArray count]) {
+                [returnDictionary setObject:[self.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
+            }
+            
+            if ([self.popularProductsArray count]) {
+                [returnDictionary setObject:[self.popularProductsArray mutableCopy] forKey:@"Popular"];
+            }
             
             void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
             completion(AmiAmiParserStatusSuccess, returnDictionary);

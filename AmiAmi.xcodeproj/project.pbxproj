@@ -69,6 +69,10 @@
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
 		0169940D188F789D007E21C8 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169940C188F789D007E21C8 /* FXBlurView.m */; };
+		01983FAB18A5027500815BC5 /* OtherProductsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01983FAA18A5027500815BC5 /* OtherProductsCell.m */; };
+		01983FAD18A5028B00815BC5 /* OtherProductsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01983FAC18A5028B00815BC5 /* OtherProductsCell.xib */; };
+		01983FB018A5068B00815BC5 /* CurrentProductInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01983FAF18A5068B00815BC5 /* CurrentProductInfoCell.m */; };
+		01983FB218A5069800815BC5 /* CurrentProductInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01983FB118A5069800815BC5 /* CurrentProductInfoCell.xib */; };
 		01B44454189100350026F967 /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B44453189100350026F967 /* GlobalFunctions.m */; };
 		01B6B90C18A482AA00C065A4 /* UITableViewCellBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B6B90B18A482AA00C065A4 /* UITableViewCellBase.m */; };
 		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
@@ -221,6 +225,12 @@
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		0169940B188F789D007E21C8 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		0169940C188F789D007E21C8 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		01983FA918A5027500815BC5 /* OtherProductsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherProductsCell.h; sourceTree = "<group>"; };
+		01983FAA18A5027500815BC5 /* OtherProductsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherProductsCell.m; sourceTree = "<group>"; };
+		01983FAC18A5028B00815BC5 /* OtherProductsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherProductsCell.xib; sourceTree = "<group>"; };
+		01983FAE18A5068B00815BC5 /* CurrentProductInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentProductInfoCell.h; sourceTree = "<group>"; };
+		01983FAF18A5068B00815BC5 /* CurrentProductInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentProductInfoCell.m; sourceTree = "<group>"; };
+		01983FB118A5069800815BC5 /* CurrentProductInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentProductInfoCell.xib; sourceTree = "<group>"; };
 		01B44452189100350026F967 /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
 		01B44453189100350026F967 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctions.m; sourceTree = "<group>"; };
 		01B6B90A18A482AA00C065A4 /* UITableViewCellBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewCellBase.h; sourceTree = "<group>"; };
@@ -527,6 +537,12 @@
 				0104C54B18A2264A00FD89D3 /* ProductCollectionCell.h */,
 				0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */,
 				0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */,
+				01983FA918A5027500815BC5 /* OtherProductsCell.h */,
+				01983FAA18A5027500815BC5 /* OtherProductsCell.m */,
+				01983FAC18A5028B00815BC5 /* OtherProductsCell.xib */,
+				01983FAE18A5068B00815BC5 /* CurrentProductInfoCell.h */,
+				01983FAF18A5068B00815BC5 /* CurrentProductInfoCell.m */,
+				01983FB118A5069800815BC5 /* CurrentProductInfoCell.xib */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -772,6 +788,7 @@
 				01E0CB5B188FC33F009EA56C /* egopv_fullscreen_button.png in Resources */,
 				0110972D188E616A00D14EC1 /* Images.xcassets in Resources */,
 				01E0CB5C188FC33F009EA56C /* egopv_fullscreen_button@2x.png in Resources */,
+				01983FAD18A5028B00815BC5 /* OtherProductsCell.xib in Resources */,
 				016993FE188F73DB007E21C8 /* ranking_1.png in Resources */,
 				01E0CB60188FC33F009EA56C /* egopv_photo_placeholder.png in Resources */,
 				01699401188F73DB007E21C8 /* ranking_4.png in Resources */,
@@ -783,6 +800,7 @@
 				01D88EB81890EE1700EF0E6F /* RelationCell.xib in Resources */,
 				01E0CB63188FC33F009EA56C /* egopv_right@2x.png in Resources */,
 				01E0CB62188FC33F009EA56C /* egopv_right.png in Resources */,
+				01983FB218A5069800815BC5 /* CurrentProductInfoCell.xib in Resources */,
 				016993FF188F73DB007E21C8 /* ranking_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,6 +825,7 @@
 				016993F3188F6CC1007E21C8 /* UIImageView+WebCache.m in Sources */,
 				01109725188E616A00D14EC1 /* AppDelegate.m in Sources */,
 				0104C54D18A2264A00FD89D3 /* ProductCollectionCell.m in Sources */,
+				01983FAB18A5027500815BC5 /* OtherProductsCell.m in Sources */,
 				01109721188E616A00D14EC1 /* main.m in Sources */,
 				0169940D188F789D007E21C8 /* FXBlurView.m in Sources */,
 				01109771188E6C5700D14EC1 /* AFNetworkReachabilityManager.m in Sources */,
@@ -820,6 +839,7 @@
 				016993EF188F6CC1007E21C8 /* UIButton+WebCache.m in Sources */,
 				016993ED188F6CC1007E21C8 /* SDWebImageManager.m in Sources */,
 				01E0CB69188FC3C0009EA56C /* EGOCache.m in Sources */,
+				01983FB018A5068B00815BC5 /* CurrentProductInfoCell.m in Sources */,
 				01109770188E6C5700D14EC1 /* AFHTTPSessionManager.m in Sources */,
 				01E0CB64188FC33F009EA56C /* EGOPhotoCaptionView.m in Sources */,
 				0104C54918A220D700FD89D3 /* ProductViewController.m in Sources */,
