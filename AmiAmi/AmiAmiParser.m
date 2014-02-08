@@ -37,6 +37,7 @@
 + (void)productParser:(UIWebView *)webView;
 
 +(void) reloadWebView;
++(void) freeMemory;
 @end
 
 @implementation AmiAmiParser
@@ -74,59 +75,55 @@ static const char COMPLETIONPOINTER;
 }
 
 +(NSMutableArray*) webviewLoadsArray {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!objc_getAssociatedObject(self, &WEBVIEWLOADSCOUNTPOINTER)) {
         objc_setAssociatedObject(self, &WEBVIEWLOADSCOUNTPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    });
+    }
     return objc_getAssociatedObject(self, &WEBVIEWLOADSCOUNTPOINTER);
 }
 
 +(NSMutableArray*) productImagesArray {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!objc_getAssociatedObject(self, &PRODUCTIMAGESPOINTER)) {
         objc_setAssociatedObject(self, &PRODUCTIMAGESPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    });
+    }
     return objc_getAssociatedObject(self, &PRODUCTIMAGESPOINTER);
 }
 
 +(NSMutableArray*) relationProductsArray {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!objc_getAssociatedObject(self, &RELATIONPRODUCTSPOINTER)) {
         objc_setAssociatedObject(self, &RELATIONPRODUCTSPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    });
+    }
     return objc_getAssociatedObject(self, &RELATIONPRODUCTSPOINTER);
 }
 
 +(NSMutableArray*) popularProductsArray {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!objc_getAssociatedObject(self, &POPULARPRODUCTSPOINTER)) {
         objc_setAssociatedObject(self, &POPULARPRODUCTSPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    });
+    }
     return objc_getAssociatedObject(self, &POPULARPRODUCTSPOINTER);
 }
 
 +(NSMutableArray*) alsoLikeProductArray {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!objc_getAssociatedObject(self, &ALSOLIKEPRODUCTPOINTER)) {
         objc_setAssociatedObject(self, &ALSOLIKEPRODUCTPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    });
+    }
     return objc_getAssociatedObject(self, &ALSOLIKEPRODUCTPOINTER);
 }
 
 +(NSMutableArray*) alsoBuyProductArray {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!objc_getAssociatedObject(self, &ALSOBUYPRODUCTPOINTER)) {
         objc_setAssociatedObject(self, &ALSOBUYPRODUCTPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    });
+    }
     return objc_getAssociatedObject(self, &ALSOBUYPRODUCTPOINTER);
 }
 
 #pragma mark function
 
++(void) freeMemory {
+    objc_removeAssociatedObjects(self);
+}
+
 +(void) reloadWebView {
     UIWebView *webView = objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
-    [webView stopLoading];
-    [self.webviewLoadsArray removeAllObjects];
     [webView performSelector:@selector(reload) withObject:nil afterDelay:1.0f];
 }
 
@@ -161,6 +158,7 @@ static const char COMPLETIONPOINTER;
     void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
     completion(AmiAmiParserStatusSuccess, returnArray);
     [SVProgressHUD dismiss];
+    [self freeMemory];
 }
 
 + (void)rankParser:(UIWebView *)webView {
@@ -195,6 +193,7 @@ static const char COMPLETIONPOINTER;
     void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
     completion(AmiAmiParserStatusSuccess, returnArray);
     [SVProgressHUD dismiss];
+    [self freeMemory];
 }
 
 + (void)productParser:(UIWebView *)webView {
@@ -354,13 +353,7 @@ static const char COMPLETIONPOINTER;
             void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
             completion(AmiAmiParserStatusSuccess, returnDictionary);
             [SVProgressHUD dismiss];
-            
-            [self.productImagesArray removeAllObjects];
-            [self.relationProductsArray removeAllObjects];
-            [self.alsoLikeProductArray removeAllObjects];
-            [self.alsoBuyProductArray removeAllObjects];
-            [self.popularProductsArray removeAllObjects];
-            
+            [self freeMemory];
         });
     });
 
