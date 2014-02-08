@@ -53,7 +53,7 @@
     
     NSDictionary *eachInfo = [productsInfoArray objectAtIndex:indexPath.row];
     
-    NSString *urlString = [GlobalFunctions specProductStringFromThumbnail:[eachInfo objectForKey:@"Thumbnail"]];
+    NSString *urlString = [GlobalFunctions fixProductURL:[eachInfo objectForKey:@"URL"]];
     
     [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         if (status) {

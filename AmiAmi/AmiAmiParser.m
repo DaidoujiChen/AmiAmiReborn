@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *relationProductsArray;
 @property (nonatomic, strong) NSMutableArray *popularProductsArray;
 @property (nonatomic, strong) NSMutableArray *alsoLikeProductArray;
+@property (nonatomic, strong) NSMutableArray *alsoBuyProductArray;
 @end
 
 @interface AmiAmiParser (Private)
@@ -29,10 +30,13 @@
 +(NSMutableArray*) relationProductsArray;
 +(NSMutableArray*) popularProductsArray;
 +(NSMutableArray*) alsoLikeProductArray;
++(NSMutableArray*) alsoBuyProductArray;
 
 + (void)rankParser:(UIWebView *)webView;
 + (void)biShoJoParser:(UIWebView *)webView;
 + (void)productParser:(UIWebView *)webView;
+
++(void) reloadWebView;
 @end
 
 @implementation AmiAmiParser
@@ -51,6 +55,7 @@ static const char PRODUCTIMAGESPOINTER;
 static const char RELATIONPRODUCTSPOINTER;
 static const char POPULARPRODUCTSPOINTER;
 static const char ALSOLIKEPRODUCTPOINTER;
+static const char ALSOBUYPRODUCTPOINTER;
 
 static const char PARSEWEBVIEWPOINTER;
 static const char COMPLETIONPOINTER;
@@ -108,7 +113,22 @@ static const char COMPLETIONPOINTER;
     return objc_getAssociatedObject(self, &ALSOLIKEPRODUCTPOINTER);
 }
 
++(NSMutableArray*) alsoBuyProductArray {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        objc_setAssociatedObject(self, &ALSOBUYPRODUCTPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    });
+    return objc_getAssociatedObject(self, &ALSOBUYPRODUCTPOINTER);
+}
+
 #pragma mark function
+
++(void) reloadWebView {
+    UIWebView *webView = objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
+    [webView stopLoading];
+    [self.webviewLoadsArray removeAllObjects];
+    [webView performSelector:@selector(reload) withObject:nil afterDelay:1.0f];
+}
 
 + (void)biShoJoParser:(UIWebView *)webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
@@ -116,14 +136,25 @@ static const char COMPLETIONPOINTER;
     NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
-    NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//img"];
+    NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//div [@class='product_img']//a"];
+    
+    if ([elements count] == 0) {
+        [self reloadWebView];
+        return;
+    }
     
     NSMutableArray *returnArray = [NSMutableArray array];
     
     for (TFHppleElement *e in elements) {
         NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+        
+        [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
+        
+        TFHppleElement *child = [e firstChild];
+        
+        [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
+        [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+        
         [returnArray addObject:dictionaryInArray];
     }
     
@@ -138,14 +169,26 @@ static const char COMPLETIONPOINTER;
     NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
-    NSArray *elements = [doc searchWithXPathQuery:@"//div [@class='productranking category2']//img"];
+    NSArray *elements = [doc searchWithXPathQuery:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category2']//li [@class='product_image']//a"];
     
+    if ([elements count] == 0) {
+        [self reloadWebView];
+        return;
+    }
+
     NSMutableArray *returnArray = [NSMutableArray array];
     
     for (TFHppleElement *e in elements) {
+        
         NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+        
+        [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
+        
+        TFHppleElement *child = [e firstChild];
+        
+        [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
+        [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+
         [returnArray addObject:dictionaryInArray];
     }
     
@@ -182,14 +225,20 @@ static const char COMPLETIONPOINTER;
         
         //相關產品
         if ([self.relationProductsArray count] == 0) {
-            NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//ul [@class='recommend']//table//img"];
+            NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//ul [@class='recommend']//table//a"];
             
             if ([relationProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in relationProductsElementsArray) {
                 NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-                [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-                [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+                
+                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
+                
+                TFHppleElement *child = [e firstChild];
+                
+                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
+                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+                
                 [self.relationProductsArray addObject:dictionaryInArray];
             }
         }
@@ -198,16 +247,47 @@ static const char COMPLETIONPOINTER;
     
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
+        //也會想買
+        if ([self.alsoBuyProductArray count] == 0) {
+            NSArray *alsoBuyProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_purchase_result']//a"];
+            
+            if ([alsoBuyProductsElementsArray count] == 0) return;
+            
+            for (TFHppleElement *e in alsoBuyProductsElementsArray) {
+                
+                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+
+                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
+
+                TFHppleElement *child = [e firstChild];
+                
+                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
+                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+                
+                [self.alsoBuyProductArray addObject:dictionaryInArray];
+            }
+        }
+        
+    });
+    
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         //也會喜歡
         if ([self.alsoLikeProductArray count] == 0) {
-            NSArray *alsoLikeProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_purchase_result']//img"];
+            NSArray *alsoLikeProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_relate_result']//a"];
             
             if ([alsoLikeProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in alsoLikeProductsElementsArray) {
                 NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-                [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-                [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+                
+                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
+                
+                TFHppleElement *child = [e firstChild];
+                
+                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
+                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+                
                 [self.alsoLikeProductArray addObject:dictionaryInArray];
             }
         }
@@ -218,14 +298,20 @@ static const char COMPLETIONPOINTER;
         
         //熱門商品
         if ([self.popularProductsArray count] == 0) {
-            NSArray *popularProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//img"];
+            NSArray *popularProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//a"];
             
             if ([popularProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in popularProductsElementsArray) {
                 NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-                [dictionaryInArray setObject:[e objectForKey:@"src"] forKey:@"Thumbnail"];
-                [dictionaryInArray setObject:[e objectForKey:@"alt"] forKey:@"Title"];
+                
+                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
+                
+                TFHppleElement *child = [e firstChild];
+                
+                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
+                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+                
                 [self.popularProductsArray addObject:dictionaryInArray];
             }
         }
@@ -234,6 +320,14 @@ static const char COMPLETIONPOINTER;
     
     dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if ([self.relationProductsArray count] == 0 &&
+                [self.alsoLikeProductArray count] == 0 &&
+                [self.alsoBuyProductArray count] == 0 &&
+                [self.popularProductsArray count] == 0) {
+                [self reloadWebView];
+                return;
+            }
             
             NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
             
@@ -249,6 +343,10 @@ static const char COMPLETIONPOINTER;
                 [returnDictionary setObject:[self.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
             }
             
+            if ([self.alsoBuyProductArray count]) {
+                [returnDictionary setObject:[self.alsoBuyProductArray mutableCopy] forKey:@"AlsoBuy"];
+            }
+            
             if ([self.popularProductsArray count]) {
                 [returnDictionary setObject:[self.popularProductsArray mutableCopy] forKey:@"Popular"];
             }
@@ -260,6 +358,7 @@ static const char COMPLETIONPOINTER;
             [self.productImagesArray removeAllObjects];
             [self.relationProductsArray removeAllObjects];
             [self.alsoLikeProductArray removeAllObjects];
+            [self.alsoBuyProductArray removeAllObjects];
             [self.popularProductsArray removeAllObjects];
             
         });
@@ -282,7 +381,7 @@ static const char COMPLETIONPOINTER;
     if ([self.webviewLoadsArray count] > 0) {
         return;
     } else if ([readyStateString isEqualToString:@"interactive"]) {
-        [webView performSelector:@selector(reload) withObject:nil afterDelay:1.0f];
+        [self reloadWebView];
         return;
     } else {
         switch (self.entryType) {

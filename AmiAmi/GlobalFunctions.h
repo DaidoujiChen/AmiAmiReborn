@@ -10,7 +10,7 @@
 
 @interface GlobalFunctions : NSObject
 
-+(NSString*) specProductStringFromThumbnail : (NSString*) thumbnailString;
++(NSString*) fixProductURL : (NSString*) oriURL;
 
 +(void) imageEffect : (UIView*) view;
 +(void) textEffect : (UIView*) view;

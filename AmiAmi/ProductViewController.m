@@ -42,6 +42,7 @@
     
     if ([productInfoDictionary objectForKey:@"Relation"]) [recordCellTypeArray addObject:@"Relation"];
     if ([productInfoDictionary objectForKey:@"AlsoLike"]) [recordCellTypeArray addObject:@"AlsoLike"];
+    if ([productInfoDictionary objectForKey:@"AlsoBuy"]) [recordCellTypeArray addObject:@"AlsoBuy"];
     if ([productInfoDictionary objectForKey:@"Popular"]) [recordCellTypeArray addObject:@"Popular"];
 }
 
@@ -50,6 +51,8 @@
         return @"相關商品";
     } else if ([recordString isEqualToString:@"AlsoLike"]) {
         return @"你可能也會喜歡";
+    } else if ([recordString isEqualToString:@"AlsoBuy"]) {
+        return @"你可能也會想買";
     } else {
         return @"熱門商品";
     }

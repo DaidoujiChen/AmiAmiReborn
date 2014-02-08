@@ -10,14 +10,14 @@
 
 @implementation GlobalFunctions
 
-+(NSString*) specProductStringFromThumbnail : (NSString*) thumbnailString {
-    NSArray *splitArray = [thumbnailString componentsSeparatedByString:@"/"];
++(NSString*) fixProductURL : (NSString*) oriURL {
+    NSRange findRange = [oriURL rangeOfString:@"http://"];
     
-    NSString *finalString = [splitArray objectAtIndex:[splitArray count]-1];
-    
-    NSArray *finalArray = [finalString componentsSeparatedByString:@"."];
-
-    return [NSString stringWithFormat:@"http://www.amiami.jp/top/detail/detail?scode=%@", [finalArray objectAtIndex:0]];
+    if (findRange.location == NSNotFound) {
+        return [NSString stringWithFormat:@"http://www.amiami.jp%@", oriURL];
+    } else {
+        return oriURL;
+    }
 }
 
 +(void) imageEffect : (UIView*) view {
