@@ -536,15 +536,15 @@
 				0104C54618A220D700FD89D3 /* ProductViewController.h */,
 				0104C54718A220D700FD89D3 /* ProductViewController.m */,
 				0104C54818A220D700FD89D3 /* ProductViewController.xib */,
-				0104C54B18A2264A00FD89D3 /* ProductCollectionCell.h */,
-				0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */,
-				0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */,
-				01983FA918A5027500815BC5 /* OtherProductsCell.h */,
-				01983FAA18A5027500815BC5 /* OtherProductsCell.m */,
-				01983FAC18A5028B00815BC5 /* OtherProductsCell.xib */,
 				01983FAE18A5068B00815BC5 /* CurrentProductInfoCell.h */,
 				01983FAF18A5068B00815BC5 /* CurrentProductInfoCell.m */,
 				01983FB118A5069800815BC5 /* CurrentProductInfoCell.xib */,
+				01983FA918A5027500815BC5 /* OtherProductsCell.h */,
+				01983FAA18A5027500815BC5 /* OtherProductsCell.m */,
+				01983FAC18A5028B00815BC5 /* OtherProductsCell.xib */,
+				0104C54B18A2264A00FD89D3 /* ProductCollectionCell.h */,
+				0104C54C18A2264A00FD89D3 /* ProductCollectionCell.m */,
+				0104C54E18A2271A00FD89D3 /* ProductCollectionCell.xib */,
 			);
 			name = Product;
 			sourceTree = "<group>";

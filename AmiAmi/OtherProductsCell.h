@@ -15,11 +15,11 @@
 
 @interface OtherProductsCell : UITableViewCellBase {
     NSArray *productsInfoArray;
-    void (^clickCellBlock)(NSDictionary *result);
+    void (^onClickCollectionCell)(NSDictionary *result);
 }
 
 @property (nonatomic, strong) NSArray *productsInfoArray;
-@property (nonatomic, copy) void (^clickCellBlock)(NSDictionary *result);
+@property (nonatomic, copy) void (^onClickCollectionCell)(NSDictionary *result);
 
 @property (weak, nonatomic) IBOutlet UILabel *productTypeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *productCollectionView;

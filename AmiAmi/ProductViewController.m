@@ -9,6 +9,9 @@
 #import "ProductViewController.h"
 
 @interface ProductViewController (Private)
+- (void)productTableViewSetting;
+- (void)makeRecordCellTypeArray;
+-(NSString*) chooseProductTypeText : (NSString*) recordString;
 @end
 
 @implementation ProductViewController
@@ -27,6 +30,31 @@
 
 #pragma mark - private
 
+- (void)productTableViewSetting {
+    [_productsTableView registerClass:[CurrentProductInfoCell class] forCellReuseIdentifier:@"CurrentProductInfoCell"];
+    [_productsTableView registerClass:[OtherProductsCell class] forCellReuseIdentifier:@"OtherProductsCell"];
+    [_productsTableView setBackgroundView:nil];
+    [_productsTableView setBackgroundColor:[UIColor clearColor]];
+}
+
+- (void)makeRecordCellTypeArray {
+    recordCellTypeArray = [[NSMutableArray alloc] init];
+    
+    if ([productInfoDictionary objectForKey:@"Relation"]) [recordCellTypeArray addObject:@"Relation"];
+    if ([productInfoDictionary objectForKey:@"AlsoLike"]) [recordCellTypeArray addObject:@"AlsoLike"];
+    if ([productInfoDictionary objectForKey:@"Popular"]) [recordCellTypeArray addObject:@"Popular"];
+}
+
+-(NSString*) chooseProductTypeText : (NSString*) recordString {
+    if ([recordString isEqualToString:@"Relation"]) {
+        return @"相關商品";
+    } else if ([recordString isEqualToString:@"AlsoLike"]) {
+        return @"你可能也會喜歡";
+    } else {
+        return @"熱門商品";
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -34,7 +62,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tableDataArray count] + 1;
+    return [recordCellTypeArray count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,17 +87,12 @@
         
         NSInteger fixIndex = indexPath.row - 1;
         
-        if ([[tableDataArray objectAtIndex:fixIndex] isEqualToString:@"Relation"]) {
-            [cell.productTypeLabel setText:@"相關商品"];
-        } else if ([[tableDataArray objectAtIndex:fixIndex] isEqualToString:@"AlsoLike"]) {
-            [cell.productTypeLabel setText:@"你也會喜歡"];
-        } else {
-            [cell.productTypeLabel setText:@"熱門商品"];
-        }
+        [cell.productTypeLabel setText:[self chooseProductTypeText:[recordCellTypeArray objectAtIndex:fixIndex]]];
         
-        cell.productsInfoArray = [productInfoDictionary objectForKey:[tableDataArray objectAtIndex:fixIndex]];
+        cell.productsInfoArray = [productInfoDictionary objectForKey:[recordCellTypeArray objectAtIndex:fixIndex]];
+        [cell.productCollectionView reloadData];
         
-        [cell setClickCellBlock:^(NSDictionary *result) {
+        [cell setOnClickCollectionCell:^(NSDictionary *result) {
             ProductViewController *next = [[ProductViewController alloc] init];
             next.productInfoDictionary = result;
             [self.navigationController pushViewController:next animated:YES];
@@ -83,11 +106,13 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.row == 0) {
         return 188.0f;
     } else {
         return 171.0f;
     }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,16 +138,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_productsTableView registerClass:[CurrentProductInfoCell class] forCellReuseIdentifier:@"CurrentProductInfoCell"];
-    [_productsTableView registerClass:[OtherProductsCell class] forCellReuseIdentifier:@"OtherProductsCell"];
-    [_productsTableView setBackgroundView:nil];
-    [_productsTableView setBackgroundColor:[UIColor clearColor]];
+    [self productTableViewSetting];
     
-    tableDataArray = [[NSMutableArray alloc] init];
-    
-    if ([productInfoDictionary objectForKey:@"Relation"]) [tableDataArray addObject:@"Relation"];
-    if ([productInfoDictionary objectForKey:@"AlsoLike"]) [tableDataArray addObject:@"AlsoLike"];
-    if ([productInfoDictionary objectForKey:@"Popular"]) [tableDataArray addObject:@"Popular"];
+    [self makeRecordCellTypeArray];
 }
 
 @end

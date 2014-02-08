@@ -10,14 +10,13 @@
 
 @implementation OtherProductsCell
 
-@synthesize clickCellBlock;
+@synthesize onClickCollectionCell;
 @synthesize productsInfoArray;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [_productCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
-        
         [GlobalFunctions textEffect:_productTypeLabel];
     }
     return self;
@@ -60,7 +59,7 @@
         if (status) {
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
-            clickCellBlock(productDictionary);
+            onClickCollectionCell(productDictionary);
         }
     }];
 

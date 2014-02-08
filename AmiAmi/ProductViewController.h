@@ -17,7 +17,7 @@
 
 @interface ProductViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSDictionary *productInfoDictionary;
-    NSMutableArray *tableDataArray;
+    NSMutableArray *recordCellTypeArray;
 }
 
 @property (nonatomic, strong) NSDictionary *productInfoDictionary;
