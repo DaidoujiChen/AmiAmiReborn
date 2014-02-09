@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSMutableArray *popularProductsArray;
 @property (nonatomic, strong) NSMutableArray *alsoLikeProductArray;
 @property (nonatomic, strong) NSMutableArray *alsoBuyProductArray;
+
+@property (nonatomic, strong) NSTimer *webViewTimer;
+@property (nonatomic, strong) NSLock *parseLock;
 @end
 
 @interface AmiAmiParser (Private)
@@ -33,7 +36,6 @@
 +(void) setWebViewTimer : (NSTimer*) webViewTimer;
 +(NSTimer*) webViewTimer;
 
-+(void) parse : (NSTimer*) timer;
 +(NSLock*) parseLock;
 
 + (void)rankParser:(UIWebView *)webView;
@@ -41,7 +43,7 @@
 + (void)productParser:(UIWebView *)webView;
 
 +(void) freeMemory;
-
++(void) parse : (NSTimer*) timer;
 @end
 
 @implementation AmiAmiParser
@@ -53,6 +55,9 @@
 @dynamic popularProductsArray;
 @dynamic alsoLikeProductArray;
 @dynamic alsoBuyProductArray;
+
+@dynamic webViewTimer;
+@dynamic parseLock;
 
 static const char ENTRYTYPEPOINTER;
 
@@ -136,7 +141,7 @@ static const char PARSELOCKPOINTER;
 
 +(void) parse : (NSTimer*) timer {
     
-    if ([[self parseLock] tryLock]) {
+    if ([self.parseLock tryLock]) {
         UIWebView *webView = objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
         switch (self.entryType) {
             case AmiAmiParserEntryTypeRank:
@@ -154,8 +159,8 @@ static const char PARSELOCKPOINTER;
 }
 
 +(void) freeMemory {
-    [[self webViewTimer] invalidate];
-    [[self parseLock] unlock];
+    [self.webViewTimer invalidate];
+    [self.parseLock unlock];
     objc_removeAssociatedObjects(self);
 }
 
@@ -168,7 +173,7 @@ static const char PARSELOCKPOINTER;
     NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//div [@class='product_img']//a"];
     
     if ([elements count] == 0) {
-        [[self parseLock] unlock];
+        [self.parseLock unlock];
         return;
     }
     
@@ -202,7 +207,7 @@ static const char PARSELOCKPOINTER;
     NSArray *elements = [doc searchWithXPathQuery:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category2']//li [@class='product_image']//a"];
 
     if ([elements count] == 0) {
-        [[self parseLock] unlock];
+        [self.parseLock unlock];
         return;
     }
 
@@ -356,7 +361,7 @@ static const char PARSELOCKPOINTER;
                 [self.alsoLikeProductArray count] == 0 &&
                 [self.alsoBuyProductArray count] == 0 &&
                 [self.popularProductsArray count] == 0) {
-                [[self parseLock] unlock];
+                [self.parseLock unlock];
                 return;
             }
 
@@ -395,12 +400,12 @@ static const char PARSELOCKPOINTER;
 
 + (void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    if (![self webViewTimer]) {
-        [self setWebViewTimer:[NSTimer scheduledTimerWithTimeInterval:1.5f
-                                                               target:self
-                                                             selector:@selector(parse:)
-                                                             userInfo:nil
-                                                              repeats:YES]];
+    if (!self.webViewTimer) {
+        self.webViewTimer = [NSTimer scheduledTimerWithTimeInterval:1.5f
+                                                             target:self
+                                                           selector:@selector(parse:)
+                                                           userInfo:nil
+                                                            repeats:YES];
     }
     
 }
