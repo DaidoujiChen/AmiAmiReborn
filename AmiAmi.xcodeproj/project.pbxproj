@@ -992,7 +992,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ChilunChen/Documents/AmiAmi/AmiAmi,
+					"$(SRCROOT)/AmiAmi",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
@@ -1016,7 +1016,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ChilunChen/Documents/AmiAmi/AmiAmi,
+					"$(SRCROOT)/AmiAmi",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AmiAmi/AmiAmi-Prefix.pch";
