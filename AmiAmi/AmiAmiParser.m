@@ -13,7 +13,6 @@
 @interface AmiAmiParser ()
 @property (nonatomic, assign) AmiAmiParserEntryType entryType;
 
-@property (nonatomic, strong) NSMutableArray *webviewLoadsArray;
 @property (nonatomic, strong) NSMutableArray *productImagesArray;
 @property (nonatomic, strong) NSMutableArray *relationProductsArray;
 @property (nonatomic, strong) NSMutableArray *popularProductsArray;
@@ -25,33 +24,38 @@
 +(void) setEntryType : (AmiAmiParserEntryType) entryType;
 +(AmiAmiParserEntryType) entryType;
 
-+(NSMutableArray*) webviewLoadsArray;
 +(NSMutableArray*) productImagesArray;
 +(NSMutableArray*) relationProductsArray;
 +(NSMutableArray*) popularProductsArray;
 +(NSMutableArray*) alsoLikeProductArray;
 +(NSMutableArray*) alsoBuyProductArray;
 
++(void) setWebViewTimer : (NSTimer*) webViewTimer;
++(NSTimer*) webViewTimer;
+
++(void) parse : (NSTimer*) timer;
++(NSLock*) parseLock;
+
 + (void)rankParser:(UIWebView *)webView;
 + (void)biShoJoParser:(UIWebView *)webView;
 + (void)productParser:(UIWebView *)webView;
 
-+(void) reloadWebView;
 +(void) freeMemory;
+
 @end
 
 @implementation AmiAmiParser
 
 @dynamic entryType;
 
-@dynamic webviewLoadsArray;
 @dynamic productImagesArray;
 @dynamic relationProductsArray;
 @dynamic popularProductsArray;
+@dynamic alsoLikeProductArray;
+@dynamic alsoBuyProductArray;
 
 static const char ENTRYTYPEPOINTER;
 
-static const char WEBVIEWLOADSCOUNTPOINTER;
 static const char PRODUCTIMAGESPOINTER;
 static const char RELATIONPRODUCTSPOINTER;
 static const char POPULARPRODUCTSPOINTER;
@@ -60,6 +64,9 @@ static const char ALSOBUYPRODUCTPOINTER;
 
 static const char PARSEWEBVIEWPOINTER;
 static const char COMPLETIONPOINTER;
+
+static const char WEBVIEWTIMERPOINTER;
+static const char PARSELOCKPOINTER;
 
 #pragma mark - private
 
@@ -74,11 +81,20 @@ static const char COMPLETIONPOINTER;
     return [entry intValue];
 }
 
-+(NSMutableArray*) webviewLoadsArray {
-    if (!objc_getAssociatedObject(self, &WEBVIEWLOADSCOUNTPOINTER)) {
-        objc_setAssociatedObject(self, &WEBVIEWLOADSCOUNTPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++(void) setWebViewTimer : (NSTimer*) webViewTimer {
+    objc_setAssociatedObject(self, &WEBVIEWTIMERPOINTER, webViewTimer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(NSTimer*) webViewTimer {
+    return objc_getAssociatedObject(self, &WEBVIEWTIMERPOINTER);
+}
+
++(NSLock*) parseLock {
+    if (!objc_getAssociatedObject(self, &PARSELOCKPOINTER)) {
+        NSLock *parseLock = [[NSLock alloc] init];
+        objc_setAssociatedObject(self, &PARSELOCKPOINTER, parseLock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    return objc_getAssociatedObject(self, &WEBVIEWLOADSCOUNTPOINTER);
+    return objc_getAssociatedObject(self, &PARSELOCKPOINTER);
 }
 
 +(NSMutableArray*) productImagesArray {
@@ -118,13 +134,29 @@ static const char COMPLETIONPOINTER;
 
 #pragma mark function
 
-+(void) freeMemory {
-    objc_removeAssociatedObjects(self);
++(void) parse : (NSTimer*) timer {
+    
+    if ([[self parseLock] tryLock]) {
+        UIWebView *webView = objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
+        switch (self.entryType) {
+            case AmiAmiParserEntryTypeRank:
+                [self rankParser:webView];
+                break;
+            case AmiAmiParserEntryTypeAllBiShouJo:
+                [self biShoJoParser:webView];
+                break;
+            case AmiAmiParserEntryTypeProduct:
+                [self productParser:webView];
+                break;
+        }
+    }
+    
 }
 
-+(void) reloadWebView {
-    UIWebView *webView = objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
-    [webView performSelector:@selector(reload) withObject:nil afterDelay:1.0f];
++(void) freeMemory {
+    [[self webViewTimer] invalidate];
+    [[self parseLock] unlock];
+    objc_removeAssociatedObjects(self);
 }
 
 + (void)biShoJoParser:(UIWebView *)webView {
@@ -136,7 +168,7 @@ static const char COMPLETIONPOINTER;
     NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//div [@class='product_img']//a"];
     
     if ([elements count] == 0) {
-        [self reloadWebView];
+        [[self parseLock] unlock];
         return;
     }
     
@@ -168,9 +200,9 @@ static const char COMPLETIONPOINTER;
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     NSArray *elements = [doc searchWithXPathQuery:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category2']//li [@class='product_image']//a"];
-    
+
     if ([elements count] == 0) {
-        [self reloadWebView];
+        [[self parseLock] unlock];
         return;
     }
 
@@ -198,7 +230,7 @@ static const char COMPLETIONPOINTER;
 
 + (void)productParser:(UIWebView *)webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    
+
     NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
@@ -324,10 +356,10 @@ static const char COMPLETIONPOINTER;
                 [self.alsoLikeProductArray count] == 0 &&
                 [self.alsoBuyProductArray count] == 0 &&
                 [self.popularProductsArray count] == 0) {
-                [self reloadWebView];
+                [[self parseLock] unlock];
                 return;
             }
-            
+
             NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
             
             if ([self.productImagesArray count]) {
@@ -361,38 +393,19 @@ static const char COMPLETIONPOINTER;
 
 #pragma mark - UIWebViewDelegate
 
-+ (void)webViewDidStartLoad:(UIWebView *)webView {
-    [self.webviewLoadsArray addObject:[NSObject new]];
-}
-
 + (void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    [self.webviewLoadsArray removeLastObject];
-    
-    NSString *readyStateString = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
-    
-    if ([self.webviewLoadsArray count] > 0) {
-        return;
-    } else if ([readyStateString isEqualToString:@"interactive"]) {
-        [self reloadWebView];
-        return;
-    } else {
-        switch (self.entryType) {
-            case AmiAmiParserEntryTypeRank:
-                [self rankParser:webView];
-                break;
-            case AmiAmiParserEntryTypeAllBiShouJo:
-                [self biShoJoParser:webView];
-                break;
-            case AmiAmiParserEntryTypeProduct:
-                [self productParser:webView];
-                break;
-        }
+    if (![self webViewTimer]) {
+        [self setWebViewTimer:[NSTimer scheduledTimerWithTimeInterval:1.5f
+                                                               target:self
+                                                             selector:@selector(parse:)
+                                                             userInfo:nil
+                                                              repeats:YES]];
     }
+    
 }
 
 + (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    [self.webviewLoadsArray removeLastObject];
     NSLog(@"someone fail : %@", error);
 }
 
