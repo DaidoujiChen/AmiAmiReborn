@@ -7,6 +7,10 @@ DaidoujiChen
 
 daidoujichen@gmail.com
 
+總覽
+======
+因為本身平常喜歡逛 amiami (http://www.amiami.jp/) 這個網站, 但是由於這個網站的手機版網頁寫得並不像桌面版這麼好看, 圖片也比較少, 操作也不便利, 於是萌生寫作這個 app 的念頭.
+
 第三方套件
 ======
 
