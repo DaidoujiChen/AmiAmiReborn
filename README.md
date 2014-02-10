@@ -1,7 +1,10 @@
-AmiAmi (http://www.amiami.jp/)
+AmiAmi
 ======
 
 ![image](https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmiDemo20140210.gif)
+
+DaidoujiChen
+daidoujichen@gmail.com
 
 第三方套件
 ======
