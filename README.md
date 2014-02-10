@@ -7,10 +7,10 @@ AmiAmi (http://www.amiami.jp/)
 ======
 
 ### hpple ###
-- 用來 parse html 網頁.
+- parse html 網頁.
 
 ### AFNetworking ###
-- 本來要用的, 後來沒有用了.
+- 本來要用的, 後來沒有用.
 
 ### SDWebImage ###
 - 異步讀取網路圖片.
