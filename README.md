@@ -15,17 +15,17 @@ AmiAmi (http://www.amiami.jp/)
 ### SDWebImage ###
 - 異步讀取網路圖片.
 
-### OSNavigationController ### 
+### OSNavigationController ###
 - 解決 uiviewcontroller 透明背景時, navigationcontroller 造成的延遲.
 
-### FXBlurView ### 
+### FXBlurView ###
 - 類似 ios7 毛玻璃效果, 不過可以控制模糊程度.
 
-### PhotoViewer ### 
+### PhotoViewer ###
 - 簡易使用的瀏覽圖片套件.
 
-### SVProgressHUD ### 
+### SVProgressHUD ###
 - 網路讀取中使用的 HUD 效果.
 
-### GooglePlus SDK ### 
+### GooglePlus SDK ###
 - 用於分享到 google plus.
