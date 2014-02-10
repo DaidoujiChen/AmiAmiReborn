@@ -22,30 +22,23 @@ daidoujichen@gmail.com
 - hpple
   - parse html 網頁.
 
-
 - AFNetworking
-  - 本來要用的, 後來沒有用.
-
+  - 因為 amiami 網站很多東西是使用 javascript 後來才 load 出來的, 因而無法使用 afnetworking 直接讀取 html 做 parse.
 
 - SDWebImage
   - 異步讀取網路圖片.
 
-
 - OSNavigationController
   - 解決 uiviewcontroller 透明背景時, navigationcontroller 造成的延遲.
 
-
 - FXBlurView
-  - 類似 ios7 毛玻璃效果, 不過可以控制模糊程度.
-
+  - 類似 ios7 毛玻璃效果, 不過可以控制模糊程度, 比另一個套件 iOS-blur, 使用上來的靈活.
 
 - PhotoViewer
   - 簡易使用的瀏覽圖片套件.
 
-
 - SVProgressHUD
   - 網路讀取中使用的 HUD 效果.
-
 
 - GooglePlus SDK
   - 用於分享到 google plus.
