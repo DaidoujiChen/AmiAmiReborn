@@ -14,6 +14,7 @@
 @property (nonatomic, assign) AmiAmiParserEntryType entryType;
 
 @property (nonatomic, strong) NSMutableArray *productImagesArray;
+@property (nonatomic, strong) NSMutableArray *productInfomationArray;
 @property (nonatomic, strong) NSMutableArray *relationProductsArray;
 @property (nonatomic, strong) NSMutableArray *popularProductsArray;
 @property (nonatomic, strong) NSMutableArray *alsoLikeProductArray;
@@ -44,6 +45,8 @@
 
 +(void) freeMemory;
 +(void) parse : (NSTimer*) timer;
+
++(NSString*) mergeContentTexts : (TFHppleElement*) content;
 @end
 
 @implementation AmiAmiParser
@@ -51,6 +54,7 @@
 @dynamic entryType;
 
 @dynamic productImagesArray;
+@dynamic productInfomationArray;
 @dynamic relationProductsArray;
 @dynamic popularProductsArray;
 @dynamic alsoLikeProductArray;
@@ -62,6 +66,7 @@
 static const char ENTRYTYPEPOINTER;
 
 static const char PRODUCTIMAGESPOINTER;
+static const char PRODUCTINFORMATIONPOINTER;
 static const char RELATIONPRODUCTSPOINTER;
 static const char POPULARPRODUCTSPOINTER;
 static const char ALSOLIKEPRODUCTPOINTER;
@@ -109,6 +114,13 @@ static const char PARSELOCKPOINTER;
     return objc_getAssociatedObject(self, &PRODUCTIMAGESPOINTER);
 }
 
++(NSMutableArray*) productInfomationArray {
+    if (!objc_getAssociatedObject(self, &PRODUCTINFORMATIONPOINTER)) {
+        objc_setAssociatedObject(self, &PRODUCTINFORMATIONPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return objc_getAssociatedObject(self, &PRODUCTINFORMATIONPOINTER);
+}
+
 +(NSMutableArray*) relationProductsArray {
     if (!objc_getAssociatedObject(self, &RELATIONPRODUCTSPOINTER)) {
         objc_setAssociatedObject(self, &RELATIONPRODUCTSPOINTER, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -138,6 +150,23 @@ static const char PARSELOCKPOINTER;
 }
 
 #pragma mark function
+
++(NSString*) mergeContentTexts : (TFHppleElement*) content {
+    NSMutableString *returnString = [NSMutableString string];
+    
+    NSCharacterSet *emptyCharacter = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    
+    if ([content text] != nil &&
+        ![[[[content text] componentsSeparatedByCharactersInSet:emptyCharacter] componentsJoinedByString:@""] isEqualToString:@""]) {
+        [returnString appendString:[content text]];
+    }
+    
+    for (TFHppleElement *eachChild in [content children]) {
+        [returnString appendString:[self mergeContentTexts:eachChild]];
+    }
+    
+    return returnString;
+}
 
 +(void) parse : (NSTimer*) timer {
     
@@ -259,6 +288,34 @@ static const char PARSELOCKPOINTER;
     
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
+        //產品資訊
+        if ([self.productInfomationArray count] == 0) {
+            NSArray *productInformationElementsArray = [doc searchWithXPathQuery:@"//div [@id='right_menu']//dl [@class='spec_data']"];
+            
+            if ([productInformationElementsArray count] == 0) return;
+            
+            for (TFHppleElement *e in productInformationElementsArray) {
+                
+                for (int i=0; i<[[e childrenWithTagName:@"dt"] count]; i++) {
+                    if ([[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] isEqualToString:@"購入制限"] ||
+                        [[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] isEqualToString:@"備考"]) {
+                        continue;
+                    } else {
+                        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+                        
+                        [dictionaryInArray setObject:[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] forKey:@"Title"];
+                        [dictionaryInArray setObject:[self mergeContentTexts:[[e childrenWithTagName:@"dd"] objectAtIndex:i]] forKey:@"Content"];
+                        
+                        [self.productInfomationArray addObject:dictionaryInArray];
+                    }
+                }
+            }
+        }
+        
+    });
+    
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         //相關產品
         if ([self.relationProductsArray count] == 0) {
             NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//ul [@class='recommend']//table//a"];
@@ -369,6 +426,10 @@ static const char PARSELOCKPOINTER;
             
             if ([self.productImagesArray count]) {
                 [returnDictionary setObject:[self.productImagesArray mutableCopy] forKey:@"ProductImages"];
+            }
+            
+            if ([self.productInfomationArray count]) {
+                [returnDictionary setObject:[self.productInfomationArray mutableCopy] forKey:@"ProductInformation"];
             }
             
             if ([self.relationProductsArray count]) {

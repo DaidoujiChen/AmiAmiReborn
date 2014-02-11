@@ -14,5 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *currentProductImageView;
 @property (weak, nonatomic) IBOutlet UITextView *currentProductTitleTextView;
+@property (weak, nonatomic) IBOutlet UITextView *currentProductInformationTextView;
 
 @end

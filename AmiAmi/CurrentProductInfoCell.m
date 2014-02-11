@@ -15,6 +15,7 @@
     if (self) {
         [GlobalFunctions imageEffect:_currentProductImageView];
         [GlobalFunctions textEffect:_currentProductTitleTextView];
+        [GlobalFunctions textEffect:_currentProductInformationTextView];
     }
     return self;
 }

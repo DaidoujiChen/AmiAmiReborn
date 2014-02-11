@@ -81,6 +81,14 @@
                                             }];
         [cell.currentProductTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
         
+        NSMutableString *productInformationString = [NSMutableString string];
+        
+        for (NSDictionary *eachInformation in [productInfoDictionary objectForKey:@"ProductInformation"]) {
+            [productInformationString appendFormat:@"%@:%@\n", [eachInformation objectForKey:@"Title"], [eachInformation objectForKey:@"Content"]];
+        }
+        
+        [cell.currentProductInformationTextView setText:productInformationString];
+        
         return cell;
     } else {
         static NSString *CellIdentifier = @"OtherProductsCell";
@@ -111,7 +119,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
-        return 188.0f;
+        return 228.0f;
     } else {
         return 171.0f;
     }
