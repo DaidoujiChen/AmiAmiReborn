@@ -16,6 +16,10 @@ daidoujichen@gmail.com
 - ios7.0 up
 - iphone 4" / 3.5"
 
+如果你有 JB
+======
+可以幫我試試這個檔案能不能用, <a href="https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmi_20140212.ipa">AmiAmi_20140212</a>, 如果不能用, 而且你又很好心的話, 可以發個信告訴我, 我會很感激, 謝謝.
+
 第三方套件
 ======
 
