@@ -11,6 +11,15 @@
 #import <objc/runtime.h>
 
 @interface AmiAmiParser (Private)
++(void) setArrayCompletion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
++(void (^)(AmiAmiParserStatus status, NSArray *result)) arrayCompletion;
+
++(void) setDictionaryCompletion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion;
++(void (^)(AmiAmiParserStatus status, NSDictionary *result)) dictionaryCompletion;
+
++(void) setParseWebView : (UIWebView*) parseWebView;
++(UIWebView*) parseWebView;
+
 +(void) setEntryType : (AmiAmiParserEntryType) entryType;
 +(AmiAmiParserEntryType) entryType;
 
@@ -33,6 +42,9 @@
 +(void) parse : (NSTimer*) timer;
 
 +(NSString*) mergeContentTexts : (TFHppleElement*) content;
++ (NSMutableDictionary *)parshThumbnailWithTitle:(TFHppleElement *)element;
+
++(UIWebView*) makeParseWebViewWithURL : (NSURL*) parseURL;
 @end
 
 @implementation AmiAmiParser
@@ -56,8 +68,32 @@ static const char PARSELOCKPOINTER;
 
 #pragma mark access object
 
++(void) setArrayCompletion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
+    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
++(void (^)(AmiAmiParserStatus status, NSArray *result)) arrayCompletion {
+    return objc_getAssociatedObject(self, &COMPLETIONPOINTER);
+}
+
++(void) setDictionaryCompletion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
+    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
++(void (^)(AmiAmiParserStatus status, NSDictionary *result)) dictionaryCompletion {
+    return objc_getAssociatedObject(self, &COMPLETIONPOINTER);
+}
+
 +(void) setEntryType : (AmiAmiParserEntryType) entryType {
     objc_setAssociatedObject(self, &ENTRYTYPEPOINTER, [NSNumber numberWithInt:entryType], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(void) setParseWebView : (UIWebView*) parseWebView {
+    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parseWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(UIWebView*) parseWebView {
+    return objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
 }
 
 +(AmiAmiParserEntryType) entryType {
@@ -125,6 +161,22 @@ static const char PARSELOCKPOINTER;
 
 #pragma mark function
 
++(UIWebView*) makeParseWebViewWithURL : (NSURL*) parseURL {
+    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
+    [parserWebView loadRequest:[NSURLRequest requestWithURL:parseURL]];
+    return parserWebView;
+}
+
++ (NSMutableDictionary *)parshThumbnailWithTitle:(TFHppleElement *)element {
+    NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
+    [dictionaryInArray setObject:[element objectForKey:@"href"] forKey:@"URL"];
+    TFHppleElement *child = [element firstChild];
+    [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
+    [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+    return dictionaryInArray;
+}
+
 +(NSString*) mergeContentTexts : (TFHppleElement*) content {
     NSMutableString *returnString = [NSMutableString string];
     
@@ -183,20 +235,10 @@ static const char PARSELOCKPOINTER;
     NSMutableArray *returnArray = [NSMutableArray array];
     
     for (TFHppleElement *e in elements) {
-        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        
-        [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
-        
-        TFHppleElement *child = [e firstChild];
-        
-        [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
-        
-        [returnArray addObject:dictionaryInArray];
+        [returnArray addObject:[self parshThumbnailWithTitle:e]];
     }
-    
-    void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
-    completion(AmiAmiParserStatusSuccess, returnArray);
+
+    [self arrayCompletion](AmiAmiParserStatusSuccess, returnArray);
     [SVProgressHUD dismiss];
     [self freeMemory];
 }
@@ -217,21 +259,10 @@ static const char PARSELOCKPOINTER;
     NSMutableArray *returnArray = [NSMutableArray array];
     
     for (TFHppleElement *e in elements) {
-        
-        NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-        
-        [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
-        
-        TFHppleElement *child = [e firstChild];
-        
-        [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
-        [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
-
-        [returnArray addObject:dictionaryInArray];
+        [returnArray addObject:[self parshThumbnailWithTitle:e]];
     }
     
-    void (^completion)(AmiAmiParserStatus status, NSArray *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
-    completion(AmiAmiParserStatusSuccess, returnArray);
+    [self arrayCompletion](AmiAmiParserStatusSuccess, returnArray);
     [SVProgressHUD dismiss];
     [self freeMemory];
 }
@@ -297,16 +328,7 @@ static const char PARSELOCKPOINTER;
             if ([relationProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in relationProductsElementsArray) {
-                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-                
-                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
-                
-                TFHppleElement *child = [e firstChild];
-                
-                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
-                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
-                
-                [[self relationProductsArray] addObject:dictionaryInArray];
+                [[self relationProductsArray] addObject:[self parshThumbnailWithTitle:e]];
             }
         }
 
@@ -321,17 +343,7 @@ static const char PARSELOCKPOINTER;
             if ([alsoBuyProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in alsoBuyProductsElementsArray) {
-                
-                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-
-                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
-
-                TFHppleElement *child = [e firstChild];
-                
-                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
-                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
-                
-                [[self alsoBuyProductArray] addObject:dictionaryInArray];
+                [[self alsoBuyProductArray] addObject:[self parshThumbnailWithTitle:e]];
             }
         }
         
@@ -346,16 +358,7 @@ static const char PARSELOCKPOINTER;
             if ([alsoLikeProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in alsoLikeProductsElementsArray) {
-                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-                
-                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
-                
-                TFHppleElement *child = [e firstChild];
-                
-                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
-                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
-                
-                [[self alsoLikeProductArray] addObject:dictionaryInArray];
+                [[self alsoLikeProductArray] addObject:[self parshThumbnailWithTitle:e]];
             }
         }
         
@@ -370,16 +373,7 @@ static const char PARSELOCKPOINTER;
             if ([popularProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in popularProductsElementsArray) {
-                NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-                
-                [dictionaryInArray setObject:[e objectForKey:@"href"] forKey:@"URL"];
-                
-                TFHppleElement *child = [e firstChild];
-                
-                [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
-                [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
-                
-                [[self popularProductsArray] addObject:dictionaryInArray];
+                [[self popularProductsArray] addObject:[self parshThumbnailWithTitle:e]];
             }
         }
         
@@ -421,9 +415,8 @@ static const char PARSELOCKPOINTER;
             if ([[self popularProductsArray] count]) {
                 [returnDictionary setObject:[[self popularProductsArray] mutableCopy] forKey:@"Popular"];
             }
-            
-            void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
-            completion(AmiAmiParserStatusSuccess, returnDictionary);
+
+            [self dictionaryCompletion](AmiAmiParserStatusSuccess, returnDictionary);
             [SVProgressHUD dismiss];
             [self freeMemory];
         });
@@ -453,32 +446,23 @@ static const char PARSELOCKPOINTER;
 
 +(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [SVProgressHUD showWithStatus:@"讀取最新美少女商品..." maskType:SVProgressHUDMaskTypeBlack];
-    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self setArrayCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeAllBiShouJo];
-    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
-    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/bishoujo.html"]]];
-    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/bishoujo.html"]]];
 }
 
 +(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [SVProgressHUD showWithStatus:@"讀取美少女排行商品..." maskType:SVProgressHUDMaskTypeBlack];
-    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self setArrayCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeRank];
-    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
-    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]]];
-    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]]];
 }
 
 +(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
     [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
-    objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self setDictionaryCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeProduct];
-    UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
-    [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
-    objc_setAssociatedObject(self, &PARSEWEBVIEWPOINTER, parserWebView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:urlString]]];
 }
 
 @end
