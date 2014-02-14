@@ -197,16 +197,15 @@ static const char PARSELOCKPOINTER;
 +(void) parse : (NSTimer*) timer {
     
     if ([[self parseLock] tryLock]) {
-        UIWebView *webView = objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
         switch ([self entryType]) {
             case AmiAmiParserEntryTypeRank:
-                [self rankParser:webView];
+                [self rankParser:[self parseWebView]];
                 break;
             case AmiAmiParserEntryTypeAllBiShouJo:
-                [self biShoJoParser:webView];
+                [self biShoJoParser:[self parseWebView]];
                 break;
             case AmiAmiParserEntryTypeProduct:
-                [self productParser:webView];
+                [self productParser:[self parseWebView]];
                 break;
         }
     }
