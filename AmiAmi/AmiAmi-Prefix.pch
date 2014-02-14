@@ -16,5 +16,8 @@
     #import "AmiAmiParser.h"
     #import "SVProgressHUD.h"
     #import "GlobalFunctions.h"
-static NSString * const kClientId = @"577014773497-mf381t83vlspjg1lv3tatnhlr7o06o58.apps.googleusercontent.com";
+    #import "FICImageCache.h"
+    #import "FICDPhoto.h"
+    #import "UIImageView+WebCache.h"
+    static NSString * const kClientId = @"577014773497-mf381t83vlspjg1lv3tatnhlr7o06o58.apps.googleusercontent.com";
 #endif

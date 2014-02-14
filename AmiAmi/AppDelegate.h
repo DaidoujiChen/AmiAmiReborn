@@ -11,9 +11,6 @@
 #import <GooglePlus/GooglePlus.h>
 #import "FXBlurView.h"
 #import "OSNavigationController.h"
-#import "FICImageCache.h"
-#import "FICDPhoto.h"
-#import "UIImageView+WebCache.h"
 
 #import "MainViewController.h"
 

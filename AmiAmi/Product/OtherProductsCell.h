@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FICImageCache.h"
-#import "FICDPhoto.h"
-#import "UIImageView+WebCache.h"
-
 #import "UITableViewCellBase.h"
 #import "ProductCollectionCell.h"
 

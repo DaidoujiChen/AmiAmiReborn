@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FICImageCache.h"
-#import "FICDPhoto.h"
-#import "UIImageView+WebCache.h"
 #import "MyPhoto.h"
 #import "MyPhotoSource.h"
 
