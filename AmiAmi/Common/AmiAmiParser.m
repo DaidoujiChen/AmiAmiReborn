@@ -10,20 +10,6 @@
 
 #import <objc/runtime.h>
 
-@interface AmiAmiParser ()
-@property (nonatomic, assign) AmiAmiParserEntryType entryType;
-
-@property (nonatomic, strong) NSMutableArray *productImagesArray;
-@property (nonatomic, strong) NSMutableArray *productInfomationArray;
-@property (nonatomic, strong) NSMutableArray *relationProductsArray;
-@property (nonatomic, strong) NSMutableArray *popularProductsArray;
-@property (nonatomic, strong) NSMutableArray *alsoLikeProductArray;
-@property (nonatomic, strong) NSMutableArray *alsoBuyProductArray;
-
-@property (nonatomic, strong) NSTimer *webViewTimer;
-@property (nonatomic, strong) NSLock *parseLock;
-@end
-
 @interface AmiAmiParser (Private)
 +(void) setEntryType : (AmiAmiParserEntryType) entryType;
 +(AmiAmiParserEntryType) entryType;
@@ -50,18 +36,6 @@
 @end
 
 @implementation AmiAmiParser
-
-@dynamic entryType;
-
-@dynamic productImagesArray;
-@dynamic productInfomationArray;
-@dynamic relationProductsArray;
-@dynamic popularProductsArray;
-@dynamic alsoLikeProductArray;
-@dynamic alsoBuyProductArray;
-
-@dynamic webViewTimer;
-@dynamic parseLock;
 
 static const char ENTRYTYPEPOINTER;
 
@@ -170,9 +144,9 @@ static const char PARSELOCKPOINTER;
 
 +(void) parse : (NSTimer*) timer {
     
-    if ([self.parseLock tryLock]) {
+    if ([[self parseLock] tryLock]) {
         UIWebView *webView = objc_getAssociatedObject(self, &PARSEWEBVIEWPOINTER);
-        switch (self.entryType) {
+        switch ([self entryType]) {
             case AmiAmiParserEntryTypeRank:
                 [self rankParser:webView];
                 break;
@@ -188,8 +162,8 @@ static const char PARSELOCKPOINTER;
 }
 
 +(void) freeMemory {
-    [self.webViewTimer invalidate];
-    [self.parseLock unlock];
+    [[self webViewTimer] invalidate];
+    [[self parseLock] unlock];
     objc_removeAssociatedObjects(self);
 }
 
@@ -202,7 +176,7 @@ static const char PARSELOCKPOINTER;
     NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//div [@class='product_img']//a"];
     
     if ([elements count] == 0) {
-        [self.parseLock unlock];
+        [[self parseLock] unlock];
         return;
     }
     
@@ -236,7 +210,7 @@ static const char PARSELOCKPOINTER;
     NSArray *elements = [doc searchWithXPathQuery:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category2']//li [@class='product_image']//a"];
 
     if ([elements count] == 0) {
-        [self.parseLock unlock];
+        [[self parseLock] unlock];
         return;
     }
 
@@ -274,13 +248,13 @@ static const char PARSELOCKPOINTER;
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         //產品圖片
-        if ([self.productImagesArray count] == 0) {
+        if ([[self productImagesArray] count] == 0) {
             NSArray *productImagesElementsArray = [doc searchWithXPathQuery:@"//div [@class='product_img_area']//a"];
             
             if ([productImagesElementsArray count] == 0) return;
             
             for (TFHppleElement *e in productImagesElementsArray) {
-                [self.productImagesArray addObject:[e objectForKey:@"href"]];
+                [[self productImagesArray] addObject:[e objectForKey:@"href"]];
             }
         }
         
@@ -289,7 +263,7 @@ static const char PARSELOCKPOINTER;
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //產品資訊
-        if ([self.productInfomationArray count] == 0) {
+        if ([[self productInfomationArray] count] == 0) {
             NSArray *productInformationElementsArray = [doc searchWithXPathQuery:@"//div [@id='right_menu']//dl [@class='spec_data']"];
             
             if ([productInformationElementsArray count] == 0) return;
@@ -306,7 +280,7 @@ static const char PARSELOCKPOINTER;
                         [dictionaryInArray setObject:[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] forKey:@"Title"];
                         [dictionaryInArray setObject:[self mergeContentTexts:[[e childrenWithTagName:@"dd"] objectAtIndex:i]] forKey:@"Content"];
                         
-                        [self.productInfomationArray addObject:dictionaryInArray];
+                        [[self productInfomationArray] addObject:dictionaryInArray];
                     }
                 }
             }
@@ -317,7 +291,7 @@ static const char PARSELOCKPOINTER;
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //相關產品
-        if ([self.relationProductsArray count] == 0) {
+        if ([[self relationProductsArray] count] == 0) {
             NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//ul [@class='recommend']//table//a"];
             
             if ([relationProductsElementsArray count] == 0) return;
@@ -332,7 +306,7 @@ static const char PARSELOCKPOINTER;
                 [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
                 [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
                 
-                [self.relationProductsArray addObject:dictionaryInArray];
+                [[self relationProductsArray] addObject:dictionaryInArray];
             }
         }
 
@@ -341,7 +315,7 @@ static const char PARSELOCKPOINTER;
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //也會想買
-        if ([self.alsoBuyProductArray count] == 0) {
+        if ([[self alsoBuyProductArray] count] == 0) {
             NSArray *alsoBuyProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_purchase_result']//a"];
             
             if ([alsoBuyProductsElementsArray count] == 0) return;
@@ -357,7 +331,7 @@ static const char PARSELOCKPOINTER;
                 [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
                 [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
                 
-                [self.alsoBuyProductArray addObject:dictionaryInArray];
+                [[self alsoBuyProductArray] addObject:dictionaryInArray];
             }
         }
         
@@ -366,7 +340,7 @@ static const char PARSELOCKPOINTER;
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //也會喜歡
-        if ([self.alsoLikeProductArray count] == 0) {
+        if ([[self alsoLikeProductArray] count] == 0) {
             NSArray *alsoLikeProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_relate_result']//a"];
             
             if ([alsoLikeProductsElementsArray count] == 0) return;
@@ -381,7 +355,7 @@ static const char PARSELOCKPOINTER;
                 [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
                 [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
                 
-                [self.alsoLikeProductArray addObject:dictionaryInArray];
+                [[self alsoLikeProductArray] addObject:dictionaryInArray];
             }
         }
         
@@ -390,7 +364,7 @@ static const char PARSELOCKPOINTER;
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //熱門商品
-        if ([self.popularProductsArray count] == 0) {
+        if ([[self popularProductsArray] count] == 0) {
             NSArray *popularProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//a"];
             
             if ([popularProductsElementsArray count] == 0) return;
@@ -405,7 +379,7 @@ static const char PARSELOCKPOINTER;
                 [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
                 [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
                 
-                [self.popularProductsArray addObject:dictionaryInArray];
+                [[self popularProductsArray] addObject:dictionaryInArray];
             }
         }
         
@@ -414,38 +388,38 @@ static const char PARSELOCKPOINTER;
     dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            if ([self.relationProductsArray count] == 0 &&
-                [self.alsoLikeProductArray count] == 0 &&
-                [self.alsoBuyProductArray count] == 0 &&
-                [self.popularProductsArray count] == 0) {
-                [self.parseLock unlock];
+            if ([[self relationProductsArray] count] == 0 &&
+                [[self alsoLikeProductArray] count] == 0 &&
+                [[self alsoBuyProductArray] count] == 0 &&
+                [[self popularProductsArray] count] == 0) {
+                [[self parseLock] unlock];
                 return;
             }
 
             NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
             
-            if ([self.productImagesArray count]) {
-                [returnDictionary setObject:[self.productImagesArray mutableCopy] forKey:@"ProductImages"];
+            if ([[self productImagesArray] count]) {
+                [returnDictionary setObject:[[self productImagesArray] mutableCopy] forKey:@"ProductImages"];
             }
             
-            if ([self.productInfomationArray count]) {
-                [returnDictionary setObject:[self.productInfomationArray mutableCopy] forKey:@"ProductInformation"];
+            if ([[self productInfomationArray] count]) {
+                [returnDictionary setObject:[[self productInfomationArray] mutableCopy] forKey:@"ProductInformation"];
             }
             
-            if ([self.relationProductsArray count]) {
-                [returnDictionary setObject:[self.relationProductsArray mutableCopy] forKey:@"Relation"];
+            if ([[self relationProductsArray] count]) {
+                [returnDictionary setObject:[[self relationProductsArray] mutableCopy] forKey:@"Relation"];
             }
             
-            if ([self.alsoLikeProductArray count]) {
-                [returnDictionary setObject:[self.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
+            if ([[self alsoLikeProductArray] count]) {
+                [returnDictionary setObject:[[self alsoLikeProductArray] mutableCopy] forKey:@"AlsoLike"];
             }
             
-            if ([self.alsoBuyProductArray count]) {
-                [returnDictionary setObject:[self.alsoBuyProductArray mutableCopy] forKey:@"AlsoBuy"];
+            if ([[self alsoBuyProductArray] count]) {
+                [returnDictionary setObject:[[self alsoBuyProductArray] mutableCopy] forKey:@"AlsoBuy"];
             }
             
-            if ([self.popularProductsArray count]) {
-                [returnDictionary setObject:[self.popularProductsArray mutableCopy] forKey:@"Popular"];
+            if ([[self popularProductsArray] count]) {
+                [returnDictionary setObject:[[self popularProductsArray] mutableCopy] forKey:@"Popular"];
             }
             
             void (^completion)(AmiAmiParserStatus status, NSDictionary *result) = objc_getAssociatedObject(self, &COMPLETIONPOINTER);
@@ -461,12 +435,12 @@ static const char PARSELOCKPOINTER;
 
 + (void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    if (!self.webViewTimer) {
-        self.webViewTimer = [NSTimer scheduledTimerWithTimeInterval:1.5f
-                                                             target:self
-                                                           selector:@selector(parse:)
-                                                           userInfo:nil
-                                                            repeats:YES];
+    if (![self webViewTimer]) {
+        [self setWebViewTimer:[NSTimer scheduledTimerWithTimeInterval:1.5f
+                                                               target:self
+                                                             selector:@selector(parse:)
+                                                             userInfo:nil
+                                                              repeats:YES]];
     }
     
 }
@@ -480,7 +454,7 @@ static const char PARSELOCKPOINTER;
 +(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [SVProgressHUD showWithStatus:@"讀取最新美少女商品..." maskType:SVProgressHUDMaskTypeBlack];
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.entryType = AmiAmiParserEntryTypeAllBiShouJo;
+    [self setEntryType:AmiAmiParserEntryTypeAllBiShouJo];
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
     [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/bishoujo.html"]]];
@@ -490,7 +464,7 @@ static const char PARSELOCKPOINTER;
 +(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [SVProgressHUD showWithStatus:@"讀取美少女排行商品..." maskType:SVProgressHUDMaskTypeBlack];
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.entryType = AmiAmiParserEntryTypeRank;
+    [self setEntryType:AmiAmiParserEntryTypeRank];
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
     [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]]];
@@ -500,7 +474,7 @@ static const char PARSELOCKPOINTER;
 +(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
     [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
     objc_setAssociatedObject(self, &COMPLETIONPOINTER, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.entryType = AmiAmiParserEntryTypeProduct;
+    [self setEntryType:AmiAmiParserEntryTypeProduct];
     UIWebView *parserWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
     [parserWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
