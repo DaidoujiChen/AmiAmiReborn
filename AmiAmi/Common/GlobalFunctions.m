@@ -10,6 +10,15 @@
 
 @implementation GlobalFunctions
 
++(void) getThumbnailImageFromURL : (NSURL*) url completion : (void(^)(UIImage *image)) completion {
+    FICDPhoto *photo = [[FICDPhoto alloc] init];
+    [photo setSourceImageURL:url];
+    
+    [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:FICDPhotoSquareImage32BitBGRFormatName completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+        completion(image);
+    }];
+}
+
 +(NSString*) fixProductURL : (NSString*) oriURL {
     NSRange findRange = [oriURL rangeOfString:@"http://"];
     

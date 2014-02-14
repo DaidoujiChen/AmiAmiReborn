@@ -76,12 +76,10 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
-        FICDPhoto *photo = [[FICDPhoto alloc] init];
-        [photo setSourceImageURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]];
-        
-        [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:FICDPhotoSquareImage32BitBGRFormatName completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
-            cell.currentProductImageView.image = image;
-        }];
+        [GlobalFunctions getThumbnailImageFromURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]
+                                       completion:^(UIImage *image) {
+                                           cell.currentProductImageView.image = image;
+                                       }];
 
         [cell.currentProductTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
         

@@ -100,6 +100,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
+    
     switch (typeSegment.selectedSegmentIndex) {
         case 0:
         {
@@ -108,16 +110,12 @@
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             
-            NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
-            
             cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", (int)indexPath.section + 1]];
             
-            FICDPhoto *photo = [[FICDPhoto alloc] init];
-            [photo setSourceImageURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]];
-            
-            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:FICDPhotoSquareImage32BitBGRFormatName completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
-                cell.thumbnailImageView.image = image;
-            }];
+            [GlobalFunctions getThumbnailImageFromURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+                                           completion:^(UIImage *image) {
+                                               cell.thumbnailImageView.image = image;
+                                           }];
             
             cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
             
@@ -131,15 +129,11 @@
             RelationCell *cell = (RelationCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-            
-            NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
-            
-            FICDPhoto *photo = [[FICDPhoto alloc] init];
-            [photo setSourceImageURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]];
-            
-            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:FICDPhotoSquareImage32BitBGRFormatName completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
-                cell.thumbnailImageView.image = image;
-            }];
+
+            [GlobalFunctions getThumbnailImageFromURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+                                           completion:^(UIImage *image) {
+                                               cell.thumbnailImageView.image = image;
+                                           }];
             
             cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
             
@@ -198,7 +192,6 @@
     [super viewDidLoad];
 
     [self dataTableViewSetting];
-    
     [self createNavigationRightButton];
     [self createNavigationTitleSegment];
 }
