@@ -39,9 +39,12 @@
     
     NSDictionary *eachInfo = [productsInfoArray objectAtIndex:indexPath.row];
     
-    [cell.productImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                 }];
+    FICDPhoto *photo = [[FICDPhoto alloc] init];
+    [photo setSourceImageURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]];
+    
+    [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:FICDPhotoSquareImage32BitBGRFormatName completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+        cell.productImageView.image = image;
+    }];
     
     return cell;
     

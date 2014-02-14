@@ -19,4 +19,8 @@
     return self;
 }
 
+- (void)prepareForReuse {
+    _thumbnailImageView.image = nil;
+}
+
 @end

@@ -111,9 +111,13 @@
             NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
             
             cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", (int)indexPath.section + 1]];
-            [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                           }];
+            
+            FICDPhoto *photo = [[FICDPhoto alloc] init];
+            [photo setSourceImageURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]];
+            
+            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:FICDPhotoSquareImage32BitBGRFormatName completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+                cell.thumbnailImageView.image = image;
+            }];
             
             cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
             
@@ -130,9 +134,12 @@
             
             NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
             
-            [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                           }];
+            FICDPhoto *photo = [[FICDPhoto alloc] init];
+            [photo setSourceImageURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]];
+            
+            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:FICDPhotoSquareImage32BitBGRFormatName completionBlock:^(id<FICEntity> entity, NSString *formatName, UIImage *image) {
+                cell.thumbnailImageView.image = image;
+            }];
             
             cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
             

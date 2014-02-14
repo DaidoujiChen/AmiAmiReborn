@@ -46,3 +46,6 @@ daidoujichen@gmail.com
 
 - GooglePlus SDK
   - 用於分享到 google plus.
+
+- FastImageCache
+  - 提高 Image Load 效能, combo with SDWebImage

@@ -21,4 +21,8 @@
     return self;
 }
 
+- (void)prepareForReuse {
+    _productImageView.image = nil;
+}
+
 @end

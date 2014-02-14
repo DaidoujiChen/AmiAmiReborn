@@ -11,10 +11,13 @@
 #import <GooglePlus/GooglePlus.h>
 #import "FXBlurView.h"
 #import "OSNavigationController.h"
+#import "FICImageCache.h"
+#import "FICDPhoto.h"
+#import "UIImageView+WebCache.h"
 
 #import "MainViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, FICImageCacheDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
