@@ -123,7 +123,7 @@
     if (indexPath.row == 0) {
         return 228.0f;
     } else {
-        return 171.0f;
+        return 141.0f;
     }
     
 }
