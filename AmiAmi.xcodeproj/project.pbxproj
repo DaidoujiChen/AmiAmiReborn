@@ -22,6 +22,7 @@
 		01109759188E6B0900D14EC1 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109758188E6B0900D14EC1 /* libxml2.2.dylib */; };
 		0110977D188E6F5C00D14EC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */; };
 		0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */; };
+		0138F28118BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		016993FE188F73DB007E21C8 /* ranking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993F9188F73DB007E21C8 /* ranking_1.png */; };
 		016993FF188F73DB007E21C8 /* ranking_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FA188F73DB007E21C8 /* ranking_2.png */; };
@@ -149,6 +150,8 @@
 		0110977A188E6F5200D14EC1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+AccessObjects.h"; path = "Common/AmiAmiParser+AccessObjects.h"; sourceTree = "<group>"; };
+		0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+AccessObjects.m"; path = "Common/AmiAmiParser+AccessObjects.m"; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		016993F9188F73DB007E21C8 /* ranking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_1.png; sourceTree = "<group>"; };
 		016993FA188F73DB007E21C8 /* ranking_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_2.png; sourceTree = "<group>"; };
@@ -571,6 +574,8 @@
 		0198B5FF18ADEBC5006512E2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */,
+				0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */,
 				0198B60018ADEBD8006512E2 /* AmiAmiParser.h */,
 				0198B60118ADEBD8006512E2 /* AmiAmiParser.m */,
 				0198B60218ADEBD8006512E2 /* GlobalFunctions.h */,
@@ -938,6 +943,7 @@
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,
 				0198B5B718ADE9C5006512E2 /* AFSecurityPolicy.m in Sources */,
 				0198B62618ADEC68006512E2 /* OtherProductsCell.m in Sources */,
+				0138F28118BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m in Sources */,
 				0198B5DE18ADEA3E006512E2 /* SDWebImageDecoder.m in Sources */,
 				0198B66E18ADED05006512E2 /* EGOPhotoImageView.m in Sources */,
 				0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */,
