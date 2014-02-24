@@ -325,17 +325,17 @@
 
 + (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
+    [self setStartDate:[NSDate date]];
+    
     switch (buttonIndex) {
         case 0:
         {
             [self setPassAlertView:nil];
-            [self setStartDate:[NSDate date]];
             break;
         }
         case 1:
         {
             [self setPassAlertView:nil];
-            [self setStartDate:[NSDate date]];
             [self setPassFlag:YES];
             break;
         }
