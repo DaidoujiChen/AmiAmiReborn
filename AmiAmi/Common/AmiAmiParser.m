@@ -32,6 +32,15 @@
 +(void) setWebViewTimer : (NSTimer*) webViewTimer;
 +(NSTimer*) webViewTimer;
 
++(void) setStartDate : (NSDate*) startDate;
++(NSDate*) startDate;
+
++(void) setPassFlag : (BOOL) passFlag;
++(BOOL) passFlag;
+
++(void) setPassAlertView : (UIAlertView*) passAlertView;
++(UIAlertView*) passAlertView;
+
 +(NSLock*) parseLock;
 
 + (void)rankParser:(UIWebView *)webView;
@@ -63,6 +72,10 @@ static const char COMPLETIONPOINTER;
 
 static const char WEBVIEWTIMERPOINTER;
 static const char PARSELOCKPOINTER;
+
+static const char STARTDATEPOINTER;
+static const char PASSFLAGPOINTER;
+static const char PASSALERTVIEWPOINTER;
 
 #pragma mark - private
 
@@ -107,6 +120,30 @@ static const char PARSELOCKPOINTER;
 
 +(NSTimer*) webViewTimer {
     return objc_getAssociatedObject(self, &WEBVIEWTIMERPOINTER);
+}
+
++(void) setStartDate : (NSDate*) startDate {
+    objc_setAssociatedObject(self, &STARTDATEPOINTER, startDate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(NSDate*) startDate {
+    return objc_getAssociatedObject(self, &STARTDATEPOINTER);
+}
+
++(void) setPassFlag : (BOOL) passFlag {
+    objc_setAssociatedObject(self, &PASSFLAGPOINTER, [NSNumber numberWithBool:passFlag], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(BOOL) passFlag {
+    return [(NSNumber*)objc_getAssociatedObject(self, &PASSFLAGPOINTER) boolValue];
+}
+
++(void) setPassAlertView : (UIAlertView*) passAlertView {
+    objc_setAssociatedObject(self, &PASSALERTVIEWPOINTER, passAlertView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(UIAlertView*) passAlertView {
+    return objc_getAssociatedObject(self, &PASSALERTVIEWPOINTER);
 }
 
 +(NSLock*) parseLock {
@@ -196,6 +233,16 @@ static const char PARSELOCKPOINTER;
 
 +(void) parse : (NSTimer*) timer {
     
+    if (([[NSDate date] timeIntervalSince1970] - [[self startDate] timeIntervalSince1970]) > 25.0f && [self passAlertView] == nil) {
+        UIAlertView *passAlertView = [[UIAlertView alloc] initWithTitle:@"這個作品有可能沒有相關商品"
+                                                                message:@"是否直接秀出現有資料?"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"我再等等..."
+                                                      otherButtonTitles:@"秀吧!", nil];
+        [passAlertView show];
+        [self setPassAlertView:passAlertView];
+    }
+    
     if ([[self parseLock] tryLock]) {
         switch ([self entryType]) {
             case AmiAmiParserEntryTypeRank:
@@ -226,7 +273,7 @@ static const char PARSELOCKPOINTER;
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//div [@class='product_img']//a"];
     
-    if ([elements count] == 0) {
+    if ([elements count] == 0 && ![self passFlag]) {
         [[self parseLock] unlock];
         return;
     }
@@ -250,7 +297,7 @@ static const char PARSELOCKPOINTER;
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     NSArray *elements = [doc searchWithXPathQuery:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category2']//li [@class='product_image']//a"];
 
-    if ([elements count] == 0) {
+    if ([elements count] == 0 && ![self passFlag]) {
         [[self parseLock] unlock];
         return;
     }
@@ -381,10 +428,11 @@ static const char PARSELOCKPOINTER;
     dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            if ([[self relationProductsArray] count] == 0 &&
+            if (([[self relationProductsArray] count] == 0 &&
                 [[self alsoLikeProductArray] count] == 0 &&
                 [[self alsoBuyProductArray] count] == 0 &&
-                [[self popularProductsArray] count] == 0) {
+                [[self popularProductsArray] count] == 0) &&
+                ![self passFlag]) {
                 [[self parseLock] unlock];
                 return;
             }
@@ -441,9 +489,35 @@ static const char PARSELOCKPOINTER;
     NSLog(@"someone fail : %@", error);
 }
 
+#pragma mark - UIAlertViewDelegate
+
++ (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0:
+        {
+            [self setPassAlertView:nil];
+            [self setStartDate:[NSDate date]];
+            break;
+        }
+        case 1:
+        {
+            [self setPassAlertView:nil];
+            [self setStartDate:[NSDate date]];
+            [self setPassFlag:YES];
+            break;
+        }
+        default:
+            break;
+    }
+    
+}
+
 #pragma mark - class methods
 
 +(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
+    [self setStartDate:[NSDate date]];
+    [self setPassFlag:NO];
     [SVProgressHUD showWithStatus:@"讀取最新美少女商品..." maskType:SVProgressHUDMaskTypeBlack];
     [self setArrayCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeAllBiShouJo];
@@ -451,6 +525,8 @@ static const char PARSELOCKPOINTER;
 }
 
 +(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
+    [self setStartDate:[NSDate date]];
+    [self setPassFlag:NO];
     [SVProgressHUD showWithStatus:@"讀取美少女排行商品..." maskType:SVProgressHUDMaskTypeBlack];
     [self setArrayCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeRank];
@@ -458,6 +534,8 @@ static const char PARSELOCKPOINTER;
 }
 
 +(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
+    [self setStartDate:[NSDate date]];
+    [self setPassFlag:NO];
     [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
     [self setDictionaryCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeProduct];

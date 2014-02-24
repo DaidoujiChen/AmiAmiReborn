@@ -21,7 +21,7 @@ typedef enum {
     AmiAmiParserEntryTypeProduct
 } AmiAmiParserEntryType;
 
-@interface AmiAmiParser : NSObject <UIWebViewDelegate>
+@interface AmiAmiParser : NSObject <UIWebViewDelegate, UIAlertViewDelegate>
 
 +(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
 +(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
