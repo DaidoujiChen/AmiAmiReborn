@@ -13,6 +13,8 @@
 #import "OSNavigationController.h"
 
 #import "MainViewController.h"
+#import "HistoryViewController.h"
+#import "FavoriteViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, FICImageCacheDelegate>
 

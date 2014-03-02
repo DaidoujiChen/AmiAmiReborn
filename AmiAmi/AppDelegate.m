@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate (Private)
+- (UIView *)makeBackgroundViews:(OSNavigationController *)navigationController;
 -(void) initImageCacheSetting;
 @end
 
@@ -39,6 +40,19 @@
 
 #pragma mark - private
 
+- (UIView *)makeBackgroundViews:(OSNavigationController *)navigationController {
+    UIView *backgroundViews = [[UIView alloc] initWithFrame:navigationController.view.bounds];
+    
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:backgroundViews.bounds];
+    [backgroundImage setImage:[UIImage imageNamed:@"background.jpg"]];
+    [backgroundViews addSubview:backgroundImage];
+    FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:backgroundViews.bounds];
+    [blurView setBlurRadius:20.0f];
+    [blurView setDynamic:NO];
+    [backgroundViews addSubview:blurView];
+    return backgroundViews;
+}
+
 -(void) initImageCacheSetting {
     NSMutableArray *mutableImageFormats = [NSMutableArray array];
     
@@ -66,23 +80,33 @@
     
     [self initImageCacheSetting];
     
-    OSNavigationController *navi = [[OSNavigationController alloc] init];
-    MainViewController *next = [[MainViewController alloc] init];
-    [navi pushViewController:next animated:NO];
+    UITabBarController *tabbar = [[UITabBarController alloc] init];
     
-    UIView *backgroundViews = [[UIView alloc] initWithFrame:navi.view.bounds];
+    OSNavigationController *mainNavi = [[OSNavigationController alloc] init];
+    MainViewController *main = [[MainViewController alloc] init];
+    [mainNavi setTitle:@"列表"];
+    [mainNavi.tabBarItem setImage:[UIImage imageNamed:@"Albums"]];
+    [mainNavi pushViewController:main animated:NO];
     
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:backgroundViews.bounds];
-    [backgroundImage setImage:[UIImage imageNamed:@"background.jpg"]];
-    [backgroundViews addSubview:backgroundImage];
-    FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:backgroundViews.bounds];
-    [blurView setBlurRadius:20.0f];
-    [blurView setDynamic:NO];
-    [backgroundViews addSubview:blurView];
+    OSNavigationController *historyNavi = [[OSNavigationController alloc] init];
+    HistoryViewController *history = [[HistoryViewController alloc] init];
+    [historyNavi setTitle:@"歷史"];
+    [historyNavi.tabBarItem setImage:[UIImage imageNamed:@"Bookmarks"]];
+    [historyNavi pushViewController:history animated:NO];
     
-    [navi.view insertSubview:backgroundViews atIndex:0];
+    OSNavigationController *favoriteNavi = [[OSNavigationController alloc] init];
+    FavoriteViewController *favorite = [[FavoriteViewController alloc] init];
+    [favoriteNavi setTitle:@"最愛"];
+    [favoriteNavi.tabBarItem setImage:[UIImage imageNamed:@"Favorites"]];
+    [favoriteNavi pushViewController:favorite animated:NO];
+
+    [mainNavi.view insertSubview:[self makeBackgroundViews:mainNavi] atIndex:0];
+    [historyNavi.view insertSubview:[self makeBackgroundViews:historyNavi] atIndex:0];
+    [favoriteNavi.view insertSubview:[self makeBackgroundViews:favoriteNavi] atIndex:0];
     
-    self.window.rootViewController = navi;
+    [tabbar setViewControllers:@[mainNavi, historyNavi, favoriteNavi]];
+    
+    self.window.rootViewController = tabbar;
     [self.window makeKeyAndVisible];
     
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36", @"UserAgent", nil];
