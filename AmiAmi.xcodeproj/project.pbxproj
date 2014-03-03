@@ -24,12 +24,24 @@
 		0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */; };
 		0138F28118BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
+		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
+		0166342C18C2DDFF002FC4BF /* Albums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342618C2DDFF002FC4BF /* Albums@2x.png */; };
+		0166342D18C2DDFF002FC4BF /* Bookmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342718C2DDFF002FC4BF /* Bookmarks.png */; };
+		0166342E18C2DDFF002FC4BF /* Bookmarks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342818C2DDFF002FC4BF /* Bookmarks@2x.png */; };
+		0166342F18C2DDFF002FC4BF /* Favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342918C2DDFF002FC4BF /* Favorites.png */; };
+		0166343018C2DDFF002FC4BF /* Favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342A18C2DDFF002FC4BF /* Favorites@2x.png */; };
+		0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0166343418C2DE51002FC4BF /* HistoryViewController.m */; };
+		0166343718C2DE51002FC4BF /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0166343518C2DE51002FC4BF /* HistoryViewController.xib */; };
+		0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */; };
+		0166343D18C2DEEC002FC4BF /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0166343B18C2DEEC002FC4BF /* FavoriteViewController.xib */; };
 		016993FE188F73DB007E21C8 /* ranking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993F9188F73DB007E21C8 /* ranking_1.png */; };
 		016993FF188F73DB007E21C8 /* ranking_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FA188F73DB007E21C8 /* ranking_2.png */; };
 		01699400188F73DB007E21C8 /* ranking_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FB188F73DB007E21C8 /* ranking_3.png */; };
 		01699401188F73DB007E21C8 /* ranking_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FC188F73DB007E21C8 /* ranking_4.png */; };
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
+		016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */; };
+		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
 		0198B59C18ADE971006512E2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59718ADE971006512E2 /* TFHpple.m */; };
 		0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59918ADE971006512E2 /* TFHppleElement.m */; };
 		0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59B18ADE971006512E2 /* XPathQuery.m */; };
@@ -153,12 +165,28 @@
 		0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+AccessObjects.h"; path = "Common/AmiAmiParser+AccessObjects.h"; sourceTree = "<group>"; };
 		0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+AccessObjects.m"; path = "Common/AmiAmiParser+AccessObjects.m"; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0166342518C2DDFF002FC4BF /* Albums.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Albums.png; path = Images/icons/Albums.png; sourceTree = "<group>"; };
+		0166342618C2DDFF002FC4BF /* Albums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Albums@2x.png"; path = "Images/icons/Albums@2x.png"; sourceTree = "<group>"; };
+		0166342718C2DDFF002FC4BF /* Bookmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bookmarks.png; path = Images/icons/Bookmarks.png; sourceTree = "<group>"; };
+		0166342818C2DDFF002FC4BF /* Bookmarks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bookmarks@2x.png"; path = "Images/icons/Bookmarks@2x.png"; sourceTree = "<group>"; };
+		0166342918C2DDFF002FC4BF /* Favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Favorites.png; path = Images/icons/Favorites.png; sourceTree = "<group>"; };
+		0166342A18C2DDFF002FC4BF /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites@2x.png"; path = "Images/icons/Favorites@2x.png"; sourceTree = "<group>"; };
+		0166343318C2DE51002FC4BF /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = History/HistoryViewController.h; sourceTree = "<group>"; };
+		0166343418C2DE51002FC4BF /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = History/HistoryViewController.m; sourceTree = "<group>"; };
+		0166343518C2DE51002FC4BF /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryViewController.xib; path = History/HistoryViewController.xib; sourceTree = "<group>"; };
+		0166343918C2DEEC002FC4BF /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteViewController.h; path = Favorite/FavoriteViewController.h; sourceTree = "<group>"; };
+		0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteViewController.m; path = Favorite/FavoriteViewController.m; sourceTree = "<group>"; };
+		0166343B18C2DEEC002FC4BF /* FavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoriteViewController.xib; path = Favorite/FavoriteViewController.xib; sourceTree = "<group>"; };
 		016993F9188F73DB007E21C8 /* ranking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_1.png; sourceTree = "<group>"; };
 		016993FA188F73DB007E21C8 /* ranking_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_2.png; sourceTree = "<group>"; };
 		016993FB188F73DB007E21C8 /* ranking_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_3.png; sourceTree = "<group>"; };
 		016993FC188F73DB007E21C8 /* ranking_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_4.png; sourceTree = "<group>"; };
 		016993FD188F73DB007E21C8 /* ranking_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_5.png; sourceTree = "<group>"; };
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzling.h"; sourceTree = "<group>"; };
+		016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzling.m"; sourceTree = "<group>"; };
+		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
+		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
 		0198B59618ADE971006512E2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = ThirdParty/TFHpple/TFHpple.h; sourceTree = "<group>"; };
 		0198B59718ADE971006512E2 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = ThirdParty/TFHpple/TFHpple.m; sourceTree = "<group>"; };
 		0198B59818ADE971006512E2 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = ThirdParty/TFHpple/TFHppleElement.h; sourceTree = "<group>"; };
@@ -399,6 +427,8 @@
 				01109724188E616A00D14EC1 /* AppDelegate.m */,
 				0198B5FF18ADEBC5006512E2 /* Common */,
 				01B6B90D18A4830C00C065A4 /* Main */,
+				0166343218C2DE36002FC4BF /* History */,
+				0166343818C2DECB002FC4BF /* Favorite */,
 				01B0295918A48A1200ED0632 /* Product */,
 				0110972C188E616A00D14EC1 /* Images.xcassets */,
 				0110971B188E616A00D14EC1 /* Supporting Files */,
@@ -409,6 +439,7 @@
 		0110971B188E616A00D14EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0166343118C2DE06002FC4BF /* icons */,
 				01699408188F772C007E21C8 /* background.jpg */,
 				016993F9188F73DB007E21C8 /* ranking_1.png */,
 				016993FA188F73DB007E21C8 /* ranking_2.png */,
@@ -441,9 +472,52 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0166343118C2DE06002FC4BF /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				0166342518C2DDFF002FC4BF /* Albums.png */,
+				0166342618C2DDFF002FC4BF /* Albums@2x.png */,
+				0166342718C2DDFF002FC4BF /* Bookmarks.png */,
+				0166342818C2DDFF002FC4BF /* Bookmarks@2x.png */,
+				0166342918C2DDFF002FC4BF /* Favorites.png */,
+				0166342A18C2DDFF002FC4BF /* Favorites@2x.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		0166343218C2DE36002FC4BF /* History */ = {
+			isa = PBXGroup;
+			children = (
+				0166343318C2DE51002FC4BF /* HistoryViewController.h */,
+				0166343418C2DE51002FC4BF /* HistoryViewController.m */,
+				0166343518C2DE51002FC4BF /* HistoryViewController.xib */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		0166343818C2DECB002FC4BF /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				0166343918C2DEEC002FC4BF /* FavoriteViewController.h */,
+				0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */,
+				0166343B18C2DEEC002FC4BF /* FavoriteViewController.xib */,
+			);
+			name = Favorite;
+			sourceTree = "<group>";
+		};
+		016B280A18C4738500FBB097 /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				016B280B18C4739400FBB097 /* JRSwizzle.h */,
+				016B280C18C4739400FBB097 /* JRSwizzle.m */,
+			);
+			name = JRSwizzle;
+			sourceTree = "<group>";
+		};
 		0198B59418ADE945006512E2 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				016B280A18C4738500FBB097 /* JRSwizzle */,
 				01A766AC18ADEF7E005EB380 /* FastImageCache */,
 				0198B62C18ADECF5006512E2 /* EGOPhotoViewer */,
 				0198B5F918ADEB68006512E2 /* SVProgressHUD */,
@@ -574,6 +648,8 @@
 		0198B5FF18ADEBC5006512E2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */,
+				016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */,
 				0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */,
 				0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */,
 				0198B60018ADEBD8006512E2 /* AmiAmiParser.h */,
@@ -848,25 +924,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				0198B61318ADEC29006512E2 /* MainCell.xib in Resources */,
+				0166342B18C2DDFF002FC4BF /* Albums.png in Resources */,
+				0166343D18C2DEEC002FC4BF /* FavoriteViewController.xib in Resources */,
 				0198B66718ADED05006512E2 /* egopv_left@2x.png in Resources */,
 				0198B66C18ADED05006512E2 /* egopv_right@2x.png in Resources */,
 				0198B62718ADEC68006512E2 /* OtherProductsCell.xib in Resources */,
 				0198B66818ADED05006512E2 /* egopv_minimize_fullscreen_button.png in Resources */,
 				0198B66618ADED05006512E2 /* egopv_left.png in Resources */,
+				0166342E18C2DDFF002FC4BF /* Bookmarks@2x.png in Resources */,
 				0198B61718ADEC29006512E2 /* RelationCell.xib in Resources */,
 				0198B66318ADED05006512E2 /* egopv_error_placeholder@2x.png in Resources */,
 				0198B5FD18ADEB78006512E2 /* SVProgressHUD.bundle in Resources */,
+				0166343718C2DE51002FC4BF /* HistoryViewController.xib in Resources */,
 				0198B66218ADED05006512E2 /* egopv_error_placeholder.png in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
 				01699400188F73DB007E21C8 /* ranking_3.png in Resources */,
+				0166343018C2DDFF002FC4BF /* Favorites@2x.png in Resources */,
 				0198B5F718ADEB31006512E2 /* GooglePlus.bundle in Resources */,
 				0198B66B18ADED05006512E2 /* egopv_right.png in Resources */,
 				0198B5ED18ADEA8C006512E2 /* OSNavigationController.xib in Resources */,
+				0166342D18C2DDFF002FC4BF /* Bookmarks.png in Resources */,
 				0198B66A18ADED05006512E2 /* egopv_photo_placeholder@2x.png in Resources */,
 				0110972D188E616A00D14EC1 /* Images.xcassets in Resources */,
 				016993FE188F73DB007E21C8 /* ranking_1.png in Resources */,
 				0198B62518ADEC68006512E2 /* CurrentProductInfoCell.xib in Resources */,
 				0198B66518ADED05006512E2 /* egopv_fullscreen_button@2x.png in Resources */,
+				0166342C18C2DDFF002FC4BF /* Albums@2x.png in Resources */,
 				01699401188F73DB007E21C8 /* ranking_4.png in Resources */,
 				0198B61518ADEC29006512E2 /* MainViewController.xib in Resources */,
 				01699409188F772C007E21C8 /* background.jpg in Resources */,
@@ -876,6 +959,7 @@
 				0110971F188E616A00D14EC1 /* InfoPlist.strings in Resources */,
 				0198B62B18ADEC68006512E2 /* ProductViewController.xib in Resources */,
 				016993FF188F73DB007E21C8 /* ranking_2.png in Resources */,
+				0166342F18C2DDFF002FC4BF /* Favorites.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,6 +1012,7 @@
 				0198B62818ADEC68006512E2 /* ProductCollectionCell.m in Sources */,
 				0198B5E618ADEA3E006512E2 /* UIImage+WebP.m in Sources */,
 				0198B5E118ADEA3E006512E2 /* SDWebImageManager.m in Sources */,
+				0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */,
 				0198B65F18ADED05006512E2 /* EGOQuickPhotoSource.m in Sources */,
 				01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */,
 				0198B5DC18ADEA3E006512E2 /* SDImageCache.m in Sources */,
@@ -940,6 +1025,8 @@
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0198B5B818ADE9C5006512E2 /* AFURLConnectionOperation.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
+				016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */,
+				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,
 				0198B5B718ADE9C5006512E2 /* AFSecurityPolicy.m in Sources */,
 				0198B62618ADEC68006512E2 /* OtherProductsCell.m in Sources */,
@@ -949,6 +1036,7 @@
 				0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */,
 				0198B5BB18ADE9C5006512E2 /* AFURLSessionManager.m in Sources */,
 				0198B5B318ADE9C5006512E2 /* AFHTTPRequestOperation.m in Sources */,
+				016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */,
 				0198B5E318ADEA3E006512E2 /* UIButton+WebCache.m in Sources */,
 				0198B5DF18ADEA3E006512E2 /* SDWebImageDownloader.m in Sources */,
 				0198B5BA18ADE9C5006512E2 /* AFURLResponseSerialization.m in Sources */,

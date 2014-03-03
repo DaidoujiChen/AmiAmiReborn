@@ -39,6 +39,8 @@
 - (void)setupViewForPopover;
 - (void)autosizePopoverToImageSize:(CGSize)imageSize photoImageView:(EGOPhotoImageView*)photoImageView;
 
+-(void) hideTabBar : (UITabBarController*) tabbarcontroller;
+-(void) showTabBar : (UITabBarController*) tabbarcontroller;
 -(void) shareToGooglePlus;
 -(void) shareSingleImage;
 //-(void) prepareUploadImages;
@@ -162,7 +164,7 @@
 - (void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2) {
+	/*if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2) {
 		
 		UIView *view = self.view;
 		if (self.navigationController) {
@@ -190,9 +192,9 @@
 		
 		_popover = nil;
 		
-	}
+	}*/
 	
-	if(!_storedOldStyles) {
+	/*if(!_storedOldStyles) {
 		_oldStatusBarSyle = [UIApplication sharedApplication].statusBarStyle;
 		
 		_oldNavBarTintColor = [self.navigationController.navigationBar.tintColor retain];
@@ -209,7 +211,7 @@
 	
 	if ([self.navigationController isToolbarHidden] && (!_popover || ([self.photoSource numberOfPhotos] > 1))) {
 		[self.navigationController setToolbarHidden:NO animated:YES];
-	}
+	}*/
 	
 	/*if (!_popover) {
 		self.navigationController.navigationBar.tintColor = nil;
@@ -226,16 +228,17 @@
 	[self setupScrollViewContentSize];
 	[self moveToPhotoAtIndex:_pageIndex animated:NO];
 	
-	if (_popover) {
+	/*if (_popover) {
 		[self addObserver:self forKeyPath:@"contentSizeForViewInPopover" options:NSKeyValueObservingOptionNew context:NULL];
-	}
-	
+	}*/
+
+    [self hideTabBar:self.tabBarController];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
 	[super viewWillDisappear:animated];
 	
-	self.navigationController.navigationBar.barStyle = _oldNavBarStyle;
+	/*self.navigationController.navigationBar.barStyle = _oldNavBarStyle;
 	self.navigationController.navigationBar.tintColor = _oldNavBarTintColor;
 	self.navigationController.navigationBar.translucent = _oldNavBarTranslucent;
 	
@@ -259,8 +262,9 @@
 	
 	if (_popover) {
 		[self removeObserver:self forKeyPath:@"contentSizeForViewInPopover"];
-	}
+	}*/
 	
+    [self showTabBar:self.tabBarController];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -326,6 +330,46 @@
 	//[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:^{
     }];
+}
+
+-(void) hideTabBar : (UITabBarController*) tabbarcontroller {
+    
+    if (storedTabbarController) {
+        [storedTabbarController release];
+    }
+    storedTabbarController = [tabbarcontroller retain];
+    
+    for(UIView *view in tabbarcontroller.view.subviews) {
+        if([view isKindOfClass:[UITabBar class]]) {
+            [view setFrame:CGRectMake(view.frame.origin.x, [UIScreen mainScreen].bounds.size.height, view.frame.size.width, view.frame.size.height)];
+            
+            storedTabbarHeight = view.frame.size.height;
+        } else {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, [UIScreen mainScreen].bounds.size.height)];
+        }
+    }
+}
+
+-(void) showTabBar : (UITabBarController*) tabbarcontroller {
+
+    UITabBarController *usedTabbarController;
+    
+    if (tabbarcontroller) {
+        usedTabbarController = tabbarcontroller;
+    } else {
+        usedTabbarController = storedTabbarController;
+    }
+
+    for(UIView *view in usedTabbarController.view.subviews) {
+        if([view isKindOfClass:[UITabBar class]]) {
+            [view setFrame:CGRectMake(view.frame.origin.x, [UIScreen mainScreen].bounds.size.height - storedTabbarHeight, view.frame.size.width, view.frame.size.height)];
+        } else {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, [UIScreen mainScreen].bounds.size.height - storedTabbarHeight)];
+        }
+    }
+    
+    [storedTabbarController release];
+    storedTabbarController = nil;
 }
 
 -(void) shareToGooglePlus {

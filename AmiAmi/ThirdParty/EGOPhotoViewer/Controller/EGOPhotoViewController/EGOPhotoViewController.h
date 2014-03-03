@@ -68,6 +68,8 @@
 	UIView *_popoverOverlay;
 	UIView *_transferView;
 	
+    UITabBarController *storedTabbarController;
+    CGFloat storedTabbarHeight;
 }
 
 @property (nonatomic, retain) NSString *pageURL;

@@ -156,4 +156,8 @@
     [self makeRecordCellTypeArray];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 @end
