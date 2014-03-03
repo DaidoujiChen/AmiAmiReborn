@@ -40,7 +40,6 @@
 		01699401188F73DB007E21C8 /* ranking_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FC188F73DB007E21C8 /* ranking_4.png */; };
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
-		016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */; };
 		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
 		0198B59C18ADE971006512E2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59718ADE971006512E2 /* TFHpple.m */; };
 		0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59918ADE971006512E2 /* TFHppleElement.m */; };
@@ -122,6 +121,7 @@
 		01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766CD18ADEFF7005EB380 /* FICImageTableEntry.m */; };
 		01A766D618ADEFF7005EB380 /* FICUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766D018ADEFF7005EB380 /* FICUtilities.m */; };
 		01A766DC18ADF9F2005EB380 /* FICDPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766DB18ADF9F2005EB380 /* FICDPhoto.m */; };
+		01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */; };
 		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
 		01D62F5D18962D9A00ABB2E0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */; };
 		01D62F5F18962DAC00ABB2E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */; };
@@ -183,8 +183,6 @@
 		016993FC188F73DB007E21C8 /* ranking_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_4.png; sourceTree = "<group>"; };
 		016993FD188F73DB007E21C8 /* ranking_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_5.png; sourceTree = "<group>"; };
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzling.h"; sourceTree = "<group>"; };
-		016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzling.m"; sourceTree = "<group>"; };
 		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
 		0198B59618ADE971006512E2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = ThirdParty/TFHpple/TFHpple.h; sourceTree = "<group>"; };
@@ -331,6 +329,8 @@
 		01A766D018ADEFF7005EB380 /* FICUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICUtilities.m; path = ThirdParty/FastImageCache/FICUtilities.m; sourceTree = "<group>"; };
 		01A766DA18ADF9F2005EB380 /* FICDPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICDPhoto.h; path = ThirdParty/FastImageCache/FICDPhoto.h; sourceTree = "<group>"; };
 		01A766DB18ADF9F2005EB380 /* FICDPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICDPhoto.m; path = ThirdParty/FastImageCache/FICDPhoto.m; sourceTree = "<group>"; };
+		01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Swizzling.h"; path = "Common/UIViewController+Swizzling.h"; sourceTree = "<group>"; };
+		01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Swizzling.m"; path = "Common/UIViewController+Swizzling.m"; sourceTree = "<group>"; };
 		01D62F5A18962D9400ABB2E0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -648,8 +648,8 @@
 		0198B5FF18ADEBC5006512E2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */,
-				016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */,
+				01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */,
+				01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */,
 				0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */,
 				0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */,
 				0198B60018ADEBD8006512E2 /* AmiAmiParser.h */,
@@ -994,6 +994,7 @@
 				01109721188E616A00D14EC1 /* main.m in Sources */,
 				01A766D118ADEFF7005EB380 /* FICImageCache.m in Sources */,
 				0198B62A18ADEC68006512E2 /* ProductViewController.m in Sources */,
+				01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */,
 				0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */,
 				0198B60618ADEBD8006512E2 /* AmiAmiParser.m in Sources */,
 				0198B5DB18ADEA3E006512E2 /* NSData+ImageContentType.m in Sources */,
@@ -1025,7 +1026,6 @@
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0198B5B818ADE9C5006512E2 /* AFURLConnectionOperation.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
-				016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */,
 				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,
 				0198B5B718ADE9C5006512E2 /* AFSecurityPolicy.m in Sources */,
