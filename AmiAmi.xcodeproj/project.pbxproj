@@ -40,6 +40,8 @@
 		01699401188F73DB007E21C8 /* ranking_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FC188F73DB007E21C8 /* ranking_4.png */; };
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
+		016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */; };
+		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
 		0198B59C18ADE971006512E2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59718ADE971006512E2 /* TFHpple.m */; };
 		0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59918ADE971006512E2 /* TFHppleElement.m */; };
 		0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59B18ADE971006512E2 /* XPathQuery.m */; };
@@ -181,6 +183,10 @@
 		016993FC188F73DB007E21C8 /* ranking_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_4.png; sourceTree = "<group>"; };
 		016993FD188F73DB007E21C8 /* ranking_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_5.png; sourceTree = "<group>"; };
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzling.h"; sourceTree = "<group>"; };
+		016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzling.m"; sourceTree = "<group>"; };
+		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
+		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
 		0198B59618ADE971006512E2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = ThirdParty/TFHpple/TFHpple.h; sourceTree = "<group>"; };
 		0198B59718ADE971006512E2 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = ThirdParty/TFHpple/TFHpple.m; sourceTree = "<group>"; };
 		0198B59818ADE971006512E2 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = ThirdParty/TFHpple/TFHppleElement.h; sourceTree = "<group>"; };
@@ -499,9 +505,19 @@
 			name = Favorite;
 			sourceTree = "<group>";
 		};
+		016B280A18C4738500FBB097 /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				016B280B18C4739400FBB097 /* JRSwizzle.h */,
+				016B280C18C4739400FBB097 /* JRSwizzle.m */,
+			);
+			name = JRSwizzle;
+			sourceTree = "<group>";
+		};
 		0198B59418ADE945006512E2 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				016B280A18C4738500FBB097 /* JRSwizzle */,
 				01A766AC18ADEF7E005EB380 /* FastImageCache */,
 				0198B62C18ADECF5006512E2 /* EGOPhotoViewer */,
 				0198B5F918ADEB68006512E2 /* SVProgressHUD */,
@@ -632,6 +648,8 @@
 		0198B5FF18ADEBC5006512E2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */,
+				016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */,
 				0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */,
 				0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */,
 				0198B60018ADEBD8006512E2 /* AmiAmiParser.h */,
@@ -1007,6 +1025,7 @@
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0198B5B818ADE9C5006512E2 /* AFURLConnectionOperation.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
+				016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */,
 				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,
 				0198B5B718ADE9C5006512E2 /* AFSecurityPolicy.m in Sources */,
@@ -1017,6 +1036,7 @@
 				0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */,
 				0198B5BB18ADE9C5006512E2 /* AFURLSessionManager.m in Sources */,
 				0198B5B318ADE9C5006512E2 /* AFHTTPRequestOperation.m in Sources */,
+				016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */,
 				0198B5E318ADEA3E006512E2 /* UIButton+WebCache.m in Sources */,
 				0198B5DF18ADEA3E006512E2 /* SDWebImageDownloader.m in Sources */,
 				0198B5BA18ADE9C5006512E2 /* AFURLResponseSerialization.m in Sources */,
