@@ -86,6 +86,17 @@
     
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [LWPArray(@"Favorite") removeObjectAtIndex:[LWPArray(@"Favorite") count] - 1 - indexPath.row];
+        [tableView reloadData];
+    }
+}
+
 
 #pragma mark - life cycle
 
