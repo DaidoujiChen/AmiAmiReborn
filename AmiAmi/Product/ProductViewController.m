@@ -138,10 +138,20 @@
             [photos addObject:eachPhoto];
         }
         
-        MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:photos];
+        if ([photos count]) {
+            MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:photos];
+            
+            EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
+            [self.navigationController pushViewController:photoController animated:YES];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"這個商品沒有圖片呦"
+                                                            message:nil
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"確定"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
         
-        EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
-        [self.navigationController pushViewController:photoController animated:YES];
     }
     
 }
