@@ -18,12 +18,6 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - hidden status bar
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 #pragma mark - life cycle
 
 - (void)viewDidLoad {

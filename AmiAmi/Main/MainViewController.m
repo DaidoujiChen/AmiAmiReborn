@@ -32,11 +32,6 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - hidden status bar
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
 
 #pragma mark - private
 
@@ -174,6 +169,9 @@
     [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         
         if (status) {
+            
+            [GlobalFunctions addToHistory:eachInfo];
+            
             ProductViewController *next = [[ProductViewController alloc] init];
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];

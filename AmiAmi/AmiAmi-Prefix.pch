@@ -14,12 +14,12 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "AmiAmiParser.h"
+    #import "LightWeightPlist.h"
     #import "SVProgressHUD.h"
     #import "GlobalFunctions.h"
     #import "FICImageCache.h"
     #import "FICDPhoto.h"
     #import "UIImageView+WebCache.h"
-
     #import "JRSwizzle.h"
     #import "UIViewController+Swizzling.h"
     static NSString * const kClientId = @"577014773497-mf381t83vlspjg1lv3tatnhlr7o06o58.apps.googleusercontent.com";

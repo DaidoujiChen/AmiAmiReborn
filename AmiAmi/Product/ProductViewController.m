@@ -22,12 +22,6 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - hidden status bar
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 #pragma mark - private
 
 - (void)productTableViewSetting {
@@ -105,7 +99,7 @@
         cell.productsInfoArray = [productInfoDictionary objectForKey:[recordCellTypeArray objectAtIndex:fixIndex]];
         [cell.productCollectionView reloadData];
         
-        [cell setOnClickCollectionCell:^(NSDictionary *result) {
+        [cell setOnClickCollectionCell:^(NSDictionary *result) {            
             ProductViewController *next = [[ProductViewController alloc] init];
             next.productInfoDictionary = result;
             [self.navigationController pushViewController:next animated:YES];

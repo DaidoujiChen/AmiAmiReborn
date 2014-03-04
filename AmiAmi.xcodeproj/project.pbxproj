@@ -122,6 +122,9 @@
 		01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766CD18ADEFF7005EB380 /* FICImageTableEntry.m */; };
 		01A766D618ADEFF7005EB380 /* FICUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766D018ADEFF7005EB380 /* FICUtilities.m */; };
 		01A766DC18ADF9F2005EB380 /* FICDPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766DB18ADF9F2005EB380 /* FICDPhoto.m */; };
+		01ACF20018C5B255008D0B41 /* LightWeightPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FB18C5B255008D0B41 /* LightWeightPlist.m */; };
+		01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */; };
+		01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */; };
 		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
 		01D62F5D18962D9A00ABB2E0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */; };
 		01D62F5F18962DAC00ABB2E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */; };
@@ -331,6 +334,12 @@
 		01A766D018ADEFF7005EB380 /* FICUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICUtilities.m; path = ThirdParty/FastImageCache/FICUtilities.m; sourceTree = "<group>"; };
 		01A766DA18ADF9F2005EB380 /* FICDPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICDPhoto.h; path = ThirdParty/FastImageCache/FICDPhoto.h; sourceTree = "<group>"; };
 		01A766DB18ADF9F2005EB380 /* FICDPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICDPhoto.m; path = ThirdParty/FastImageCache/FICDPhoto.m; sourceTree = "<group>"; };
+		01ACF1FA18C5B255008D0B41 /* LightWeightPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LightWeightPlist.h; path = ThirdParty/LightWeightPlist/LightWeightPlist.h; sourceTree = "<group>"; };
+		01ACF1FB18C5B255008D0B41 /* LightWeightPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LightWeightPlist.m; path = ThirdParty/LightWeightPlist/LightWeightPlist.m; sourceTree = "<group>"; };
+		01ACF1FC18C5B255008D0B41 /* LightWeightPlist+AccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LightWeightPlist+AccessObject.h"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+AccessObject.h"; sourceTree = "<group>"; };
+		01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LightWeightPlist+AccessObject.m"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+AccessObject.m"; sourceTree = "<group>"; };
+		01ACF1FE18C5B255008D0B41 /* LightWeightPlist+FilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LightWeightPlist+FilePath.h"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+FilePath.h"; sourceTree = "<group>"; };
+		01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LightWeightPlist+FilePath.m"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+FilePath.m"; sourceTree = "<group>"; };
 		01D62F5A18962D9400ABB2E0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -517,6 +526,7 @@
 		0198B59418ADE945006512E2 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				01ACF1F918C5B241008D0B41 /* LightWeightPlist */,
 				016B280A18C4738500FBB097 /* JRSwizzle */,
 				01A766AC18ADEF7E005EB380 /* FastImageCache */,
 				0198B62C18ADECF5006512E2 /* EGOPhotoViewer */,
@@ -812,6 +822,19 @@
 			name = FastImageCache;
 			sourceTree = "<group>";
 		};
+		01ACF1F918C5B241008D0B41 /* LightWeightPlist */ = {
+			isa = PBXGroup;
+			children = (
+				01ACF1FA18C5B255008D0B41 /* LightWeightPlist.h */,
+				01ACF1FB18C5B255008D0B41 /* LightWeightPlist.m */,
+				01ACF1FC18C5B255008D0B41 /* LightWeightPlist+AccessObject.h */,
+				01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */,
+				01ACF1FE18C5B255008D0B41 /* LightWeightPlist+FilePath.h */,
+				01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */,
+			);
+			name = LightWeightPlist;
+			sourceTree = "<group>";
+		};
 		01B0295918A48A1200ED0632 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,9 +1003,11 @@
 			files = (
 				0198B65E18ADED05006512E2 /* EGOQuickPhoto.m in Sources */,
 				0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */,
+				01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */,
 				0198B65C18ADED05006512E2 /* EGOImageLoadConnection.m in Sources */,
 				0198B66118ADED05006512E2 /* MyPhotoSource.m in Sources */,
 				01109725188E616A00D14EC1 /* AppDelegate.m in Sources */,
+				01ACF20018C5B255008D0B41 /* LightWeightPlist.m in Sources */,
 				0198B62418ADEC68006512E2 /* CurrentProductInfoCell.m in Sources */,
 				0198B60718ADEBD8006512E2 /* GlobalFunctions.m in Sources */,
 				0198B5B618ADE9C5006512E2 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1025,6 +1050,7 @@
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0198B5B818ADE9C5006512E2 /* AFURLConnectionOperation.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
+				01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */,
 				016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */,
 				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,

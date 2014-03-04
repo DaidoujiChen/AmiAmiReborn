@@ -58,6 +58,9 @@
     
     [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         if (status) {
+            
+            [GlobalFunctions addToHistory:eachInfo];
+            
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
             onClickCollectionCell(productDictionary);

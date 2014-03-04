@@ -48,4 +48,11 @@
     view.layer.shadowRadius = 1.0f;*/
 }
 
++(void) addToHistory : (NSDictionary*) productInfo {
+    if ([LWPArray(@"History") count] >= 20) {
+        [LWPArray(@"History") removeObjectAtIndex:0];
+    }
+    [LWPArray(@"History") addObject:productInfo];
+}
+
 @end

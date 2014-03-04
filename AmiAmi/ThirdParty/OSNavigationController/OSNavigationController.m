@@ -60,12 +60,6 @@
 
 @implementation OSNavigationController
 
-#pragma mark - hidden status bar
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 - (instancetype)initWithRootViewController:(UIViewController *)viewController
 {
     if ((self = [self initWithNibName:nil bundle:nil]))

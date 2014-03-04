@@ -16,4 +16,6 @@
 +(void) imageEffect : (UIView*) view;
 +(void) textEffect : (UIView*) view;
 
++(void) addToHistory : (NSDictionary*) productInfo;
+
 @end
