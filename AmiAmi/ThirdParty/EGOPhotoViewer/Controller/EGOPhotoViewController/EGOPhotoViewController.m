@@ -372,6 +372,10 @@
     storedTabbarController = nil;
 }
 
+-(void) addToFavorite {
+    [GlobalFunctions addToFavorite];
+}
+
 -(void) shareToGooglePlus {
     if ([[GPPSignIn sharedInstance] authentication]) {
         [self shareSingleImage];
@@ -458,7 +462,12 @@
                                                                                  target:self
                                                                                  action:@selector(shareToGooglePlus)];
     
-    self.navigationItem.rightBarButtonItem = shareButton;
+    UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Favorites"]
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(addToFavorite)];
+    
+    self.navigationItem.rightBarButtonItems = @[shareButton, favoriteButton];
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
 	if (!_popover && UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad && !_fromPopover) {

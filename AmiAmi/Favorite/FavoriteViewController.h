@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoriteViewController : UIViewController
+#import "RelationCell.h"
+#import "ProductViewController.h"
+
+@interface FavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *favoriteTableView;
 
 @end

@@ -55,4 +55,9 @@
     [LWPArray(@"History") addObject:productInfo];
 }
 
++(void) addToFavorite {
+    [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+    [LWPArray(@"Favorite") addObject:[LWPArray(@"History") lastObject]];
+}
+
 @end

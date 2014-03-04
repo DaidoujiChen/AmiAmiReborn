@@ -17,5 +17,6 @@
 +(void) textEffect : (UIView*) view;
 
 +(void) addToHistory : (NSDictionary*) productInfo;
++(void) addToFavorite;
 
 @end

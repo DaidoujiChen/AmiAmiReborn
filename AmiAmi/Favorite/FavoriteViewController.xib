@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteViewController">
             <connections>
+                <outlet property="favoriteTableView" destination="Av1-Av-HcG" id="Weo-Hm-xjU"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -13,7 +14,30 @@
         <view contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Av1-Av-HcG">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="6aF-oS-FCw"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="519" id="Rfz-Po-xfJ"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="pCO-9P-m2Q"/>
+                        <outlet property="delegate" destination="-1" id="cEL-dy-POd"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Av1-Av-HcG" secondAttribute="trailing" id="32h-hT-riK"/>
+                <constraint firstItem="Av1-Av-HcG" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="jVO-uj-nwT"/>
+                <constraint firstAttribute="bottom" secondItem="Av1-Av-HcG" secondAttribute="bottom" constant="49" id="nbb-WE-hAT"/>
+                <constraint firstItem="Av1-Av-HcG" firstAttribute="top" secondItem="1" secondAttribute="top" id="zRp-Eb-GM6"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
