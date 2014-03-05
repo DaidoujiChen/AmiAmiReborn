@@ -16,6 +16,10 @@ daidoujichen@gmail.com
 - ios7.0 up
 - iphone 4" / 3.5"
 
+可以從這邊試玩
+======
+<a href="https://app.io/lR0MlS">app.io</a>
+
 如果你有 JB
 ======
 可以幫我試試檔案能不能用, 如果不能用, 而且你又很好心的話, 可以發個信告訴我, 我會很感激, 謝謝.
