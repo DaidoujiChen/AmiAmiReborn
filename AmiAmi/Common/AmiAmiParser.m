@@ -127,7 +127,12 @@
     NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
     
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:htmlData];
-    NSArray *elements = [doc searchWithXPathQuery:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category2']//li [@class='product_image']//a"];
+    
+    NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
+    
+    NSString *xpathQueryString = [NSString stringWithFormat:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category%@']//li [@class='product_image']//a", [eachDictionary objectForKey:@"category"]];
+    
+    NSArray *elements = [doc searchWithXPathQuery:xpathQueryString];
 
     if ([elements count] == 0 && ![self passFlag]) {
         [[self parseLock] unlock];
@@ -350,16 +355,24 @@
 +(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [self setStartDate:[NSDate date]];
     [self setPassFlag:NO];
-    [SVProgressHUD showWithStatus:@"讀取最新美少女商品..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
+    
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取最新%@商品...", [eachDictionary objectForKey:@"title"]]
+                         maskType:SVProgressHUDMaskTypeBlack];
     [self setArrayCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeAllBiShouJo];
-    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/bishoujo.html"]]];
+    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:[eachDictionary objectForKey:@"allproducts"]]]];
 }
 
 +(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [self setStartDate:[NSDate date]];
     [self setPassFlag:NO];
-    [SVProgressHUD showWithStatus:@"讀取美少女排行商品..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
+
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取%@排行商品...", [eachDictionary objectForKey:@"title"]]
+                         maskType:SVProgressHUDMaskTypeBlack];
     [self setArrayCompletion:completion];
     [self setEntryType:AmiAmiParserEntryTypeRank];
     [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]]];

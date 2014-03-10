@@ -22,6 +22,9 @@
 		01109759188E6B0900D14EC1 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109758188E6B0900D14EC1 /* libxml2.2.dylib */; };
 		0110977D188E6F5C00D14EC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */; };
 		0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */; };
+		0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */; };
+		0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */; };
+		0129682118CE06C700045E4A /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129682018CE06C700045E4A /* DefaultCell.m */; };
 		0138F28118BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
@@ -166,6 +169,11 @@
 		0110977A188E6F5200D14EC1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProductTypeViewController.h; path = Main/SelectProductTypeViewController.h; sourceTree = "<group>"; };
+		0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProductTypeViewController.m; path = Main/SelectProductTypeViewController.m; sourceTree = "<group>"; };
+		0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = Main/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
+		0129681F18CE06C700045E4A /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
+		0129682018CE06C700045E4A /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
 		0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+AccessObjects.h"; path = "Common/AmiAmiParser+AccessObjects.h"; sourceTree = "<group>"; };
 		0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+AccessObjects.m"; path = "Common/AmiAmiParser+AccessObjects.m"; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -869,6 +877,11 @@
 				0198B60F18ADEC29006512E2 /* RelationCell.h */,
 				0198B61018ADEC29006512E2 /* RelationCell.m */,
 				0198B61118ADEC29006512E2 /* RelationCell.xib */,
+				0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */,
+				0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */,
+				0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */,
+				0129681F18CE06C700045E4A /* DefaultCell.h */,
+				0129682018CE06C700045E4A /* DefaultCell.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -962,6 +975,7 @@
 				0198B66318ADED05006512E2 /* egopv_error_placeholder@2x.png in Resources */,
 				0198B5FD18ADEB78006512E2 /* SVProgressHUD.bundle in Resources */,
 				01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */,
+				0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */,
 				0166343718C2DE51002FC4BF /* HistoryViewController.xib in Resources */,
 				0198B66218ADED05006512E2 /* egopv_error_placeholder.png in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
@@ -1054,9 +1068,9 @@
 				0198B5F118ADEACF006512E2 /* FXBlurView.m in Sources */,
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0198B5B818ADE9C5006512E2 /* AFURLConnectionOperation.m in Sources */,
+				0129682118CE06C700045E4A /* DefaultCell.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
 				01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */,
-				016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */,
 				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,
 				0198B5B718ADE9C5006512E2 /* AFSecurityPolicy.m in Sources */,
@@ -1068,6 +1082,7 @@
 				0198B5BB18ADE9C5006512E2 /* AFURLSessionManager.m in Sources */,
 				0198B5B318ADE9C5006512E2 /* AFHTTPRequestOperation.m in Sources */,
 				016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */,
+				0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */,
 				0198B5E318ADEA3E006512E2 /* UIButton+WebCache.m in Sources */,
 				0198B5DF18ADEA3E006512E2 /* SDWebImageDownloader.m in Sources */,
 				0198B5BA18ADE9C5006512E2 /* AFURLResponseSerialization.m in Sources */,

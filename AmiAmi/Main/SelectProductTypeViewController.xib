@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectProductTypeViewController">
+            <connections>
+                <outlet property="selectProductTypeTableView" destination="I0U-sK-kJm" id="TeW-nH-7Bs"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I0U-sK-kJm">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="jDE-se-YuS"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="568" id="nUQ-r9-n3o"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="0RE-8V-SlS"/>
+                        <outlet property="delegate" destination="-1" id="wGh-zU-eKI"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="I0U-sK-kJm" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="96A-GY-tki"/>
+                <constraint firstItem="I0U-sK-kJm" firstAttribute="top" secondItem="1" secondAttribute="top" id="cpK-Zz-Ssl"/>
+                <constraint firstAttribute="bottom" secondItem="I0U-sK-kJm" secondAttribute="bottom" id="fNn-5F-TQZ"/>
+                <constraint firstAttribute="trailing" secondItem="I0U-sK-kJm" secondAttribute="trailing" id="fV5-AE-LGg"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

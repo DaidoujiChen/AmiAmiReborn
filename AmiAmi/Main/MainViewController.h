@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "ProductViewController.h"
+#import "SelectProductTypeViewController.h"
 #import "MainCell.h"
 #import "RelationCell.h"
 

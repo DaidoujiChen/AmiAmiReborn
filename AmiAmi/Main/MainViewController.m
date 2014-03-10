@@ -15,6 +15,7 @@
 
 @interface MainViewController (Private)
 - (void)createNavigationRightButton;
+-(void) createNavigationLeftButton;
 - (void)createNavigationTitleSegment;
 - (void)dataTableViewSetting;
 
@@ -52,6 +53,14 @@
     self.navigationItem.rightBarButtonItem = rightButton;
 }
 
+-(void) createNavigationLeftButton {
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
+                                                                                 target:self
+                                                                                 action:@selector(showSelectProductType)];
+    
+    self.navigationItem.leftBarButtonItem = leftButton;
+}
+
 - (void)createNavigationTitleSegment {
     typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
     [typeSegment setSelectedSegmentIndex:0];
@@ -73,6 +82,17 @@
         default:
             break;
     }
+}
+
+-(void) showSelectProductType {
+    UINavigationController *navi = [[UINavigationController alloc] init];
+    SelectProductTypeViewController *next = [[SelectProductTypeViewController alloc] init];
+    [next setRequestReloadTable:^{
+        [self typeChangeOrReloadAction];
+    }];
+    [navi pushViewController:next animated:NO];
+    [self presentViewController:navi animated:YES completion:^{
+    }];
 }
 
 -(void) loadRankData {
@@ -191,6 +211,7 @@
 
     [self dataTableViewSetting];
     [self createNavigationRightButton];
+    [self createNavigationLeftButton];
     [self createNavigationTitleSegment];
 }
 
