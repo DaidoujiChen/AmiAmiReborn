@@ -41,6 +41,7 @@
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
 		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
+		01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01721EBD18CDEE4700B6A540 /* AllProducts.plist */; };
 		0198B59C18ADE971006512E2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59718ADE971006512E2 /* TFHpple.m */; };
 		0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59918ADE971006512E2 /* TFHppleElement.m */; };
 		0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59B18ADE971006512E2 /* XPathQuery.m */; };
@@ -185,6 +186,7 @@
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
+		01721EBD18CDEE4700B6A540 /* AllProducts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AllProducts.plist; path = Common/AllProducts.plist; sourceTree = "<group>"; };
 		0198B59618ADE971006512E2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = ThirdParty/TFHpple/TFHpple.h; sourceTree = "<group>"; };
 		0198B59718ADE971006512E2 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = ThirdParty/TFHpple/TFHpple.m; sourceTree = "<group>"; };
 		0198B59818ADE971006512E2 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = ThirdParty/TFHpple/TFHppleElement.h; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 		0198B5FF18ADEBC5006512E2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				01721EBD18CDEE4700B6A540 /* AllProducts.plist */,
 				01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */,
 				01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */,
 				0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */,
@@ -935,6 +938,7 @@
 				0198B61718ADEC29006512E2 /* RelationCell.xib in Resources */,
 				0198B66318ADED05006512E2 /* egopv_error_placeholder@2x.png in Resources */,
 				0198B5FD18ADEB78006512E2 /* SVProgressHUD.bundle in Resources */,
+				01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */,
 				0166343718C2DE51002FC4BF /* HistoryViewController.xib in Resources */,
 				0198B66218ADED05006512E2 /* egopv_error_placeholder.png in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
