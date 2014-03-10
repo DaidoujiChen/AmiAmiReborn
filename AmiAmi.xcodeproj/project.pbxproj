@@ -40,8 +40,8 @@
 		01699401188F73DB007E21C8 /* ranking_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FC188F73DB007E21C8 /* ranking_4.png */; };
 		01699402188F73DB007E21C8 /* ranking_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FD188F73DB007E21C8 /* ranking_5.png */; };
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
-		016B280918C4731A00FBB097 /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */; };
 		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
+		01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01721EBD18CDEE4700B6A540 /* AllProducts.plist */; };
 		0198B59C18ADE971006512E2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59718ADE971006512E2 /* TFHpple.m */; };
 		0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59918ADE971006512E2 /* TFHppleElement.m */; };
 		0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59B18ADE971006512E2 /* XPathQuery.m */; };
@@ -125,6 +125,7 @@
 		01ACF20018C5B255008D0B41 /* LightWeightPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FB18C5B255008D0B41 /* LightWeightPlist.m */; };
 		01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */; };
 		01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */; };
+		01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */; };
 		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
 		01D62F5D18962D9A00ABB2E0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */; };
 		01D62F5F18962DAC00ABB2E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */; };
@@ -186,10 +187,9 @@
 		016993FC188F73DB007E21C8 /* ranking_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_4.png; sourceTree = "<group>"; };
 		016993FD188F73DB007E21C8 /* ranking_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_5.png; sourceTree = "<group>"; };
 		01699408188F772C007E21C8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzling.h"; sourceTree = "<group>"; };
-		016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzling.m"; sourceTree = "<group>"; };
 		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
+		01721EBD18CDEE4700B6A540 /* AllProducts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AllProducts.plist; path = Common/AllProducts.plist; sourceTree = "<group>"; };
 		0198B59618ADE971006512E2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = ThirdParty/TFHpple/TFHpple.h; sourceTree = "<group>"; };
 		0198B59718ADE971006512E2 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = ThirdParty/TFHpple/TFHpple.m; sourceTree = "<group>"; };
 		0198B59818ADE971006512E2 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = ThirdParty/TFHpple/TFHppleElement.h; sourceTree = "<group>"; };
@@ -340,6 +340,8 @@
 		01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LightWeightPlist+AccessObject.m"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+AccessObject.m"; sourceTree = "<group>"; };
 		01ACF1FE18C5B255008D0B41 /* LightWeightPlist+FilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LightWeightPlist+FilePath.h"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+FilePath.h"; sourceTree = "<group>"; };
 		01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LightWeightPlist+FilePath.m"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+FilePath.m"; sourceTree = "<group>"; };
+		01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Swizzling.h"; path = "Common/UIViewController+Swizzling.h"; sourceTree = "<group>"; };
+		01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Swizzling.m"; path = "Common/UIViewController+Swizzling.m"; sourceTree = "<group>"; };
 		01D62F5A18962D9400ABB2E0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -658,8 +660,9 @@
 		0198B5FF18ADEBC5006512E2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				016B280718C4731A00FBB097 /* UIViewController+Swizzling.h */,
-				016B280818C4731A00FBB097 /* UIViewController+Swizzling.m */,
+				01721EBD18CDEE4700B6A540 /* AllProducts.plist */,
+				01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */,
+				01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */,
 				0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */,
 				0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */,
 				0198B60018ADEBD8006512E2 /* AmiAmiParser.h */,
@@ -958,6 +961,7 @@
 				0198B61718ADEC29006512E2 /* RelationCell.xib in Resources */,
 				0198B66318ADED05006512E2 /* egopv_error_placeholder@2x.png in Resources */,
 				0198B5FD18ADEB78006512E2 /* SVProgressHUD.bundle in Resources */,
+				01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */,
 				0166343718C2DE51002FC4BF /* HistoryViewController.xib in Resources */,
 				0198B66218ADED05006512E2 /* egopv_error_placeholder.png in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
@@ -1019,6 +1023,7 @@
 				01109721188E616A00D14EC1 /* main.m in Sources */,
 				01A766D118ADEFF7005EB380 /* FICImageCache.m in Sources */,
 				0198B62A18ADEC68006512E2 /* ProductViewController.m in Sources */,
+				01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */,
 				0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */,
 				0198B60618ADEBD8006512E2 /* AmiAmiParser.m in Sources */,
 				0198B5DB18ADEA3E006512E2 /* NSData+ImageContentType.m in Sources */,
