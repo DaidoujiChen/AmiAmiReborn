@@ -22,7 +22,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
         NSURL *requestURL = [entity sourceImageURLWithFormatName:formatName];
-        UIImageView *requestImageView = [[UIImageView alloc] init];
+        UIImageView *requestImageView = [UIImageView new];
         __weak UIImageView *weakRequestImageView = requestImageView;
 
         objc_setAssociatedObject(self, (__bridge const void *)requestImageView, requestImageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -81,22 +81,22 @@
     
     [self initImageCacheSetting];
     
-    UITabBarController *tabbar = [[UITabBarController alloc] init];
+    UITabBarController *tabbar = [UITabBarController new];
     
-    OSNavigationController *mainNavi = [[OSNavigationController alloc] init];
-    MainViewController *main = [[MainViewController alloc] init];
+    OSNavigationController *mainNavi = [OSNavigationController new];
+    MainViewController *main = [MainViewController new];
     [mainNavi setTitle:@"列表"];
     [mainNavi.tabBarItem setImage:[UIImage imageNamed:@"Albums"]];
     [mainNavi pushViewController:main animated:NO];
     
-    OSNavigationController *historyNavi = [[OSNavigationController alloc] init];
-    HistoryViewController *history = [[HistoryViewController alloc] init];
+    OSNavigationController *historyNavi = [OSNavigationController new];
+    HistoryViewController *history = [HistoryViewController new];
     [historyNavi setTitle:@"歷史"];
     [historyNavi.tabBarItem setImage:[UIImage imageNamed:@"Bookmarks"]];
     [historyNavi pushViewController:history animated:NO];
     
-    OSNavigationController *favoriteNavi = [[OSNavigationController alloc] init];
-    FavoriteViewController *favorite = [[FavoriteViewController alloc] init];
+    OSNavigationController *favoriteNavi = [OSNavigationController new];
+    FavoriteViewController *favorite = [FavoriteViewController new];
     [favoriteNavi setTitle:@"最愛"];
     [favoriteNavi.tabBarItem setImage:[UIImage imageNamed:@"Favorites"]];
     [favoriteNavi pushViewController:favorite animated:NO];

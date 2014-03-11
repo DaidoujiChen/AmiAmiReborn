@@ -13,26 +13,26 @@
 @synthesize onClickCollectionCell;
 @synthesize productsInfoArray;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+-(id) initWithStyle : (UITableViewCellStyle) style reuseIdentifier : (NSString*) reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [_productCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
-        [GlobalFunctions textEffect:_productTypeLabel];
+        [self.productCollectionView registerClass:[ProductCollectionCell class] forCellWithReuseIdentifier:@"ProductCollectionCell"];
+        [GlobalFunctions textEffect:self.productTypeLabel];
     }
     return self;
 }
 
 #pragma mark - UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+-(NSInteger) numberOfSectionsInCollectionView : (UICollectionView*) collectionView {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+-(NSInteger) collectionView : (UICollectionView*) collectionView numberOfItemsInSection : (NSInteger) section {
     return [productsInfoArray count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(UICollectionViewCell*) collectionView : (UICollectionView*) collectionView cellForItemAtIndexPath : (NSIndexPath*) indexPath {
     
     static NSString *CellIdentifier = @"ProductCollectionCell";
     ProductCollectionCell *cell = (ProductCollectionCell*) [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -50,7 +50,7 @@
 
 #pragma mark - UICollectionViewDelegate
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+-(void) collectionView : (UICollectionView*) collectionView didSelectItemAtIndexPath : (NSIndexPath*) indexPath {
     
     NSDictionary *eachInfo = [productsInfoArray objectAtIndex:indexPath.row];
     

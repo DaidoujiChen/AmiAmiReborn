@@ -18,7 +18,7 @@ static const char FILEMANAGERPOINTER;
 
 +(NSCache*) dataCache {
     if (!objc_getAssociatedObject(self, &DATACACHEPOINTER)) {
-        NSCache *dataCache = [[NSCache alloc] init];
+        NSCache *dataCache = [NSCache new];
         [dataCache setDelegate:(id<NSCacheDelegate>)self];
         objc_setAssociatedObject(self, &DATACACHEPOINTER, dataCache, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }

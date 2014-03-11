@@ -10,17 +10,17 @@
 
 @implementation MainCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+-(id) initWithStyle : (UITableViewCellStyle) style reuseIdentifier : (NSString*) reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [GlobalFunctions imageEffect:_thumbnailImageView];
-        [GlobalFunctions textEffect:_titleTextView];
+        [GlobalFunctions imageEffect:self.thumbnailImageView];
+        [GlobalFunctions textEffect:self.titleTextView];
     }
     return self;
 }
 
-- (void)prepareForReuse {
-    _thumbnailImageView.image = nil;
+-(void) prepareForReuse {
+    self.thumbnailImageView.image = nil;
 }
 
 @end

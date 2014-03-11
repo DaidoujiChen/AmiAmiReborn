@@ -9,7 +9,8 @@
 #import "SelectProductTypeViewController.h"
 
 @interface SelectProductTypeViewController ()
-- (void)createNavigationRightButton;
+-(void) createNavigationRightButton;
+-(void) selectProductTypeTableViewSetting;
 -(void) dismissSelf;
 @end
 
@@ -17,18 +18,22 @@
 
 @synthesize requestReloadTable;
 
-- (void)didReceiveMemoryWarning {
+-(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - private
 
-- (void)createNavigationRightButton {
+-(void) createNavigationRightButton {
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                  target:self
                                                                                  action:@selector(dismissSelf)];
     
     self.navigationItem.rightBarButtonItem = rightButton;
+}
+
+-(void) selectProductTypeTableViewSetting {
+    [self.selectProductTypeTableView registerClass:[DefaultCell class] forCellReuseIdentifier:@"DefaultCell"];
 }
 
 -(void) dismissSelf {
@@ -39,11 +44,11 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
     return [LWPArray(@"AllProducts") count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
     static NSString *CellIdentifier = @"DefaultCell";
     DefaultCell *cell = (DefaultCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -57,17 +62,18 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
     [LWPDictionary(@"MISC") setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"typeIndex"];
     [self dismissSelf];
 }
 
 #pragma mark - life cycle
 
-- (void)viewDidLoad {
+-(void) viewDidLoad {
     [super viewDidLoad];
     
-    [self.selectProductTypeTableView registerClass:[DefaultCell class] forCellReuseIdentifier:@"DefaultCell"];
+    [self createNavigationRightButton];
+    [self selectProductTypeTableViewSetting];
 }
 
 @end

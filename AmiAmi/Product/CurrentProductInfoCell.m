@@ -13,9 +13,9 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [GlobalFunctions imageEffect:_currentProductImageView];
-        [GlobalFunctions textEffect:_currentProductTitleTextView];
-        [GlobalFunctions textEffect:_currentProductInformationTextView];
+        [GlobalFunctions imageEffect:self.currentProductImageView];
+        [GlobalFunctions textEffect:self.currentProductTitleTextView];
+        [GlobalFunctions textEffect:self.currentProductInformationTextView];
     }
     return self;
 }

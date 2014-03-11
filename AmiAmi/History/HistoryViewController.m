@@ -9,34 +9,34 @@
 #import "HistoryViewController.h"
 
 @interface HistoryViewController (Private)
-- (void)historyTableViewSetting;
+-(void) historyTableViewSetting;
 @end
 
 @implementation HistoryViewController
 
-- (void)didReceiveMemoryWarning {
+-(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - private
 
-- (void)historyTableViewSetting {
-    [_historyTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
-    [_historyTableView setBackgroundView:nil];
-    [_historyTableView setBackgroundColor:[UIColor clearColor]];
+-(void) historyTableViewSetting {
+    [self.historyTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
+    [self.historyTableView setBackgroundView:nil];
+    [self.historyTableView setBackgroundColor:[UIColor clearColor]];
 }
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger) numberOfSectionsInTableView : (UITableView*) tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
     return [LWPArray(@"History") count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
     
     NSDictionary *eachInfo = [[[LWPArray(@"History") reverseObjectEnumerator] allObjects] objectAtIndex:indexPath.row];
     
@@ -59,11 +59,11 @@
 
 #pragma mark - UITableViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat) tableView : (UITableView*) tableView heightForRowAtIndexPath : (NSIndexPath*) indexPath {
     return 160.0f;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
     
     NSDictionary *eachInfo = [[[LWPArray(@"History") reverseObjectEnumerator] allObjects] objectAtIndex:indexPath.row];
 
@@ -75,7 +75,7 @@
             
             [GlobalFunctions addToHistory:eachInfo];
             
-            ProductViewController *next = [[ProductViewController alloc] init];
+            ProductViewController *next = [ProductViewController new];
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
             next.productInfoDictionary = productDictionary;
@@ -89,14 +89,14 @@
 
 #pragma mark - life cycle
 
-- (void)viewDidLoad {
+-(void) viewDidLoad {
     [super viewDidLoad];
     [self historyTableViewSetting];
 }
 
--(void) viewWillAppear:(BOOL)animated {
+-(void) viewWillAppear : (BOOL) animated {
     [super viewWillAppear:animated];
-    [_historyTableView reloadData];
+    [self.historyTableView reloadData];
 }
 
 @end

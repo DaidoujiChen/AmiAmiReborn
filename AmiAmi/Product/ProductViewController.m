@@ -9,8 +9,8 @@
 #import "ProductViewController.h"
 
 @interface ProductViewController (Private)
-- (void)productTableViewSetting;
-- (void)makeRecordCellTypeArray;
+-(void) productTableViewSetting;
+-(void) makeRecordCellTypeArray;
 -(NSString*) chooseProductTypeText : (NSString*) recordString;
 @end
 
@@ -24,15 +24,15 @@
 
 #pragma mark - private
 
-- (void)productTableViewSetting {
-    [_productsTableView registerClass:[CurrentProductInfoCell class] forCellReuseIdentifier:@"CurrentProductInfoCell"];
-    [_productsTableView registerClass:[OtherProductsCell class] forCellReuseIdentifier:@"OtherProductsCell"];
-    [_productsTableView setBackgroundView:nil];
-    [_productsTableView setBackgroundColor:[UIColor clearColor]];
+-(void) productTableViewSetting {
+    [self.productsTableView registerClass:[CurrentProductInfoCell class] forCellReuseIdentifier:@"CurrentProductInfoCell"];
+    [self.productsTableView registerClass:[OtherProductsCell class] forCellReuseIdentifier:@"OtherProductsCell"];
+    [self.productsTableView setBackgroundView:nil];
+    [self.productsTableView setBackgroundColor:[UIColor clearColor]];
 }
 
-- (void)makeRecordCellTypeArray {
-    recordCellTypeArray = [[NSMutableArray alloc] init];
+-(void) makeRecordCellTypeArray {
+    recordCellTypeArray = [NSMutableArray new];
     
     if ([productInfoDictionary objectForKey:@"Relation"]) [recordCellTypeArray addObject:@"Relation"];
     if ([productInfoDictionary objectForKey:@"AlsoLike"]) [recordCellTypeArray addObject:@"AlsoLike"];
@@ -54,15 +54,15 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger) numberOfSectionsInTableView : (UITableView*) tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
     return [recordCellTypeArray count] + 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
     
     if (indexPath.row == 0) {
         static NSString *CellIdentifier = @"CurrentProductInfoCell";
@@ -100,7 +100,7 @@
         [cell.productCollectionView reloadData];
         
         [cell setOnClickCollectionCell:^(NSDictionary *result) {            
-            ProductViewController *next = [[ProductViewController alloc] init];
+            ProductViewController *next = [ProductViewController new];
             next.productInfoDictionary = result;
             [self.navigationController pushViewController:next animated:YES];
         }];
@@ -112,7 +112,7 @@
 
 #pragma mark - UITableViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat) tableView : (UITableView*) tableView heightForRowAtIndexPath : (NSIndexPath*) indexPath {
     
     if (indexPath.row == 0) {
         return 228.0f;
@@ -122,7 +122,7 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
     
     if (indexPath.row == 0) {
         NSMutableArray *photos = [NSMutableArray array];
@@ -152,11 +152,10 @@
 
 #pragma mark - life cycle
 
-- (void)viewDidLoad {
+-(void) viewDidLoad {
     [super viewDidLoad];
     
     [self productTableViewSetting];
-    
     [self makeRecordCellTypeArray];
 }
 

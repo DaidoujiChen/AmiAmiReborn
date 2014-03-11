@@ -98,7 +98,7 @@ static const char PASSALERTVIEWPOINTER;
 
 +(NSLock*) parseLock {
     if (!objc_getAssociatedObject(self, &PARSELOCKPOINTER)) {
-        NSLock *parseLock = [[NSLock alloc] init];
+        NSLock *parseLock = [NSLock new];
         objc_setAssociatedObject(self, &PARSELOCKPOINTER, parseLock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return objc_getAssociatedObject(self, &PARSELOCKPOINTER);

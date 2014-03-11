@@ -10,19 +10,19 @@
 
 @implementation ProductCollectionCell
 
-- (id)initWithFrame:(CGRect)frame {
+-(id) initWithFrame : (CGRect) frame {
     self = [super initWithFrame:frame];
     if (self) {
         NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
         self = [arrayOfViews objectAtIndex:0];
         
-        [GlobalFunctions imageEffect:_productImageView];
+        [GlobalFunctions imageEffect:self.productImageView];
     }
     return self;
 }
 
-- (void)prepareForReuse {
-    _productImageView.image = nil;
+-(void) prepareForReuse {
+    self.productImageView.image = nil;
 }
 
 @end

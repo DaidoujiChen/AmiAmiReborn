@@ -14,10 +14,10 @@
 @end
 
 @interface MainViewController (Private)
-- (void)createNavigationRightButton;
+-(void) createNavigationRightButton;
 -(void) createNavigationLeftButton;
-- (void)createNavigationTitleSegment;
-- (void)dataTableViewSetting;
+-(void) createNavigationTitleSegment;
+-(void) dataTableViewSetting;
 
 -(void) typeChangeOrReloadAction;
 -(void) loadRankData;
@@ -29,7 +29,7 @@
 @synthesize dataArray;
 @synthesize reloadRetultBlock;
 
-- (void)didReceiveMemoryWarning {
+-(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
@@ -38,14 +38,14 @@
 
 #pragma mark ui create
 
-- (void)dataTableViewSetting {
-    [_dataTableView registerClass:[MainCell class] forCellReuseIdentifier:@"MainCell"];
-    [_dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
-    [_dataTableView setBackgroundView:nil];
-    [_dataTableView setBackgroundColor:[UIColor clearColor]];
+-(void) dataTableViewSetting {
+    [self.dataTableView registerClass:[MainCell class] forCellReuseIdentifier:@"MainCell"];
+    [self.dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
+    [self.dataTableView setBackgroundView:nil];
+    [self.dataTableView setBackgroundColor:[UIColor clearColor]];
 }
 
-- (void)createNavigationRightButton {
+-(void) createNavigationRightButton {
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                  target:self
                                                                                  action:@selector(typeChangeOrReloadAction)];
@@ -61,7 +61,7 @@
     self.navigationItem.leftBarButtonItem = leftButton;
 }
 
-- (void)createNavigationTitleSegment {
+-(void) createNavigationTitleSegment {
     typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
     [typeSegment setSelectedSegmentIndex:0];
     [typeSegment addTarget:self action:@selector(typeChangeOrReloadAction) forControlEvents:UIControlEventValueChanged];
@@ -85,8 +85,8 @@
 }
 
 -(void) showSelectProductType {
-    UINavigationController *navi = [[UINavigationController alloc] init];
-    SelectProductTypeViewController *next = [[SelectProductTypeViewController alloc] init];
+    UINavigationController *navi = [UINavigationController new];
+    SelectProductTypeViewController *next = [SelectProductTypeViewController new];
     [next setRequestReloadTable:^{
         [self typeChangeOrReloadAction];
     }];
@@ -105,15 +105,15 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger) numberOfSectionsInTableView : (UITableView*) tableView {
     return [dataArray count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
     
     NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
     
@@ -166,7 +166,7 @@
 
 #pragma mark - UITableViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat) tableView : (UITableView*) tableView heightForRowAtIndexPath : (NSIndexPath*) indexPath {
     switch (typeSegment.selectedSegmentIndex) {
         case 0:
             return 180.0f;
@@ -180,7 +180,7 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
     
     NSDictionary *eachInfo = [dataArray objectAtIndex:indexPath.section];
     
@@ -192,7 +192,7 @@
             
             [GlobalFunctions addToHistory:eachInfo];
             
-            ProductViewController *next = [[ProductViewController alloc] init];
+            ProductViewController *next = [ProductViewController new];
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
             next.productInfoDictionary = productDictionary;
@@ -206,7 +206,7 @@
 
 #pragma mark - life cycle
 
-- (void)viewDidLoad {
+-(void) viewDidLoad {
     [super viewDidLoad];
 
     [self dataTableViewSetting];

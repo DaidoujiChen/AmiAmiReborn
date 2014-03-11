@@ -21,9 +21,9 @@
 #pragma mark - private
 
 - (void)favoriteTableViewSetting {
-    [_favoriteTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
-    [_favoriteTableView setBackgroundView:nil];
-    [_favoriteTableView setBackgroundColor:[UIColor clearColor]];
+    [self.favoriteTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
+    [self.favoriteTableView setBackgroundView:nil];
+    [self.favoriteTableView setBackgroundColor:[UIColor clearColor]];
 }
 
 #pragma mark - UITableViewDataSource
@@ -75,7 +75,7 @@
             
             [GlobalFunctions addToHistory:eachInfo];
             
-            ProductViewController *next = [[ProductViewController alloc] init];
+            ProductViewController *next = [ProductViewController new];
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
             next.productInfoDictionary = productDictionary;
@@ -107,7 +107,7 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_favoriteTableView reloadData];
+    [self.favoriteTableView reloadData];
 }
 
 
