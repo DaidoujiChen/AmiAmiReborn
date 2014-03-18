@@ -96,11 +96,11 @@
 }
 
 -(void) loadRankData {
-    [AmiAmiParser parseBiShoJoRank:reloadRetultBlock];
+    [AmiAmiParser parseRankProducts:reloadRetultBlock];
 }
 
 -(void) loadAllBiShoJoData {
-    [AmiAmiParser parseAllBiShouJo:reloadRetultBlock];
+    [AmiAmiParser parseAllProducts:reloadRetultBlock];
 }
 
 #pragma mark - UITableViewDataSource
@@ -186,7 +186,7 @@
     
     NSString *urlString = [GlobalFunctions fixProductURL:[eachInfo objectForKey:@"URL"]];
 
-    [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
+    [AmiAmiParser parseProductInfo:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         
         if (status) {
             

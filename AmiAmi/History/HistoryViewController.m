@@ -69,7 +69,7 @@
 
     NSString *urlString = [GlobalFunctions fixProductURL:[eachInfo objectForKey:@"URL"]];
     
-    [AmiAmiParser parseProduct:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
+    [AmiAmiParser parseProductInfo:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         
         if (status) {
             

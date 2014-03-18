@@ -80,10 +80,10 @@
             case AmiAmiParserEntryTypeRank:
                 [self rankParser:[self parseWebView]];
                 break;
-            case AmiAmiParserEntryTypeAllBiShouJo:
+            case AmiAmiParserEntryTypeAll:
                 [self biShoJoParser:[self parseWebView]];
                 break;
-            case AmiAmiParserEntryTypeProduct:
+            case AmiAmiParserEntryTypeProductInfo:
                 [self productParser:[self parseWebView]];
                 break;
         }
@@ -352,7 +352,7 @@
 
 #pragma mark - class methods
 
-+(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
++(void) parseAllProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [self setStartDate:[NSDate date]];
     [self setPassFlag:NO];
     
@@ -361,11 +361,11 @@
     [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取最新%@商品...", [eachDictionary objectForKey:@"title"]]
                          maskType:SVProgressHUDMaskTypeBlack];
     [self setArrayCompletion:completion];
-    [self setEntryType:AmiAmiParserEntryTypeAllBiShouJo];
+    [self setEntryType:AmiAmiParserEntryTypeAll];
     [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:[eachDictionary objectForKey:@"allproducts"]]]];
 }
 
-+(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
++(void) parseRankProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
     [self setStartDate:[NSDate date]];
     [self setPassFlag:NO];
     
@@ -378,12 +378,12 @@
     [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]]];
 }
 
-+(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
++(void) parseProductInfo : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
     [self setStartDate:[NSDate date]];
     [self setPassFlag:NO];
     [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
     [self setDictionaryCompletion:completion];
-    [self setEntryType:AmiAmiParserEntryTypeProduct];
+    [self setEntryType:AmiAmiParserEntryTypeProductInfo];
     [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:urlString]]];
 }
 

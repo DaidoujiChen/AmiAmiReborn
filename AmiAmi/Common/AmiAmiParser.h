@@ -17,14 +17,14 @@ typedef enum {
 
 typedef enum {
     AmiAmiParserEntryTypeRank       =   0,
-    AmiAmiParserEntryTypeAllBiShouJo,
-    AmiAmiParserEntryTypeProduct
+    AmiAmiParserEntryTypeAll,
+    AmiAmiParserEntryTypeProductInfo
 } AmiAmiParserEntryType;
 
 @interface AmiAmiParser : NSObject <UIWebViewDelegate, UIAlertViewDelegate>
 
-+(void) parseBiShoJoRank : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
-+(void) parseAllBiShouJo : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
-+(void) parseProduct : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion;
++(void) parseRankProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
++(void) parseAllProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
++(void) parseProductInfo : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion;
 
 @end
