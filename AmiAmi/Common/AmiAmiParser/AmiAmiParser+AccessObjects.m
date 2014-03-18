@@ -8,8 +8,6 @@
 
 #import "AmiAmiParser+AccessObjects.h"
 
-#import <objc/runtime.h>
-
 @implementation AmiAmiParser (AccessObjects)
 
 static const char ENTRYTYPEPOINTER;

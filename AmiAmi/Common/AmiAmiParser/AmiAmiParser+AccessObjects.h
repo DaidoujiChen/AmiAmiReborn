@@ -8,7 +8,10 @@
 
 #import "AmiAmiParser.h"
 
+#import <objc/runtime.h>
+
 @interface AmiAmiParser (AccessObjects)
+
 +(void) setArrayCompletion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
 +(void (^)(AmiAmiParserStatus status, NSArray *result)) arrayCompletion;
 

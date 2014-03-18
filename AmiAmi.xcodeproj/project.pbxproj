@@ -25,7 +25,6 @@
 		0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */; };
 		0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */; };
 		0129682118CE06C700045E4A /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129682018CE06C700045E4A /* DefaultCell.m */; };
-		0138F28118BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
 		0166342C18C2DDFF002FC4BF /* Albums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342618C2DDFF002FC4BF /* Albums@2x.png */; };
@@ -70,7 +69,6 @@
 		0198B5F818ADEB31006512E2 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0198B5F518ADEB31006512E2 /* GooglePlus.framework */; };
 		0198B5FD18ADEB78006512E2 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0198B5FA18ADEB78006512E2 /* SVProgressHUD.bundle */; };
 		0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B5FC18ADEB78006512E2 /* SVProgressHUD.m */; };
-		0198B60618ADEBD8006512E2 /* AmiAmiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60118ADEBD8006512E2 /* AmiAmiParser.m */; };
 		0198B60718ADEBD8006512E2 /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60318ADEBD8006512E2 /* GlobalFunctions.m */; };
 		0198B60818ADEBD8006512E2 /* UITableViewCellBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60518ADEBD8006512E2 /* UITableViewCellBase.m */; };
 		0198B61218ADEC29006512E2 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60A18ADEC29006512E2 /* MainCell.m */; };
@@ -116,6 +114,12 @@
 		01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766CD18ADEFF7005EB380 /* FICImageTableEntry.m */; };
 		01A766D618ADEFF7005EB380 /* FICUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766D018ADEFF7005EB380 /* FICUtilities.m */; };
 		01A766DC18ADF9F2005EB380 /* FICDPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766DB18ADF9F2005EB380 /* FICDPhoto.m */; };
+		01A7F43718D8A8F0005E05FC /* AmiAmiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F43418D8A8F0005E05FC /* AmiAmiParser.m */; };
+		01A7F43818D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F43618D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m */; };
+		01A7F43B18D8A98B005E05FC /* AmiAmiParser+Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F43A18D8A98B005E05FC /* AmiAmiParser+Parser.m */; };
+		01A7F43E18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F43D18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m */; };
+		01A7F44118D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F44018D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.m */; };
+		01A7F44418D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F44318D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m */; };
 		01ACF20018C5B255008D0B41 /* LightWeightPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FB18C5B255008D0B41 /* LightWeightPlist.m */; };
 		01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */; };
 		01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */; };
@@ -165,8 +169,6 @@
 		0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = Main/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
 		0129681F18CE06C700045E4A /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
 		0129682018CE06C700045E4A /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
-		0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+AccessObjects.h"; path = "Common/AmiAmiParser+AccessObjects.h"; sourceTree = "<group>"; };
-		0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+AccessObjects.m"; path = "Common/AmiAmiParser+AccessObjects.m"; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0166342518C2DDFF002FC4BF /* Albums.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Albums.png; path = Images/icons/Albums.png; sourceTree = "<group>"; };
 		0166342618C2DDFF002FC4BF /* Albums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Albums@2x.png"; path = "Images/icons/Albums@2x.png"; sourceTree = "<group>"; };
@@ -235,8 +237,6 @@
 		0198B5FA18ADEB78006512E2 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = ThirdParty/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		0198B5FB18ADEB78006512E2 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = ThirdParty/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
 		0198B5FC18ADEB78006512E2 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = ThirdParty/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
-		0198B60018ADEBD8006512E2 /* AmiAmiParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmiAmiParser.h; path = Common/AmiAmiParser.h; sourceTree = "<group>"; };
-		0198B60118ADEBD8006512E2 /* AmiAmiParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmiAmiParser.m; path = Common/AmiAmiParser.m; sourceTree = "<group>"; };
 		0198B60218ADEBD8006512E2 /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalFunctions.h; path = Common/GlobalFunctions.h; sourceTree = "<group>"; };
 		0198B60318ADEBD8006512E2 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalFunctions.m; path = Common/GlobalFunctions.m; sourceTree = "<group>"; };
 		0198B60418ADEBD8006512E2 /* UITableViewCellBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITableViewCellBase.h; path = Common/UITableViewCellBase.h; sourceTree = "<group>"; };
@@ -314,6 +314,18 @@
 		01A766D018ADEFF7005EB380 /* FICUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICUtilities.m; path = ThirdParty/FastImageCache/FICUtilities.m; sourceTree = "<group>"; };
 		01A766DA18ADF9F2005EB380 /* FICDPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICDPhoto.h; path = ThirdParty/FastImageCache/FICDPhoto.h; sourceTree = "<group>"; };
 		01A766DB18ADF9F2005EB380 /* FICDPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICDPhoto.m; path = ThirdParty/FastImageCache/FICDPhoto.m; sourceTree = "<group>"; };
+		01A7F43318D8A8F0005E05FC /* AmiAmiParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmiAmiParser.h; path = Common/AmiAmiParser/AmiAmiParser.h; sourceTree = "<group>"; };
+		01A7F43418D8A8F0005E05FC /* AmiAmiParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmiAmiParser.m; path = Common/AmiAmiParser/AmiAmiParser.m; sourceTree = "<group>"; };
+		01A7F43518D8A8F0005E05FC /* AmiAmiParser+AccessObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+AccessObjects.h"; path = "Common/AmiAmiParser/AmiAmiParser+AccessObjects.h"; sourceTree = "<group>"; };
+		01A7F43618D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+AccessObjects.m"; path = "Common/AmiAmiParser/AmiAmiParser+AccessObjects.m"; sourceTree = "<group>"; };
+		01A7F43918D8A98B005E05FC /* AmiAmiParser+Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+Parser.h"; path = "Common/AmiAmiParser/AmiAmiParser+Parser.h"; sourceTree = "<group>"; };
+		01A7F43A18D8A98B005E05FC /* AmiAmiParser+Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+Parser.m"; path = "Common/AmiAmiParser/AmiAmiParser+Parser.m"; sourceTree = "<group>"; };
+		01A7F43C18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+MiscFunctions.h"; path = "Common/AmiAmiParser/AmiAmiParser+MiscFunctions.h"; sourceTree = "<group>"; };
+		01A7F43D18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+MiscFunctions.m"; path = "Common/AmiAmiParser/AmiAmiParser+MiscFunctions.m"; sourceTree = "<group>"; };
+		01A7F43F18D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+HandleUIWebViewDelegate.h"; path = "Common/AmiAmiParser/AmiAmiParser+HandleUIWebViewDelegate.h"; sourceTree = "<group>"; };
+		01A7F44018D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+HandleUIWebViewDelegate.m"; path = "Common/AmiAmiParser/AmiAmiParser+HandleUIWebViewDelegate.m"; sourceTree = "<group>"; };
+		01A7F44218D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+HandleUIAlertViewDelegate.h"; path = "Common/AmiAmiParser/AmiAmiParser+HandleUIAlertViewDelegate.h"; sourceTree = "<group>"; };
+		01A7F44318D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+HandleUIAlertViewDelegate.m"; path = "Common/AmiAmiParser/AmiAmiParser+HandleUIAlertViewDelegate.m"; sourceTree = "<group>"; };
 		01ACF1FA18C5B255008D0B41 /* LightWeightPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LightWeightPlist.h; path = ThirdParty/LightWeightPlist/LightWeightPlist.h; sourceTree = "<group>"; };
 		01ACF1FB18C5B255008D0B41 /* LightWeightPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LightWeightPlist.m; path = ThirdParty/LightWeightPlist/LightWeightPlist.m; sourceTree = "<group>"; };
 		01ACF1FC18C5B255008D0B41 /* LightWeightPlist+AccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LightWeightPlist+AccessObject.h"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+AccessObject.h"; sourceTree = "<group>"; };
@@ -613,13 +625,10 @@
 		0198B5FF18ADEBC5006512E2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				01A7F43218D8A8D9005E05FC /* AmiAmiParser */,
 				01721EBD18CDEE4700B6A540 /* AllProducts.plist */,
 				01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */,
 				01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */,
-				0138F27F18BB4501007F8AE4 /* AmiAmiParser+AccessObjects.h */,
-				0138F28018BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m */,
-				0198B60018ADEBD8006512E2 /* AmiAmiParser.h */,
-				0198B60118ADEBD8006512E2 /* AmiAmiParser.m */,
 				0198B60218ADEBD8006512E2 /* GlobalFunctions.h */,
 				0198B60318ADEBD8006512E2 /* GlobalFunctions.m */,
 				0198B60418ADEBD8006512E2 /* UITableViewCellBase.h */,
@@ -778,6 +787,25 @@
 			name = FastImageCache;
 			sourceTree = "<group>";
 		};
+		01A7F43218D8A8D9005E05FC /* AmiAmiParser */ = {
+			isa = PBXGroup;
+			children = (
+				01A7F43318D8A8F0005E05FC /* AmiAmiParser.h */,
+				01A7F43418D8A8F0005E05FC /* AmiAmiParser.m */,
+				01A7F43518D8A8F0005E05FC /* AmiAmiParser+AccessObjects.h */,
+				01A7F43618D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m */,
+				01A7F43918D8A98B005E05FC /* AmiAmiParser+Parser.h */,
+				01A7F43A18D8A98B005E05FC /* AmiAmiParser+Parser.m */,
+				01A7F43C18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.h */,
+				01A7F43D18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m */,
+				01A7F43F18D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.h */,
+				01A7F44018D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.m */,
+				01A7F44218D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.h */,
+				01A7F44318D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m */,
+			);
+			name = AmiAmiParser;
+			sourceTree = "<group>";
+		};
 		01ACF1F918C5B241008D0B41 /* LightWeightPlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,7 +903,7 @@
 		01109709188E616A00D14EC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ChilunChen;
 				TargetAttributes = {
 					01109731188E616B00D14EC1 = {
@@ -975,6 +1003,7 @@
 				0198B60718ADEBD8006512E2 /* GlobalFunctions.m in Sources */,
 				0198B59C18ADE971006512E2 /* TFHpple.m in Sources */,
 				0198B5E418ADEA3E006512E2 /* UIImage+GIF.m in Sources */,
+				01A7F43B18D8A98B005E05FC /* AmiAmiParser+Parser.m in Sources */,
 				0198B61418ADEC29006512E2 /* MainViewController.m in Sources */,
 				0198B5E018ADEA3E006512E2 /* SDWebImageDownloaderOperation.m in Sources */,
 				0198B65A18ADED05006512E2 /* EGOPhotoViewController.m in Sources */,
@@ -983,7 +1012,6 @@
 				0198B62A18ADEC68006512E2 /* ProductViewController.m in Sources */,
 				01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */,
 				0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */,
-				0198B60618ADEBD8006512E2 /* AmiAmiParser.m in Sources */,
 				0198B5DB18ADEA3E006512E2 /* NSData+ImageContentType.m in Sources */,
 				0198B5E718ADEA3E006512E2 /* UIImageView+WebCache.m in Sources */,
 				01A766D418ADEFF7005EB380 /* FICImageTableChunk.m in Sources */,
@@ -996,6 +1024,8 @@
 				0198B66F18ADED05006512E2 /* EGOPhotoScrollView.m in Sources */,
 				0198B62818ADEC68006512E2 /* ProductCollectionCell.m in Sources */,
 				0198B5E618ADEA3E006512E2 /* UIImage+WebP.m in Sources */,
+				01A7F43E18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m in Sources */,
+				01A7F44418D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m in Sources */,
 				0198B5E118ADEA3E006512E2 /* SDWebImageManager.m in Sources */,
 				0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */,
 				0198B65F18ADED05006512E2 /* EGOQuickPhotoSource.m in Sources */,
@@ -1014,11 +1044,13 @@
 				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,
 				0198B62618ADEC68006512E2 /* OtherProductsCell.m in Sources */,
-				0138F28118BB4501007F8AE4 /* AmiAmiParser+AccessObjects.m in Sources */,
+				01A7F43818D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m in Sources */,
+				01A7F44118D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.m in Sources */,
 				0198B5DE18ADEA3E006512E2 /* SDWebImageDecoder.m in Sources */,
 				0198B66E18ADED05006512E2 /* EGOPhotoImageView.m in Sources */,
 				0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */,
 				016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */,
+				01A7F43718D8A8F0005E05FC /* AmiAmiParser.m in Sources */,
 				0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */,
 				0198B5E318ADEA3E006512E2 /* UIButton+WebCache.m in Sources */,
 				0198B5DF18ADEA3E006512E2 /* SDWebImageDownloader.m in Sources */,
@@ -1069,7 +1101,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1108,7 +1139,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1188,7 +1218,6 @@
 		01109747188E616B00D14EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AmiAmi.app/AmiAmi";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1211,7 +1240,6 @@
 		01109748188E616B00D14EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AmiAmi.app/AmiAmi";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
