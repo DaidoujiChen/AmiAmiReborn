@@ -35,9 +35,6 @@ daidoujichen@gmail.com
 - hpple
   - parse html 網頁.
 
-- AFNetworking
-  - 因為 amiami 網站很多東西是使用 javascript 後來才 load 出來的, 因而無法使用 afnetworking 直接讀取 html 做 parse.
-
 - SDWebImage
   - 異步讀取網路圖片.
 
