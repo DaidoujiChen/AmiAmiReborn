@@ -14,7 +14,7 @@
 
 @implementation FavoriteViewController
 
-- (void)didReceiveMemoryWarning {
+-(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 

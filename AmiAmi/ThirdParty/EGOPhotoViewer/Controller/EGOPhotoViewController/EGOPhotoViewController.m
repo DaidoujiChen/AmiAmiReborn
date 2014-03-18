@@ -1184,7 +1184,7 @@
 #pragma mark -
 #pragma mark Memory
 
-- (void)didReceiveMemoryWarning{
+-(void) didReceiveMemoryWarning{
 	[super didReceiveMemoryWarning];
 }
 

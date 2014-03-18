@@ -18,7 +18,7 @@
 
 @synthesize productInfoDictionary;
 
-- (void)didReceiveMemoryWarning {
+-(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 

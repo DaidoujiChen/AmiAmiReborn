@@ -97,7 +97,7 @@
     objc_removeAssociatedObjects(self);
 }
 
-+ (void)biShoJoParser:(UIWebView *)webView {
++(void) biShoJoParser : (UIWebView*) webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
     
     NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
@@ -121,7 +121,7 @@
     [self freeMemory];
 }
 
-+ (void)rankParser:(UIWebView *)webView {
++(void) rankParser : (UIWebView*) webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
     
     NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
@@ -150,7 +150,7 @@
     [self freeMemory];
 }
 
-+ (void)productParser:(UIWebView *)webView {
++(void) productParser : (UIWebView*) webView {
     NSString *htmlString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
 
     NSData *htmlData = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
@@ -310,7 +310,7 @@
 
 #pragma mark - UIWebViewDelegate
 
-+ (void)webViewDidFinishLoad:(UIWebView *)webView {
++(void) webViewDidFinishLoad : (UIWebView*) webView {
     
     if (![self webViewTimer]) {
         [self setWebViewTimer:[NSTimer scheduledTimerWithTimeInterval:1.5f
@@ -322,13 +322,13 @@
     
 }
 
-+ (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
++(void) webView : (UIWebView*) webView didFailLoadWithError : (NSError*) error {
     NSLog(@"someone fail : %@", error);
 }
 
 #pragma mark - UIAlertViewDelegate
 
-+ (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
++(void) alertView : (UIAlertView*) alertView clickedButtonAtIndex : (NSInteger) buttonIndex {
     
     [self setStartDate:[NSDate date]];
     
