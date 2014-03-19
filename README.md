@@ -1,7 +1,7 @@
 AmiAmi
 ======
 
-![image](https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmiDemo20140304.gif)
+![image](https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmiDemo20140319.gif)
 
 DaidoujiChen
 
@@ -24,6 +24,7 @@ daidoujichen@gmail.com
 ======
 可以幫我試試檔案能不能用, 如果不能用, 而且你又很好心的話, 可以發個信告訴我, 我會很感激, 謝謝.
 
+- <a href="https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmi_20140319.ipa">AmiAmi_20140319</a>
 - <a href="https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmi_20140304.ipa">AmiAmi_20140304</a>
 - <a href="https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmi_20140214.ipa">AmiAmi_20140214</a>
 - <a href="https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/AmiAmi_20140212.ipa">AmiAmi_20140212</a>
