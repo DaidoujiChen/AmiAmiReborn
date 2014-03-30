@@ -23,9 +23,9 @@ static const char PARSEWEBVIEWPOINTER;
 static const char COMPLETIONPOINTER;
 
 static const char WEBVIEWTIMERPOINTER;
+static const char TIMEOUTTIMERPOINTER;
 static const char PARSELOCKPOINTER;
 
-static const char STARTDATEPOINTER;
 static const char PASSFLAGPOINTER;
 static const char PASSALERTVIEWPOINTER;
 
@@ -70,12 +70,12 @@ static const char PASSALERTVIEWPOINTER;
     return objc_getAssociatedObject(self, &WEBVIEWTIMERPOINTER);
 }
 
-+(void) setStartDate : (NSDate*) startDate {
-    objc_setAssociatedObject(self, &STARTDATEPOINTER, startDate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++(void) setTimeoutTimer : (DispatchTimer*) timeoutTimer {
+    objc_setAssociatedObject(self, &TIMEOUTTIMERPOINTER, timeoutTimer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+(NSDate*) startDate {
-    return objc_getAssociatedObject(self, &STARTDATEPOINTER);
++(DispatchTimer*) timeoutTimer {
+    return objc_getAssociatedObject(self, &TIMEOUTTIMERPOINTER);
 }
 
 +(void) setPassFlag : (BOOL) passFlag {

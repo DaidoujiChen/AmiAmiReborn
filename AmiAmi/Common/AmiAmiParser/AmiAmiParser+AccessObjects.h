@@ -34,8 +34,8 @@
 +(void) setWebViewTimer : (DispatchTimer*) webViewTimer;
 +(DispatchTimer*) webViewTimer;
 
-+(void) setStartDate : (NSDate*) startDate;
-+(NSDate*) startDate;
++(void) setTimeoutTimer : (DispatchTimer*) timeoutTimer;
++(DispatchTimer*) timeoutTimer;
 
 +(void) setPassFlag : (BOOL) passFlag;
 +(BOOL) passFlag;

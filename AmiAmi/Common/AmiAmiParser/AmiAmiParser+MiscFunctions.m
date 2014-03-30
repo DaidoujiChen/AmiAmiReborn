@@ -24,6 +24,7 @@
 
 +(void) freeMemory {
     [[self webViewTimer] invalidate];
+    [[self timeoutTimer] invalidate];
     [[self parseLock] unlock];
     objc_removeAssociatedObjects(self);
 }
@@ -50,6 +51,20 @@
     [parserWebView setDelegate:(id<UIWebViewDelegate>)self];
     [parserWebView loadRequest:[NSURLRequest requestWithURL:parseURL]];
     return parserWebView;
+}
+
++(void) setTimeout {
+    [self setTimeoutTimer:[DispatchTimer scheduledOnMainThreadOnceAfterDelay:5.0f block:^{
+        if ([self passAlertView] == nil) {
+            UIAlertView *passAlertView = [[UIAlertView alloc] initWithTitle:@"這個作品有可能沒有相關商品"
+                                                                    message:@"是否直接秀出現有資料?"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"我再等等..."
+                                                          otherButtonTitles:@"秀吧!", nil];
+            [passAlertView show];
+            [self setPassAlertView:passAlertView];
+        }
+    }]];
 }
 
 @end

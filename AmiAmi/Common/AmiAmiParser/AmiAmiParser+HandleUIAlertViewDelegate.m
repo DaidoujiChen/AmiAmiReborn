@@ -15,12 +15,11 @@
 
 +(void) alertView : (UIAlertView*) alertView clickedButtonAtIndex : (NSInteger) buttonIndex {
     
-    [self setStartDate:[NSDate date]];
-    
     switch (buttonIndex) {
         case 0:
         {
             [self setPassAlertView:nil];
+            [self setTimeout];
             break;
         }
         case 1:

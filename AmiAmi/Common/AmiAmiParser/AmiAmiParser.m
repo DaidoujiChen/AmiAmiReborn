@@ -14,7 +14,7 @@
 @implementation AmiAmiParser
 
 +(void) parseAllProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
-    [self setStartDate:[NSDate date]];
+    [self setTimeout];
     [self setPassFlag:NO];
     
     NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
@@ -27,7 +27,7 @@
 }
 
 +(void) parseRankProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
-    [self setStartDate:[NSDate date]];
+    [self setTimeout];
     [self setPassFlag:NO];
     
     NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
@@ -40,7 +40,7 @@
 }
 
 +(void) parseProductInfo : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
-    [self setStartDate:[NSDate date]];
+    [self setTimeout];
     [self setPassFlag:NO];
     [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
     [self setDictionaryCompletion:completion];

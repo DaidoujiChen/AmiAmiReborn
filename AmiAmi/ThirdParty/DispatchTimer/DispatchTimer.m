@@ -115,8 +115,4 @@
     
 }
 
--(void) dealloc {
-    NSLog(@"timer dealloc");
-}
-
 @end
