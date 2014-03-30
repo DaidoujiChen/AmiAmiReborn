@@ -17,6 +17,5 @@
 
 #pragma mark - use in AmiAmiParser
 +(UIWebView*) makeParseWebViewWithURL : (NSURL*) parseURL;
-+(void) parse : (NSTimer*) timer;
 
 @end

@@ -31,8 +31,8 @@
 +(NSMutableArray*) alsoLikeProductArray;
 +(NSMutableArray*) alsoBuyProductArray;
 
-+(void) setWebViewTimer : (NSTimer*) webViewTimer;
-+(NSTimer*) webViewTimer;
++(void) setWebViewTimer : (DispatchTimer*) webViewTimer;
++(DispatchTimer*) webViewTimer;
 
 +(void) setStartDate : (NSDate*) startDate;
 +(NSDate*) startDate;

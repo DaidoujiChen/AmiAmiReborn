@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01106E9218E85F33006DA63E /* DispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01106E9118E85F33006DA63E /* DispatchTimer.m */; };
 		01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109714188E616A00D14EC1 /* Foundation.framework */; };
 		01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109716188E616A00D14EC1 /* CoreGraphics.framework */; };
 		01109719188E616A00D14EC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109718188E616A00D14EC1 /* UIKit.framework */; };
@@ -144,6 +145,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01106E9018E85F33006DA63E /* DispatchTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DispatchTimer.h; path = ThirdParty/DispatchTimer/DispatchTimer.h; sourceTree = "<group>"; };
+		01106E9118E85F33006DA63E /* DispatchTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispatchTimer.m; path = ThirdParty/DispatchTimer/DispatchTimer.m; sourceTree = "<group>"; };
 		01109711188E616A00D14EC1 /* AmiAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmiAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01109714188E616A00D14EC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01109716188E616A00D14EC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -380,6 +383,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01106E8C18E85E99006DA63E /* DispatchTimer */ = {
+			isa = PBXGroup;
+			children = (
+				01106E9018E85F33006DA63E /* DispatchTimer.h */,
+				01106E9118E85F33006DA63E /* DispatchTimer.m */,
+			);
+			name = DispatchTimer;
+			sourceTree = "<group>";
+		};
 		01109708188E616A00D14EC1 = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +532,7 @@
 		0198B59418ADE945006512E2 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				01106E8C18E85E99006DA63E /* DispatchTimer */,
 				01ACF1F918C5B241008D0B41 /* LightWeightPlist */,
 				016B280A18C4738500FBB097 /* JRSwizzle */,
 				01A766AC18ADEF7E005EB380 /* FastImageCache */,
@@ -1051,6 +1064,7 @@
 				0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */,
 				016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */,
 				01A7F43718D8A8F0005E05FC /* AmiAmiParser.m in Sources */,
+				01106E9218E85F33006DA63E /* DispatchTimer.m in Sources */,
 				0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */,
 				0198B5E318ADEA3E006512E2 /* UIButton+WebCache.m in Sources */,
 				0198B5DF18ADEA3E006512E2 /* SDWebImageDownloader.m in Sources */,

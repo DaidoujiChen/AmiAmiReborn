@@ -62,11 +62,11 @@ static const char PASSALERTVIEWPOINTER;
     return [entry intValue];
 }
 
-+(void) setWebViewTimer : (NSTimer*) webViewTimer {
++(void) setWebViewTimer : (DispatchTimer*) webViewTimer {
     objc_setAssociatedObject(self, &WEBVIEWTIMERPOINTER, webViewTimer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+(NSTimer*) webViewTimer {
++(DispatchTimer*) webViewTimer {
     return objc_getAssociatedObject(self, &WEBVIEWTIMERPOINTER);
 }
 

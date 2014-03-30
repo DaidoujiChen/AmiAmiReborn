@@ -13,6 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "DispatchTimer.h"
     #import "AmiAmiParser.h"
     #import "LightWeightPlist.h"
     #import "SVProgressHUD.h"
