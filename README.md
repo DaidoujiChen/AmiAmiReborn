@@ -62,3 +62,8 @@ daidoujichen@gmail.com
   
 - LightWeightPlist
   - 我自己隔壁棚的工具, 用來處理 plist 相關事務.
+
+- DispatchTimer
+  - 我自己隔壁棚的工具, 非 run-loop 式的 NSTimer, dispatch queue 式的 dispatch timer source.
+
+  
