@@ -54,7 +54,7 @@
 }
 
 +(void) setTimeout {
-    [self setTimeoutTimer:[DispatchTimer scheduledOnMainThreadOnceAfterDelay:5.0f block:^{
+    [self setTimeoutTimer:[DispatchTimer scheduledOnMainThreadOnceAfterDelay:25.0f block:^{
         if ([self passAlertView] == nil) {
             UIAlertView *passAlertView = [[UIAlertView alloc] initWithTitle:@"這個作品有可能沒有相關商品"
                                                                     message:@"是否直接秀出現有資料?"
