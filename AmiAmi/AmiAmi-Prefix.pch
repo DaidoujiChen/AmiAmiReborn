@@ -24,4 +24,5 @@
     #import "JRSwizzle.h"
     #import "UIViewController+Swizzling.h"
     static NSString * const kClientId = @"577014773497-mf381t83vlspjg1lv3tatnhlr7o06o58.apps.googleusercontent.com";
+    #import <ReactiveCocoa/ReactiveCocoa.h>
 #endif

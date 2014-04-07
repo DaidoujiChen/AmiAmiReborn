@@ -10,11 +10,6 @@
 
 @interface AmiAmiParser (MiscFunctions)
 
-#pragma mark - use in Parser
-+(NSMutableDictionary*) parshThumbnailWithTitle : (TFHppleElement*) element;
-+(void) freeMemory;
-+(NSString*) mergeContentTexts : (TFHppleElement*) content;
-
 #pragma mark - use in AmiAmiParser
 +(UIWebView*) makeParseWebViewWithURL : (NSURL*) parseURL;
 

@@ -27,6 +27,7 @@
 		0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */; };
 		0129682118CE06C700045E4A /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129682018CE06C700045E4A /* DefaultCell.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
+		0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
 		0166342C18C2DDFF002FC4BF /* Albums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342618C2DDFF002FC4BF /* Albums@2x.png */; };
 		0166342D18C2DDFF002FC4BF /* Bookmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342718C2DDFF002FC4BF /* Bookmarks.png */; };
@@ -132,6 +133,7 @@
 		01D62F6318962DC600ABB2E0 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6218962DC600ABB2E0 /* CoreText.framework */; };
 		01D62F6518962DCE00ABB2E0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6418962DCE00ABB2E0 /* MediaPlayer.framework */; };
 		01D62F6718962DD400ABB2E0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6618962DD400ABB2E0 /* Security.framework */; };
+		9684D50E3C9A4777AC2D24AF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAED9043E2A3499E9079665C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,8 @@
 		0129681F18CE06C700045E4A /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
 		0129682018CE06C700045E4A /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0165A0FA18F274A200FB75BE /* AmiAmiParser+ParseComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+ParseComponents.h"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.h"; sourceTree = "<group>"; };
+		0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+ParseComponents.m"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.m"; sourceTree = "<group>"; };
 		0166342518C2DDFF002FC4BF /* Albums.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Albums.png; path = Images/icons/Albums.png; sourceTree = "<group>"; };
 		0166342618C2DDFF002FC4BF /* Albums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Albums@2x.png"; path = "Images/icons/Albums@2x.png"; sourceTree = "<group>"; };
 		0166342718C2DDFF002FC4BF /* Bookmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bookmarks.png; path = Images/icons/Bookmarks.png; sourceTree = "<group>"; };
@@ -344,6 +348,8 @@
 		01D62F6218962DC600ABB2E0 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		01D62F6418962DCE00ABB2E0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		01D62F6618962DD400ABB2E0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2B529D98017847F8AE3F3654 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		DAED9043E2A3499E9079665C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +373,7 @@
 				0110977D188E6F5C00D14EC1 /* SystemConfiguration.framework in Frameworks */,
 				01109759188E6B0900D14EC1 /* libxml2.2.dylib in Frameworks */,
 				01109719188E616A00D14EC1 /* UIKit.framework in Frameworks */,
+				9684D50E3C9A4777AC2D24AF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +406,7 @@
 				01109739188E616B00D14EC1 /* AmiAmiTests */,
 				01109713188E616A00D14EC1 /* Frameworks */,
 				01109712188E616A00D14EC1 /* Products */,
+				2B529D98017847F8AE3F3654 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -430,6 +438,7 @@
 				01109716188E616A00D14EC1 /* CoreGraphics.framework */,
 				01109718188E616A00D14EC1 /* UIKit.framework */,
 				01109733188E616B00D14EC1 /* XCTest.framework */,
+				DAED9043E2A3499E9079665C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -809,6 +818,8 @@
 				01A7F43618D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m */,
 				01A7F43918D8A98B005E05FC /* AmiAmiParser+Parser.h */,
 				01A7F43A18D8A98B005E05FC /* AmiAmiParser+Parser.m */,
+				0165A0FA18F274A200FB75BE /* AmiAmiParser+ParseComponents.h */,
+				0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */,
 				01A7F43C18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.h */,
 				01A7F43D18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m */,
 				01A7F43F18D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.h */,
@@ -879,9 +890,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01109743188E616B00D14EC1 /* Build configuration list for PBXNativeTarget "AmiAmi" */;
 			buildPhases = (
+				5061B257EC6546F9B5E519A5 /* Check Pods Manifest.lock */,
 				0110970D188E616A00D14EC1 /* Sources */,
 				0110970E188E616A00D14EC1 /* Frameworks */,
 				0110970F188E616A00D14EC1 /* Resources */,
+				8C7C41EACB804CD586F84756 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1000,6 +1013,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5061B257EC6546F9B5E519A5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C7C41EACB804CD586F84756 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0110970D188E616A00D14EC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1007,6 +1053,7 @@
 			files = (
 				0198B65E18ADED05006512E2 /* EGOQuickPhoto.m in Sources */,
 				0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */,
+				0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */,
 				01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */,
 				0198B65C18ADED05006512E2 /* EGOImageLoadConnection.m in Sources */,
 				0198B66118ADED05006512E2 /* MyPhotoSource.m in Sources */,
@@ -1183,6 +1230,7 @@
 		};
 		01109744188E616B00D14EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B529D98017847F8AE3F3654 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1207,6 +1255,7 @@
 		};
 		01109745188E616B00D14EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B529D98017847F8AE3F3654 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
