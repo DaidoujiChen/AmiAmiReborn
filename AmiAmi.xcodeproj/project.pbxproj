@@ -26,6 +26,8 @@
 		0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */; };
 		0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */; };
 		0129682118CE06C700045E4A /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129682018CE06C700045E4A /* DefaultCell.m */; };
+		0139717118F2838F0068C056 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0139716F18F2838F0068C056 /* RecordViewController.m */; };
+		0139717218F2838F0068C056 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0139717018F2838F0068C056 /* RecordViewController.xib */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
@@ -35,9 +37,7 @@
 		0166342F18C2DDFF002FC4BF /* Favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342918C2DDFF002FC4BF /* Favorites.png */; };
 		0166343018C2DDFF002FC4BF /* Favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342A18C2DDFF002FC4BF /* Favorites@2x.png */; };
 		0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0166343418C2DE51002FC4BF /* HistoryViewController.m */; };
-		0166343718C2DE51002FC4BF /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0166343518C2DE51002FC4BF /* HistoryViewController.xib */; };
 		0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */; };
-		0166343D18C2DEEC002FC4BF /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0166343B18C2DEEC002FC4BF /* FavoriteViewController.xib */; };
 		016993FE188F73DB007E21C8 /* ranking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993F9188F73DB007E21C8 /* ranking_1.png */; };
 		016993FF188F73DB007E21C8 /* ranking_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FA188F73DB007E21C8 /* ranking_2.png */; };
 		01699400188F73DB007E21C8 /* ranking_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 016993FB188F73DB007E21C8 /* ranking_3.png */; };
@@ -174,6 +174,9 @@
 		0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = Main/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
 		0129681F18CE06C700045E4A /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
 		0129682018CE06C700045E4A /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
+		0139716E18F2838F0068C056 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = Common/RecordViewController.h; sourceTree = "<group>"; };
+		0139716F18F2838F0068C056 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = Common/RecordViewController.m; sourceTree = "<group>"; };
+		0139717018F2838F0068C056 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = Common/RecordViewController.xib; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0165A0FA18F274A200FB75BE /* AmiAmiParser+ParseComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+ParseComponents.h"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.h"; sourceTree = "<group>"; };
 		0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+ParseComponents.m"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.m"; sourceTree = "<group>"; };
@@ -185,10 +188,8 @@
 		0166342A18C2DDFF002FC4BF /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites@2x.png"; path = "Images/icons/Favorites@2x.png"; sourceTree = "<group>"; };
 		0166343318C2DE51002FC4BF /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = History/HistoryViewController.h; sourceTree = "<group>"; };
 		0166343418C2DE51002FC4BF /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = History/HistoryViewController.m; sourceTree = "<group>"; };
-		0166343518C2DE51002FC4BF /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryViewController.xib; path = History/HistoryViewController.xib; sourceTree = "<group>"; };
 		0166343918C2DEEC002FC4BF /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteViewController.h; path = Favorite/FavoriteViewController.h; sourceTree = "<group>"; };
 		0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteViewController.m; path = Favorite/FavoriteViewController.m; sourceTree = "<group>"; };
-		0166343B18C2DEEC002FC4BF /* FavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoriteViewController.xib; path = Favorite/FavoriteViewController.xib; sourceTree = "<group>"; };
 		016993F9188F73DB007E21C8 /* ranking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_1.png; sourceTree = "<group>"; };
 		016993FA188F73DB007E21C8 /* ranking_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_2.png; sourceTree = "<group>"; };
 		016993FB188F73DB007E21C8 /* ranking_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_3.png; sourceTree = "<group>"; };
@@ -514,7 +515,6 @@
 			children = (
 				0166343318C2DE51002FC4BF /* HistoryViewController.h */,
 				0166343418C2DE51002FC4BF /* HistoryViewController.m */,
-				0166343518C2DE51002FC4BF /* HistoryViewController.xib */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -524,7 +524,6 @@
 			children = (
 				0166343918C2DEEC002FC4BF /* FavoriteViewController.h */,
 				0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */,
-				0166343B18C2DEEC002FC4BF /* FavoriteViewController.xib */,
 			);
 			name = Favorite;
 			sourceTree = "<group>";
@@ -655,6 +654,9 @@
 				0198B60318ADEBD8006512E2 /* GlobalFunctions.m */,
 				0198B60418ADEBD8006512E2 /* UITableViewCellBase.h */,
 				0198B60518ADEBD8006512E2 /* UITableViewCellBase.m */,
+				0139716E18F2838F0068C056 /* RecordViewController.h */,
+				0139716F18F2838F0068C056 /* RecordViewController.m */,
+				0139717018F2838F0068C056 /* RecordViewController.xib */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -865,20 +867,20 @@
 		01B6B90D18A4830C00C065A4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0198B60918ADEC29006512E2 /* MainCell.h */,
-				0198B60A18ADEC29006512E2 /* MainCell.m */,
-				0198B60B18ADEC29006512E2 /* MainCell.xib */,
 				0198B60C18ADEC29006512E2 /* MainViewController.h */,
 				0198B60D18ADEC29006512E2 /* MainViewController.m */,
 				0198B60E18ADEC29006512E2 /* MainViewController.xib */,
+				0198B60918ADEC29006512E2 /* MainCell.h */,
+				0198B60A18ADEC29006512E2 /* MainCell.m */,
+				0198B60B18ADEC29006512E2 /* MainCell.xib */,
 				0198B60F18ADEC29006512E2 /* RelationCell.h */,
 				0198B61018ADEC29006512E2 /* RelationCell.m */,
 				0198B61118ADEC29006512E2 /* RelationCell.xib */,
+				0129681F18CE06C700045E4A /* DefaultCell.h */,
+				0129682018CE06C700045E4A /* DefaultCell.m */,
 				0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */,
 				0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */,
 				0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */,
-				0129681F18CE06C700045E4A /* DefaultCell.h */,
-				0129682018CE06C700045E4A /* DefaultCell.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -963,7 +965,6 @@
 			files = (
 				0198B61318ADEC29006512E2 /* MainCell.xib in Resources */,
 				0166342B18C2DDFF002FC4BF /* Albums.png in Resources */,
-				0166343D18C2DEEC002FC4BF /* FavoriteViewController.xib in Resources */,
 				0198B66718ADED05006512E2 /* egopv_left@2x.png in Resources */,
 				0198B66C18ADED05006512E2 /* egopv_right@2x.png in Resources */,
 				0198B62718ADEC68006512E2 /* OtherProductsCell.xib in Resources */,
@@ -975,7 +976,6 @@
 				0198B5FD18ADEB78006512E2 /* SVProgressHUD.bundle in Resources */,
 				01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */,
 				0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */,
-				0166343718C2DE51002FC4BF /* HistoryViewController.xib in Resources */,
 				0198B66218ADED05006512E2 /* egopv_error_placeholder.png in Resources */,
 				01699402188F73DB007E21C8 /* ranking_5.png in Resources */,
 				01699400188F73DB007E21C8 /* ranking_3.png in Resources */,
@@ -992,6 +992,7 @@
 				0166342C18C2DDFF002FC4BF /* Albums@2x.png in Resources */,
 				01699401188F73DB007E21C8 /* ranking_4.png in Resources */,
 				0198B61518ADEC29006512E2 /* MainViewController.xib in Resources */,
+				0139717218F2838F0068C056 /* RecordViewController.xib in Resources */,
 				01699409188F772C007E21C8 /* background.jpg in Resources */,
 				0198B66418ADED05006512E2 /* egopv_fullscreen_button.png in Resources */,
 				0198B62918ADEC68006512E2 /* ProductCollectionCell.xib in Resources */,
@@ -1087,6 +1088,7 @@
 				01A7F43E18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m in Sources */,
 				01A7F44418D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m in Sources */,
 				0198B5E118ADEA3E006512E2 /* SDWebImageManager.m in Sources */,
+				0139717118F2838F0068C056 /* RecordViewController.m in Sources */,
 				0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */,
 				0198B65F18ADED05006512E2 /* EGOQuickPhotoSource.m in Sources */,
 				01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */,

@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RelationCell.h"
-#import "ProductViewController.h"
+#import "RecordViewController.h"
 
-@interface HistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UITableView *historyTableView;
-
+@interface HistoryViewController : RecordViewController <UITableViewDelegate, UITableViewDataSource>
 @end

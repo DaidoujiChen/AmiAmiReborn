@@ -90,13 +90,15 @@
     [mainNavi pushViewController:main animated:NO];
     
     OSNavigationController *historyNavi = [OSNavigationController new];
-    HistoryViewController *history = [HistoryViewController new];
+    HistoryViewController *history = [[HistoryViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
+    [history setDataSourceNameString:@"History"];
     [historyNavi setTitle:@"歷史"];
     [historyNavi.tabBarItem setImage:[UIImage imageNamed:@"Bookmarks"]];
     [historyNavi pushViewController:history animated:NO];
     
     OSNavigationController *favoriteNavi = [OSNavigationController new];
-    FavoriteViewController *favorite = [FavoriteViewController new];
+    FavoriteViewController *favorite = [[FavoriteViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
+    [favorite setDataSourceNameString:@"Favorite"];
     [favoriteNavi setTitle:@"最愛"];
     [favoriteNavi.tabBarItem setImage:[UIImage imageNamed:@"Favorites"]];
     [favoriteNavi pushViewController:favorite animated:NO];
