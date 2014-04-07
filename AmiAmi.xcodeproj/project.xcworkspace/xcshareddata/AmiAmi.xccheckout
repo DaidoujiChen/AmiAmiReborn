@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CB7D4336-7551-42A8-9E50-F6CC8E47C3D2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AmiAmi</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6F965A77-2A8F-445C-B4A2-E1014AAF3190</key>
+		<string>https://github.com/DaidoujiChen/AmiAmi.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AmiAmi.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6F965A77-2A8F-445C-B4A2-E1014AAF3190</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DaidoujiChen/AmiAmi.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6F965A77-2A8F-445C-B4A2-E1014AAF3190</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6F965A77-2A8F-445C-B4A2-E1014AAF3190</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AmiAmi</string>
+		</dict>
+	</array>
+</dict>
+</plist>
