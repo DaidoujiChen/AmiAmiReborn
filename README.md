@@ -66,4 +66,5 @@ daidoujichen@gmail.com
 - DispatchTimer
   - 我自己隔壁棚的工具, 非 run-loop 式的 NSTimer, dispatch queue 式的 dispatch timer source.
 
-  
+- ReactiveCocoa
+  - 在這個專案裡面實驗性的使用他, 很強大的工具, 在這個專案裡面用有點浪費他的才能了.
