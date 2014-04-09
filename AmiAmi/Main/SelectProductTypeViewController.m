@@ -8,10 +8,11 @@
 
 #import "SelectProductTypeViewController.h"
 
+#import "SelectProductTypeViewController+Components.h"
+
 @interface SelectProductTypeViewController ()
 -(void) createNavigationRightButton;
 -(void) selectProductTypeTableViewSetting;
--(void) dismissSelf;
 @end
 
 @implementation SelectProductTypeViewController
@@ -25,46 +26,22 @@
 #pragma mark - private
 
 -(void) createNavigationRightButton {
+    
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                 target:self
-                                                                                 action:@selector(dismissSelf)];
+                                                                                 target:nil
+                                                                                 action:nil];
+    
+    rightButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        [self dismissSelf];
+        return [RACSignal empty];
+    }];
     
     self.navigationItem.rightBarButtonItem = rightButton;
+    
 }
 
 -(void) selectProductTypeTableViewSetting {
     [self.selectProductTypeTableView registerClass:[DefaultCell class] forCellReuseIdentifier:@"DefaultCell"];
-}
-
--(void) dismissSelf {
-    [self dismissViewControllerAnimated:YES completion:^{
-        requestReloadTable();
-    }];
-}
-
-#pragma mark - UITableViewDataSource
-
--(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return [LWPArray(@"AllProducts") count];
-}
-
--(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
-    static NSString *CellIdentifier = @"DefaultCell";
-    DefaultCell *cell = (DefaultCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    
-    NSDictionary *eachDictionary = [LWPArray(@"AllProducts")  objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [eachDictionary objectForKey:@"title"];
-    
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
--(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
-    [LWPDictionary(@"MISC") setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"typeIndex"];
-    [self dismissSelf];
 }
 
 #pragma mark - life cycle

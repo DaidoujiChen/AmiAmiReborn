@@ -11,7 +11,7 @@
 #import "RelationCell.h"
 #import "ProductViewController.h"
 
-@interface RecordViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RecordViewController : UIViewController
 
 @property (nonatomic, strong) NSString *dataSourceNameString;
 

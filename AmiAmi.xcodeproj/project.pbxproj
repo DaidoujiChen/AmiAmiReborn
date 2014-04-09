@@ -26,8 +26,6 @@
 		0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */; };
 		0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */; };
 		0129682118CE06C700045E4A /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129682018CE06C700045E4A /* DefaultCell.m */; };
-		0139717118F2838F0068C056 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0139716F18F2838F0068C056 /* RecordViewController.m */; };
-		0139717218F2838F0068C056 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0139717018F2838F0068C056 /* RecordViewController.xib */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
@@ -46,6 +44,15 @@
 		01699409188F772C007E21C8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01699408188F772C007E21C8 /* background.jpg */; };
 		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
 		01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01721EBD18CDEE4700B6A540 /* AllProducts.plist */; };
+		017F3D4818F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */; };
+		017F3D4B18F4E6B0006DFFB6 /* MainViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */; };
+		017F3D4E18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */; };
+		017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */; };
+		017F3D5618F4E9B6006DFFB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */; };
+		017F3D5718F4E9B6006DFFB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */; };
+		017F3D5A18F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */; };
+		017F3D5D18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */; };
+		017F3D6018F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */; };
 		0198B59C18ADE971006512E2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59718ADE971006512E2 /* TFHpple.m */; };
 		0198B59D18ADE971006512E2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59918ADE971006512E2 /* TFHppleElement.m */; };
 		0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B59B18ADE971006512E2 /* XPathQuery.m */; };
@@ -174,9 +181,6 @@
 		0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = Main/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
 		0129681F18CE06C700045E4A /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
 		0129682018CE06C700045E4A /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
-		0139716E18F2838F0068C056 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = Common/RecordViewController.h; sourceTree = "<group>"; };
-		0139716F18F2838F0068C056 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = Common/RecordViewController.m; sourceTree = "<group>"; };
-		0139717018F2838F0068C056 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = Common/RecordViewController.xib; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0165A0FA18F274A200FB75BE /* AmiAmiParser+ParseComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+ParseComponents.h"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.h"; sourceTree = "<group>"; };
 		0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+ParseComponents.m"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.m"; sourceTree = "<group>"; };
@@ -199,6 +203,23 @@
 		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
 		01721EBD18CDEE4700B6A540 /* AllProducts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AllProducts.plist; path = Common/AllProducts.plist; sourceTree = "<group>"; };
+		017F3D4618F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+HandleTableViewDelegateAndDataSource.h"; path = "Main/MainViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+HandleTableViewDelegateAndDataSource.m"; path = "Main/MainViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D4918F4E6B0006DFFB6 /* MainViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+Components.h"; path = "Main/MainViewController+Components.h"; sourceTree = "<group>"; };
+		017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+Components.m"; path = "Main/MainViewController+Components.m"; sourceTree = "<group>"; };
+		017F3D4C18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; path = "Main/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; path = "Main/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D4F18F4E914006DFFB6 /* SelectProductTypeViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+Components.h"; path = "Main/SelectProductTypeViewController+Components.h"; sourceTree = "<group>"; };
+		017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+Components.m"; path = "Main/SelectProductTypeViewController+Components.m"; sourceTree = "<group>"; };
+		017F3D5318F4E9B6006DFFB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = Common/RecordViewcontroller/RecordViewController.h; sourceTree = "<group>"; };
+		017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = Common/RecordViewcontroller/RecordViewController.m; sourceTree = "<group>"; };
+		017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = Common/RecordViewcontroller/RecordViewController.xib; sourceTree = "<group>"; };
+		017F3D5818F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RecordViewController+HandleTableViewDelegateAndDataSource.h"; path = "Common/RecordViewcontroller/RecordViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RecordViewController+HandleTableViewDelegateAndDataSource.m"; path = "Common/RecordViewcontroller/RecordViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D5B18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProductViewController+HandleTableViewDelegateAndDataSource.h"; path = "Product/ProductViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProductViewController+HandleTableViewDelegateAndDataSource.m"; path = "Product/ProductViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D5E18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; path = "Product/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; path = "Product/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
 		0198B59618ADE971006512E2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = ThirdParty/TFHpple/TFHpple.h; sourceTree = "<group>"; };
 		0198B59718ADE971006512E2 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = ThirdParty/TFHpple/TFHpple.m; sourceTree = "<group>"; };
 		0198B59818ADE971006512E2 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = ThirdParty/TFHpple/TFHppleElement.h; sourceTree = "<group>"; };
@@ -537,6 +558,18 @@
 			name = JRSwizzle;
 			sourceTree = "<group>";
 		};
+		017F3D5218F4E9A4006DFFB6 /* RecordViewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				017F3D5318F4E9B6006DFFB6 /* RecordViewController.h */,
+				017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */,
+				017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */,
+				017F3D5818F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.h */,
+				017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */,
+			);
+			name = RecordViewcontroller;
+			sourceTree = "<group>";
+		};
 		0198B59418ADE945006512E2 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,9 +687,7 @@
 				0198B60318ADEBD8006512E2 /* GlobalFunctions.m */,
 				0198B60418ADEBD8006512E2 /* UITableViewCellBase.h */,
 				0198B60518ADEBD8006512E2 /* UITableViewCellBase.m */,
-				0139716E18F2838F0068C056 /* RecordViewController.h */,
-				0139716F18F2838F0068C056 /* RecordViewController.m */,
-				0139717018F2838F0068C056 /* RecordViewController.xib */,
+				017F3D5218F4E9A4006DFFB6 /* RecordViewcontroller */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -848,18 +879,22 @@
 		01B0295918A48A1200ED0632 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				0198B62118ADEC68006512E2 /* ProductViewController.h */,
+				0198B62218ADEC68006512E2 /* ProductViewController.m */,
+				0198B62318ADEC68006512E2 /* ProductViewController.xib */,
+				017F3D5B18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.h */,
+				017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */,
 				0198B61818ADEC68006512E2 /* CurrentProductInfoCell.h */,
 				0198B61918ADEC68006512E2 /* CurrentProductInfoCell.m */,
 				0198B61A18ADEC68006512E2 /* CurrentProductInfoCell.xib */,
 				0198B61B18ADEC68006512E2 /* OtherProductsCell.h */,
 				0198B61C18ADEC68006512E2 /* OtherProductsCell.m */,
 				0198B61D18ADEC68006512E2 /* OtherProductsCell.xib */,
+				017F3D5E18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h */,
+				017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */,
 				0198B61E18ADEC68006512E2 /* ProductCollectionCell.h */,
 				0198B61F18ADEC68006512E2 /* ProductCollectionCell.m */,
 				0198B62018ADEC68006512E2 /* ProductCollectionCell.xib */,
-				0198B62118ADEC68006512E2 /* ProductViewController.h */,
-				0198B62218ADEC68006512E2 /* ProductViewController.m */,
-				0198B62318ADEC68006512E2 /* ProductViewController.xib */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -870,6 +905,10 @@
 				0198B60C18ADEC29006512E2 /* MainViewController.h */,
 				0198B60D18ADEC29006512E2 /* MainViewController.m */,
 				0198B60E18ADEC29006512E2 /* MainViewController.xib */,
+				017F3D4618F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.h */,
+				017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */,
+				017F3D4918F4E6B0006DFFB6 /* MainViewController+Components.h */,
+				017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */,
 				0198B60918ADEC29006512E2 /* MainCell.h */,
 				0198B60A18ADEC29006512E2 /* MainCell.m */,
 				0198B60B18ADEC29006512E2 /* MainCell.xib */,
@@ -881,6 +920,10 @@
 				0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */,
 				0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */,
 				0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */,
+				017F3D4C18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h */,
+				017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */,
+				017F3D4F18F4E914006DFFB6 /* SelectProductTypeViewController+Components.h */,
+				017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -992,11 +1035,11 @@
 				0166342C18C2DDFF002FC4BF /* Albums@2x.png in Resources */,
 				01699401188F73DB007E21C8 /* ranking_4.png in Resources */,
 				0198B61518ADEC29006512E2 /* MainViewController.xib in Resources */,
-				0139717218F2838F0068C056 /* RecordViewController.xib in Resources */,
 				01699409188F772C007E21C8 /* background.jpg in Resources */,
 				0198B66418ADED05006512E2 /* egopv_fullscreen_button.png in Resources */,
 				0198B62918ADEC68006512E2 /* ProductCollectionCell.xib in Resources */,
 				0198B66918ADED05006512E2 /* egopv_photo_placeholder.png in Resources */,
+				017F3D5718F4E9B6006DFFB6 /* RecordViewController.xib in Resources */,
 				0110971F188E616A00D14EC1 /* InfoPlist.strings in Resources */,
 				0198B62B18ADEC68006512E2 /* ProductViewController.xib in Resources */,
 				016993FF188F73DB007E21C8 /* ranking_2.png in Resources */,
@@ -1057,13 +1100,16 @@
 				0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */,
 				01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */,
 				0198B65C18ADED05006512E2 /* EGOImageLoadConnection.m in Sources */,
+				017F3D4B18F4E6B0006DFFB6 /* MainViewController+Components.m in Sources */,
 				0198B66118ADED05006512E2 /* MyPhotoSource.m in Sources */,
 				01109725188E616A00D14EC1 /* AppDelegate.m in Sources */,
 				01ACF20018C5B255008D0B41 /* LightWeightPlist.m in Sources */,
 				0198B62418ADEC68006512E2 /* CurrentProductInfoCell.m in Sources */,
 				0198B60718ADEBD8006512E2 /* GlobalFunctions.m in Sources */,
+				017F3D6018F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m in Sources */,
 				0198B59C18ADE971006512E2 /* TFHpple.m in Sources */,
 				0198B5E418ADEA3E006512E2 /* UIImage+GIF.m in Sources */,
+				017F3D5D18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				01A7F43B18D8A98B005E05FC /* AmiAmiParser+Parser.m in Sources */,
 				0198B61418ADEC29006512E2 /* MainViewController.m in Sources */,
 				0198B5E018ADEA3E006512E2 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1082,13 +1128,13 @@
 				01A766DC18ADF9F2005EB380 /* FICDPhoto.m in Sources */,
 				01A766D618ADEFF7005EB380 /* FICUtilities.m in Sources */,
 				0198B5E518ADEA3E006512E2 /* UIImage+MultiFormat.m in Sources */,
+				017F3D5A18F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B66F18ADED05006512E2 /* EGOPhotoScrollView.m in Sources */,
 				0198B62818ADEC68006512E2 /* ProductCollectionCell.m in Sources */,
 				0198B5E618ADEA3E006512E2 /* UIImage+WebP.m in Sources */,
 				01A7F43E18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m in Sources */,
 				01A7F44418D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m in Sources */,
 				0198B5E118ADEA3E006512E2 /* SDWebImageManager.m in Sources */,
-				0139717118F2838F0068C056 /* RecordViewController.m in Sources */,
 				0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */,
 				0198B65F18ADED05006512E2 /* EGOQuickPhotoSource.m in Sources */,
 				01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */,
@@ -1099,6 +1145,8 @@
 				01A766D318ADEFF7005EB380 /* FICImageTable.m in Sources */,
 				0198B65D18ADED05006512E2 /* EGOImageLoader.m in Sources */,
 				0198B5F118ADEACF006512E2 /* FXBlurView.m in Sources */,
+				017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */,
+				017F3D4818F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0129682118CE06C700045E4A /* DefaultCell.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1110,6 +1158,8 @@
 				01A7F44118D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.m in Sources */,
 				0198B5DE18ADEA3E006512E2 /* SDWebImageDecoder.m in Sources */,
 				0198B66E18ADED05006512E2 /* EGOPhotoImageView.m in Sources */,
+				017F3D5618F4E9B6006DFFB6 /* RecordViewController.m in Sources */,
+				017F3D4E18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */,
 				016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */,
 				01A7F43718D8A8F0005E05FC /* AmiAmiParser.m in Sources */,

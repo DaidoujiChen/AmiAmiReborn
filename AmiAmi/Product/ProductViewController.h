@@ -14,7 +14,7 @@
 #import "CurrentProductInfoCell.h"
 #import "OtherProductsCell.h"
 
-@interface ProductViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface ProductViewController : UIViewController {
     NSDictionary *productInfoDictionary;
     NSMutableArray *recordCellTypeArray;
 }

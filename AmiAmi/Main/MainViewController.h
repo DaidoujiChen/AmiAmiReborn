@@ -13,7 +13,7 @@
 #import "MainCell.h"
 #import "RelationCell.h"
 
-@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface MainViewController : UIViewController {
     NSArray *dataArray;
     UISegmentedControl *typeSegment;
     void (^reloadRetultBlock)(AmiAmiParserStatus status, NSArray *result);

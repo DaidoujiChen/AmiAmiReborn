@@ -10,7 +10,7 @@
 
 #import "DefaultCell.h"
 
-@interface SelectProductTypeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface SelectProductTypeViewController : UIViewController {
     void(^requestReloadTable)(void);
 }
 

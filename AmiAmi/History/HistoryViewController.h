@@ -10,5 +10,5 @@
 
 #import "RecordViewController.h"
 
-@interface HistoryViewController : RecordViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HistoryViewController : RecordViewController
 @end

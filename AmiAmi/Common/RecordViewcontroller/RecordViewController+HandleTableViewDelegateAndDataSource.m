@@ -1,30 +1,14 @@
 //
-//  RecordViewController.m
+//  RecordViewController+HandleTableViewDelegateAndDataSource.m
 //  AmiAmi
 //
-//  Created by 啟倫 陳 on 2014/4/7.
+//  Created by 啟倫 陳 on 2014/4/9.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "RecordViewController.h"
+#import "RecordViewController+HandleTableViewDelegateAndDataSource.h"
 
-@interface RecordViewController ()
--(void) dataTableViewSetting;
-@end
-
-@implementation RecordViewController
-
--(void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-#pragma mark - private
-
--(void) dataTableViewSetting {
-    [self.dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
-    [self.dataTableView setBackgroundView:nil];
-    [self.dataTableView setBackgroundColor:[UIColor clearColor]];
-}
+@implementation RecordViewController (HandleTableViewDelegateAndDataSource)
 
 #pragma mark - UITableViewDataSource
 
@@ -86,19 +70,5 @@
     
 }
 
-
-#pragma mark - life cycle
-
--(void) viewDidLoad {
-    [super viewDidLoad];
-    [self dataTableViewSetting];
-}
-
--(void) viewWillAppear : (BOOL) animated {
-    [super viewWillAppear:animated];
-    [self.dataTableView setDelegate:self];
-    [self.dataTableView setDataSource:self];
-    [self.dataTableView reloadData];
-}
 
 @end
