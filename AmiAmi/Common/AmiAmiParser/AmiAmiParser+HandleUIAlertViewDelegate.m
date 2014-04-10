@@ -19,6 +19,7 @@
         case 0:
         {
             [self setPassAlertView:nil];
+            [[self parseWebView] reload];
             [self setTimeout];
             break;
         }
