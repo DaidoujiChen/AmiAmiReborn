@@ -13,30 +13,6 @@
 
 @implementation AmiAmiParser (HandleUIWebViewDelegate)
 
-+(void) webViewDidFinishLoad : (UIWebView*) webView {
-    
-    if (![self webViewTimer]) {
-        
-        [self setWebViewTimer:[DispatchTimer scheduledOnMainThreadAfterDelay:1.5f timeInterval:1.5f block:^{            
-            if ([[self parseLock] tryLock]) {
-                switch ([self entryType]) {
-                    case AmiAmiParserEntryTypeRank:
-                        [self rankProductsParser:[self parseWebView]];
-                        break;
-                    case AmiAmiParserEntryTypeAll:
-                        [self allProductsParser:[self parseWebView]];
-                        break;
-                    case AmiAmiParserEntryTypeProductInfo:
-                        [self productInfoParser:[self parseWebView]];
-                        break;
-                }
-            }
-        }]];
-        
-    }
-    
-}
-
 +(void) webView : (UIWebView*) webView didFailLoadWithError : (NSError*) error {
     NSLog(@"someone fail : %@", error);
 }
