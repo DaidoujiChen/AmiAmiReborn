@@ -22,7 +22,7 @@
         if (value) return YES;
         return NO;
     }] subscribeNext:^(id x) {
-        [self arrayCompletion](AmiAmiParserStatusSuccess, x);
+        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, x);
         [SVProgressHUD dismiss];
         [self freeMemory];
     }];
@@ -36,7 +36,7 @@
         if (value) return YES;
         return NO;
     }] subscribeNext:^(id x) {
-        [self arrayCompletion](AmiAmiParserStatusSuccess, x);
+        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, x);
         [SVProgressHUD dismiss];
         [self freeMemory];
     }];
@@ -54,42 +54,42 @@
                         [self productInfo_AlsoLike:doc],
                         [self productInfo_Popular:doc]]] subscribeCompleted:^{
         
-        if (([[self relationProductsArray] count] == 0 &&
-             [[self alsoLikeProductArray] count] == 0 &&
-             [[self alsoBuyProductArray] count] == 0 &&
-             [[self popularProductsArray] count] == 0) &&
-            ![self passFlag]) {
-            [[self parseLock] unlock];
+        if (([self.objects.relationProductsArray count] == 0 &&
+             [self.objects.alsoLikeProductArray count] == 0 &&
+             [self.objects.alsoBuyProductArray count] == 0 &&
+             [self.objects.popularProductsArray count] == 0) &&
+            !self.objects.passFlag) {
+            [self.objects.parseLock unlock];
             return;
         }
         
         NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
         
-        if ([[self productImagesArray] count]) {
-            [returnDictionary setObject:[[self productImagesArray] mutableCopy] forKey:@"ProductImages"];
+        if ([self.objects.productImagesArray count]) {
+            [returnDictionary setObject:[self.objects.productImagesArray mutableCopy] forKey:@"ProductImages"];
         }
         
-        if ([[self productInfomationArray] count]) {
-            [returnDictionary setObject:[[self productInfomationArray] mutableCopy] forKey:@"ProductInformation"];
+        if ([self.objects.productInfomationArray count]) {
+            [returnDictionary setObject:[self.objects.productInfomationArray mutableCopy] forKey:@"ProductInformation"];
         }
         
-        if ([[self relationProductsArray] count]) {
-            [returnDictionary setObject:[[self relationProductsArray] mutableCopy] forKey:@"Relation"];
+        if ([self.objects.relationProductsArray count]) {
+            [returnDictionary setObject:[self.objects.relationProductsArray mutableCopy] forKey:@"Relation"];
         }
         
-        if ([[self alsoLikeProductArray] count]) {
-            [returnDictionary setObject:[[self alsoLikeProductArray] mutableCopy] forKey:@"AlsoLike"];
+        if ([self.objects.alsoLikeProductArray count]) {
+            [returnDictionary setObject:[self.objects.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
         }
         
-        if ([[self alsoBuyProductArray] count]) {
-            [returnDictionary setObject:[[self alsoBuyProductArray] mutableCopy] forKey:@"AlsoBuy"];
+        if ([self.objects.alsoBuyProductArray count]) {
+            [returnDictionary setObject:[self.objects.alsoBuyProductArray mutableCopy] forKey:@"AlsoBuy"];
         }
         
-        if ([[self popularProductsArray] count]) {
-            [returnDictionary setObject:[[self popularProductsArray] mutableCopy] forKey:@"Popular"];
+        if ([self.objects.popularProductsArray count]) {
+            [returnDictionary setObject:[self.objects.popularProductsArray mutableCopy] forKey:@"Popular"];
         }
         
-        [self dictionaryCompletion](AmiAmiParserStatusSuccess, returnDictionary);
+        self.objects.dictionaryCompletion(AmiAmiParserStatusSuccess, returnDictionary);
         [SVProgressHUD dismiss];
         [self freeMemory];
     }];
@@ -99,9 +99,9 @@
 #pragma mark - private
 
 +(void) freeMemory {
-    [[self webViewTimer] invalidate];
-    [[self timeoutTimer] invalidate];
-    [[self parseLock] unlock];
+    [self.objects.webViewTimer invalidate];
+    [self.objects.timeoutTimer invalidate];
+    [self.objects.parseLock unlock];
     objc_removeAssociatedObjects(self);
 }
 

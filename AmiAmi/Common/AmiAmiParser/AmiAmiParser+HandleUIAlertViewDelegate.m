@@ -18,15 +18,15 @@
     switch (buttonIndex) {
         case 0:
         {
-            [self setPassAlertView:nil];
-            [[self parseWebView] reload];
+            self.objects.passAlertView = nil;
+            [self.objects.parseWebView reload];
             [self setTimeout];
             break;
         }
         case 1:
         {
-            [self setPassAlertView:nil];
-            [self setPassFlag:YES];
+            self.objects.passAlertView = nil;
+            self.objects.passFlag = YES;
             break;
         }
         default:

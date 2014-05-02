@@ -25,8 +25,8 @@
     
     NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//div [@class='product_img']//a"];
     
-    if ([elements count] == 0 && ![self passFlag]) {
-        [[self parseLock] unlock];
+    if ([elements count] == 0 && !self.objects.passFlag) {
+        [self.objects.parseLock unlock];
         return [RACSignal return:nil];
     }
     
@@ -48,8 +48,8 @@
     
     NSArray *elements = [doc searchWithXPathQuery:xpathQueryString];
     
-    if ([elements count] == 0 && ![self passFlag]) {
-        [[self parseLock] unlock];
+    if ([elements count] == 0 && !self.objects.passFlag) {
+        [self.objects.parseLock unlock];
         return [RACSignal return:nil];
     }
     
@@ -67,13 +67,13 @@
 
     [self semaphoreBlock:^{
         //產品圖片
-        if ([[self productImagesArray] count] == 0) {
+        if ([self.objects.productImagesArray count] == 0) {
             NSArray *productImagesElementsArray = [doc searchWithXPathQuery:@"//div [@class='product_img_area']//a"];
             
             if ([productImagesElementsArray count] == 0) return;
             
             for (TFHppleElement *e in productImagesElementsArray) {
-                [[self productImagesArray] addObject:[e objectForKey:@"href"]];
+                [self.objects.productImagesArray addObject:[e objectForKey:@"href"]];
             }
         }
     }];
@@ -86,7 +86,7 @@
     
     [self semaphoreBlock:^{
         //產品資訊
-        if ([[self productInfomationArray] count] == 0) {
+        if ([self.objects.productInfomationArray count] == 0) {
             NSArray *productInformationElementsArray = [doc searchWithXPathQuery:@"//div [@id='right_menu']//dl [@class='spec_data']"];
             
             if ([productInformationElementsArray count] == 0) return;
@@ -103,7 +103,7 @@
                         [dictionaryInArray setObject:[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] forKey:@"Title"];
                         [dictionaryInArray setObject:[self mergeContentTexts:[[e childrenWithTagName:@"dd"] objectAtIndex:i]] forKey:@"Content"];
                         
-                        [[self productInfomationArray] addObject:dictionaryInArray];
+                        [self.objects.productInfomationArray addObject:dictionaryInArray];
                     }
                 }
             }
@@ -119,7 +119,7 @@
     
     [self semaphoreBlock:^{
         //相關產品
-        if ([[self relationProductsArray] count] == 0) {
+        if ([self.objects.relationProductsArray count] == 0) {
             NSArray *relationProductsElementsArray = [doc searchWithXPathQuery:@"//ul [@class='recommend']//table//a"];
             
             if ([relationProductsElementsArray count] == 0) {
@@ -127,7 +127,7 @@
             }
             
             for (TFHppleElement *e in relationProductsElementsArray) {
-                [[self relationProductsArray] addObject:[self parshThumbnailWithTitle:e]];
+                [self.objects.relationProductsArray addObject:[self parshThumbnailWithTitle:e]];
             }
         }
     }];
@@ -140,13 +140,13 @@
 
     [self semaphoreBlock:^{
         //也會想買
-        if ([[self alsoBuyProductArray] count] == 0) {
+        if ([self.objects.alsoBuyProductArray count] == 0) {
             NSArray *alsoBuyProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_purchase_result']//a"];
             
             if ([alsoBuyProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in alsoBuyProductsElementsArray) {
-                [[self alsoBuyProductArray] addObject:[self parshThumbnailWithTitle:e]];
+                [self.objects.alsoBuyProductArray addObject:[self parshThumbnailWithTitle:e]];
             }
         }
 
@@ -160,13 +160,13 @@
     
     [self semaphoreBlock:^{
         //也會喜歡
-        if ([[self alsoLikeProductArray] count] == 0) {
+        if ([self.objects.alsoLikeProductArray count] == 0) {
             NSArray *alsoLikeProductsElementsArray = [doc searchWithXPathQuery:@"//div [@id='logrecom_relate_result']//a"];
             
             if ([alsoLikeProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in alsoLikeProductsElementsArray) {
-                [[self alsoLikeProductArray] addObject:[self parshThumbnailWithTitle:e]];
+                [self.objects.alsoLikeProductArray addObject:[self parshThumbnailWithTitle:e]];
             }
         }
     }];
@@ -179,13 +179,13 @@
 
     [self semaphoreBlock:^{
         //熱門商品
-        if ([[self popularProductsArray] count] == 0) {
+        if ([self.objects.popularProductsArray count] == 0) {
             NSArray *popularProductsElementsArray = [doc searchWithXPathQuery:@"//div [@class='ichioshi']//a"];
             
             if ([popularProductsElementsArray count] == 0) return;
             
             for (TFHppleElement *e in popularProductsElementsArray) {
-                [[self popularProductsArray] addObject:[self parshThumbnailWithTitle:e]];
+                [self.objects.popularProductsArray addObject:[self parshThumbnailWithTitle:e]];
             }
         }
     }];

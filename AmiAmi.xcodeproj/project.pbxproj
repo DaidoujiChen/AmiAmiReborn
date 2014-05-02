@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01090F2E1913371C00AD60AF /* AmiAmiParserObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 01090F2D1913371C00AD60AF /* AmiAmiParserObjects.m */; };
 		01106E9218E85F33006DA63E /* DispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01106E9118E85F33006DA63E /* DispatchTimer.m */; };
 		01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109714188E616A00D14EC1 /* Foundation.framework */; };
 		01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109716188E616A00D14EC1 /* CoreGraphics.framework */; };
@@ -154,6 +155,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01090F2C1913371C00AD60AF /* AmiAmiParserObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmiAmiParserObjects.h; path = Common/AmiAmiParser/AmiAmiParserObjects.h; sourceTree = "<group>"; };
+		01090F2D1913371C00AD60AF /* AmiAmiParserObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmiAmiParserObjects.m; path = Common/AmiAmiParser/AmiAmiParserObjects.m; sourceTree = "<group>"; };
 		01106E9018E85F33006DA63E /* DispatchTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DispatchTimer.h; path = ThirdParty/DispatchTimer/DispatchTimer.h; sourceTree = "<group>"; };
 		01106E9118E85F33006DA63E /* DispatchTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispatchTimer.m; path = ThirdParty/DispatchTimer/DispatchTimer.m; sourceTree = "<group>"; };
 		01109711188E616A00D14EC1 /* AmiAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmiAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -847,6 +850,8 @@
 			children = (
 				01A7F43318D8A8F0005E05FC /* AmiAmiParser.h */,
 				01A7F43418D8A8F0005E05FC /* AmiAmiParser.m */,
+				01090F2C1913371C00AD60AF /* AmiAmiParserObjects.h */,
+				01090F2D1913371C00AD60AF /* AmiAmiParserObjects.m */,
 				01A7F43518D8A8F0005E05FC /* AmiAmiParser+AccessObjects.h */,
 				01A7F43618D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m */,
 				01A7F43918D8A98B005E05FC /* AmiAmiParser+Parser.h */,
@@ -1124,6 +1129,7 @@
 				01A766D418ADEFF7005EB380 /* FICImageTableChunk.m in Sources */,
 				0198B66D18ADED05006512E2 /* EGOPhotoCaptionView.m in Sources */,
 				0198B61218ADEC29006512E2 /* MainCell.m in Sources */,
+				01090F2E1913371C00AD60AF /* AmiAmiParserObjects.m in Sources */,
 				0198B5DD18ADEA3E006512E2 /* SDWebImageCompat.m in Sources */,
 				01A766DC18ADF9F2005EB380 /* FICDPhoto.m in Sources */,
 				01A766D618ADEFF7005EB380 /* FICUtilities.m in Sources */,

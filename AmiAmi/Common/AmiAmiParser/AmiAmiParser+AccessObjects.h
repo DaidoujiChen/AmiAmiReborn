@@ -12,36 +12,6 @@
 
 @interface AmiAmiParser (AccessObjects)
 
-+(void) setArrayCompletion : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
-+(void (^)(AmiAmiParserStatus status, NSArray *result)) arrayCompletion;
++(AmiAmiParserObjects*) objects;
 
-+(void) setDictionaryCompletion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion;
-+(void (^)(AmiAmiParserStatus status, NSDictionary *result)) dictionaryCompletion;
-
-+(void) setParseWebView : (UIWebView*) parseWebView;
-+(UIWebView*) parseWebView;
-
-+(void) setEntryType : (AmiAmiParserEntryType) entryType;
-+(AmiAmiParserEntryType) entryType;
-
-+(NSMutableArray*) productImagesArray;
-+(NSMutableArray*) productInfomationArray;
-+(NSMutableArray*) relationProductsArray;
-+(NSMutableArray*) popularProductsArray;
-+(NSMutableArray*) alsoLikeProductArray;
-+(NSMutableArray*) alsoBuyProductArray;
-
-+(void) setWebViewTimer : (DispatchTimer*) webViewTimer;
-+(DispatchTimer*) webViewTimer;
-
-+(void) setTimeoutTimer : (DispatchTimer*) timeoutTimer;
-+(DispatchTimer*) timeoutTimer;
-
-+(void) setPassFlag : (BOOL) passFlag;
-+(BOOL) passFlag;
-
-+(void) setPassAlertView : (UIAlertView*) passAlertView;
-+(UIAlertView*) passAlertView;
-
-+(NSLock*) parseLock;
 @end

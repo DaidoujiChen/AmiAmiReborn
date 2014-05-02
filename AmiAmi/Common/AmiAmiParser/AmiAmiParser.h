@@ -9,22 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #import "TFHpple.h"
-
-typedef enum {
-    AmiAmiParserStatusFail      =   0,
-    AmiAmiParserStatusSuccess
-} AmiAmiParserStatus;
-
-typedef enum {
-    AmiAmiParserEntryTypeRank       =   0,
-    AmiAmiParserEntryTypeAll,
-    AmiAmiParserEntryTypeProductInfo
-} AmiAmiParserEntryType;
+#import "AmiAmiParserObjects.h"
 
 @interface AmiAmiParser : NSObject
 
-+(void) parseRankProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
-+(void) parseAllProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion;
-+(void) parseProductInfo : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion;
++(void) parseRankProducts : (ArrayCompletion) completion;
++(void) parseAllProducts : (ArrayCompletion) completion;
++(void) parseProductInfo : (NSString*) urlString completion : (DictionaryCompletion) completion;
 
 @end

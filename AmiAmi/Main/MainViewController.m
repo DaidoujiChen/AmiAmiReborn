@@ -12,7 +12,6 @@
 
 @interface MainViewController ()
 @property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, copy) void (^reloadRetultBlock)(AmiAmiParserStatus status, NSArray *result);
 
 -(void) createNavigationRightButton;
 -(void) createNavigationLeftButton;
@@ -24,7 +23,6 @@
 @implementation MainViewController
 
 @synthesize dataArray;
-@synthesize reloadRetultBlock;
 
 -(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

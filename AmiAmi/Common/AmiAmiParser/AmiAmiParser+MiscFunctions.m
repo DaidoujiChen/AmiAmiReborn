@@ -20,17 +20,19 @@
 }
 
 +(void) setTimeout {
-    [self setTimeoutTimer:[DispatchTimer scheduledOnMainThreadOnceAfterDelay:25.0f block:^{
-        if ([self passAlertView] == nil) {
+    
+    self.objects.timeoutTimer = [DispatchTimer scheduledOnMainThreadOnceAfterDelay:25.0f block:^{
+        if (self.objects.passAlertView == nil) {
             UIAlertView *passAlertView = [[UIAlertView alloc] initWithTitle:@"這個作品有可能沒有相關商品"
                                                                     message:@"是否直接秀出現有資料?"
                                                                    delegate:self
                                                           cancelButtonTitle:@"我再等等..."
                                                           otherButtonTitles:@"秀吧!", nil];
             [passAlertView show];
-            [self setPassAlertView:passAlertView];
+            self.objects.passAlertView = passAlertView;
         }
-    }]];
+    }];
+    
 }
 
 @end

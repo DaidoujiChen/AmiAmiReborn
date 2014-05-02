@@ -14,41 +14,41 @@
 
 @implementation AmiAmiParser
 
-+(void) parseAllProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
++(void) parseRankProducts : (ArrayCompletion) completion {
     [self setTimeout];
-    [self setPassFlag:NO];
+    self.objects.passFlag = NO;
     
     NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
     
     [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取最新%@商品...", [eachDictionary objectForKey:@"title"]]
                          maskType:SVProgressHUDMaskTypeBlack];
-    [self setArrayCompletion:completion];
-    [self setEntryType:AmiAmiParserEntryTypeAll];
-    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:[eachDictionary objectForKey:@"allproducts"]]]];
+    self.objects.arrayCompletion = completion;
+    self.objects.entryType = AmiAmiParserEntryTypeAll;
+    self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:[eachDictionary objectForKey:@"allproducts"]]];
     [self startWebViewTimer];
 }
 
-+(void) parseRankProducts : (void (^)(AmiAmiParserStatus status, NSArray *result)) completion {
++(void) parseAllProducts : (ArrayCompletion) completion {
     [self setTimeout];
-    [self setPassFlag:NO];
+    self.objects.passFlag = NO;
     
     NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
 
     [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取%@排行商品...", [eachDictionary objectForKey:@"title"]]
                          maskType:SVProgressHUDMaskTypeBlack];
-    [self setArrayCompletion:completion];
-    [self setEntryType:AmiAmiParserEntryTypeRank];
-    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]]];
+    self.objects.arrayCompletion = completion;
+    self.objects.entryType = AmiAmiParserEntryTypeRank;
+    self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]];
     [self startWebViewTimer];
 }
 
-+(void) parseProductInfo : (NSString*) urlString completion : (void (^)(AmiAmiParserStatus status, NSDictionary *result)) completion {
++(void) parseProductInfo : (NSString*) urlString completion : (DictionaryCompletion) completion {
     [self setTimeout];
-    [self setPassFlag:NO];
+    self.objects.passFlag = NO;
     [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
-    [self setDictionaryCompletion:completion];
-    [self setEntryType:AmiAmiParserEntryTypeProductInfo];
-    [self setParseWebView:[self makeParseWebViewWithURL:[NSURL URLWithString:urlString]]];
+    self.objects.dictionaryCompletion = completion;
+    self.objects.entryType = AmiAmiParserEntryTypeProductInfo;
+    self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:urlString]];
     [self startWebViewTimer];
 }
 
@@ -56,25 +56,25 @@
 
 +(void) startWebViewTimer {
     
-    if (![self webViewTimer]) {
+    if (!self.objects.webViewTimer) {
         
-        [self setWebViewTimer:[DispatchTimer scheduledOnMainThreadAfterDelay:1.5f timeInterval:1.5f block:^{
-            if ([[self parseLock] tryLock]) {
-                switch ([self entryType]) {
+        self.objects.webViewTimer = [DispatchTimer scheduledOnMainThreadAfterDelay:1.5f timeInterval:1.5f block:^{
+            if ([self.objects.parseLock tryLock]) {
+                switch (self.objects.entryType) {
                     case AmiAmiParserEntryTypeRank:
-                        [self rankProductsParser:[self parseWebView]];
+                        [self rankProductsParser:self.objects.parseWebView];
                         break;
                     case AmiAmiParserEntryTypeAll:
-                        [self allProductsParser:[self parseWebView]];
+                        [self allProductsParser:self.objects.parseWebView];
                         break;
                     case AmiAmiParserEntryTypeProductInfo:
-                        [self productInfoParser:[self parseWebView]];
+                        [self productInfoParser:self.objects.parseWebView];
                         break;
                 }
             }
-        }]];
-        
+        }];
     }
+    
 }
 
 @end

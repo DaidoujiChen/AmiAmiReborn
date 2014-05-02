@@ -16,7 +16,7 @@
 @interface MainViewController : UIViewController {
     NSArray *dataArray;
     UISegmentedControl *typeSegment;
-    void (^reloadRetultBlock)(AmiAmiParserStatus status, NSArray *result);
+    ArrayCompletion reloadRetultBlock;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
