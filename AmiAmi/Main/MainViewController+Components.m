@@ -18,7 +18,7 @@
             [self loadRankData];
             break;
         case 1:
-            [self loadAllBiShoJoData];
+            [self loadAllProductsData];
             break;
         default:
             break;
@@ -40,12 +40,12 @@
 
 #pragma mark - private
 
--(void) loadRankData {
-    [AmiAmiParser parseRankProducts:reloadRetultBlock];
+-(void) loadAllProductsData {
+    [AmiAmiParser parseAllProducts:reloadRetultBlock];
 }
 
--(void) loadAllBiShoJoData {
-    [AmiAmiParser parseAllProducts:reloadRetultBlock];
+-(void) loadRankData {
+    [AmiAmiParser parseRankProducts:reloadRetultBlock];
 }
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation AmiAmiParser
 
-+(void) parseRankProducts : (ArrayCompletion) completion {
++(void) parseAllProducts : (ArrayCompletion) completion {
     [self setTimeout];
     self.objects.passFlag = NO;
     
@@ -28,7 +28,7 @@
     [self startWebViewTimer];
 }
 
-+(void) parseAllProducts : (ArrayCompletion) completion {
++(void) parseRankProducts : (ArrayCompletion) completion {
     [self setTimeout];
     self.objects.passFlag = NO;
     

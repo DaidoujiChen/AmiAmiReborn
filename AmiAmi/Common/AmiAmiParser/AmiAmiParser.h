@@ -13,8 +13,8 @@
 
 @interface AmiAmiParser : NSObject
 
-+(void) parseRankProducts : (ArrayCompletion) completion;
 +(void) parseAllProducts : (ArrayCompletion) completion;
++(void) parseRankProducts : (ArrayCompletion) completion;
 +(void) parseProductInfo : (NSString*) urlString completion : (DictionaryCompletion) completion;
 
 @end
