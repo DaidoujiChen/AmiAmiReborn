@@ -10,33 +10,9 @@
 
 @interface AppDelegate (Private)
 - (UIView *)makeBackgroundViews:(OSNavigationController *)navigationController;
--(void) initImageCacheSetting;
 @end
 
 @implementation AppDelegate
-
-#pragma mark - FICImageCacheDelegate
-
-- (void)imageCache:(FICImageCache *)imageCache wantsSourceImageForEntity:(id <FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageRequestCompletionBlock)completionBlock {
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
-        NSURL *requestURL = [entity sourceImageURLWithFormatName:formatName];
-        UIImageView *requestImageView = [UIImageView new];
-        __weak UIImageView *weakRequestImageView = requestImageView;
-
-        objc_setAssociatedObject(self, (__bridge const void *)requestImageView, requestImageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        
-        [requestImageView setImageWithURL:requestURL
-                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                        completionBlock(image);
-                                        objc_setAssociatedObject(self, (__bridge const void *)weakRequestImageView, nil, OBJC_ASSOCIATION_ASSIGN);
-                                    });
-                                }];
-        
-    });
-}
 
 #pragma mark - private
 
@@ -53,33 +29,11 @@
     return backgroundViews;
 }
 
--(void) initImageCacheSetting {
-    NSMutableArray *mutableImageFormats = [NSMutableArray array];
-    
-    NSInteger squareImageFormatMaximumCount = 400;
-    FICImageFormatDevices squareImageFormatDevices = FICImageFormatDevicePhone;
-    
-    FICImageFormat *squareImageFormat32BitBGR = [FICImageFormat formatWithName:FICDPhotoSquareImage32BitBGRFormatName
-                                                                        family:FICDPhotoImageFormatFamily
-                                                                     imageSize:FICDPhotoSquareImageSize
-                                                                         style:FICImageFormatStyle32BitBGR
-                                                                  maximumCount:squareImageFormatMaximumCount
-                                                                       devices:squareImageFormatDevices];
-    
-    [mutableImageFormats addObject:squareImageFormat32BitBGR];
-
-    FICImageCache *sharedImageCache = [FICImageCache sharedImageCache];
-    [sharedImageCache setDelegate:self];
-    [sharedImageCache setFormats:mutableImageFormats];
-}
-
 #pragma mark - app life cycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    [self initImageCacheSetting];
     
     UITabBarController *tabbar = [UITabBarController new];
     

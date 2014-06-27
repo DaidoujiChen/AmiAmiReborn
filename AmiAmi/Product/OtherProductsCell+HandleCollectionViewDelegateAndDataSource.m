@@ -27,10 +27,11 @@
     
     NSDictionary *eachInfo = [productsInfoArray objectAtIndex:indexPath.row];
     
-    [GlobalFunctions getThumbnailImageFromURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                   completion:^(UIImage *image) {
-                                       cell.productImageView.image = image;
-                                   }];
+    [cell.productImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+                          placeholderImage:nil
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                     if (error) NSLog(@"%@", error);
+                                 }];
     
     return cell;
     

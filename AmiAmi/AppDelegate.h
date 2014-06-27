@@ -16,7 +16,7 @@
 #import "HistoryViewController.h"
 #import "FavoriteViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, FICImageCacheDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

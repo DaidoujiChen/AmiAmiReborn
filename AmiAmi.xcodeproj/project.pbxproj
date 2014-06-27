@@ -117,13 +117,6 @@
 		0198B66D18ADED05006512E2 /* EGOPhotoCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B65318ADED05006512E2 /* EGOPhotoCaptionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0198B66E18ADED05006512E2 /* EGOPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B65618ADED05006512E2 /* EGOPhotoImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0198B66F18ADED05006512E2 /* EGOPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B65918ADED05006512E2 /* EGOPhotoScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		01A766D118ADEFF7005EB380 /* FICImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766C418ADEFF7005EB380 /* FICImageCache.m */; };
-		01A766D218ADEFF7005EB380 /* FICImageFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766C718ADEFF7005EB380 /* FICImageFormat.m */; };
-		01A766D318ADEFF7005EB380 /* FICImageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766C918ADEFF7005EB380 /* FICImageTable.m */; };
-		01A766D418ADEFF7005EB380 /* FICImageTableChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766CB18ADEFF7005EB380 /* FICImageTableChunk.m */; };
-		01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766CD18ADEFF7005EB380 /* FICImageTableEntry.m */; };
-		01A766D618ADEFF7005EB380 /* FICUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766D018ADEFF7005EB380 /* FICUtilities.m */; };
-		01A766DC18ADF9F2005EB380 /* FICDPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A766DB18ADF9F2005EB380 /* FICDPhoto.m */; };
 		01A7F43718D8A8F0005E05FC /* AmiAmiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F43418D8A8F0005E05FC /* AmiAmiParser.m */; };
 		01A7F43818D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F43618D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m */; };
 		01A7F43B18D8A98B005E05FC /* AmiAmiParser+Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7F43A18D8A98B005E05FC /* AmiAmiParser+Parser.m */; };
@@ -329,23 +322,6 @@
 		0198B65618ADED05006512E2 /* EGOPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoImageView.m; sourceTree = "<group>"; };
 		0198B65818ADED05006512E2 /* EGOPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoScrollView.h; sourceTree = "<group>"; };
 		0198B65918ADED05006512E2 /* EGOPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoScrollView.m; sourceTree = "<group>"; };
-		01A766C218ADEFF7005EB380 /* FICEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICEntity.h; path = ThirdParty/FastImageCache/FICEntity.h; sourceTree = "<group>"; };
-		01A766C318ADEFF7005EB380 /* FICImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICImageCache.h; path = ThirdParty/FastImageCache/FICImageCache.h; sourceTree = "<group>"; };
-		01A766C418ADEFF7005EB380 /* FICImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICImageCache.m; path = ThirdParty/FastImageCache/FICImageCache.m; sourceTree = "<group>"; };
-		01A766C518ADEFF7005EB380 /* FICImageCache+FICErrorLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FICImageCache+FICErrorLogging.h"; path = "ThirdParty/FastImageCache/FICImageCache+FICErrorLogging.h"; sourceTree = "<group>"; };
-		01A766C618ADEFF7005EB380 /* FICImageFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICImageFormat.h; path = ThirdParty/FastImageCache/FICImageFormat.h; sourceTree = "<group>"; };
-		01A766C718ADEFF7005EB380 /* FICImageFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICImageFormat.m; path = ThirdParty/FastImageCache/FICImageFormat.m; sourceTree = "<group>"; };
-		01A766C818ADEFF7005EB380 /* FICImageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICImageTable.h; path = ThirdParty/FastImageCache/FICImageTable.h; sourceTree = "<group>"; };
-		01A766C918ADEFF7005EB380 /* FICImageTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICImageTable.m; path = ThirdParty/FastImageCache/FICImageTable.m; sourceTree = "<group>"; };
-		01A766CA18ADEFF7005EB380 /* FICImageTableChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICImageTableChunk.h; path = ThirdParty/FastImageCache/FICImageTableChunk.h; sourceTree = "<group>"; };
-		01A766CB18ADEFF7005EB380 /* FICImageTableChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICImageTableChunk.m; path = ThirdParty/FastImageCache/FICImageTableChunk.m; sourceTree = "<group>"; };
-		01A766CC18ADEFF7005EB380 /* FICImageTableEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICImageTableEntry.h; path = ThirdParty/FastImageCache/FICImageTableEntry.h; sourceTree = "<group>"; };
-		01A766CD18ADEFF7005EB380 /* FICImageTableEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICImageTableEntry.m; path = ThirdParty/FastImageCache/FICImageTableEntry.m; sourceTree = "<group>"; };
-		01A766CE18ADEFF7005EB380 /* FICImports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICImports.h; path = ThirdParty/FastImageCache/FICImports.h; sourceTree = "<group>"; };
-		01A766CF18ADEFF7005EB380 /* FICUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICUtilities.h; path = ThirdParty/FastImageCache/FICUtilities.h; sourceTree = "<group>"; };
-		01A766D018ADEFF7005EB380 /* FICUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICUtilities.m; path = ThirdParty/FastImageCache/FICUtilities.m; sourceTree = "<group>"; };
-		01A766DA18ADF9F2005EB380 /* FICDPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FICDPhoto.h; path = ThirdParty/FastImageCache/FICDPhoto.h; sourceTree = "<group>"; };
-		01A766DB18ADF9F2005EB380 /* FICDPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FICDPhoto.m; path = ThirdParty/FastImageCache/FICDPhoto.m; sourceTree = "<group>"; };
 		01A7F43318D8A8F0005E05FC /* AmiAmiParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmiAmiParser.h; path = Common/AmiAmiParser/AmiAmiParser.h; sourceTree = "<group>"; };
 		01A7F43418D8A8F0005E05FC /* AmiAmiParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmiAmiParser.m; path = Common/AmiAmiParser/AmiAmiParser.m; sourceTree = "<group>"; };
 		01A7F43518D8A8F0005E05FC /* AmiAmiParser+AccessObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+AccessObjects.h"; path = "Common/AmiAmiParser/AmiAmiParser+AccessObjects.h"; sourceTree = "<group>"; };
@@ -579,7 +555,6 @@
 				01106E8C18E85E99006DA63E /* DispatchTimer */,
 				01ACF1F918C5B241008D0B41 /* LightWeightPlist */,
 				016B280A18C4738500FBB097 /* JRSwizzle */,
-				01A766AC18ADEF7E005EB380 /* FastImageCache */,
 				0198B62C18ADECF5006512E2 /* EGOPhotoViewer */,
 				0198B5F918ADEB68006512E2 /* SVProgressHUD */,
 				0198B5F218ADEB14006512E2 /* GooglePlus */,
@@ -819,30 +794,6 @@
 				0198B65918ADED05006512E2 /* EGOPhotoScrollView.m */,
 			);
 			path = EGOPhotoScrollView;
-			sourceTree = "<group>";
-		};
-		01A766AC18ADEF7E005EB380 /* FastImageCache */ = {
-			isa = PBXGroup;
-			children = (
-				01A766DA18ADF9F2005EB380 /* FICDPhoto.h */,
-				01A766DB18ADF9F2005EB380 /* FICDPhoto.m */,
-				01A766C218ADEFF7005EB380 /* FICEntity.h */,
-				01A766C318ADEFF7005EB380 /* FICImageCache.h */,
-				01A766C418ADEFF7005EB380 /* FICImageCache.m */,
-				01A766C518ADEFF7005EB380 /* FICImageCache+FICErrorLogging.h */,
-				01A766C618ADEFF7005EB380 /* FICImageFormat.h */,
-				01A766C718ADEFF7005EB380 /* FICImageFormat.m */,
-				01A766C818ADEFF7005EB380 /* FICImageTable.h */,
-				01A766C918ADEFF7005EB380 /* FICImageTable.m */,
-				01A766CA18ADEFF7005EB380 /* FICImageTableChunk.h */,
-				01A766CB18ADEFF7005EB380 /* FICImageTableChunk.m */,
-				01A766CC18ADEFF7005EB380 /* FICImageTableEntry.h */,
-				01A766CD18ADEFF7005EB380 /* FICImageTableEntry.m */,
-				01A766CE18ADEFF7005EB380 /* FICImports.h */,
-				01A766CF18ADEFF7005EB380 /* FICUtilities.h */,
-				01A766D018ADEFF7005EB380 /* FICUtilities.m */,
-			);
-			name = FastImageCache;
 			sourceTree = "<group>";
 		};
 		01A7F43218D8A8D9005E05FC /* AmiAmiParser */ = {
@@ -1120,19 +1071,15 @@
 				0198B5E018ADEA3E006512E2 /* SDWebImageDownloaderOperation.m in Sources */,
 				0198B65A18ADED05006512E2 /* EGOPhotoViewController.m in Sources */,
 				01109721188E616A00D14EC1 /* main.m in Sources */,
-				01A766D118ADEFF7005EB380 /* FICImageCache.m in Sources */,
 				0198B62A18ADEC68006512E2 /* ProductViewController.m in Sources */,
 				01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */,
 				0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */,
 				0198B5DB18ADEA3E006512E2 /* NSData+ImageContentType.m in Sources */,
 				0198B5E718ADEA3E006512E2 /* UIImageView+WebCache.m in Sources */,
-				01A766D418ADEFF7005EB380 /* FICImageTableChunk.m in Sources */,
 				0198B66D18ADED05006512E2 /* EGOPhotoCaptionView.m in Sources */,
 				0198B61218ADEC29006512E2 /* MainCell.m in Sources */,
 				01090F2E1913371C00AD60AF /* AmiAmiParserObjects.m in Sources */,
 				0198B5DD18ADEA3E006512E2 /* SDWebImageCompat.m in Sources */,
-				01A766DC18ADF9F2005EB380 /* FICDPhoto.m in Sources */,
-				01A766D618ADEFF7005EB380 /* FICUtilities.m in Sources */,
 				0198B5E518ADEA3E006512E2 /* UIImage+MultiFormat.m in Sources */,
 				017F3D5A18F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B66F18ADED05006512E2 /* EGOPhotoScrollView.m in Sources */,
@@ -1143,12 +1090,9 @@
 				0198B5E118ADEA3E006512E2 /* SDWebImageManager.m in Sources */,
 				0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */,
 				0198B65F18ADED05006512E2 /* EGOQuickPhotoSource.m in Sources */,
-				01A766D518ADEFF7005EB380 /* FICImageTableEntry.m in Sources */,
 				0198B5DC18ADEA3E006512E2 /* SDImageCache.m in Sources */,
 				0198B61618ADEC29006512E2 /* RelationCell.m in Sources */,
 				0198B65B18ADED05006512E2 /* EGOCache.m in Sources */,
-				01A766D218ADEFF7005EB380 /* FICImageFormat.m in Sources */,
-				01A766D318ADEFF7005EB380 /* FICImageTable.m in Sources */,
 				0198B65D18ADED05006512E2 /* EGOImageLoader.m in Sources */,
 				0198B5F118ADEACF006512E2 /* FXBlurView.m in Sources */,
 				017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */,

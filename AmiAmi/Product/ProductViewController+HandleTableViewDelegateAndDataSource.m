@@ -28,10 +28,11 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
-        [GlobalFunctions getThumbnailImageFromURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]
-                                       completion:^(UIImage *image) {
-                                           cell.currentProductImageView.image = image;
-                                       }];
+        [cell.currentProductImageView setImageWithURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]
+                                     placeholderImage:nil
+                                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                                if (error) NSLog(@"%@", error);
+                                            }];
         
         [cell.currentProductTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
         

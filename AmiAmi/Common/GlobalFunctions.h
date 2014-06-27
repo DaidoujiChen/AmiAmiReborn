@@ -10,7 +10,6 @@
 
 @interface GlobalFunctions : NSObject
 
-+(void) getThumbnailImageFromURL : (NSURL*) url completion : (void(^)(UIImage *image)) completion;
 +(NSString*) fixProductURL : (NSString*) oriURL;
 
 +(void) imageEffect : (UIView*) view;

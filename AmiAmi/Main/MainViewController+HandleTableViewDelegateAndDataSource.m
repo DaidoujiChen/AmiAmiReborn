@@ -34,9 +34,10 @@
             
             cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", (int)indexPath.section + 1]];
             
-            [GlobalFunctions getThumbnailImageFromURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                           completion:^(UIImage *image) {
-                                               cell.thumbnailImageView.image = image;
+            [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+                                    placeholderImage:nil
+                                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                               if (error) NSLog(@"%@", error);
                                            }];
             
             cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
@@ -52,9 +53,10 @@
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             
-            [GlobalFunctions getThumbnailImageFromURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
-                                           completion:^(UIImage *image) {
-                                               cell.thumbnailImageView.image = image;
+            [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+                                    placeholderImage:nil
+                                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                               if (error) NSLog(@"%@", error);
                                            }];
             
             cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
