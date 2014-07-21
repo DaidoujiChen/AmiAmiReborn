@@ -21,13 +21,12 @@
     return doc;
 }
 
-+(RACSignal*) allProducts_List : (TFHpple*) doc {
++(NSArray*) allProducts_List : (TFHpple*) doc {
     
     NSArray *elements = [doc searchWithXPathQuery:@"//table [@class='product_table']//div [@class='product_img']//a"];
     
     if ([elements count] == 0 && !self.objects.passFlag) {
-        [self.objects.parseLock unlock];
-        return [RACSignal return:nil];
+        return nil;
     }
     
     NSMutableArray *returnArray = [NSMutableArray array];
@@ -36,21 +35,20 @@
         [returnArray addObject:[self parshThumbnailWithTitle:e]];
     }
     
-    return [RACSignal return:returnArray];
+    return returnArray;
     
 }
 
-+(RACSignal*) rankProducts_List : (TFHpple*) doc {
++(NSArray*) rankProducts_List : (TFHpple*) doc {
     
-    NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
+    NSDictionary *eachDictionary = AllProductsArray[[MiscDictionary[@"typeIndex"] integerValue]];
     
     NSString *xpathQueryString = [NSString stringWithFormat:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category%@']//li [@class='product_image']//a", [eachDictionary objectForKey:@"category"]];
     
     NSArray *elements = [doc searchWithXPathQuery:xpathQueryString];
     
     if ([elements count] == 0 && !self.objects.passFlag) {
-        [self.objects.parseLock unlock];
-        return [RACSignal return:nil];
+        return nil;
     }
     
     NSMutableArray *returnArray = [NSMutableArray array];
@@ -59,7 +57,7 @@
         [returnArray addObject:[self parshThumbnailWithTitle:e]];
     }
     
-    return [RACSignal return:returnArray];
+    return returnArray;
     
 }
 

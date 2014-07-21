@@ -15,10 +15,11 @@
 @implementation AmiAmiParser
 
 +(void) parseAllProducts : (ArrayCompletion) completion {
+    
     [self setTimeout];
     self.objects.passFlag = NO;
     
-    NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
+    NSDictionary *eachDictionary = [AllProductsArray objectAtIndex:[[MiscDictionary objectForKey:@"typeIndex"] integerValue]];
     
     [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取最新%@商品...", [eachDictionary objectForKey:@"title"]]
                          maskType:SVProgressHUDMaskTypeBlack];
@@ -26,13 +27,15 @@
     self.objects.entryType = AmiAmiParserEntryTypeAll;
     self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:[eachDictionary objectForKey:@"allproducts"]]];
     [self startWebViewTimer];
+    
 }
 
 +(void) parseRankProducts : (ArrayCompletion) completion {
+    
     [self setTimeout];
     self.objects.passFlag = NO;
     
-    NSDictionary *eachDictionary = [LWPArray(@"AllProducts") objectAtIndex:[[LWPDictionary(@"MISC") objectForKey:@"typeIndex"] intValue]];
+    NSDictionary *eachDictionary = [AllProductsArray objectAtIndex:[[MiscDictionary objectForKey:@"typeIndex"] integerValue]];
 
     [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取%@排行商品...", [eachDictionary objectForKey:@"title"]]
                          maskType:SVProgressHUDMaskTypeBlack];
@@ -40,9 +43,11 @@
     self.objects.entryType = AmiAmiParserEntryTypeRank;
     self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:@"http://www.amiami.jp/top/page/c/ranking.html"]];
     [self startWebViewTimer];
+    
 }
 
 +(void) parseProductInfo : (NSString*) urlString completion : (DictionaryCompletion) completion {
+    
     [self setTimeout];
     self.objects.passFlag = NO;
     [SVProgressHUD showWithStatus:@"讀取商品內容..." maskType:SVProgressHUDMaskTypeBlack];
@@ -50,6 +55,7 @@
     self.objects.entryType = AmiAmiParserEntryTypeProductInfo;
     self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:urlString]];
     [self startWebViewTimer];
+    
 }
 
 #pragma mark - private

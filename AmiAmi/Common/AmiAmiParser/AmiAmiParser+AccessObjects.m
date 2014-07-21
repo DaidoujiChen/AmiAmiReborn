@@ -10,14 +10,12 @@
 
 @implementation AmiAmiParser (AccessObjects)
 
-static const char OBJECTSPOINTER;
-
 +(AmiAmiParserObjects*) objects {
     
-    if (!objc_getAssociatedObject(self, &OBJECTSPOINTER)) {
-        objc_setAssociatedObject(self, &OBJECTSPOINTER, [AmiAmiParserObjects new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (!objc_getAssociatedObject(self, _cmd)) {
+        objc_setAssociatedObject(self, _cmd, [AmiAmiParserObjects new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    return objc_getAssociatedObject(self, &OBJECTSPOINTER);
+    return objc_getAssociatedObject(self, _cmd);
     
 }
 

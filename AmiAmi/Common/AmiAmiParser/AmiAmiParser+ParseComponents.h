@@ -12,9 +12,8 @@
 
 +(TFHpple*) TFHppleObject : (UIWebView*) webView;
 
-+(RACSignal*) allProducts_List : (TFHpple*) doc;
-
-+(RACSignal*) rankProducts_List : (TFHpple*) doc;
++(NSArray*) allProducts_List : (TFHpple*) doc;
++(NSArray*) rankProducts_List : (TFHpple*) doc;
 
 +(RACSignal*) productInfo_Images : (TFHpple*) doc;
 +(RACSignal*) productInfo_Informantion : (TFHpple*) doc;

@@ -15,7 +15,7 @@
 #pragma mark - UITableViewDataSource
 
 -(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return [LWPArray(@"AllProducts") count];
+    return [AllProductsArray count];
 }
 
 -(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
@@ -23,7 +23,7 @@
     DefaultCell *cell = (DefaultCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
-    NSDictionary *eachDictionary = [LWPArray(@"AllProducts")  objectAtIndex:indexPath.row];
+    NSDictionary *eachDictionary = [AllProductsArray objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [eachDictionary objectForKey:@"title"];
     
@@ -33,7 +33,7 @@
 #pragma mark - UITableViewDelegate
 
 -(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
-    [LWPDictionary(@"MISC") setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"typeIndex"];
+    [MiscDictionary setObject:[NSNumber numberWithInteger:indexPath.row] forKey:@"typeIndex"];
     [self dismissSelf];
 }
 

@@ -40,33 +40,33 @@
 }
 
 +(void) addToHistory : (NSDictionary*) productInfo {
-    if ([LWPArray(@"History") count] >= 20) {
-        [LWPArray(@"History") removeObjectAtIndex:0];
+    if ([HistoryArray count] >= 20) {
+        [HistoryArray removeObjectAtIndex:0];
     }
     
-    for (NSDictionary *eachInfo in LWPArray(@"History")) {
+    for (NSDictionary *eachInfo in HistoryArray) {
         if ([[eachInfo objectForKey:@"URL"] isEqualToString:[productInfo objectForKey:@"URL"]]) {
-            [LWPArray(@"History") removeObject:eachInfo];
+            [HistoryArray removeObject:eachInfo];
             break;
         }
     }
     
-    [LWPArray(@"History") addObject:productInfo];
+    [HistoryArray addObject:productInfo];
 }
 
 +(void) addToFavorite {
     [SVProgressHUD showSuccessWithStatus:@"添加成功"];
     
-    NSDictionary *productInfo = [LWPArray(@"History") lastObject];
+    NSDictionary *productInfo = [HistoryArray lastObject];
     
-    for (NSDictionary *eachInfo in LWPArray(@"Favorite")) {
+    for (NSDictionary *eachInfo in FavoriteArray) {
         if ([[eachInfo objectForKey:@"URL"] isEqualToString:[productInfo objectForKey:@"URL"]]) {
-            [LWPArray(@"Favorite") removeObject:eachInfo];
+            [FavoriteArray removeObject:eachInfo];
             break;
         }
     }
     
-    [LWPArray(@"Favorite") addObject:[LWPArray(@"History") lastObject]];
+    [FavoriteArray addObject:[HistoryArray lastObject]];
 }
 
 @end

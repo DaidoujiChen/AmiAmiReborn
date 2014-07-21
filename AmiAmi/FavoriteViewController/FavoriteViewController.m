@@ -21,7 +21,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [LWPArray(@"Favorite") removeObjectAtIndex:[LWPArray(@"Favorite") count] - 1 - indexPath.row];
+        [FavoriteArray removeObjectAtIndex:[FavoriteArray count] - 1 - indexPath.row];
         [tableView reloadData];
     }
 }

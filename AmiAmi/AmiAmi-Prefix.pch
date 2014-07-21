@@ -29,4 +29,10 @@
     #import <ReactiveCocoa/ReactiveCocoa.h>
     #import <ReactiveCocoa/RACEXTScope.h>
 
+    //LWP
+    #define AllProductsArray LWPArray(@"AllProducts")
+    #define MiscDictionary LWPDictionary(@"MISC")
+    #define FavoriteArray LWPArray(@"Favorite")
+    #define HistoryArray LWPArray(@"History")
+
 #endif

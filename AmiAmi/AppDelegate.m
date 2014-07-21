@@ -69,8 +69,8 @@
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36", @"UserAgent", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     
-    if (![LWPDictionary(@"MISC") objectForKey:@"typeIndex"]) {
-        [LWPDictionary(@"MISC") setObject:[NSNumber numberWithInt:0] forKey:@"typeIndex"];
+    if (![MiscDictionary objectForKey:@"typeIndex"]) {
+        [MiscDictionary setObject:[NSNumber numberWithInt:0] forKey:@"typeIndex"];
     }
     
     return YES;

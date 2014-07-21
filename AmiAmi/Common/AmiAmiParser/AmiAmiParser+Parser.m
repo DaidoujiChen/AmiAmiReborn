@@ -17,35 +17,36 @@
 #pragma mark - class method
 
 +(void) allProductsParser : (UIWebView*) webView {
-
-    [[[self allProducts_List:[self TFHppleObject:webView]] filter:^BOOL(id value) {
-        if (value) return YES;
-        return NO;
-    }] subscribeNext:^(id x) {
-        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, x);
+    
+    NSArray *allProductArray = [self allProducts_List:[self TFHppleObject:webView]];
+    if (allProductArray) {
+        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, allProductArray);
         [SVProgressHUD dismiss];
         [self freeMemory];
-    }];
-    
-    
+    } else {
+        [self.objects.parseLock unlock];
+    }
+
 }
 
 +(void) rankProductsParser : (UIWebView*) webView {
-
-    [[[self rankProducts_List:[self TFHppleObject:webView]] filter:^BOOL(id value) {
-        if (value) return YES;
-        return NO;
-    }] subscribeNext:^(id x) {
-        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, x);
+    
+    NSArray *rankProductArray = [self rankProducts_List:[self TFHppleObject:webView]];
+    if (rankProductArray) {
+        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, rankProductArray);
         [SVProgressHUD dismiss];
         [self freeMemory];
-    }];
+    } else {
+        [self.objects.parseLock unlock];
+    }
     
 }
 
 +(void) productInfoParser : (UIWebView*) webView {
     
     TFHpple *doc = [self TFHppleObject:webView];
+    
+    
     
     [[RACSignal merge:@[[self productInfo_Images:doc],
                         [self productInfo_Informantion:doc],
