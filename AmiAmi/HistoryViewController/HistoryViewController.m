@@ -25,4 +25,11 @@
     
 }
 
+-(void) viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setTitle:@"歷史"];
+    
+}
+
 @end

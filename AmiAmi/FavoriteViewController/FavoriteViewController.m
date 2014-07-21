@@ -25,6 +25,13 @@
     
 }
 
+-(void) viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setTitle:@"最愛"];
+    
+}
+
 #pragma mark - UITableViewDelegate
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
