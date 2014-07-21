@@ -10,11 +10,10 @@
 
 #import "DefaultCell.h"
 
-@interface SelectProductTypeViewController : UIViewController {
-    void(^requestReloadTable)(void);
-}
+@interface SelectProductTypeViewController : UIViewController
 
 @property (nonatomic, copy) void(^requestReloadTable)(void);
+
 @property (weak, nonatomic) IBOutlet UITableView *selectProductTypeTableView;
 
 @end

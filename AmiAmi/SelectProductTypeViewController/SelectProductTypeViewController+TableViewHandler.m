@@ -1,16 +1,16 @@
 //
-//  SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m
+//  SelectProductTypeViewController+TableViewHandler.m
 //  AmiAmi
 //
-//  Created by 啟倫 陳 on 2014/4/9.
+//  Created by 啟倫 陳 on 2014/7/21.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"
+#import "SelectProductTypeViewController+TableViewHandler.h"
 
 #import "SelectProductTypeViewController+Components.h"
 
-@implementation SelectProductTypeViewController (HandleTableViewDelegateAndDataSource)
+@implementation SelectProductTypeViewController (TableViewHandler)
 
 #pragma mark - UITableViewDataSource
 
@@ -19,22 +19,24 @@
 }
 
 -(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
+    
     static NSString *CellIdentifier = @"DefaultCell";
     DefaultCell *cell = (DefaultCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
-    NSDictionary *eachDictionary = [AllProductsArray objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [eachDictionary objectForKey:@"title"];
-    
+    NSDictionary *eachDictionary = AllProductsArray[indexPath.row];
+    cell.textLabel.text = eachDictionary[@"title"];
     return cell;
+    
 }
 
 #pragma mark - UITableViewDelegate
 
 -(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
+    
     [MiscDictionary setObject:[NSNumber numberWithInteger:indexPath.row] forKey:@"typeIndex"];
     [self dismissSelf];
+    
 }
 
 @end

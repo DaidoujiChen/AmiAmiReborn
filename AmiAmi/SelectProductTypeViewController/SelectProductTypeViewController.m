@@ -11,8 +11,10 @@
 #import "SelectProductTypeViewController+Components.h"
 
 @interface SelectProductTypeViewController ()
+
 -(void) createNavigationRightButton;
 -(void) selectProductTypeTableViewSetting;
+
 @end
 
 @implementation SelectProductTypeViewController

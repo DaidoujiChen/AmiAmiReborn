@@ -25,9 +25,6 @@
 		01109759188E6B0900D14EC1 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109758188E6B0900D14EC1 /* libxml2.2.dylib */; };
 		0110977D188E6F5C00D14EC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */; };
 		0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */; };
-		0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */; };
-		0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */; };
-		01599761197CB1B700B772E7 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01599760197CB1B700B772E7 /* DefaultCell.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
@@ -41,8 +38,6 @@
 		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
 		01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01721EBD18CDEE4700B6A540 /* AllProducts.plist */; };
 		017F3D4B18F4E6B0006DFFB6 /* MainViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */; };
-		017F3D4E18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */; };
-		017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */; };
 		017F3D5618F4E9B6006DFFB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */; };
 		017F3D5718F4E9B6006DFFB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */; };
 		017F3D5A18F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */; };
@@ -145,6 +140,11 @@
 		01D62F6318962DC600ABB2E0 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6218962DC600ABB2E0 /* CoreText.framework */; };
 		01D62F6518962DCE00ABB2E0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6418962DCE00ABB2E0 /* MediaPlayer.framework */; };
 		01D62F6718962DD400ABB2E0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F6618962DD400ABB2E0 /* Security.framework */; };
+		01FE5662197CF450007263F4 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FE565A197CF450007263F4 /* DefaultCell.m */; };
+		01FE5663197CF450007263F4 /* SelectProductTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FE565C197CF450007263F4 /* SelectProductTypeViewController.m */; };
+		01FE5664197CF450007263F4 /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FE565D197CF450007263F4 /* SelectProductTypeViewController.xib */; };
+		01FE5665197CF450007263F4 /* SelectProductTypeViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FE565F197CF450007263F4 /* SelectProductTypeViewController+Components.m */; };
+		01FE5669197CF4A3007263F4 /* SelectProductTypeViewController+TableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FE5668197CF4A3007263F4 /* SelectProductTypeViewController+TableViewHandler.m */; };
 		9684D50E3C9A4777AC2D24AF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAED9043E2A3499E9079665C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -185,11 +185,6 @@
 		0110977A188E6F5200D14EC1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProductTypeViewController.h; path = MainViewController/SelectProductTypeViewController.h; sourceTree = "<group>"; };
-		0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProductTypeViewController.m; path = MainViewController/SelectProductTypeViewController.m; sourceTree = "<group>"; };
-		0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = MainViewController/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
-		0159975F197CB1B700B772E7 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultCell.h; path = MainViewController/DefaultCell.h; sourceTree = "<group>"; };
-		01599760197CB1B700B772E7 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultCell.m; path = MainViewController/DefaultCell.m; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0165A0FA18F274A200FB75BE /* AmiAmiParser+ParseComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+ParseComponents.h"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.h"; sourceTree = "<group>"; };
 		0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+ParseComponents.m"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.m"; sourceTree = "<group>"; };
@@ -208,10 +203,6 @@
 		01721EBD18CDEE4700B6A540 /* AllProducts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AllProducts.plist; path = Common/AllProducts.plist; sourceTree = "<group>"; };
 		017F3D4918F4E6B0006DFFB6 /* MainViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+Components.h"; path = "MainViewController/MainViewController+Components.h"; sourceTree = "<group>"; };
 		017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+Components.m"; path = "MainViewController/MainViewController+Components.m"; sourceTree = "<group>"; };
-		017F3D4C18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; path = "MainViewController/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; path = "MainViewController/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
-		017F3D4F18F4E914006DFFB6 /* SelectProductTypeViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+Components.h"; path = "MainViewController/SelectProductTypeViewController+Components.h"; sourceTree = "<group>"; };
-		017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+Components.m"; path = "MainViewController/SelectProductTypeViewController+Components.m"; sourceTree = "<group>"; };
 		017F3D5318F4E9B6006DFFB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = Common/RecordViewcontroller/RecordViewController.h; sourceTree = "<group>"; };
 		017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = Common/RecordViewcontroller/RecordViewController.m; sourceTree = "<group>"; };
 		017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = Common/RecordViewcontroller/RecordViewController.xib; sourceTree = "<group>"; };
@@ -372,6 +363,15 @@
 		01D62F6218962DC600ABB2E0 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		01D62F6418962DCE00ABB2E0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		01D62F6618962DD400ABB2E0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		01FE5659197CF450007263F4 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultCell.h; path = SelectProductTypeViewController/DefaultCell.h; sourceTree = "<group>"; };
+		01FE565A197CF450007263F4 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultCell.m; path = SelectProductTypeViewController/DefaultCell.m; sourceTree = "<group>"; };
+		01FE565B197CF450007263F4 /* SelectProductTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProductTypeViewController.h; path = SelectProductTypeViewController/SelectProductTypeViewController.h; sourceTree = "<group>"; };
+		01FE565C197CF450007263F4 /* SelectProductTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProductTypeViewController.m; path = SelectProductTypeViewController/SelectProductTypeViewController.m; sourceTree = "<group>"; };
+		01FE565D197CF450007263F4 /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = SelectProductTypeViewController/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
+		01FE565E197CF450007263F4 /* SelectProductTypeViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+Components.h"; path = "SelectProductTypeViewController/SelectProductTypeViewController+Components.h"; sourceTree = "<group>"; };
+		01FE565F197CF450007263F4 /* SelectProductTypeViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+Components.m"; path = "SelectProductTypeViewController/SelectProductTypeViewController+Components.m"; sourceTree = "<group>"; };
+		01FE5667197CF4A3007263F4 /* SelectProductTypeViewController+TableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+TableViewHandler.h"; path = "SelectProductTypeViewController/SelectProductTypeViewController+TableViewHandler.h"; sourceTree = "<group>"; };
+		01FE5668197CF4A3007263F4 /* SelectProductTypeViewController+TableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+TableViewHandler.m"; path = "SelectProductTypeViewController/SelectProductTypeViewController+TableViewHandler.m"; sourceTree = "<group>"; };
 		2B529D98017847F8AE3F3654 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		DAED9043E2A3499E9079665C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -475,6 +475,7 @@
 				01109724188E616A00D14EC1 /* AppDelegate.m */,
 				0198B5FF18ADEBC5006512E2 /* Common */,
 				01B6B90D18A4830C00C065A4 /* MainViewController */,
+				01FE5658197CF42D007263F4 /* SelectProductTypeViewController */,
 				0166343218C2DE36002FC4BF /* HistoryViewController */,
 				0166343818C2DECB002FC4BF /* FavoriteViewController */,
 				01B0295918A48A1200ED0632 /* ProductViewController */,
@@ -930,17 +931,24 @@
 				0198B60F18ADEC29006512E2 /* DefaultProductCell.h */,
 				0198B61018ADEC29006512E2 /* DefaultProductCell.m */,
 				0198B61118ADEC29006512E2 /* DefaultProductCell.xib */,
-				0159975F197CB1B700B772E7 /* DefaultCell.h */,
-				01599760197CB1B700B772E7 /* DefaultCell.m */,
-				0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */,
-				0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */,
-				0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */,
-				017F3D4C18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h */,
-				017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */,
-				017F3D4F18F4E914006DFFB6 /* SelectProductTypeViewController+Components.h */,
-				017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */,
 			);
 			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		01FE5658197CF42D007263F4 /* SelectProductTypeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				01FE565B197CF450007263F4 /* SelectProductTypeViewController.h */,
+				01FE565C197CF450007263F4 /* SelectProductTypeViewController.m */,
+				01FE565D197CF450007263F4 /* SelectProductTypeViewController.xib */,
+				01FE5667197CF4A3007263F4 /* SelectProductTypeViewController+TableViewHandler.h */,
+				01FE5668197CF4A3007263F4 /* SelectProductTypeViewController+TableViewHandler.m */,
+				01FE5659197CF450007263F4 /* DefaultCell.h */,
+				01FE565A197CF450007263F4 /* DefaultCell.m */,
+				01FE565E197CF450007263F4 /* SelectProductTypeViewController+Components.h */,
+				01FE565F197CF450007263F4 /* SelectProductTypeViewController+Components.m */,
+			);
+			name = SelectProductTypeViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1038,12 +1046,12 @@
 				018379BC197CA9E9005B47E5 /* background4.png in Resources */,
 				018379C4197CA9E9005B47E5 /* loading.png in Resources */,
 				01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */,
-				0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */,
 				018379BF197CA9E9005B47E5 /* error.png in Resources */,
 				0198B66218ADED05006512E2 /* egopv_error_placeholder.png in Resources */,
 				0166343018C2DDFF002FC4BF /* Favorites@2x.png in Resources */,
 				0198B5F718ADEB31006512E2 /* GooglePlus.bundle in Resources */,
 				018379BD197CA9E9005B47E5 /* entering1.png in Resources */,
+				01FE5664197CF450007263F4 /* SelectProductTypeViewController.xib in Resources */,
 				0198B66B18ADED05006512E2 /* egopv_right.png in Resources */,
 				018379C0197CA9E9005B47E5 /* error@2x.png in Resources */,
 				0198B5ED18ADEA8C006512E2 /* OSNavigationController.xib in Resources */,
@@ -1141,7 +1149,6 @@
 				0198B65A18ADED05006512E2 /* EGOPhotoViewController.m in Sources */,
 				01109721188E616A00D14EC1 /* main.m in Sources */,
 				0198B62A18ADEC68006512E2 /* ProductViewController.m in Sources */,
-				01599761197CB1B700B772E7 /* DefaultCell.m in Sources */,
 				01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */,
 				0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */,
 				0198B5DB18ADEA3E006512E2 /* NSData+ImageContentType.m in Sources */,
@@ -1157,6 +1164,7 @@
 				0198B5E618ADEA3E006512E2 /* UIImage+WebP.m in Sources */,
 				01A7F43E18D8AA9D005E05FC /* AmiAmiParser+MiscFunctions.m in Sources */,
 				01A7F44418D8AD25005E05FC /* AmiAmiParser+HandleUIAlertViewDelegate.m in Sources */,
+				01FE5663197CF450007263F4 /* SelectProductTypeViewController.m in Sources */,
 				0198B5E118ADEA3E006512E2 /* SDWebImageManager.m in Sources */,
 				0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */,
 				0198B65F18ADED05006512E2 /* EGOQuickPhotoSource.m in Sources */,
@@ -1164,8 +1172,9 @@
 				0198B61618ADEC29006512E2 /* DefaultProductCell.m in Sources */,
 				0198B65B18ADED05006512E2 /* EGOCache.m in Sources */,
 				0198B65D18ADED05006512E2 /* EGOImageLoader.m in Sources */,
+				01FE5669197CF4A3007263F4 /* SelectProductTypeViewController+TableViewHandler.m in Sources */,
+				01FE5662197CF450007263F4 /* DefaultCell.m in Sources */,
 				0198B5F118ADEACF006512E2 /* FXBlurView.m in Sources */,
-				017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */,
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
 				010CA612197CF0040021084F /* MainTableViewCellBase.m in Sources */,
@@ -1179,15 +1188,14 @@
 				0198B5DE18ADEA3E006512E2 /* SDWebImageDecoder.m in Sources */,
 				0198B66E18ADED05006512E2 /* EGOPhotoImageView.m in Sources */,
 				017F3D5618F4E9B6006DFFB6 /* RecordViewController.m in Sources */,
-				017F3D4E18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B59E18ADE971006512E2 /* XPathQuery.m in Sources */,
 				016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */,
 				01A7F43718D8A8F0005E05FC /* AmiAmiParser.m in Sources */,
 				01106E9218E85F33006DA63E /* DispatchTimer.m in Sources */,
-				0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */,
 				0198B5E318ADEA3E006512E2 /* UIButton+WebCache.m in Sources */,
 				0198B5DF18ADEA3E006512E2 /* SDWebImageDownloader.m in Sources */,
 				0198B60818ADEBD8006512E2 /* UITableViewCellBase.m in Sources */,
+				01FE5665197CF450007263F4 /* SelectProductTypeViewController+Components.m in Sources */,
 				0198B5EC18ADEA8C006512E2 /* OSNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
