@@ -28,7 +28,7 @@
     NSDictionary *eachInfo = self.productsInfoArray[indexPath.row];
     
     [cell.productImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]]
-                          placeholderImage:nil
+                          placeholderImage:[UIImage imageNamed:@"placeholder.png"]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                      if (error) NSLog(@"%@", error);
                                  }];

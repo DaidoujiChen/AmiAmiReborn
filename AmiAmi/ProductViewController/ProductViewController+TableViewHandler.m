@@ -29,7 +29,7 @@
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
         [cell.currentProductImageView setImageWithURL:[NSURL URLWithString:self.productInfoDictionary[@"CurrentProduct"][@"Thumbnail"]]
-                                     placeholderImage:nil
+                                     placeholderImage:[UIImage imageNamed:@"placeholder.png"]
                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                                 if (error) NSLog(@"%@", error);
                                             }];
