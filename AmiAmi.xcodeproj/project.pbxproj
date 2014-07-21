@@ -26,7 +26,7 @@
 		0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */; };
 		0129681D18CE05B600045E4A /* SelectProductTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */; };
 		0129681E18CE05B600045E4A /* SelectProductTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */; };
-		0129682118CE06C700045E4A /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0129682018CE06C700045E4A /* DefaultCell.m */; };
+		01599761197CB1B700B772E7 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01599760197CB1B700B772E7 /* DefaultCell.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
@@ -182,11 +182,11 @@
 		0110977A188E6F5200D14EC1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProductTypeViewController.h; path = Main/SelectProductTypeViewController.h; sourceTree = "<group>"; };
-		0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProductTypeViewController.m; path = Main/SelectProductTypeViewController.m; sourceTree = "<group>"; };
-		0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = Main/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
-		0129681F18CE06C700045E4A /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
-		0129682018CE06C700045E4A /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
+		0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProductTypeViewController.h; path = MainViewController/SelectProductTypeViewController.h; sourceTree = "<group>"; };
+		0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProductTypeViewController.m; path = MainViewController/SelectProductTypeViewController.m; sourceTree = "<group>"; };
+		0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectProductTypeViewController.xib; path = MainViewController/SelectProductTypeViewController.xib; sourceTree = "<group>"; };
+		0159975F197CB1B700B772E7 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultCell.h; path = MainViewController/DefaultCell.h; sourceTree = "<group>"; };
+		01599760197CB1B700B772E7 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultCell.m; path = MainViewController/DefaultCell.m; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0165A0FA18F274A200FB75BE /* AmiAmiParser+ParseComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+ParseComponents.h"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.h"; sourceTree = "<group>"; };
 		0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+ParseComponents.m"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.m"; sourceTree = "<group>"; };
@@ -196,30 +196,30 @@
 		0166342818C2DDFF002FC4BF /* Bookmarks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bookmarks@2x.png"; path = "Images/icons/Bookmarks@2x.png"; sourceTree = "<group>"; };
 		0166342918C2DDFF002FC4BF /* Favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Favorites.png; path = Images/icons/Favorites.png; sourceTree = "<group>"; };
 		0166342A18C2DDFF002FC4BF /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites@2x.png"; path = "Images/icons/Favorites@2x.png"; sourceTree = "<group>"; };
-		0166343318C2DE51002FC4BF /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = History/HistoryViewController.h; sourceTree = "<group>"; };
-		0166343418C2DE51002FC4BF /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = History/HistoryViewController.m; sourceTree = "<group>"; };
-		0166343918C2DEEC002FC4BF /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteViewController.h; path = Favorite/FavoriteViewController.h; sourceTree = "<group>"; };
-		0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteViewController.m; path = Favorite/FavoriteViewController.m; sourceTree = "<group>"; };
+		0166343318C2DE51002FC4BF /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = HistoryViewController/HistoryViewController.h; sourceTree = "<group>"; };
+		0166343418C2DE51002FC4BF /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = HistoryViewController/HistoryViewController.m; sourceTree = "<group>"; };
+		0166343918C2DEEC002FC4BF /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteViewController.h; path = FavoriteViewController/FavoriteViewController.h; sourceTree = "<group>"; };
+		0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteViewController.m; path = FavoriteViewController/FavoriteViewController.m; sourceTree = "<group>"; };
 		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
 		01721EBD18CDEE4700B6A540 /* AllProducts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AllProducts.plist; path = Common/AllProducts.plist; sourceTree = "<group>"; };
-		017F3D4618F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+HandleTableViewDelegateAndDataSource.h"; path = "Main/MainViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+HandleTableViewDelegateAndDataSource.m"; path = "Main/MainViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
-		017F3D4918F4E6B0006DFFB6 /* MainViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+Components.h"; path = "Main/MainViewController+Components.h"; sourceTree = "<group>"; };
-		017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+Components.m"; path = "Main/MainViewController+Components.m"; sourceTree = "<group>"; };
-		017F3D4C18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; path = "Main/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; path = "Main/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
-		017F3D4F18F4E914006DFFB6 /* SelectProductTypeViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+Components.h"; path = "Main/SelectProductTypeViewController+Components.h"; sourceTree = "<group>"; };
-		017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+Components.m"; path = "Main/SelectProductTypeViewController+Components.m"; sourceTree = "<group>"; };
+		017F3D4618F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+HandleTableViewDelegateAndDataSource.h"; path = "MainViewController/MainViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+HandleTableViewDelegateAndDataSource.m"; path = "MainViewController/MainViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D4918F4E6B0006DFFB6 /* MainViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+Components.h"; path = "MainViewController/MainViewController+Components.h"; sourceTree = "<group>"; };
+		017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+Components.m"; path = "MainViewController/MainViewController+Components.m"; sourceTree = "<group>"; };
+		017F3D4C18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; path = "MainViewController/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; path = "MainViewController/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D4F18F4E914006DFFB6 /* SelectProductTypeViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+Components.h"; path = "MainViewController/SelectProductTypeViewController+Components.h"; sourceTree = "<group>"; };
+		017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SelectProductTypeViewController+Components.m"; path = "MainViewController/SelectProductTypeViewController+Components.m"; sourceTree = "<group>"; };
 		017F3D5318F4E9B6006DFFB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = Common/RecordViewcontroller/RecordViewController.h; sourceTree = "<group>"; };
 		017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = Common/RecordViewcontroller/RecordViewController.m; sourceTree = "<group>"; };
 		017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = Common/RecordViewcontroller/RecordViewController.xib; sourceTree = "<group>"; };
 		017F3D5818F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RecordViewController+HandleTableViewDelegateAndDataSource.h"; path = "Common/RecordViewcontroller/RecordViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
 		017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RecordViewController+HandleTableViewDelegateAndDataSource.m"; path = "Common/RecordViewcontroller/RecordViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
-		017F3D5B18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProductViewController+HandleTableViewDelegateAndDataSource.h"; path = "Product/ProductViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProductViewController+HandleTableViewDelegateAndDataSource.m"; path = "Product/ProductViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
-		017F3D5E18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; path = "Product/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; path = "Product/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D5B18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProductViewController+HandleTableViewDelegateAndDataSource.h"; path = "ProductViewController/ProductViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProductViewController+HandleTableViewDelegateAndDataSource.m"; path = "ProductViewController/ProductViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
+		017F3D5E18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; path = "ProductViewController/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
+		017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; path = "ProductViewController/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
 		018379A6197CA9C9005B47E5 /* ranking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_1.png; path = Images/RankTitle/ranking_1.png; sourceTree = "<group>"; };
 		018379A7197CA9C9005B47E5 /* ranking_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_2.png; path = Images/RankTitle/ranking_2.png; sourceTree = "<group>"; };
 		018379A8197CA9C9005B47E5 /* ranking_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_3.png; path = Images/RankTitle/ranking_3.png; sourceTree = "<group>"; };
@@ -286,27 +286,27 @@
 		0198B60318ADEBD8006512E2 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalFunctions.m; path = Common/GlobalFunctions.m; sourceTree = "<group>"; };
 		0198B60418ADEBD8006512E2 /* UITableViewCellBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITableViewCellBase.h; path = Common/UITableViewCellBase.h; sourceTree = "<group>"; };
 		0198B60518ADEBD8006512E2 /* UITableViewCellBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UITableViewCellBase.m; path = Common/UITableViewCellBase.m; sourceTree = "<group>"; };
-		0198B60918ADEC29006512E2 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCell.h; path = Main/MainCell.h; sourceTree = "<group>"; };
-		0198B60A18ADEC29006512E2 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCell.m; path = Main/MainCell.m; sourceTree = "<group>"; };
-		0198B60B18ADEC29006512E2 /* MainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainCell.xib; path = Main/MainCell.xib; sourceTree = "<group>"; };
-		0198B60C18ADEC29006512E2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Main/MainViewController.h; sourceTree = "<group>"; };
-		0198B60D18ADEC29006512E2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Main/MainViewController.m; sourceTree = "<group>"; };
-		0198B60E18ADEC29006512E2 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = Main/MainViewController.xib; sourceTree = "<group>"; };
-		0198B60F18ADEC29006512E2 /* RelationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RelationCell.h; path = Main/RelationCell.h; sourceTree = "<group>"; };
-		0198B61018ADEC29006512E2 /* RelationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RelationCell.m; path = Main/RelationCell.m; sourceTree = "<group>"; };
-		0198B61118ADEC29006512E2 /* RelationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RelationCell.xib; path = Main/RelationCell.xib; sourceTree = "<group>"; };
-		0198B61818ADEC68006512E2 /* CurrentProductInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentProductInfoCell.h; path = Product/CurrentProductInfoCell.h; sourceTree = "<group>"; };
-		0198B61918ADEC68006512E2 /* CurrentProductInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentProductInfoCell.m; path = Product/CurrentProductInfoCell.m; sourceTree = "<group>"; };
-		0198B61A18ADEC68006512E2 /* CurrentProductInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CurrentProductInfoCell.xib; path = Product/CurrentProductInfoCell.xib; sourceTree = "<group>"; };
-		0198B61B18ADEC68006512E2 /* OtherProductsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherProductsCell.h; path = Product/OtherProductsCell.h; sourceTree = "<group>"; };
-		0198B61C18ADEC68006512E2 /* OtherProductsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherProductsCell.m; path = Product/OtherProductsCell.m; sourceTree = "<group>"; };
-		0198B61D18ADEC68006512E2 /* OtherProductsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OtherProductsCell.xib; path = Product/OtherProductsCell.xib; sourceTree = "<group>"; };
-		0198B61E18ADEC68006512E2 /* ProductCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCollectionCell.h; path = Product/ProductCollectionCell.h; sourceTree = "<group>"; };
-		0198B61F18ADEC68006512E2 /* ProductCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCollectionCell.m; path = Product/ProductCollectionCell.m; sourceTree = "<group>"; };
-		0198B62018ADEC68006512E2 /* ProductCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductCollectionCell.xib; path = Product/ProductCollectionCell.xib; sourceTree = "<group>"; };
-		0198B62118ADEC68006512E2 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductViewController.h; path = Product/ProductViewController.h; sourceTree = "<group>"; };
-		0198B62218ADEC68006512E2 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductViewController.m; path = Product/ProductViewController.m; sourceTree = "<group>"; };
-		0198B62318ADEC68006512E2 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductViewController.xib; path = Product/ProductViewController.xib; sourceTree = "<group>"; };
+		0198B60918ADEC29006512E2 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCell.h; path = MainViewController/MainCell.h; sourceTree = "<group>"; };
+		0198B60A18ADEC29006512E2 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCell.m; path = MainViewController/MainCell.m; sourceTree = "<group>"; };
+		0198B60B18ADEC29006512E2 /* MainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainCell.xib; path = MainViewController/MainCell.xib; sourceTree = "<group>"; };
+		0198B60C18ADEC29006512E2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = MainViewController/MainViewController.h; sourceTree = "<group>"; };
+		0198B60D18ADEC29006512E2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = MainViewController/MainViewController.m; sourceTree = "<group>"; };
+		0198B60E18ADEC29006512E2 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = MainViewController/MainViewController.xib; sourceTree = "<group>"; };
+		0198B60F18ADEC29006512E2 /* RelationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RelationCell.h; path = MainViewController/RelationCell.h; sourceTree = "<group>"; };
+		0198B61018ADEC29006512E2 /* RelationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RelationCell.m; path = MainViewController/RelationCell.m; sourceTree = "<group>"; };
+		0198B61118ADEC29006512E2 /* RelationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RelationCell.xib; path = MainViewController/RelationCell.xib; sourceTree = "<group>"; };
+		0198B61818ADEC68006512E2 /* CurrentProductInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentProductInfoCell.h; path = ProductViewController/CurrentProductInfoCell.h; sourceTree = "<group>"; };
+		0198B61918ADEC68006512E2 /* CurrentProductInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentProductInfoCell.m; path = ProductViewController/CurrentProductInfoCell.m; sourceTree = "<group>"; };
+		0198B61A18ADEC68006512E2 /* CurrentProductInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CurrentProductInfoCell.xib; path = ProductViewController/CurrentProductInfoCell.xib; sourceTree = "<group>"; };
+		0198B61B18ADEC68006512E2 /* OtherProductsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherProductsCell.h; path = ProductViewController/OtherProductsCell.h; sourceTree = "<group>"; };
+		0198B61C18ADEC68006512E2 /* OtherProductsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherProductsCell.m; path = ProductViewController/OtherProductsCell.m; sourceTree = "<group>"; };
+		0198B61D18ADEC68006512E2 /* OtherProductsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OtherProductsCell.xib; path = ProductViewController/OtherProductsCell.xib; sourceTree = "<group>"; };
+		0198B61E18ADEC68006512E2 /* ProductCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCollectionCell.h; path = ProductViewController/ProductCollectionCell.h; sourceTree = "<group>"; };
+		0198B61F18ADEC68006512E2 /* ProductCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCollectionCell.m; path = ProductViewController/ProductCollectionCell.m; sourceTree = "<group>"; };
+		0198B62018ADEC68006512E2 /* ProductCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductCollectionCell.xib; path = ProductViewController/ProductCollectionCell.xib; sourceTree = "<group>"; };
+		0198B62118ADEC68006512E2 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductViewController.h; path = ProductViewController/ProductViewController.h; sourceTree = "<group>"; };
+		0198B62218ADEC68006512E2 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductViewController.m; path = ProductViewController/ProductViewController.m; sourceTree = "<group>"; };
+		0198B62318ADEC68006512E2 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductViewController.xib; path = ProductViewController/ProductViewController.xib; sourceTree = "<group>"; };
 		0198B62F18ADED05006512E2 /* EGOPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoViewController.h; sourceTree = "<group>"; };
 		0198B63018ADED05006512E2 /* EGOPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoViewController.m; sourceTree = "<group>"; };
 		0198B63118ADED05006512E2 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOCache.h; path = ThirdParty/EGOPhotoViewer/EGOCache.h; sourceTree = "<group>"; };
@@ -471,10 +471,10 @@
 				01109723188E616A00D14EC1 /* AppDelegate.h */,
 				01109724188E616A00D14EC1 /* AppDelegate.m */,
 				0198B5FF18ADEBC5006512E2 /* Common */,
-				01B6B90D18A4830C00C065A4 /* Main */,
-				0166343218C2DE36002FC4BF /* History */,
-				0166343818C2DECB002FC4BF /* Favorite */,
-				01B0295918A48A1200ED0632 /* Product */,
+				01B6B90D18A4830C00C065A4 /* MainViewController */,
+				0166343218C2DE36002FC4BF /* HistoryViewController */,
+				0166343818C2DECB002FC4BF /* FavoriteViewController */,
+				01B0295918A48A1200ED0632 /* ProductViewController */,
 				0110972C188E616A00D14EC1 /* Images.xcassets */,
 				0110971B188E616A00D14EC1 /* Supporting Files */,
 			);
@@ -524,22 +524,22 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
-		0166343218C2DE36002FC4BF /* History */ = {
+		0166343218C2DE36002FC4BF /* HistoryViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0166343318C2DE51002FC4BF /* HistoryViewController.h */,
 				0166343418C2DE51002FC4BF /* HistoryViewController.m */,
 			);
-			name = History;
+			name = HistoryViewController;
 			sourceTree = "<group>";
 		};
-		0166343818C2DECB002FC4BF /* Favorite */ = {
+		0166343818C2DECB002FC4BF /* FavoriteViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0166343918C2DEEC002FC4BF /* FavoriteViewController.h */,
 				0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */,
 			);
-			name = Favorite;
+			name = FavoriteViewController;
 			sourceTree = "<group>";
 		};
 		016B280A18C4738500FBB097 /* JRSwizzle */ = {
@@ -886,7 +886,7 @@
 			name = LightWeightPlist;
 			sourceTree = "<group>";
 		};
-		01B0295918A48A1200ED0632 /* Product */ = {
+		01B0295918A48A1200ED0632 /* ProductViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0198B62118ADEC68006512E2 /* ProductViewController.h */,
@@ -906,10 +906,10 @@
 				0198B61F18ADEC68006512E2 /* ProductCollectionCell.m */,
 				0198B62018ADEC68006512E2 /* ProductCollectionCell.xib */,
 			);
-			name = Product;
+			name = ProductViewController;
 			sourceTree = "<group>";
 		};
-		01B6B90D18A4830C00C065A4 /* Main */ = {
+		01B6B90D18A4830C00C065A4 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0198B60C18ADEC29006512E2 /* MainViewController.h */,
@@ -925,8 +925,8 @@
 				0198B60F18ADEC29006512E2 /* RelationCell.h */,
 				0198B61018ADEC29006512E2 /* RelationCell.m */,
 				0198B61118ADEC29006512E2 /* RelationCell.xib */,
-				0129681F18CE06C700045E4A /* DefaultCell.h */,
-				0129682018CE06C700045E4A /* DefaultCell.m */,
+				0159975F197CB1B700B772E7 /* DefaultCell.h */,
+				01599760197CB1B700B772E7 /* DefaultCell.m */,
 				0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */,
 				0129681B18CE05B600045E4A /* SelectProductTypeViewController.m */,
 				0129681C18CE05B600045E4A /* SelectProductTypeViewController.xib */,
@@ -935,7 +935,7 @@
 				017F3D4F18F4E914006DFFB6 /* SelectProductTypeViewController+Components.h */,
 				017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */,
 			);
-			name = Main;
+			name = MainViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1136,6 +1136,7 @@
 				0198B65A18ADED05006512E2 /* EGOPhotoViewController.m in Sources */,
 				01109721188E616A00D14EC1 /* main.m in Sources */,
 				0198B62A18ADEC68006512E2 /* ProductViewController.m in Sources */,
+				01599761197CB1B700B772E7 /* DefaultCell.m in Sources */,
 				01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */,
 				0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */,
 				0198B5DB18ADEA3E006512E2 /* NSData+ImageContentType.m in Sources */,
@@ -1162,7 +1163,6 @@
 				017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */,
 				017F3D4818F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
-				0129682118CE06C700045E4A /* DefaultCell.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
 				01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */,
 				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
