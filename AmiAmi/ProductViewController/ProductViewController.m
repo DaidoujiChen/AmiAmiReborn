@@ -36,10 +36,10 @@
     
     recordCellTypeArray = [NSMutableArray new];
     
-    if ([productInfoDictionary objectForKey:@"Relation"]) [recordCellTypeArray addObject:@"Relation"];
-    if ([productInfoDictionary objectForKey:@"AlsoLike"]) [recordCellTypeArray addObject:@"AlsoLike"];
-    if ([productInfoDictionary objectForKey:@"AlsoBuy"]) [recordCellTypeArray addObject:@"AlsoBuy"];
-    if ([productInfoDictionary objectForKey:@"Popular"]) [recordCellTypeArray addObject:@"Popular"];
+    if (productInfoDictionary[@"Relation"]) [recordCellTypeArray addObject:@"Relation"];
+    if (productInfoDictionary[@"AlsoLike"]) [recordCellTypeArray addObject:@"AlsoLike"];
+    if (productInfoDictionary[@"AlsoBuy"]) [recordCellTypeArray addObject:@"AlsoBuy"];
+    if (productInfoDictionary[@"Popular"]) [recordCellTypeArray addObject:@"Popular"];
     
 }
 

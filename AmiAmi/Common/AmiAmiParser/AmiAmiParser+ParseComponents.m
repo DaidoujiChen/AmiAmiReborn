@@ -43,7 +43,7 @@
     
     NSDictionary *eachDictionary = AllProductsArray[[MiscDictionary[@"typeIndex"] integerValue]];
     
-    NSString *xpathQueryString = [NSString stringWithFormat:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category%@']//li [@class='product_image']//a", [eachDictionary objectForKey:@"category"]];
+    NSString *xpathQueryString = [NSString stringWithFormat:@"//div [@id='ranking_page_relate_result']//div [@class='productranking category%@']//li [@class='product_image']//a", eachDictionary[@"category"]];
     
     NSArray *elements = [doc searchWithXPathQuery:xpathQueryString];
     

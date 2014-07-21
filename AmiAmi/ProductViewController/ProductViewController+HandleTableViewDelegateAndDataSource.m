@@ -55,7 +55,7 @@
         
         [cell.productTypeLabel setText:chooseProductTypeText(recordCellTypeArray[fixIndex])];
         
-        cell.productsInfoArray = productInfoDictionary[];[productInfoDictionary objectForKey:recordCellTypeArray[fixIndex]];
+        cell.productsInfoArray = productInfoDictionary[recordCellTypeArray[fixIndex]];
         [cell.productCollectionView reloadData];
         
         [cell setOnClickCollectionCell:^(NSDictionary *result) {
@@ -86,7 +86,7 @@
     if (indexPath.row == 0) {
         NSMutableArray *photos = [NSMutableArray array];
         
-        for (NSString *imageURLString in [productInfoDictionary objectForKey:@"ProductImages"]) {
+        for (NSString *imageURLString in productInfoDictionary[@"ProductImages"]) {
             MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]];
             [photos addObject:eachPhoto];
         }
