@@ -50,11 +50,11 @@
 // Definitions used interally.
 // ifndef checks are so you can easily override them in your project.
 #ifndef kEGOPhotoErrorPlaceholder
-	#define kEGOPhotoErrorPlaceholder [UIImage imageNamed:@"egopv_error_placeholder.png"]
+	#define kEGOPhotoErrorPlaceholder [UIImage imageNamed:@"error.png"]
 #endif
 
 #ifndef kEGOPhotoLoadingPlaceholder
-	#define kEGOPhotoLoadingPlaceholder [UIImage imageNamed:@"egopv_photo_placeholder.png"]
+	#define kEGOPhotoLoadingPlaceholder [UIImage imageNamed:@"loading.png"]
 #endif
 
 #ifndef EGOPV_IMAGE_GAP

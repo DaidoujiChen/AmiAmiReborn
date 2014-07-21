@@ -20,7 +20,7 @@
     UIView *backgroundViews = [[UIView alloc] initWithFrame:navigationController.view.bounds];
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:backgroundViews.bounds];
-    [backgroundImage setImage:[UIImage imageNamed:@"background.jpg"]];
+    [backgroundImage setImage:[UIImage imageNamed:@"background4.png"]];
     [backgroundViews addSubview:backgroundImage];
     FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:backgroundViews.bounds];
     [blurView setBlurRadius:20.0f];
