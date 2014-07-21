@@ -19,8 +19,6 @@
 
 @implementation SelectProductTypeViewController
 
-@synthesize requestReloadTable;
-
 -(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

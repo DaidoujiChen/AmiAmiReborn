@@ -14,12 +14,11 @@
 #import "CurrentProductInfoCell.h"
 #import "OtherProductsCell.h"
 
-@interface ProductViewController : UIViewController {
-    NSDictionary *productInfoDictionary;
-    NSMutableArray *recordCellTypeArray;
-}
+@interface ProductViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *productInfoDictionary;
+@property (nonatomic, strong) NSMutableArray *recordCellTypeArray;
+
 @property (weak, nonatomic) IBOutlet UITableView *productsTableView;
 
 @end

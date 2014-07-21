@@ -1,14 +1,14 @@
 //
-//  OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m
+//  OtherProductsCell+CollectionViewHandler.m
 //  AmiAmi
 //
-//  Created by 啟倫 陳 on 2014/4/9.
+//  Created by 啟倫 陳 on 2014/7/21.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"
+#import "OtherProductsCell+CollectionViewHandler.h"
 
-@implementation OtherProductsCell (HandleCollectionViewDelegateAndDataSource)
+@implementation OtherProductsCell (CollectionViewHandler)
 
 #pragma mark - UICollectionViewDataSource
 
@@ -17,7 +17,7 @@
 }
 
 -(NSInteger) collectionView : (UICollectionView*) collectionView numberOfItemsInSection : (NSInteger) section {
-    return [productsInfoArray count];
+    return [self.productsInfoArray count];
 }
 
 -(UICollectionViewCell*) collectionView : (UICollectionView*) collectionView cellForItemAtIndexPath : (NSIndexPath*) indexPath {
@@ -25,7 +25,7 @@
     static NSString *CellIdentifier = @"ProductCollectionCell";
     ProductCollectionCell *cell = (ProductCollectionCell*) [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *eachInfo = productsInfoArray[indexPath.row];
+    NSDictionary *eachInfo = self.productsInfoArray[indexPath.row];
     
     [cell.productImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]]
                           placeholderImage:nil
@@ -41,7 +41,7 @@
 
 -(void) collectionView : (UICollectionView*) collectionView didSelectItemAtIndexPath : (NSIndexPath*) indexPath {
     
-    NSDictionary *eachInfo = productsInfoArray[indexPath.row];
+    NSDictionary *eachInfo = self.productsInfoArray[indexPath.row];
     
     NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
     
@@ -52,7 +52,7 @@
             
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
-            onClickCollectionCell(productDictionary);
+            self.onClickCollectionCell(productDictionary);
         }
     }];
     

@@ -25,6 +25,8 @@
 		01109759188E6B0900D14EC1 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109758188E6B0900D14EC1 /* libxml2.2.dylib */; };
 		0110977D188E6F5C00D14EC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */; };
 		0110977F188E6F9600D14EC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */; };
+		012135EA197D048E00A4F321 /* ProductViewController+TableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 012135E9197D048E00A4F321 /* ProductViewController+TableViewHandler.m */; };
+		012135ED197D052C00A4F321 /* OtherProductsCell+CollectionViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 012135EC197D052C00A4F321 /* OtherProductsCell+CollectionViewHandler.m */; };
 		015F9BFB1890C63B00AD5FF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */; };
 		0165A0FC18F274A200FB75BE /* AmiAmiParser+ParseComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */; };
 		0166342B18C2DDFF002FC4BF /* Albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 0166342518C2DDFF002FC4BF /* Albums.png */; };
@@ -40,8 +42,6 @@
 		017F3D4B18F4E6B0006DFFB6 /* MainViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */; };
 		017F3D5618F4E9B6006DFFB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */; };
 		017F3D5718F4E9B6006DFFB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */; };
-		017F3D5D18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */; };
-		017F3D6018F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */; };
 		018379AB197CA9C9005B47E5 /* ranking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 018379A6197CA9C9005B47E5 /* ranking_1.png */; };
 		018379AC197CA9C9005B47E5 /* ranking_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 018379A7197CA9C9005B47E5 /* ranking_2.png */; };
 		018379AD197CA9C9005B47E5 /* ranking_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 018379A8197CA9C9005B47E5 /* ranking_3.png */; };
@@ -185,6 +185,10 @@
 		0110977A188E6F5200D14EC1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0110977C188E6F5C00D14EC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0110977E188E6F9600D14EC1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		012135E8197D048E00A4F321 /* ProductViewController+TableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProductViewController+TableViewHandler.h"; path = "ProductViewController/ProductViewController+TableViewHandler.h"; sourceTree = "<group>"; };
+		012135E9197D048E00A4F321 /* ProductViewController+TableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProductViewController+TableViewHandler.m"; path = "ProductViewController/ProductViewController+TableViewHandler.m"; sourceTree = "<group>"; };
+		012135EB197D052C00A4F321 /* OtherProductsCell+CollectionViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OtherProductsCell+CollectionViewHandler.h"; path = "ProductViewController/OtherProductsCell+CollectionViewHandler.h"; sourceTree = "<group>"; };
+		012135EC197D052C00A4F321 /* OtherProductsCell+CollectionViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OtherProductsCell+CollectionViewHandler.m"; path = "ProductViewController/OtherProductsCell+CollectionViewHandler.m"; sourceTree = "<group>"; };
 		015F9BFA1890C63B00AD5FF8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0165A0FA18F274A200FB75BE /* AmiAmiParser+ParseComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AmiAmiParser+ParseComponents.h"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.h"; sourceTree = "<group>"; };
 		0165A0FB18F274A200FB75BE /* AmiAmiParser+ParseComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AmiAmiParser+ParseComponents.m"; path = "Common/AmiAmiParser/AmiAmiParser+ParseComponents.m"; sourceTree = "<group>"; };
@@ -206,10 +210,6 @@
 		017F3D5318F4E9B6006DFFB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = Common/RecordViewcontroller/RecordViewController.h; sourceTree = "<group>"; };
 		017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = Common/RecordViewcontroller/RecordViewController.m; sourceTree = "<group>"; };
 		017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = Common/RecordViewcontroller/RecordViewController.xib; sourceTree = "<group>"; };
-		017F3D5B18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProductViewController+HandleTableViewDelegateAndDataSource.h"; path = "ProductViewController/ProductViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProductViewController+HandleTableViewDelegateAndDataSource.m"; path = "ProductViewController/ProductViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
-		017F3D5E18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; path = "ProductViewController/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; path = "ProductViewController/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
 		018379A6197CA9C9005B47E5 /* ranking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_1.png; path = Images/RankTitle/ranking_1.png; sourceTree = "<group>"; };
 		018379A7197CA9C9005B47E5 /* ranking_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_2.png; path = Images/RankTitle/ranking_2.png; sourceTree = "<group>"; };
 		018379A8197CA9C9005B47E5 /* ranking_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_3.png; path = Images/RankTitle/ranking_3.png; sourceTree = "<group>"; };
@@ -896,16 +896,16 @@
 				0198B62118ADEC68006512E2 /* ProductViewController.h */,
 				0198B62218ADEC68006512E2 /* ProductViewController.m */,
 				0198B62318ADEC68006512E2 /* ProductViewController.xib */,
-				017F3D5B18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.h */,
-				017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */,
+				012135E8197D048E00A4F321 /* ProductViewController+TableViewHandler.h */,
+				012135E9197D048E00A4F321 /* ProductViewController+TableViewHandler.m */,
 				0198B61818ADEC68006512E2 /* CurrentProductInfoCell.h */,
 				0198B61918ADEC68006512E2 /* CurrentProductInfoCell.m */,
 				0198B61A18ADEC68006512E2 /* CurrentProductInfoCell.xib */,
 				0198B61B18ADEC68006512E2 /* OtherProductsCell.h */,
 				0198B61C18ADEC68006512E2 /* OtherProductsCell.m */,
 				0198B61D18ADEC68006512E2 /* OtherProductsCell.xib */,
-				017F3D5E18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h */,
-				017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */,
+				012135EB197D052C00A4F321 /* OtherProductsCell+CollectionViewHandler.h */,
+				012135EC197D052C00A4F321 /* OtherProductsCell+CollectionViewHandler.m */,
 				0198B61E18ADEC68006512E2 /* ProductCollectionCell.h */,
 				0198B61F18ADEC68006512E2 /* ProductCollectionCell.m */,
 				0198B62018ADEC68006512E2 /* ProductCollectionCell.xib */,
@@ -1135,15 +1135,15 @@
 				0198B65C18ADED05006512E2 /* EGOImageLoadConnection.m in Sources */,
 				017F3D4B18F4E6B0006DFFB6 /* MainViewController+Components.m in Sources */,
 				0198B66118ADED05006512E2 /* MyPhotoSource.m in Sources */,
+				012135EA197D048E00A4F321 /* ProductViewController+TableViewHandler.m in Sources */,
 				01109725188E616A00D14EC1 /* AppDelegate.m in Sources */,
 				01ACF20018C5B255008D0B41 /* LightWeightPlist.m in Sources */,
 				0198B62418ADEC68006512E2 /* CurrentProductInfoCell.m in Sources */,
 				0198B60718ADEBD8006512E2 /* GlobalFunctions.m in Sources */,
-				017F3D6018F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m in Sources */,
 				0198B59C18ADE971006512E2 /* TFHpple.m in Sources */,
 				0198B5E418ADEA3E006512E2 /* UIImage+GIF.m in Sources */,
-				017F3D5D18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				01A7F43B18D8A98B005E05FC /* AmiAmiParser+Parser.m in Sources */,
+				012135ED197D052C00A4F321 /* OtherProductsCell+CollectionViewHandler.m in Sources */,
 				0198B61418ADEC29006512E2 /* MainViewController.m in Sources */,
 				0198B5E018ADEA3E006512E2 /* SDWebImageDownloaderOperation.m in Sources */,
 				01B614DD197CF5B600BE5B51 /* RecordViewController+TableViewHandler.m in Sources */,

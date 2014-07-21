@@ -10,9 +10,6 @@
 
 @implementation OtherProductsCell
 
-@synthesize onClickCollectionCell;
-@synthesize productsInfoArray;
-
 -(id) initWithStyle : (UITableViewCellStyle) style reuseIdentifier : (NSString*) reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {

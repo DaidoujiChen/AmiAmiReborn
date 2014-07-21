@@ -1,14 +1,14 @@
 //
-//  ProductViewController+HandleTableViewDelegateAndDataSource.m
+//  ProductViewController+TableViewHandler.m
 //  AmiAmi
 //
-//  Created by 啟倫 陳 on 2014/4/9.
+//  Created by 啟倫 陳 on 2014/7/21.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "ProductViewController+HandleTableViewDelegateAndDataSource.h"
+#import "ProductViewController+TableViewHandler.h"
 
-@implementation ProductViewController (HandleTableViewDelegateAndDataSource)
+@implementation ProductViewController (TableViewHandler)
 
 #pragma mark - UITableViewDataSource
 
@@ -17,7 +17,7 @@
 }
 
 -(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return [recordCellTypeArray count] + 1;
+    return [self.recordCellTypeArray count] + 1;
 }
 
 -(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
@@ -28,17 +28,17 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
-        [cell.currentProductImageView setImageWithURL:[NSURL URLWithString:productInfoDictionary[@"CurrentProduct"][@"Thumbnail"]]
+        [cell.currentProductImageView setImageWithURL:[NSURL URLWithString:self.productInfoDictionary[@"CurrentProduct"][@"Thumbnail"]]
                                      placeholderImage:nil
                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                                 if (error) NSLog(@"%@", error);
                                             }];
         
-        [cell.currentProductTitleTextView setText:productInfoDictionary[@"CurrentProduct"][@"Title"]];
+        [cell.currentProductTitleTextView setText:self.productInfoDictionary[@"CurrentProduct"][@"Title"]];
         
         NSMutableString *productInformationString = [NSMutableString string];
         
-        for (NSDictionary *eachInformation in productInfoDictionary[@"ProductInformation"]) {
+        for (NSDictionary *eachInformation in self.productInfoDictionary[@"ProductInformation"]) {
             [productInformationString appendFormat:@"%@:%@\n", eachInformation[@"Title"], eachInformation[@"Content"]];
         }
         
@@ -53,9 +53,9 @@
         
         NSInteger fixIndex = indexPath.row - 1;
         
-        [cell.productTypeLabel setText:chooseProductTypeText(recordCellTypeArray[fixIndex])];
+        [cell.productTypeLabel setText:chooseProductTypeText(self.recordCellTypeArray[fixIndex])];
         
-        cell.productsInfoArray = productInfoDictionary[recordCellTypeArray[fixIndex]];
+        cell.productsInfoArray = self.productInfoDictionary[self.recordCellTypeArray[fixIndex]];
         [cell.productCollectionView reloadData];
         
         [cell setOnClickCollectionCell:^(NSDictionary *result) {
@@ -86,7 +86,7 @@
     if (indexPath.row == 0) {
         NSMutableArray *photos = [NSMutableArray array];
         
-        for (NSString *imageURLString in productInfoDictionary[@"ProductImages"]) {
+        for (NSString *imageURLString in self.productInfoDictionary[@"ProductImages"]) {
             MyPhoto *eachPhoto = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:imageURLString]];
             [photos addObject:eachPhoto];
         }
@@ -122,5 +122,6 @@ NSString* chooseProductTypeText(NSString* recordString) {
         return @"熱門商品";
     }
 }
+
 
 @end

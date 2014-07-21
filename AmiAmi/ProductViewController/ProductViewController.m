@@ -15,8 +15,6 @@
 
 @implementation ProductViewController
 
-@synthesize productInfoDictionary;
-
 -(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -34,12 +32,12 @@
 
 -(void) makeRecordCellTypeArray {
     
-    recordCellTypeArray = [NSMutableArray new];
+    self.recordCellTypeArray = [NSMutableArray new];
     
-    if (productInfoDictionary[@"Relation"]) [recordCellTypeArray addObject:@"Relation"];
-    if (productInfoDictionary[@"AlsoLike"]) [recordCellTypeArray addObject:@"AlsoLike"];
-    if (productInfoDictionary[@"AlsoBuy"]) [recordCellTypeArray addObject:@"AlsoBuy"];
-    if (productInfoDictionary[@"Popular"]) [recordCellTypeArray addObject:@"Popular"];
+    if (self.productInfoDictionary[@"Relation"]) [self.recordCellTypeArray addObject:@"Relation"];
+    if (self.productInfoDictionary[@"AlsoLike"]) [self.recordCellTypeArray addObject:@"AlsoLike"];
+    if (self.productInfoDictionary[@"AlsoBuy"]) [self.recordCellTypeArray addObject:@"AlsoBuy"];
+    if (self.productInfoDictionary[@"Popular"]) [self.recordCellTypeArray addObject:@"Popular"];
     
 }
 

@@ -11,10 +11,7 @@
 #import "UITableViewCellBase.h"
 #import "ProductCollectionCell.h"
 
-@interface OtherProductsCell : UITableViewCellBase {
-    NSArray *productsInfoArray;
-    void (^onClickCollectionCell)(NSDictionary *result);
-}
+@interface OtherProductsCell : UITableViewCellBase
 
 @property (nonatomic, strong) NSArray *productsInfoArray;
 @property (nonatomic, copy) void (^onClickCollectionCell)(NSDictionary *result);
