@@ -1,14 +1,16 @@
 //
-//  RecordViewController+HandleTableViewDelegateAndDataSource.m
+//  RecordViewController+TableViewHandler.m
 //  AmiAmi
 //
-//  Created by 啟倫 陳 on 2014/4/9.
+//  Created by 啟倫 陳 on 2014/7/21.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "RecordViewController+HandleTableViewDelegateAndDataSource.h"
+#import "RecordViewController+TableViewHandler.h"
 
-@implementation RecordViewController (HandleTableViewDelegateAndDataSource)
+#define dataSource LWPArray(self.dataSourceNameString)
+
+@implementation RecordViewController (TableViewHandler)
 
 #pragma mark - UITableViewDataSource
 
@@ -17,26 +19,26 @@
 }
 
 -(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return [LWPArray(self.dataSourceNameString) count];
+    return [dataSource count];
 }
 
 -(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
     
-    NSDictionary *eachInfo = [[[LWPArray(self.dataSourceNameString) reverseObjectEnumerator] allObjects] objectAtIndex:indexPath.row];
+    NSDictionary *eachInfo = [[dataSource reverseObjectEnumerator] allObjects][indexPath.row];
     
-    static NSString *CellIdentifier = @"RelationCell";
+    static NSString *CellIdentifier = @"DefaultProductCell";
     DefaultProductCell *cell = (DefaultProductCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
-    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]]
                             placeholderImage:nil
                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                        if (error) NSLog(@"%@", error);
                                    }];
     
-    cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
-    
+    cell.titleTextView.text = eachInfo[@"Title"];
+
     return cell;
     
     
@@ -50,11 +52,13 @@
 
 -(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
     
-    NSDictionary *eachInfo = [[[LWPArray(self.dataSourceNameString) reverseObjectEnumerator] allObjects] objectAtIndex:indexPath.row];
+    NSDictionary *eachInfo = [[dataSource reverseObjectEnumerator] allObjects][indexPath.row];
     
-    NSString *urlString = [GlobalFunctions fixProductURL:[eachInfo objectForKey:@"URL"]];
+    NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
     
+    @weakify(self);
     [AmiAmiParser parseProductInfo:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
+        @strongify(self);
         
         if (status) {
             

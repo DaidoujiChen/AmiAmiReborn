@@ -8,7 +8,7 @@
 
 #import "MainViewController+TableViewHandler.h"
 
-#define eachInfo [self.dataArray objectAtIndex:indexPath.section]
+#define eachInfo self.dataArray[indexPath.section]
 
 @implementation MainViewController (TableViewHandler)
 

@@ -19,13 +19,13 @@
     [self setTimeout];
     self.objects.passFlag = NO;
     
-    NSDictionary *eachDictionary = [AllProductsArray objectAtIndex:[[MiscDictionary objectForKey:@"typeIndex"] integerValue]];
+    NSDictionary *eachDictionary = AllProductsArray[[MiscDictionary[@"typeIndex"] integerValue]];
     
-    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取最新%@商品...", [eachDictionary objectForKey:@"title"]]
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取最新%@商品...", eachDictionary[@"title"]]
                          maskType:SVProgressHUDMaskTypeBlack];
     self.objects.arrayCompletion = completion;
     self.objects.entryType = AmiAmiParserEntryTypeAll;
-    self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:[eachDictionary objectForKey:@"allproducts"]]];
+    self.objects.parseWebView = [self makeParseWebViewWithURL:[NSURL URLWithString:eachDictionary[@"allproducts"]]];
     [self startWebViewTimer];
     
 }
@@ -35,9 +35,9 @@
     [self setTimeout];
     self.objects.passFlag = NO;
     
-    NSDictionary *eachDictionary = [AllProductsArray objectAtIndex:[[MiscDictionary objectForKey:@"typeIndex"] integerValue]];
+    NSDictionary *eachDictionary = AllProductsArray[[MiscDictionary[@"typeIndex"] integerValue]];
 
-    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取%@排行商品...", [eachDictionary objectForKey:@"title"]]
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"讀取%@排行商品...", eachDictionary[@"title"]]
                          maskType:SVProgressHUDMaskTypeBlack];
     self.objects.arrayCompletion = completion;
     self.objects.entryType = AmiAmiParserEntryTypeRank;

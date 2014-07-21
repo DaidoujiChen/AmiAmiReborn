@@ -40,7 +40,6 @@
 		017F3D4B18F4E6B0006DFFB6 /* MainViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */; };
 		017F3D5618F4E9B6006DFFB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */; };
 		017F3D5718F4E9B6006DFFB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */; };
-		017F3D5A18F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */; };
 		017F3D5D18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */; };
 		017F3D6018F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5F18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.m */; };
 		018379AB197CA9C9005B47E5 /* ranking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 018379A6197CA9C9005B47E5 /* ranking_1.png */; };
@@ -131,6 +130,7 @@
 		01ACF20018C5B255008D0B41 /* LightWeightPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FB18C5B255008D0B41 /* LightWeightPlist.m */; };
 		01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */; };
 		01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */; };
+		01B614DD197CF5B600BE5B51 /* RecordViewController+TableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B614DC197CF5B600BE5B51 /* RecordViewController+TableViewHandler.m */; };
 		01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */; };
 		01C252D0197CEC5700218BAC /* MainViewController+TableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C252CF197CEC5700218BAC /* MainViewController+TableViewHandler.m */; };
 		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
@@ -206,8 +206,6 @@
 		017F3D5318F4E9B6006DFFB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = Common/RecordViewcontroller/RecordViewController.h; sourceTree = "<group>"; };
 		017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = Common/RecordViewcontroller/RecordViewController.m; sourceTree = "<group>"; };
 		017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = Common/RecordViewcontroller/RecordViewController.xib; sourceTree = "<group>"; };
-		017F3D5818F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RecordViewController+HandleTableViewDelegateAndDataSource.h"; path = "Common/RecordViewcontroller/RecordViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RecordViewController+HandleTableViewDelegateAndDataSource.m"; path = "Common/RecordViewcontroller/RecordViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
 		017F3D5B18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProductViewController+HandleTableViewDelegateAndDataSource.h"; path = "ProductViewController/ProductViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
 		017F3D5C18F4EDA1006DFFB6 /* ProductViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProductViewController+HandleTableViewDelegateAndDataSource.m"; path = "ProductViewController/ProductViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
 		017F3D5E18F4EE97006DFFB6 /* OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; path = "ProductViewController/OtherProductsCell+HandleCollectionViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
@@ -352,6 +350,8 @@
 		01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LightWeightPlist+AccessObject.m"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+AccessObject.m"; sourceTree = "<group>"; };
 		01ACF1FE18C5B255008D0B41 /* LightWeightPlist+FilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LightWeightPlist+FilePath.h"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+FilePath.h"; sourceTree = "<group>"; };
 		01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LightWeightPlist+FilePath.m"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+FilePath.m"; sourceTree = "<group>"; };
+		01B614DB197CF5B600BE5B51 /* RecordViewController+TableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RecordViewController+TableViewHandler.h"; path = "Common/RecordViewcontroller/RecordViewController+TableViewHandler.h"; sourceTree = "<group>"; };
+		01B614DC197CF5B600BE5B51 /* RecordViewController+TableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RecordViewController+TableViewHandler.m"; path = "Common/RecordViewcontroller/RecordViewController+TableViewHandler.m"; sourceTree = "<group>"; };
 		01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Swizzling.h"; path = "Common/UIViewController+Swizzling.h"; sourceTree = "<group>"; };
 		01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Swizzling.m"; path = "Common/UIViewController+Swizzling.m"; sourceTree = "<group>"; };
 		01C252CE197CEC5700218BAC /* MainViewController+TableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+TableViewHandler.h"; path = "MainViewController/MainViewController+TableViewHandler.h"; sourceTree = "<group>"; };
@@ -561,8 +561,8 @@
 				017F3D5318F4E9B6006DFFB6 /* RecordViewController.h */,
 				017F3D5418F4E9B6006DFFB6 /* RecordViewController.m */,
 				017F3D5518F4E9B6006DFFB6 /* RecordViewController.xib */,
-				017F3D5818F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.h */,
-				017F3D5918F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m */,
+				01B614DB197CF5B600BE5B51 /* RecordViewController+TableViewHandler.h */,
+				01B614DC197CF5B600BE5B51 /* RecordViewController+TableViewHandler.m */,
 			);
 			name = RecordViewcontroller;
 			sourceTree = "<group>";
@@ -1146,6 +1146,7 @@
 				01A7F43B18D8A98B005E05FC /* AmiAmiParser+Parser.m in Sources */,
 				0198B61418ADEC29006512E2 /* MainViewController.m in Sources */,
 				0198B5E018ADEA3E006512E2 /* SDWebImageDownloaderOperation.m in Sources */,
+				01B614DD197CF5B600BE5B51 /* RecordViewController+TableViewHandler.m in Sources */,
 				0198B65A18ADED05006512E2 /* EGOPhotoViewController.m in Sources */,
 				01109721188E616A00D14EC1 /* main.m in Sources */,
 				0198B62A18ADEC68006512E2 /* ProductViewController.m in Sources */,
@@ -1158,7 +1159,6 @@
 				01090F2E1913371C00AD60AF /* AmiAmiParserObjects.m in Sources */,
 				0198B5DD18ADEA3E006512E2 /* SDWebImageCompat.m in Sources */,
 				0198B5E518ADEA3E006512E2 /* UIImage+MultiFormat.m in Sources */,
-				017F3D5A18F4E9DC006DFFB6 /* RecordViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B66F18ADED05006512E2 /* EGOPhotoScrollView.m in Sources */,
 				0198B62818ADEC68006512E2 /* ProductCollectionCell.m in Sources */,
 				0198B5E618ADEA3E006512E2 /* UIImage+WebP.m in Sources */,

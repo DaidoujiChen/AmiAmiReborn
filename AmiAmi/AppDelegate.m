@@ -45,14 +45,12 @@
     
     OSNavigationController *historyNavi = [OSNavigationController new];
     HistoryViewController *history = [[HistoryViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
-    [history setDataSourceNameString:@"History"];
     [historyNavi setTitle:@"歷史"];
     [historyNavi.tabBarItem setImage:[UIImage imageNamed:@"Bookmarks"]];
     [historyNavi pushViewController:history animated:NO];
     
     OSNavigationController *favoriteNavi = [OSNavigationController new];
     FavoriteViewController *favorite = [[FavoriteViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
-    [favorite setDataSourceNameString:@"Favorite"];
     [favoriteNavi setTitle:@"最愛"];
     [favoriteNavi.tabBarItem setImage:[UIImage imageNamed:@"Favorites"]];
     [favoriteNavi pushViewController:favorite animated:NO];
@@ -69,7 +67,7 @@
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36", @"UserAgent", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     
-    if (![MiscDictionary objectForKey:@"typeIndex"]) {
+    if (!MiscDictionary[@"typeIndex"]) {
         [MiscDictionary setObject:[NSNumber numberWithInt:0] forKey:@"typeIndex"];
     }
     

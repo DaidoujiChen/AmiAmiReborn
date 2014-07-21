@@ -70,7 +70,7 @@
         if ([productImagesElementsArray count] == 0) return;
         
         for (TFHppleElement *e in productImagesElementsArray) {
-            [self.objects.productImagesArray addObject:[e objectForKey:@"href"]];
+            [self.objects.productImagesArray addObject:e[@"href"]];
         }
     }
     
@@ -87,14 +87,14 @@
         for (TFHppleElement *e in productInformationElementsArray) {
             
             for (int i=0; i<[[e childrenWithTagName:@"dt"] count]; i++) {
-                if ([[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] isEqualToString:@"購入制限"] ||
-                    [[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] isEqualToString:@"備考"]) {
+                if ([[(TFHppleElement*)[e childrenWithTagName:@"dt"][i] text] isEqualToString:@"購入制限"] ||
+                    [[(TFHppleElement*)[e childrenWithTagName:@"dt"][i] text] isEqualToString:@"備考"]) {
                     continue;
                 } else {
                     NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
                     
-                    [dictionaryInArray setObject:[(TFHppleElement*)[[e childrenWithTagName:@"dt"] objectAtIndex:i] text] forKey:@"Title"];
-                    [dictionaryInArray setObject:[self mergeContentTexts:[[e childrenWithTagName:@"dd"] objectAtIndex:i]] forKey:@"Content"];
+                    [dictionaryInArray setObject:[(TFHppleElement*)[e childrenWithTagName:@"dt"][i] text] forKey:@"Title"];
+                    [dictionaryInArray setObject:[self mergeContentTexts:[e childrenWithTagName:@"dd"][i]] forKey:@"Content"];
                     
                     [self.objects.productInfomationArray addObject:dictionaryInArray];
                 }
@@ -172,10 +172,10 @@
 
 +(NSMutableDictionary*) parshThumbnailWithTitle : (TFHppleElement*) element {
     NSMutableDictionary *dictionaryInArray = [NSMutableDictionary dictionary];
-    [dictionaryInArray setObject:[element objectForKey:@"href"] forKey:@"URL"];
+    [dictionaryInArray setObject:element[@"href"] forKey:@"URL"];
     TFHppleElement *child = [element firstChild];
-    [dictionaryInArray setObject:[child objectForKey:@"src"] forKey:@"Thumbnail"];
-    [dictionaryInArray setObject:[child objectForKey:@"alt"] forKey:@"Title"];
+    [dictionaryInArray setObject:child[@"src"] forKey:@"Thumbnail"];
+    [dictionaryInArray setObject:child[@"alt"] forKey:@"Title"];
     return dictionaryInArray;
 }
 

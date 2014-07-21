@@ -13,6 +13,18 @@
 
 @implementation FavoriteViewController
 
+-(id) initWithNibName : (NSString*) nibNameOrNil bundle : (NSBundle*) nibBundleOrNil {
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        self.dataSourceNameString = @"Favorite";
+        
+    }
+    return self;
+    
+}
+
 #pragma mark - UITableViewDelegate
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

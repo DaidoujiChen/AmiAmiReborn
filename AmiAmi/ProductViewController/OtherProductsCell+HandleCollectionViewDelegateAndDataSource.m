@@ -25,9 +25,9 @@
     static NSString *CellIdentifier = @"ProductCollectionCell";
     ProductCollectionCell *cell = (ProductCollectionCell*) [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *eachInfo = [productsInfoArray objectAtIndex:indexPath.row];
+    NSDictionary *eachInfo = productsInfoArray[indexPath.row];
     
-    [cell.productImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+    [cell.productImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]]
                           placeholderImage:nil
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                      if (error) NSLog(@"%@", error);
@@ -41,9 +41,9 @@
 
 -(void) collectionView : (UICollectionView*) collectionView didSelectItemAtIndexPath : (NSIndexPath*) indexPath {
     
-    NSDictionary *eachInfo = [productsInfoArray objectAtIndex:indexPath.row];
+    NSDictionary *eachInfo = productsInfoArray[indexPath.row];
     
-    NSString *urlString = [GlobalFunctions fixProductURL:[eachInfo objectForKey:@"URL"]];
+    NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
     
     [AmiAmiParser parseProductInfo:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
         if (status) {

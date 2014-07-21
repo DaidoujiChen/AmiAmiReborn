@@ -45,7 +45,7 @@
     }
     
     for (NSDictionary *eachInfo in HistoryArray) {
-        if ([[eachInfo objectForKey:@"URL"] isEqualToString:[productInfo objectForKey:@"URL"]]) {
+        if ([eachInfo[@"URL"] isEqualToString:productInfo[@"URL"]]) {
             [HistoryArray removeObject:eachInfo];
             break;
         }
@@ -60,7 +60,7 @@
     NSDictionary *productInfo = [HistoryArray lastObject];
     
     for (NSDictionary *eachInfo in FavoriteArray) {
-        if ([[eachInfo objectForKey:@"URL"] isEqualToString:[productInfo objectForKey:@"URL"]]) {
+        if ([eachInfo[@"URL"] isEqualToString:productInfo[@"URL"]]) {
             [FavoriteArray removeObject:eachInfo];
             break;
         }

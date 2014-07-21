@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
-        self = [arrayOfViews objectAtIndex:0];
+        self = arrayOfViews[0];
         
         [GlobalFunctions imageEffect:self.productImageView];
     }

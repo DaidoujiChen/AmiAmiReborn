@@ -28,18 +28,18 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
-        [cell.currentProductImageView setImageWithURL:[NSURL URLWithString:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Thumbnail"]]
+        [cell.currentProductImageView setImageWithURL:[NSURL URLWithString:productInfoDictionary[@"CurrentProduct"][@"Thumbnail"]]
                                      placeholderImage:nil
                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                                 if (error) NSLog(@"%@", error);
                                             }];
         
-        [cell.currentProductTitleTextView setText:[[productInfoDictionary objectForKey:@"CurrentProduct"] objectForKey:@"Title"]];
+        [cell.currentProductTitleTextView setText:productInfoDictionary[@"CurrentProduct"][@"Title"]];
         
         NSMutableString *productInformationString = [NSMutableString string];
         
-        for (NSDictionary *eachInformation in [productInfoDictionary objectForKey:@"ProductInformation"]) {
-            [productInformationString appendFormat:@"%@:%@\n", [eachInformation objectForKey:@"Title"], [eachInformation objectForKey:@"Content"]];
+        for (NSDictionary *eachInformation in productInfoDictionary[@"ProductInformation"]) {
+            [productInformationString appendFormat:@"%@:%@\n", eachInformation[@"Title"], eachInformation[@"Content"]];
         }
         
         [cell.currentProductInformationTextView setText:productInformationString];
@@ -53,9 +53,9 @@
         
         NSInteger fixIndex = indexPath.row - 1;
         
-        [cell.productTypeLabel setText:chooseProductTypeText([recordCellTypeArray objectAtIndex:fixIndex])];
+        [cell.productTypeLabel setText:chooseProductTypeText(recordCellTypeArray[fixIndex])];
         
-        cell.productsInfoArray = [productInfoDictionary objectForKey:[recordCellTypeArray objectAtIndex:fixIndex]];
+        cell.productsInfoArray = productInfoDictionary[];[productInfoDictionary objectForKey:recordCellTypeArray[fixIndex]];
         [cell.productCollectionView reloadData];
         
         [cell setOnClickCollectionCell:^(NSDictionary *result) {

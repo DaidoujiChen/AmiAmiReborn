@@ -22,7 +22,7 @@
 
 -(void) dataTableViewSetting {
     
-    [self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"RelationCell"];
+    [self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"DefaultProductCell"];
     [self.dataTableView setBackgroundView:nil];
     [self.dataTableView setBackgroundColor:[UIColor clearColor]];
     
@@ -31,8 +31,8 @@
 #pragma mark - life cycle
 
 -(void) viewDidLoad {
-    
     [super viewDidLoad];
+    
     [self dataTableViewSetting];
 
 }
@@ -41,6 +41,7 @@
     [super viewWillAppear:animated];
     
     [self.dataTableView reloadData];
+    
 }
 
 @end
