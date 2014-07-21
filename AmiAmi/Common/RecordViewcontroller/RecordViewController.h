@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RelationCell.h"
+#import "DefaultProductCell.h"
 #import "ProductViewController.h"
 
 @interface RecordViewController : UIViewController

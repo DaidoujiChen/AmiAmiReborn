@@ -1,14 +1,14 @@
 //
-//  RelationCell.m
+//  MainTableViewCellBase.m
 //  AmiAmi
 //
-//  Created by 啟倫 陳 on 2014/1/23.
+//  Created by 啟倫 陳 on 2014/7/21.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "RelationCell.h"
+#import "MainTableViewCellBase.h"
 
-@implementation RelationCell
+@implementation MainTableViewCellBase
 
 -(id) initWithStyle : (UITableViewCellStyle) style reuseIdentifier : (NSString*) reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

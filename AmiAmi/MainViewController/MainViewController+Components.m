@@ -13,23 +13,22 @@
 #pragma mark - instance method
 
 -(void) typeChangeOrReloadAction {
-    switch (typeSegment.selectedSegmentIndex) {
-        case 0:
-            [self loadRankData];
-            break;
-        case 1:
-            [self loadAllProductsData];
-            break;
-        default:
-            break;
+    
+    if (self.typeSegment.selectedSegmentIndex) {
+        [self loadAllProductsData];
+    } else {
+        [self loadRankData];
     }
+    
 }
 
 -(void) showSelectProductType {
     
     UINavigationController *navi = [UINavigationController new];
     SelectProductTypeViewController *next = [SelectProductTypeViewController new];
+    @weakify(self);
     [next setRequestReloadTable:^{
+        @strongify(self);
         [self typeChangeOrReloadAction];
     }];
     [navi pushViewController:next animated:NO];
@@ -41,11 +40,11 @@
 #pragma mark - private
 
 -(void) loadAllProductsData {
-    [AmiAmiParser parseAllProducts:reloadRetultBlock];
+    [AmiAmiParser parseAllProducts:self.reloadRetultBlock];
 }
 
 -(void) loadRankData {
-    [AmiAmiParser parseRankProducts:reloadRetultBlock];
+    [AmiAmiParser parseRankProducts:self.reloadRetultBlock];
 }
 
 @end

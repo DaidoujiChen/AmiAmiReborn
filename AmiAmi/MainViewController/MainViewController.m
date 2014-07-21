@@ -11,7 +11,6 @@
 #import "MainViewController+Components.h"
 
 @interface MainViewController ()
-@property (nonatomic, strong) NSArray *dataArray;
 
 -(void) createNavigationRightButton;
 -(void) createNavigationLeftButton;
@@ -23,8 +22,6 @@
 
 @implementation MainViewController
 
-@synthesize dataArray;
-
 -(void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -32,12 +29,10 @@
 
 #pragma mark - private
 
-#pragma mark ui create
-
 -(void) dataTableViewSetting {
     
-    [self.dataTableView registerClass:[MainCell class] forCellReuseIdentifier:@"MainCell"];
-    [self.dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
+    [self.dataTableView registerClass:[RankProductCell class] forCellReuseIdentifier:@"RankProductCell"];
+    [self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"DefaultProductCell"];
     [self.dataTableView setBackgroundView:nil];
     [self.dataTableView setBackgroundColor:[UIColor clearColor]];
     
@@ -63,18 +58,18 @@
 
 -(void) createNavigationTitleSegment {
     
-    typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
-    [typeSegment setSelectedSegmentIndex:0];
-    [typeSegment addTarget:self action:@selector(typeChangeOrReloadAction) forControlEvents:UIControlEventValueChanged];
-    [typeSegment sizeToFit];
-    self.navigationItem.titleView = typeSegment;
+    self.typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
+    [self.typeSegment setSelectedSegmentIndex:0];
+    [self.typeSegment addTarget:self action:@selector(typeChangeOrReloadAction) forControlEvents:UIControlEventValueChanged];
+    [self.typeSegment sizeToFit];
+    self.navigationItem.titleView = self.typeSegment;
     
 }
 
 -(void) makeReloadResultBlock {
     
     @weakify(self);
-    reloadRetultBlock = ^(AmiAmiParserStatus status, NSArray *result) {
+    self.reloadRetultBlock = ^(AmiAmiParserStatus status, NSArray *result) {
         @strongify(self);
         if (status) {
             self.dataArray = result;
@@ -97,7 +92,6 @@
     [self createNavigationRightButton];
     [self createNavigationLeftButton];
     [self createNavigationTitleSegment];
-    
     [self makeReloadResultBlock];
     
 }

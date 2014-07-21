@@ -22,7 +22,7 @@
 
 -(void) dataTableViewSetting {
     
-    [self.dataTableView registerClass:[RelationCell class] forCellReuseIdentifier:@"RelationCell"];
+    [self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"RelationCell"];
     [self.dataTableView setBackgroundView:nil];
     [self.dataTableView setBackgroundColor:[UIColor clearColor]];
     

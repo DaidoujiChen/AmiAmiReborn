@@ -10,14 +10,15 @@
 
 #import "ProductViewController.h"
 #import "SelectProductTypeViewController.h"
-#import "MainCell.h"
-#import "RelationCell.h"
+#import "MainTableViewCellBase.h"
+#import "RankProductCell.h"
+#import "DefaultProductCell.h"
 
-@interface MainViewController : UIViewController {
-    NSArray *dataArray;
-    UISegmentedControl *typeSegment;
-    ArrayCompletion reloadRetultBlock;
-}
+@interface MainViewController : UIViewController
+
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UISegmentedControl *typeSegment;
+@property (nonatomic, copy) ArrayCompletion reloadRetultBlock;
 
 @property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 

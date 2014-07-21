@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01090F2E1913371C00AD60AF /* AmiAmiParserObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 01090F2D1913371C00AD60AF /* AmiAmiParserObjects.m */; };
+		010CA612197CF0040021084F /* MainTableViewCellBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 010CA611197CF0040021084F /* MainTableViewCellBase.m */; };
 		01106E9218E85F33006DA63E /* DispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01106E9118E85F33006DA63E /* DispatchTimer.m */; };
 		01109715188E616A00D14EC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109714188E616A00D14EC1 /* Foundation.framework */; };
 		01109717188E616A00D14EC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01109716188E616A00D14EC1 /* CoreGraphics.framework */; };
@@ -39,7 +40,6 @@
 		0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0166343A18C2DEEC002FC4BF /* FavoriteViewController.m */; };
 		016B280D18C4739400FBB097 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B280C18C4739400FBB097 /* JRSwizzle.m */; };
 		01721EBE18CDEE4700B6A540 /* AllProducts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01721EBD18CDEE4700B6A540 /* AllProducts.plist */; };
-		017F3D4818F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */; };
 		017F3D4B18F4E6B0006DFFB6 /* MainViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */; };
 		017F3D4E18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D4D18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.m */; };
 		017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F3D5018F4E914006DFFB6 /* SelectProductTypeViewController+Components.m */; };
@@ -91,12 +91,12 @@
 		0198B5FE18ADEB78006512E2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B5FC18ADEB78006512E2 /* SVProgressHUD.m */; };
 		0198B60718ADEBD8006512E2 /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60318ADEBD8006512E2 /* GlobalFunctions.m */; };
 		0198B60818ADEBD8006512E2 /* UITableViewCellBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60518ADEBD8006512E2 /* UITableViewCellBase.m */; };
-		0198B61218ADEC29006512E2 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60A18ADEC29006512E2 /* MainCell.m */; };
-		0198B61318ADEC29006512E2 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0198B60B18ADEC29006512E2 /* MainCell.xib */; };
+		0198B61218ADEC29006512E2 /* RankProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60A18ADEC29006512E2 /* RankProductCell.m */; };
+		0198B61318ADEC29006512E2 /* RankProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0198B60B18ADEC29006512E2 /* RankProductCell.xib */; };
 		0198B61418ADEC29006512E2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B60D18ADEC29006512E2 /* MainViewController.m */; };
 		0198B61518ADEC29006512E2 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0198B60E18ADEC29006512E2 /* MainViewController.xib */; };
-		0198B61618ADEC29006512E2 /* RelationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B61018ADEC29006512E2 /* RelationCell.m */; };
-		0198B61718ADEC29006512E2 /* RelationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0198B61118ADEC29006512E2 /* RelationCell.xib */; };
+		0198B61618ADEC29006512E2 /* DefaultProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B61018ADEC29006512E2 /* DefaultProductCell.m */; };
+		0198B61718ADEC29006512E2 /* DefaultProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0198B61118ADEC29006512E2 /* DefaultProductCell.xib */; };
 		0198B62418ADEC68006512E2 /* CurrentProductInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B61918ADEC68006512E2 /* CurrentProductInfoCell.m */; };
 		0198B62518ADEC68006512E2 /* CurrentProductInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0198B61A18ADEC68006512E2 /* CurrentProductInfoCell.xib */; };
 		0198B62618ADEC68006512E2 /* OtherProductsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198B61C18ADEC68006512E2 /* OtherProductsCell.m */; };
@@ -137,6 +137,7 @@
 		01ACF20118C5B255008D0B41 /* LightWeightPlist+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FD18C5B255008D0B41 /* LightWeightPlist+AccessObject.m */; };
 		01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */; };
 		01BC7B6418C4D57A0074B83F /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */; };
+		01C252D0197CEC5700218BAC /* MainViewController+TableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C252CF197CEC5700218BAC /* MainViewController+TableViewHandler.m */; };
 		01D62F5B18962D9400ABB2E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5A18962D9400ABB2E0 /* AddressBook.framework */; };
 		01D62F5D18962D9A00ABB2E0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */; };
 		01D62F5F18962DAC00ABB2E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */; };
@@ -160,6 +161,8 @@
 /* Begin PBXFileReference section */
 		01090F2C1913371C00AD60AF /* AmiAmiParserObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmiAmiParserObjects.h; path = Common/AmiAmiParser/AmiAmiParserObjects.h; sourceTree = "<group>"; };
 		01090F2D1913371C00AD60AF /* AmiAmiParserObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmiAmiParserObjects.m; path = Common/AmiAmiParser/AmiAmiParserObjects.m; sourceTree = "<group>"; };
+		010CA610197CF0040021084F /* MainTableViewCellBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewCellBase.h; path = MainViewController/MainTableViewCellBase.h; sourceTree = "<group>"; };
+		010CA611197CF0040021084F /* MainTableViewCellBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewCellBase.m; path = MainViewController/MainTableViewCellBase.m; sourceTree = "<group>"; };
 		01106E9018E85F33006DA63E /* DispatchTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DispatchTimer.h; path = ThirdParty/DispatchTimer/DispatchTimer.h; sourceTree = "<group>"; };
 		01106E9118E85F33006DA63E /* DispatchTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispatchTimer.m; path = ThirdParty/DispatchTimer/DispatchTimer.m; sourceTree = "<group>"; };
 		01109711188E616A00D14EC1 /* AmiAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmiAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,8 +206,6 @@
 		016B280B18C4739400FBB097 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ThirdParty/JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		016B280C18C4739400FBB097 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ThirdParty/JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
 		01721EBD18CDEE4700B6A540 /* AllProducts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AllProducts.plist; path = Common/AllProducts.plist; sourceTree = "<group>"; };
-		017F3D4618F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+HandleTableViewDelegateAndDataSource.h"; path = "MainViewController/MainViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
-		017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+HandleTableViewDelegateAndDataSource.m"; path = "MainViewController/MainViewController+HandleTableViewDelegateAndDataSource.m"; sourceTree = "<group>"; };
 		017F3D4918F4E6B0006DFFB6 /* MainViewController+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+Components.h"; path = "MainViewController/MainViewController+Components.h"; sourceTree = "<group>"; };
 		017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+Components.m"; path = "MainViewController/MainViewController+Components.m"; sourceTree = "<group>"; };
 		017F3D4C18F4E816006DFFB6 /* SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; path = "MainViewController/SelectProductTypeViewController+HandleTableViewDelegateAndDataSource.h"; sourceTree = "<group>"; };
@@ -286,15 +287,15 @@
 		0198B60318ADEBD8006512E2 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalFunctions.m; path = Common/GlobalFunctions.m; sourceTree = "<group>"; };
 		0198B60418ADEBD8006512E2 /* UITableViewCellBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITableViewCellBase.h; path = Common/UITableViewCellBase.h; sourceTree = "<group>"; };
 		0198B60518ADEBD8006512E2 /* UITableViewCellBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UITableViewCellBase.m; path = Common/UITableViewCellBase.m; sourceTree = "<group>"; };
-		0198B60918ADEC29006512E2 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCell.h; path = MainViewController/MainCell.h; sourceTree = "<group>"; };
-		0198B60A18ADEC29006512E2 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCell.m; path = MainViewController/MainCell.m; sourceTree = "<group>"; };
-		0198B60B18ADEC29006512E2 /* MainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainCell.xib; path = MainViewController/MainCell.xib; sourceTree = "<group>"; };
+		0198B60918ADEC29006512E2 /* RankProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankProductCell.h; path = MainViewController/RankProductCell.h; sourceTree = "<group>"; };
+		0198B60A18ADEC29006512E2 /* RankProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankProductCell.m; path = MainViewController/RankProductCell.m; sourceTree = "<group>"; };
+		0198B60B18ADEC29006512E2 /* RankProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RankProductCell.xib; path = MainViewController/RankProductCell.xib; sourceTree = "<group>"; };
 		0198B60C18ADEC29006512E2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = MainViewController/MainViewController.h; sourceTree = "<group>"; };
 		0198B60D18ADEC29006512E2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = MainViewController/MainViewController.m; sourceTree = "<group>"; };
 		0198B60E18ADEC29006512E2 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = MainViewController/MainViewController.xib; sourceTree = "<group>"; };
-		0198B60F18ADEC29006512E2 /* RelationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RelationCell.h; path = MainViewController/RelationCell.h; sourceTree = "<group>"; };
-		0198B61018ADEC29006512E2 /* RelationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RelationCell.m; path = MainViewController/RelationCell.m; sourceTree = "<group>"; };
-		0198B61118ADEC29006512E2 /* RelationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RelationCell.xib; path = MainViewController/RelationCell.xib; sourceTree = "<group>"; };
+		0198B60F18ADEC29006512E2 /* DefaultProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultProductCell.h; path = MainViewController/DefaultProductCell.h; sourceTree = "<group>"; };
+		0198B61018ADEC29006512E2 /* DefaultProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultProductCell.m; path = MainViewController/DefaultProductCell.m; sourceTree = "<group>"; };
+		0198B61118ADEC29006512E2 /* DefaultProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DefaultProductCell.xib; path = MainViewController/DefaultProductCell.xib; sourceTree = "<group>"; };
 		0198B61818ADEC68006512E2 /* CurrentProductInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentProductInfoCell.h; path = ProductViewController/CurrentProductInfoCell.h; sourceTree = "<group>"; };
 		0198B61918ADEC68006512E2 /* CurrentProductInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentProductInfoCell.m; path = ProductViewController/CurrentProductInfoCell.m; sourceTree = "<group>"; };
 		0198B61A18ADEC68006512E2 /* CurrentProductInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CurrentProductInfoCell.xib; path = ProductViewController/CurrentProductInfoCell.xib; sourceTree = "<group>"; };
@@ -362,6 +363,8 @@
 		01ACF1FF18C5B255008D0B41 /* LightWeightPlist+FilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LightWeightPlist+FilePath.m"; path = "ThirdParty/LightWeightPlist/LightWeightPlist+FilePath.m"; sourceTree = "<group>"; };
 		01BC7B6218C4D57A0074B83F /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Swizzling.h"; path = "Common/UIViewController+Swizzling.h"; sourceTree = "<group>"; };
 		01BC7B6318C4D57A0074B83F /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Swizzling.m"; path = "Common/UIViewController+Swizzling.m"; sourceTree = "<group>"; };
+		01C252CE197CEC5700218BAC /* MainViewController+TableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MainViewController+TableViewHandler.h"; path = "MainViewController/MainViewController+TableViewHandler.h"; sourceTree = "<group>"; };
+		01C252CF197CEC5700218BAC /* MainViewController+TableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MainViewController+TableViewHandler.m"; path = "MainViewController/MainViewController+TableViewHandler.m"; sourceTree = "<group>"; };
 		01D62F5A18962D9400ABB2E0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		01D62F5C18962D9A00ABB2E0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		01D62F5E18962DAC00ABB2E0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -915,16 +918,18 @@
 				0198B60C18ADEC29006512E2 /* MainViewController.h */,
 				0198B60D18ADEC29006512E2 /* MainViewController.m */,
 				0198B60E18ADEC29006512E2 /* MainViewController.xib */,
-				017F3D4618F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.h */,
-				017F3D4718F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m */,
+				01C252CE197CEC5700218BAC /* MainViewController+TableViewHandler.h */,
+				01C252CF197CEC5700218BAC /* MainViewController+TableViewHandler.m */,
 				017F3D4918F4E6B0006DFFB6 /* MainViewController+Components.h */,
 				017F3D4A18F4E6B0006DFFB6 /* MainViewController+Components.m */,
-				0198B60918ADEC29006512E2 /* MainCell.h */,
-				0198B60A18ADEC29006512E2 /* MainCell.m */,
-				0198B60B18ADEC29006512E2 /* MainCell.xib */,
-				0198B60F18ADEC29006512E2 /* RelationCell.h */,
-				0198B61018ADEC29006512E2 /* RelationCell.m */,
-				0198B61118ADEC29006512E2 /* RelationCell.xib */,
+				010CA610197CF0040021084F /* MainTableViewCellBase.h */,
+				010CA611197CF0040021084F /* MainTableViewCellBase.m */,
+				0198B60918ADEC29006512E2 /* RankProductCell.h */,
+				0198B60A18ADEC29006512E2 /* RankProductCell.m */,
+				0198B60B18ADEC29006512E2 /* RankProductCell.xib */,
+				0198B60F18ADEC29006512E2 /* DefaultProductCell.h */,
+				0198B61018ADEC29006512E2 /* DefaultProductCell.m */,
+				0198B61118ADEC29006512E2 /* DefaultProductCell.xib */,
 				0159975F197CB1B700B772E7 /* DefaultCell.h */,
 				01599760197CB1B700B772E7 /* DefaultCell.m */,
 				0129681A18CE05B600045E4A /* SelectProductTypeViewController.h */,
@@ -1016,7 +1021,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0198B61318ADEC29006512E2 /* MainCell.xib in Resources */,
+				0198B61318ADEC29006512E2 /* RankProductCell.xib in Resources */,
 				0166342B18C2DDFF002FC4BF /* Albums.png in Resources */,
 				0198B66718ADED05006512E2 /* egopv_left@2x.png in Resources */,
 				0198B66C18ADED05006512E2 /* egopv_right@2x.png in Resources */,
@@ -1027,7 +1032,7 @@
 				018379AE197CA9C9005B47E5 /* ranking_4.png in Resources */,
 				018379C1197CA9E9005B47E5 /* icon1.png in Resources */,
 				0166342E18C2DDFF002FC4BF /* Bookmarks@2x.png in Resources */,
-				0198B61718ADEC29006512E2 /* RelationCell.xib in Resources */,
+				0198B61718ADEC29006512E2 /* DefaultProductCell.xib in Resources */,
 				0198B66318ADED05006512E2 /* egopv_error_placeholder@2x.png in Resources */,
 				0198B5FD18ADEB78006512E2 /* SVProgressHUD.bundle in Resources */,
 				018379BC197CA9E9005B47E5 /* background4.png in Resources */,
@@ -1142,7 +1147,7 @@
 				0198B5DB18ADEA3E006512E2 /* NSData+ImageContentType.m in Sources */,
 				0198B5E718ADEA3E006512E2 /* UIImageView+WebCache.m in Sources */,
 				0198B66D18ADED05006512E2 /* EGOPhotoCaptionView.m in Sources */,
-				0198B61218ADEC29006512E2 /* MainCell.m in Sources */,
+				0198B61218ADEC29006512E2 /* RankProductCell.m in Sources */,
 				01090F2E1913371C00AD60AF /* AmiAmiParserObjects.m in Sources */,
 				0198B5DD18ADEA3E006512E2 /* SDWebImageCompat.m in Sources */,
 				0198B5E518ADEA3E006512E2 /* UIImage+MultiFormat.m in Sources */,
@@ -1156,20 +1161,21 @@
 				0166343C18C2DEEC002FC4BF /* FavoriteViewController.m in Sources */,
 				0198B65F18ADED05006512E2 /* EGOQuickPhotoSource.m in Sources */,
 				0198B5DC18ADEA3E006512E2 /* SDImageCache.m in Sources */,
-				0198B61618ADEC29006512E2 /* RelationCell.m in Sources */,
+				0198B61618ADEC29006512E2 /* DefaultProductCell.m in Sources */,
 				0198B65B18ADED05006512E2 /* EGOCache.m in Sources */,
 				0198B65D18ADED05006512E2 /* EGOImageLoader.m in Sources */,
 				0198B5F118ADEACF006512E2 /* FXBlurView.m in Sources */,
 				017F3D5118F4E914006DFFB6 /* SelectProductTypeViewController+Components.m in Sources */,
-				017F3D4818F4E63D006DFFB6 /* MainViewController+HandleTableViewDelegateAndDataSource.m in Sources */,
 				0198B5E218ADEA3E006512E2 /* SDWebImagePrefetcher.m in Sources */,
 				0198B5DA18ADEA3E006512E2 /* MKAnnotationView+WebCache.m in Sources */,
+				010CA612197CF0040021084F /* MainTableViewCellBase.m in Sources */,
 				01ACF20218C5B255008D0B41 /* LightWeightPlist+FilePath.m in Sources */,
 				0166343618C2DE51002FC4BF /* HistoryViewController.m in Sources */,
 				0198B66018ADED05006512E2 /* MyPhoto.m in Sources */,
 				0198B62618ADEC68006512E2 /* OtherProductsCell.m in Sources */,
 				01A7F43818D8A8F0005E05FC /* AmiAmiParser+AccessObjects.m in Sources */,
 				01A7F44118D8AC96005E05FC /* AmiAmiParser+HandleUIWebViewDelegate.m in Sources */,
+				01C252D0197CEC5700218BAC /* MainViewController+TableViewHandler.m in Sources */,
 				0198B5DE18ADEA3E006512E2 /* SDWebImageDecoder.m in Sources */,
 				0198B66E18ADED05006512E2 /* EGOPhotoImageView.m in Sources */,
 				017F3D5618F4E9B6006DFFB6 /* RecordViewController.m in Sources */,

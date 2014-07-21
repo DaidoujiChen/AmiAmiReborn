@@ -1,75 +1,91 @@
 //
-//  RecordViewController+HandleTableViewDelegateAndDataSource.m
+//  MainViewController+TableViewHandler.m
 //  AmiAmi
 //
-//  Created by 啟倫 陳 on 2014/4/9.
+//  Created by 啟倫 陳 on 2014/7/21.
 //  Copyright (c) 2014年 ChilunChen. All rights reserved.
 //
 
-#import "RecordViewController+HandleTableViewDelegateAndDataSource.h"
+#import "MainViewController+TableViewHandler.h"
 
-@implementation RecordViewController (HandleTableViewDelegateAndDataSource)
+#define eachInfo [self.dataArray objectAtIndex:indexPath.section]
+
+@implementation MainViewController (TableViewHandler)
 
 #pragma mark - UITableViewDataSource
 
 -(NSInteger) numberOfSectionsInTableView : (UITableView*) tableView {
-    return 1;
+    return [self.dataArray count];
 }
 
 -(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return [LWPArray(self.dataSourceNameString) count];
+    return 1;
 }
 
 -(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
+
+    static NSString *CellIdentifier;
     
-    NSDictionary *eachInfo = [[[LWPArray(self.dataSourceNameString) reverseObjectEnumerator] allObjects] objectAtIndex:indexPath.row];
+    MainTableViewCellBase *cell;
     
-    static NSString *CellIdentifier = @"RelationCell";
-    DefaultProductCell *cell = (DefaultProductCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    if (self.typeSegment.selectedSegmentIndex) {
+        
+        CellIdentifier = @"DefaultProductCell";
+        cell = (DefaultProductCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+    } else {
+        
+        CellIdentifier = @"RankProductCell";
+        cell = (RankProductCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", (int)indexPath.section + 1]];
+        
+    }
     
-    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[eachInfo objectForKey:@"Thumbnail"]]
+    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]]
                             placeholderImage:nil
                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                        if (error) NSLog(@"%@", error);
                                    }];
     
-    cell.titleTextView.text = [eachInfo objectForKey:@"Title"];
-    
+    cell.titleTextView.text = eachInfo[@"Title"];
     return cell;
-    
     
 }
 
 #pragma mark - UITableViewDelegate
 
 -(CGFloat) tableView : (UITableView*) tableView heightForRowAtIndexPath : (NSIndexPath*) indexPath {
-    return 160.0f;
+    
+    if (self.typeSegment.selectedSegmentIndex) {
+        return 160.0f;
+    } else {
+        return 180.0f;
+    }
+    
 }
 
 -(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
+
+    NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
     
-    NSDictionary *eachInfo = [[[LWPArray(self.dataSourceNameString) reverseObjectEnumerator] allObjects] objectAtIndex:indexPath.row];
-    
-    NSString *urlString = [GlobalFunctions fixProductURL:[eachInfo objectForKey:@"URL"]];
-    
+    @weakify(self);
     [AmiAmiParser parseProductInfo:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
+        @strongify(self);
         
         if (status) {
             
             [GlobalFunctions addToHistory:eachInfo];
-            
+
             ProductViewController *next = [ProductViewController new];
             NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
             [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
             next.productInfoDictionary = productDictionary;
             [self.navigationController pushViewController:next animated:YES];
+            
         }
         
     }];
     
 }
-
 
 @end
