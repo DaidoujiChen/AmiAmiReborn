@@ -46,55 +46,78 @@
     
     TFHpple *doc = [self TFHppleObject:webView];
     
+    dispatch_queue_t myQueue = dispatch_queue_create("tw.com.daidouji", 0);
     
+    dispatch_group_t group = dispatch_group_create();
     
-    [[RACSignal merge:@[[self productInfo_Images:doc],
-                        [self productInfo_Informantion:doc],
-                        [self productInfo_Relation:doc],
-                        [self productInfo_AlsoBuy:doc],
-                        [self productInfo_AlsoLike:doc],
-                        [self productInfo_Popular:doc]]] subscribeCompleted:^{
-        
-        if (([self.objects.relationProductsArray count] == 0 &&
-             [self.objects.alsoLikeProductArray count] == 0 &&
-             [self.objects.alsoBuyProductArray count] == 0 &&
-             [self.objects.popularProductsArray count] == 0) &&
-            !self.objects.passFlag) {
-            [self.objects.parseLock unlock];
-            return;
-        }
-        
-        NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
-        
-        if ([self.objects.productImagesArray count]) {
-            [returnDictionary setObject:[self.objects.productImagesArray mutableCopy] forKey:@"ProductImages"];
-        }
-        
-        if ([self.objects.productInfomationArray count]) {
-            [returnDictionary setObject:[self.objects.productInfomationArray mutableCopy] forKey:@"ProductInformation"];
-        }
-        
-        if ([self.objects.relationProductsArray count]) {
-            [returnDictionary setObject:[self.objects.relationProductsArray mutableCopy] forKey:@"Relation"];
-        }
-        
-        if ([self.objects.alsoLikeProductArray count]) {
-            [returnDictionary setObject:[self.objects.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
-        }
-        
-        if ([self.objects.alsoBuyProductArray count]) {
-            [returnDictionary setObject:[self.objects.alsoBuyProductArray mutableCopy] forKey:@"AlsoBuy"];
-        }
-        
-        if ([self.objects.popularProductsArray count]) {
-            [returnDictionary setObject:[self.objects.popularProductsArray mutableCopy] forKey:@"Popular"];
-        }
-        
-        self.objects.dictionaryCompletion(AmiAmiParserStatusSuccess, returnDictionary);
-        [SVProgressHUD dismiss];
-        [self freeMemory];
-    }];
+    dispatch_group_async(group, myQueue, ^{
+        [self productInfo_Images:doc];
+    });
     
+    dispatch_group_async(group, myQueue, ^{
+        [self productInfo_Informantion:doc];
+    });
+    
+    dispatch_group_async(group, myQueue, ^{
+        [self productInfo_Images:doc];
+    });
+    
+    dispatch_group_async(group, myQueue, ^{
+        [self productInfo_Relation:doc];
+    });
+    
+    dispatch_group_async(group, myQueue, ^{
+        [self productInfo_AlsoBuy:doc];
+    });
+    
+    dispatch_group_async(group, myQueue, ^{
+        [self productInfo_AlsoLike:doc];
+    });
+    
+    dispatch_group_async(group, myQueue, ^{
+        [self productInfo_Popular:doc];
+    });
+    
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    
+    if (([self.objects.relationProductsArray count] == 0 &&
+         [self.objects.alsoLikeProductArray count] == 0 &&
+         [self.objects.alsoBuyProductArray count] == 0 &&
+         [self.objects.popularProductsArray count] == 0) &&
+        !self.objects.passFlag) {
+        [self.objects.parseLock unlock];
+        return;
+    }
+    
+    NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
+    
+    if ([self.objects.productImagesArray count]) {
+        [returnDictionary setObject:[self.objects.productImagesArray mutableCopy] forKey:@"ProductImages"];
+    }
+    
+    if ([self.objects.productInfomationArray count]) {
+        [returnDictionary setObject:[self.objects.productInfomationArray mutableCopy] forKey:@"ProductInformation"];
+    }
+    
+    if ([self.objects.relationProductsArray count]) {
+        [returnDictionary setObject:[self.objects.relationProductsArray mutableCopy] forKey:@"Relation"];
+    }
+    
+    if ([self.objects.alsoLikeProductArray count]) {
+        [returnDictionary setObject:[self.objects.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
+    }
+    
+    if ([self.objects.alsoBuyProductArray count]) {
+        [returnDictionary setObject:[self.objects.alsoBuyProductArray mutableCopy] forKey:@"AlsoBuy"];
+    }
+    
+    if ([self.objects.popularProductsArray count]) {
+        [returnDictionary setObject:[self.objects.popularProductsArray mutableCopy] forKey:@"Popular"];
+    }
+    
+    self.objects.dictionaryCompletion(AmiAmiParserStatusSuccess, returnDictionary);
+    [SVProgressHUD dismiss];
+    [self freeMemory];    
 }
 
 #pragma mark - private

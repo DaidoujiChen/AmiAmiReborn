@@ -9,7 +9,9 @@
 #import "AmiAmiParser.h"
 
 @interface AmiAmiParser (Parser)
+
 +(void) rankProductsParser : (UIWebView*) webView;
 +(void) allProductsParser : (UIWebView*) webView;
 +(void) productInfoParser : (UIWebView*) webView;
+
 @end

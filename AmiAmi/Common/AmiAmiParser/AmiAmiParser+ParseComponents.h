@@ -15,11 +15,11 @@
 +(NSArray*) allProducts_List : (TFHpple*) doc;
 +(NSArray*) rankProducts_List : (TFHpple*) doc;
 
-+(RACSignal*) productInfo_Images : (TFHpple*) doc;
-+(RACSignal*) productInfo_Informantion : (TFHpple*) doc;
-+(RACSignal*) productInfo_Relation : (TFHpple*) doc;
-+(RACSignal*) productInfo_AlsoBuy : (TFHpple*) doc;
-+(RACSignal*) productInfo_AlsoLike : (TFHpple*) doc;
-+(RACSignal*) productInfo_Popular : (TFHpple*) doc;
++(void) productInfo_Images : (TFHpple*) doc;
++(void) productInfo_Informantion : (TFHpple*) doc;
++(void) productInfo_Relation : (TFHpple*) doc;
++(void) productInfo_AlsoBuy : (TFHpple*) doc;
++(void) productInfo_AlsoLike : (TFHpple*) doc;
++(void) productInfo_Popular : (TFHpple*) doc;
 
 @end

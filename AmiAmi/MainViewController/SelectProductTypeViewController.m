@@ -28,14 +28,8 @@
 -(void) createNavigationRightButton {
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                 target:nil
-                                                                                 action:nil];
-    
-    rightButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        [self dismissSelf];
-        return [RACSignal empty];
-    }];
-    
+                                                                                 target:self
+                                                                                 action:@selector(dismissSelf)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
 }

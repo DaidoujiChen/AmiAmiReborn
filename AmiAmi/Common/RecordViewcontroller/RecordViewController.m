@@ -34,10 +34,13 @@
     
     [super viewDidLoad];
     [self dataTableViewSetting];
+
+}
+
+-(void) viewWillAppear : (BOOL) animated {
+    [super viewWillAppear:animated];
     
-    [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
-        [self.dataTableView reloadData];
-    }];
+    [self.dataTableView reloadData];
 }
 
 @end

@@ -51,10 +51,13 @@
     
     [self productTableViewSetting];
     [self makeRecordCellTypeArray];
+
+}
+
+-(void) viewWillAppear : (BOOL) animated {
+    [super viewWillAppear:animated];
     
-    [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
-        [self.navigationController setNavigationBarHidden:NO];
-    }];
+    [self.navigationController setNavigationBarHidden:NO];
     
 }
 
