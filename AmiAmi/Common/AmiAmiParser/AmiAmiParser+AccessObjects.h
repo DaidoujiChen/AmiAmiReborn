@@ -12,6 +12,6 @@
 
 @interface AmiAmiParser (AccessObjects)
 
-+(AmiAmiParserObjects*) objects;
++ (AmiAmiParserObjects *)objects;
 
 @end

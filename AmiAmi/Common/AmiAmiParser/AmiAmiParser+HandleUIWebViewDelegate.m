@@ -13,8 +13,9 @@
 
 @implementation AmiAmiParser (HandleUIWebViewDelegate)
 
-+(void) webView : (UIWebView*) webView didFailLoadWithError : (NSError*) error {
-    NSLog(@"someone fail : %@", error);
++ (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+	NSLog(@"someone fail : %@", error);
 }
 
 @end

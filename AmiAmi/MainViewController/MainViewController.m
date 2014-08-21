@@ -12,97 +12,83 @@
 
 @interface MainViewController ()
 
--(void) createNavigationRightButton;
--(void) createNavigationLeftButton;
--(void) createNavigationTitleSegment;
--(void) dataTableViewSetting;
--(void) makeReloadResultBlock;
+- (void)createNavigationRightButton;
+- (void)createNavigationLeftButton;
+- (void)createNavigationTitleSegment;
+- (void)dataTableViewSetting;
+- (void)makeReloadResultBlock;
 
 @end
 
 @implementation MainViewController
 
--(void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-
 #pragma mark - private
 
--(void) dataTableViewSetting {
-    
-    [self.dataTableView registerClass:[RankProductCell class] forCellReuseIdentifier:@"RankProductCell"];
-    [self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"DefaultProductCell"];
-    [self.dataTableView setBackgroundView:nil];
-    [self.dataTableView setBackgroundColor:[UIColor clearColor]];
-    
+- (void)dataTableViewSetting
+{
+	[self.dataTableView registerClass:[RankProductCell class] forCellReuseIdentifier:@"RankProductCell"];
+	[self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"DefaultProductCell"];
+    self.dataTableView.backgroundView = nil;
+    self.dataTableView.backgroundColor = [UIColor clearColor];
 }
 
--(void) createNavigationRightButton {
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                 target:self
-                                                                                 action:@selector(typeChangeOrReloadAction)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
+- (void)createNavigationRightButton
+{
+	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(typeChangeOrReloadAction)];
+	self.navigationItem.rightBarButtonItem = rightButton;
 }
 
--(void) createNavigationLeftButton {
-    
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize
-                                                                                 target:self
-                                                                                 action:@selector(showSelectProductType)];
-    self.navigationItem.leftBarButtonItem = leftButton;
-    
+- (void)createNavigationLeftButton
+{
+	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(showSelectProductType)];
+	self.navigationItem.leftBarButtonItem = leftButton;
 }
 
--(void) createNavigationTitleSegment {
-    
-    self.typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
-    [self.typeSegment setSelectedSegmentIndex:0];
-    [self.typeSegment addTarget:self action:@selector(typeChangeOrReloadAction) forControlEvents:UIControlEventValueChanged];
-    [self.typeSegment sizeToFit];
-    self.navigationItem.titleView = self.typeSegment;
-    
+- (void)createNavigationTitleSegment
+{
+	self.typeSegment = [[UISegmentedControl alloc] initWithItems:@[@"排名", @"全部"]];
+    self.typeSegment.selectedSegmentIndex = 0;
+	[self.typeSegment addTarget:self action:@selector(typeChangeOrReloadAction) forControlEvents:UIControlEventValueChanged];
+	[self.typeSegment sizeToFit];
+	self.navigationItem.titleView = self.typeSegment;
 }
 
--(void) makeReloadResultBlock {
-    
-    @weakify(self);
-    self.reloadRetultBlock = ^(AmiAmiParserStatus status, NSArray *result) {
-        @strongify(self);
-        if (status) {
-            self.dataArray = result;
-            [self.dataTableView reloadData];
-            [self.dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-                                      atScrollPosition:UITableViewScrollPositionTop
-                                              animated:YES];
-        }
-    };
-    
+- (void)makeReloadResultBlock
+{
+	@weakify(self);
+	self.reloadRetultBlock = ^(AmiAmiParserStatus status, NSArray *result) {
+		@strongify(self);
+		if (status) {
+			self.dataArray = result;
+			[self.dataTableView reloadData];
+			[self.dataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+		}
+	};
 }
 
 #pragma mark - life cycle
 
--(void) viewDidLoad {
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
     
-    [super viewDidLoad];
-
-    [self dataTableViewSetting];
-    [self createNavigationRightButton];
-    [self createNavigationLeftButton];
-    [self createNavigationTitleSegment];
-    [self makeReloadResultBlock];
-    
+	[self dataTableViewSetting];
+	[self createNavigationRightButton];
+	[self createNavigationLeftButton];
+	[self createNavigationTitleSegment];
+	[self makeReloadResultBlock];
 }
 
--(void) viewDidAppear : (BOOL) animated {
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self typeChangeOrReloadAction];
-    });
-    
+	static dispatch_once_t onceToken;
+    @weakify(self);
+	dispatch_once(&onceToken, ^{
+        @strongify(self);
+	    [self typeChangeOrReloadAction];
+	});
 }
 
 @end

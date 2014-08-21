@@ -13,26 +13,27 @@
 
 @implementation AmiAmiParser (HandleUIAlertViewDelegate)
 
-+(void) alertView : (UIAlertView*) alertView clickedButtonAtIndex : (NSInteger) buttonIndex {
-    
-    switch (buttonIndex) {
-        case 0:
-        {
-            self.objects.passAlertView = nil;
-            [self.objects.parseWebView reload];
-            [self setTimeout];
-            break;
-        }
-        case 1:
-        {
-            self.objects.passAlertView = nil;
-            self.objects.passFlag = YES;
-            break;
-        }
-        default:
-            break;
-    }
-    
++ (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	switch (buttonIndex) {
+		case 0:
+		{
+			[self objects].passAlertView = nil;
+			[[self objects].parseWebView reload];
+			[self setTimeout];
+			break;
+		}
+            
+		case 1:
+		{
+			[self objects].passAlertView = nil;
+			[self objects].passFlag = YES;
+			break;
+		}
+            
+		default:
+			break;
+	}
 }
 
 @end

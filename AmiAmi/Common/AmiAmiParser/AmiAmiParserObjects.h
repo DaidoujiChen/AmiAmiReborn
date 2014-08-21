@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    AmiAmiParserStatusFail      =   0,
-    AmiAmiParserStatusSuccess
+	AmiAmiParserStatusFail      =   0,
+	AmiAmiParserStatusSuccess
 } AmiAmiParserStatus;
 
 typedef enum {
-    AmiAmiParserEntryTypeRank       =   0,
-    AmiAmiParserEntryTypeAll,
-    AmiAmiParserEntryTypeProductInfo
+	AmiAmiParserEntryTypeRank       =   0,
+	AmiAmiParserEntryTypeAll,
+	AmiAmiParserEntryTypeProductInfo
 } AmiAmiParserEntryType;
 
 typedef void (^ArrayCompletion)(AmiAmiParserStatus status, NSArray *result);
@@ -29,19 +29,19 @@ typedef void (^DictionaryCompletion)(AmiAmiParserStatus status, NSDictionary *re
 @property (nonatomic, strong) UIWebView *parseWebView;
 @property (nonatomic, assign) AmiAmiParserEntryType entryType;
 
-@property (nonatomic, strong) NSMutableArray* productImagesArray;
-@property (nonatomic, strong) NSMutableArray* productInfomationArray;
-@property (nonatomic, strong) NSMutableArray* relationProductsArray;
-@property (nonatomic, strong) NSMutableArray* popularProductsArray;
-@property (nonatomic, strong) NSMutableArray* alsoLikeProductArray;
-@property (nonatomic, strong) NSMutableArray* alsoBuyProductArray;
+@property (nonatomic, strong) NSMutableArray *productImagesArray;
+@property (nonatomic, strong) NSMutableArray *productInfomationArray;
+@property (nonatomic, strong) NSMutableArray *relationProductsArray;
+@property (nonatomic, strong) NSMutableArray *popularProductsArray;
+@property (nonatomic, strong) NSMutableArray *alsoLikeProductArray;
+@property (nonatomic, strong) NSMutableArray *alsoBuyProductArray;
 
-@property (nonatomic, strong) DispatchTimer* webViewTimer;
-@property (nonatomic, strong) DispatchTimer* timeoutTimer;
+@property (nonatomic, strong) DispatchTimer *webViewTimer;
+@property (nonatomic, strong) DispatchTimer *timeoutTimer;
 
 @property (nonatomic, assign) BOOL passFlag;
-@property (nonatomic, strong) UIAlertView* passAlertView;
+@property (nonatomic, strong) UIAlertView *passAlertView;
 
-@property (nonatomic, strong) NSLock* parseLock;
+@property (nonatomic, strong) NSLock *parseLock;
 
 @end

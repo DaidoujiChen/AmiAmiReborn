@@ -14,29 +14,27 @@
 
 #pragma mark - UITableViewDataSource
 
--(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return [AllProductsArray count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return [AllProductsArray count];
 }
 
--(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
-    
-    static NSString *CellIdentifier = @"DefaultCell";
-    DefaultCell *cell = (DefaultCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    
-    NSDictionary *eachDictionary = AllProductsArray[indexPath.row];
-    cell.textLabel.text = eachDictionary[@"title"];
-    return cell;
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	static NSString *CellIdentifier = @"DefaultCell";
+	DefaultCell *cell = (DefaultCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	NSDictionary *eachDictionary = AllProductsArray[indexPath.row];
+	cell.textLabel.text = eachDictionary[@"title"];
+	return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
--(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
-    
-    [MiscDictionary setObject:[NSNumber numberWithInteger:indexPath.row] forKey:@"typeIndex"];
-    [self dismissSelf];
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MiscDictionary[@"typeIndex"] = [NSNumber numberWithInteger:indexPath.row];
+	[self dismissSelf];
 }
 
 @end

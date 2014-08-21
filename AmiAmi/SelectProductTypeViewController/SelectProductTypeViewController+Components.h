@@ -9,5 +9,7 @@
 #import "SelectProductTypeViewController.h"
 
 @interface SelectProductTypeViewController (Components)
--(void) dismissSelf;
+
+- (void)dismissSelf;
+
 @end

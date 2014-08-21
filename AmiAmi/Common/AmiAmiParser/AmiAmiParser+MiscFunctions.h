@@ -11,9 +11,9 @@
 @interface AmiAmiParser (MiscFunctions)
 
 #pragma mark - use in AmiAmiParser
-+(UIWebView*) makeParseWebViewWithURL : (NSURL*) parseURL;
++ (UIWebView *)makeParseWebViewWithURL:(NSURL *)parseURL;
 
 #pragma mark - use in AmiAmiParser, HandleUIAlertViewDelegate
-+(void) setTimeout;
++ (void)setTimeout;
 
 @end

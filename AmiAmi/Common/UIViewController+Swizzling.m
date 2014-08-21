@@ -10,15 +10,17 @@
 
 @implementation UIViewController (Swizzling)
 
-+(void) load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-           [self jr_swizzleMethod:@selector(prefersStatusBarHidden) withMethod:@selector(swizzling_prefersStatusBarHidden) error:nil];
-    });
++ (void)load
+{
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+	    [self jr_swizzleMethod:@selector(prefersStatusBarHidden) withMethod:@selector(swizzling_prefersStatusBarHidden) error:nil];
+	});
 }
 
--(BOOL) swizzling_prefersStatusBarHidden {
-    return YES;
+- (BOOL)swizzling_prefersStatusBarHidden
+{
+	return YES;
 }
 
 @end

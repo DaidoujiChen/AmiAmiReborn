@@ -14,66 +14,61 @@
 
 #pragma mark - UITableViewDataSource
 
--(NSInteger) numberOfSectionsInTableView : (UITableView*) tableView {
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
 }
 
--(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return [dataSource count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return [dataSource count];
 }
 
--(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSDictionary *eachInfo = [[dataSource reverseObjectEnumerator] allObjects][indexPath.row];
     
-    NSDictionary *eachInfo = [[dataSource reverseObjectEnumerator] allObjects][indexPath.row];
+	static NSString *CellIdentifier = @"DefaultProductCell";
+	DefaultProductCell *cell = (DefaultProductCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    static NSString *CellIdentifier = @"DefaultProductCell";
-    DefaultProductCell *cell = (DefaultProductCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+	[cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed: ^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+	    if (error) NSLog(@"%@", error);
+	}];
     
-    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]]
-                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]
-                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                       if (error) NSLog(@"%@", error);
-                                   }];
+	cell.titleTextView.text = eachInfo[@"Title"];
     
-    cell.titleTextView.text = eachInfo[@"Title"];
-
-    return cell;
-    
-    
+	return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
--(CGFloat) tableView : (UITableView*) tableView heightForRowAtIndexPath : (NSIndexPath*) indexPath {
-    return 160.0f;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 160.0f;
 }
 
--(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSDictionary *eachInfo = [[dataSource reverseObjectEnumerator] allObjects][indexPath.row];
     
-    NSDictionary *eachInfo = [[dataSource reverseObjectEnumerator] allObjects][indexPath.row];
+	NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
     
-    NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
-    
-    @weakify(self);
-    [AmiAmiParser parseProductInfo:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
-        @strongify(self);
+	@weakify(self);
+	[AmiAmiParser parseProductInfo:urlString completion: ^(AmiAmiParserStatus status, NSDictionary *result) {
+	    @strongify(self);
         
-        if (status) {
+	    if (status) {
+	        [GlobalFunctions addToHistory:eachInfo];
             
-            [GlobalFunctions addToHistory:eachInfo];
-            
-            ProductViewController *next = [ProductViewController new];
-            NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
-            [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
-            next.productInfoDictionary = productDictionary;
-            [self.navigationController pushViewController:next animated:YES];
-        }
-        
-    }];
-    
+	        ProductViewController *next = [ProductViewController new];
+	        NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
+            productDictionary[@"CurrentProduct"] = eachInfo;
+	        next.productInfoDictionary = productDictionary;
+	        [self.navigationController pushViewController:next animated:YES];
+		}
+	}];
 }
-
 
 @end

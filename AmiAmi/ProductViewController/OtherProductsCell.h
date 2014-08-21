@@ -19,5 +19,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *productTypeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *productCollectionView;
 
-
 @end

@@ -8,89 +8,77 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate (Private)
+@interface AppDelegate ()
+
 - (UIView *)makeBackgroundViews:(OSNavigationController *)navigationController;
+
 @end
 
 @implementation AppDelegate
 
 #pragma mark - private
 
-- (UIView *)makeBackgroundViews:(OSNavigationController *)navigationController {
-    UIView *backgroundViews = [[UIView alloc] initWithFrame:navigationController.view.bounds];
-    
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:backgroundViews.bounds];
-    [backgroundImage setImage:[UIImage imageNamed:@"background4.png"]];
-    [backgroundViews addSubview:backgroundImage];
-    FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:backgroundViews.bounds];
-    [blurView setBlurRadius:20.0f];
-    [blurView setDynamic:NO];
-    [backgroundViews addSubview:blurView];
-    return backgroundViews;
+- (UIView *)makeBackgroundViews:(OSNavigationController *)navigationController
+{
+	UIView *backgroundViews = [[UIView alloc] initWithFrame:navigationController.view.bounds];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:backgroundViews.bounds];
+    backgroundImage.image = [UIImage imageNamed:@"background4.png"];
+	[backgroundViews addSubview:backgroundImage];
+	FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:backgroundViews.bounds];
+    blurView.blurRadius = 20.0f;
+    blurView.dynamic = NO;
+	[backgroundViews addSubview:blurView];
+	return backgroundViews;
 }
 
 #pragma mark - app life cycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	UITabBarController *tabbar = [UITabBarController new];
     
-    UITabBarController *tabbar = [UITabBarController new];
+	OSNavigationController *mainNavi = [OSNavigationController new];
+	MainViewController *main = [MainViewController new];
+    mainNavi.title = @"列表";
+    mainNavi.tabBarItem.image = [UIImage imageNamed:@"Albums"];
+	[mainNavi pushViewController:main animated:NO];
     
-    OSNavigationController *mainNavi = [OSNavigationController new];
-    MainViewController *main = [MainViewController new];
-    [mainNavi setTitle:@"列表"];
-    [mainNavi.tabBarItem setImage:[UIImage imageNamed:@"Albums"]];
-    [mainNavi pushViewController:main animated:NO];
+	OSNavigationController *historyNavi = [OSNavigationController new];
+	HistoryViewController *history = [[HistoryViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
+    historyNavi.title = @"歷史";
+    historyNavi.tabBarItem.image = [UIImage imageNamed:@"Bookmarks"];
+	[historyNavi pushViewController:history animated:NO];
     
-    OSNavigationController *historyNavi = [OSNavigationController new];
-    HistoryViewController *history = [[HistoryViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
-    [historyNavi setTitle:@"歷史"];
-    [historyNavi.tabBarItem setImage:[UIImage imageNamed:@"Bookmarks"]];
-    [historyNavi pushViewController:history animated:NO];
+	OSNavigationController *favoriteNavi = [OSNavigationController new];
+	FavoriteViewController *favorite = [[FavoriteViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
+    favoriteNavi.title = @"最愛";
+    favoriteNavi.tabBarItem.image = [UIImage imageNamed:@"Favorites"];
+	[favoriteNavi pushViewController:favorite animated:NO];
     
-    OSNavigationController *favoriteNavi = [OSNavigationController new];
-    FavoriteViewController *favorite = [[FavoriteViewController alloc] initWithNibName:@"RecordViewController" bundle:nil];
-    [favoriteNavi setTitle:@"最愛"];
-    [favoriteNavi.tabBarItem setImage:[UIImage imageNamed:@"Favorites"]];
-    [favoriteNavi pushViewController:favorite animated:NO];
-
-    [mainNavi.view insertSubview:[self makeBackgroundViews:mainNavi] atIndex:0];
-    [historyNavi.view insertSubview:[self makeBackgroundViews:historyNavi] atIndex:0];
-    [favoriteNavi.view insertSubview:[self makeBackgroundViews:favoriteNavi] atIndex:0];
+	[mainNavi.view insertSubview:[self makeBackgroundViews:mainNavi] atIndex:0];
+	[historyNavi.view insertSubview:[self makeBackgroundViews:historyNavi] atIndex:0];
+	[favoriteNavi.view insertSubview:[self makeBackgroundViews:favoriteNavi] atIndex:0];
     
-    [tabbar setViewControllers:@[mainNavi, historyNavi, favoriteNavi]];
+    tabbar.viewControllers = @[mainNavi, historyNavi, favoriteNavi];
     
-    self.window.rootViewController = tabbar;
-    [self.window makeKeyAndVisible];
+	self.window.rootViewController = tabbar;
+	[self.window makeKeyAndVisible];
     
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36", @"UserAgent", nil];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+	NSDictionary *dictionary = @{@"UserAgent": @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36"};
+	[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     
-    if (!MiscDictionary[@"typeIndex"]) {
-        [MiscDictionary setObject:[NSNumber numberWithInt:0] forKey:@"typeIndex"];
-    }
+	if (!MiscDictionary[@"typeIndex"]) {
+        MiscDictionary[@"typeIndex"] = [NSNumber numberWithInt:0];
+	}
     
-    return YES;
+	return YES;
 }
 
-- (BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
-    return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
-}
-							
-- (void)applicationWillResignActive:(UIApplication *)application {
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+	return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 @end

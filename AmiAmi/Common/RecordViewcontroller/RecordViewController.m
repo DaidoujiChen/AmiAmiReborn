@@ -9,39 +9,34 @@
 #import "RecordViewController.h"
 
 @interface RecordViewController ()
--(void) dataTableViewSetting;
+
+- (void)dataTableViewSetting;
+
 @end
 
 @implementation RecordViewController
 
--(void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - private
 
--(void) dataTableViewSetting {
-    
-    [self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"DefaultProductCell"];
-    [self.dataTableView setBackgroundView:nil];
-    [self.dataTableView setBackgroundColor:[UIColor clearColor]];
-    
+- (void)dataTableViewSetting
+{
+	[self.dataTableView registerClass:[DefaultProductCell class] forCellReuseIdentifier:@"DefaultProductCell"];
+	self.dataTableView.backgroundView = nil;
+    self.dataTableView.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - life cycle
 
--(void) viewDidLoad {
-    [super viewDidLoad];
-    
-    [self dataTableViewSetting];
-
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	[self dataTableViewSetting];
 }
 
--(void) viewWillAppear : (BOOL) animated {
-    [super viewWillAppear:animated];
-    
-    [self.dataTableView reloadData];
-    
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];    
+	[self.dataTableView reloadData];
 }
 
 @end

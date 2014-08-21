@@ -12,7 +12,7 @@
 
 @interface SelectProductTypeViewController : UIViewController
 
-@property (nonatomic, copy) void(^requestReloadTable)(void);
+@property (nonatomic, copy) void (^requestReloadTable)(void);
 
 @property (weak, nonatomic) IBOutlet UITableView *selectProductTypeTableView;
 

@@ -14,80 +14,68 @@
 
 #pragma mark - UITableViewDataSource
 
--(NSInteger) numberOfSectionsInTableView : (UITableView*) tableView {
-    return [self.dataArray count];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return [self.dataArray count];
 }
 
--(NSInteger) tableView : (UITableView*) tableView numberOfRowsInSection : (NSInteger) section {
-    return 1;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return 1;
 }
 
--(UITableViewCell*) tableView : (UITableView*) tableView cellForRowAtIndexPath : (NSIndexPath*) indexPath {
-
-    static NSString *CellIdentifier;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	static NSString *CellIdentifier;
     
-    MainTableViewCellBase *cell;
+	MainTableViewCellBase *cell;
     
-    if (self.typeSegment.selectedSegmentIndex) {
-        
-        CellIdentifier = @"DefaultProductCell";
-        cell = (DefaultProductCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
-    } else {
-        
-        CellIdentifier = @"RankProductCell";
-        cell = (RankProductCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", (int)indexPath.section + 1]];
-        
-    }
+	if (self.typeSegment.selectedSegmentIndex) {
+		CellIdentifier = @"DefaultProductCell";
+		cell = (DefaultProductCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+	} else {
+		CellIdentifier = @"RankProductCell";
+		cell = (RankProductCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+		cell.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ranking_%d.png", (int)indexPath.section + 1]];
+	}
     
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]]
-                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]
-                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                       if (error) NSLog(@"%@", error);
-                                   }];
+	[cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:eachInfo[@"Thumbnail"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed: ^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        if (error) NSLog(@"%@", error);
+    }];
     
-    cell.titleTextView.text = eachInfo[@"Title"];
-    return cell;
-    
+	cell.titleTextView.text = eachInfo[@"Title"];
+	return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
--(CGFloat) tableView : (UITableView*) tableView heightForRowAtIndexPath : (NSIndexPath*) indexPath {
-    
-    if (self.typeSegment.selectedSegmentIndex) {
-        return 160.0f;
-    } else {
-        return 180.0f;
-    }
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (self.typeSegment.selectedSegmentIndex) {
+		return 160.0f;
+	} else {
+		return 180.0f;
+	}
 }
 
--(void) tableView : (UITableView*) tableView didSelectRowAtIndexPath : (NSIndexPath*) indexPath {
-
-    NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSString *urlString = [GlobalFunctions fixProductURL:eachInfo[@"URL"]];
     
-    @weakify(self);
-    [AmiAmiParser parseProductInfo:urlString completion:^(AmiAmiParserStatus status, NSDictionary *result) {
-        @strongify(self);
-        
-        if (status) {
-            
-            [GlobalFunctions addToHistory:eachInfo];
-
-            ProductViewController *next = [ProductViewController new];
-            NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
-            [productDictionary setObject:eachInfo forKey:@"CurrentProduct"];
-            next.productInfoDictionary = productDictionary;
-            [self.navigationController pushViewController:next animated:YES];
-            
-        }
-        
-    }];
-    
+	@weakify(self);
+	[AmiAmiParser parseProductInfo:urlString completion: ^(AmiAmiParserStatus status, NSDictionary *result) {
+	    @strongify(self);
+	    if (status) {
+	        [GlobalFunctions addToHistory:eachInfo];
+	        ProductViewController *next = [ProductViewController new];
+	        NSMutableDictionary *productDictionary = [NSMutableDictionary dictionaryWithDictionary:result];
+            productDictionary[@"CurrentProduct"] = eachInfo;
+	        next.productInfoDictionary = productDictionary;
+	        [self.navigationController pushViewController:next animated:YES];
+		}
+	}];
 }
 
 @end

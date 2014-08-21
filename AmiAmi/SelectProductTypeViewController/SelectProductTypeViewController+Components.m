@@ -10,12 +10,13 @@
 
 @implementation SelectProductTypeViewController (Components)
 
--(void) dismissSelf {
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        self.requestReloadTable();
-    }];
-    
+- (void)dismissSelf
+{
+    @weakify(self);
+	[self dismissViewControllerAnimated:YES completion: ^{
+        @strongify(self);
+	    self.requestReloadTable();
+	}];
 }
 
 @end

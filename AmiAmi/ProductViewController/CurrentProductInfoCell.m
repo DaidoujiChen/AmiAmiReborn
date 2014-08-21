@@ -10,14 +10,15 @@
 
 @implementation CurrentProductInfoCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [GlobalFunctions imageEffect:self.currentProductImageView];
-        [GlobalFunctions textEffect:self.currentProductTitleTextView];
-        [GlobalFunctions textEffect:self.currentProductInformationTextView];
-    }
-    return self;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+	if (self) {
+		[GlobalFunctions imageEffect:self.currentProductImageView];
+		[GlobalFunctions textEffect:self.currentProductTitleTextView];
+		[GlobalFunctions textEffect:self.currentProductInformationTextView];
+	}
+	return self;
 }
 
 @end

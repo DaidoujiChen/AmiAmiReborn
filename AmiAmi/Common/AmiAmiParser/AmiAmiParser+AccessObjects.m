@@ -10,13 +10,12 @@
 
 @implementation AmiAmiParser (AccessObjects)
 
-+(AmiAmiParserObjects*) objects {
-    
-    if (!objc_getAssociatedObject(self, _cmd)) {
-        objc_setAssociatedObject(self, _cmd, [AmiAmiParserObjects new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return objc_getAssociatedObject(self, _cmd);
-    
++ (AmiAmiParserObjects *)objects
+{
+	if (!objc_getAssociatedObject(self, _cmd)) {
+		objc_setAssociatedObject(self, _cmd, [AmiAmiParserObjects new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	}
+	return objc_getAssociatedObject(self, _cmd);
 }
 
 @end

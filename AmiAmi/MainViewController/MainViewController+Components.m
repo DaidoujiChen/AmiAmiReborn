@@ -12,39 +12,39 @@
 
 #pragma mark - instance method
 
--(void) typeChangeOrReloadAction {
-    
-    if (self.typeSegment.selectedSegmentIndex) {
-        [self loadAllProductsData];
-    } else {
-        [self loadRankData];
-    }
-    
+- (void)typeChangeOrReloadAction
+{
+	if (self.typeSegment.selectedSegmentIndex) {
+		[self loadAllProductsData];
+	} else {
+		[self loadRankData];
+	}
 }
 
--(void) showSelectProductType {
-    
-    UINavigationController *navi = [UINavigationController new];
-    SelectProductTypeViewController *next = [SelectProductTypeViewController new];
-    @weakify(self);
-    [next setRequestReloadTable:^{
-        @strongify(self);
-        [self typeChangeOrReloadAction];
-    }];
-    [navi pushViewController:next animated:NO];
-    [self presentViewController:navi animated:YES completion:^{
-    }];
-    
+- (void)showSelectProductType
+{
+	UINavigationController *navi = [UINavigationController new];
+	SelectProductTypeViewController *next = [SelectProductTypeViewController new];
+	@weakify(self);
+    next.requestReloadTable = ^{
+	    @strongify(self);
+	    [self typeChangeOrReloadAction];
+	};
+	[navi pushViewController:next animated:NO];
+	[self presentViewController:navi animated:YES completion: ^{
+	}];
 }
 
 #pragma mark - private
 
--(void) loadAllProductsData {
-    [AmiAmiParser parseAllProducts:self.reloadRetultBlock];
+- (void)loadAllProductsData
+{
+	[AmiAmiParser parseAllProducts:self.reloadRetultBlock];
 }
 
--(void) loadRankData {
-    [AmiAmiParser parseRankProducts:self.reloadRetultBlock];
+- (void)loadRankData
+{
+	[AmiAmiParser parseRankProducts:self.reloadRetultBlock];
 }
 
 @end

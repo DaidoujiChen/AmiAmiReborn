@@ -13,23 +13,21 @@
 
 @implementation HistoryViewController
 
--(id) initWithNibName : (NSString*) nibNameOrNil bundle : (NSBundle*) nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+#pragma mark - life cycle
 
-        self.dataSourceNameString = @"History";
-        
-    }
-    return self;
-    
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		self.dataSourceNameString = @"History";
+	}
+	return self;
 }
 
--(void) viewDidLoad {
-    [super viewDidLoad];
-    
-    [self setTitle:@"歷史"];
-    
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+    self.title = @"歷史";
 }
 
 @end

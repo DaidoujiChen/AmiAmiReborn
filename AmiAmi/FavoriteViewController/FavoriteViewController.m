@@ -13,36 +13,36 @@
 
 @implementation FavoriteViewController
 
--(id) initWithNibName : (NSString*) nibNameOrNil bundle : (NSBundle*) nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-        self.dataSourceNameString = @"Favorite";
-        
-    }
-    return self;
-    
+#pragma mark - life cycle
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		self.dataSourceNameString = @"Favorite";
+	}
+	return self;
 }
 
--(void) viewDidLoad {
-    [super viewDidLoad];
-    
-    [self setTitle:@"最愛"];
-    
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+    self.title = @"最愛";
 }
 
 #pragma mark - UITableViewDelegate
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [FavoriteArray removeObjectAtIndex:[FavoriteArray count] - 1 - indexPath.row];
-        [tableView reloadData];
-    }
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		[FavoriteArray removeObjectAtIndex:[FavoriteArray count] - 1 - indexPath.row];
+		[tableView reloadData];
+	}
 }
 
 @end

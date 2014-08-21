@@ -12,39 +12,34 @@
 
 @interface SelectProductTypeViewController ()
 
--(void) createNavigationRightButton;
--(void) selectProductTypeTableViewSetting;
+- (void)createNavigationRightButton;
+- (void)selectProductTypeTableViewSetting;
 
 @end
 
 @implementation SelectProductTypeViewController
 
--(void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - private
 
--(void) createNavigationRightButton {
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                 target:self
-                                                                                 action:@selector(dismissSelf)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
+- (void)createNavigationRightButton
+{
+	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissSelf)];
+	self.navigationItem.rightBarButtonItem = rightButton;
 }
 
--(void) selectProductTypeTableViewSetting {
-    [self.selectProductTypeTableView registerClass:[DefaultCell class] forCellReuseIdentifier:@"DefaultCell"];
+- (void)selectProductTypeTableViewSetting
+{
+	[self.selectProductTypeTableView registerClass:[DefaultCell class] forCellReuseIdentifier:@"DefaultCell"];
 }
 
 #pragma mark - life cycle
 
--(void) viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
     
-    [self createNavigationRightButton];
-    [self selectProductTypeTableViewSetting];
+	[self createNavigationRightButton];
+	[self selectProductTypeTableViewSetting];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @interface MainViewController (Components)
 
--(void) typeChangeOrReloadAction;
--(void) showSelectProductType;
+- (void)typeChangeOrReloadAction;
+- (void)showSelectProductType;
 
 @end

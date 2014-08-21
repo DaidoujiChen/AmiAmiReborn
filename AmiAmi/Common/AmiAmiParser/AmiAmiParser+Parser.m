@@ -16,117 +16,123 @@
 
 #pragma mark - class method
 
-+(void) allProductsParser : (UIWebView*) webView {
-    
-    NSArray *allProductArray = [self allProducts_List:[self TFHppleObject:webView]];
-    if (allProductArray) {
-        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, allProductArray);
-        [SVProgressHUD dismiss];
-        [self freeMemory];
-    } else {
-        [self.objects.parseLock unlock];
-    }
-
++ (void)allProductsParser:(UIWebView *)webView
+{
+	NSArray *allProductArray = [self allProducts_List:[self TFHppleObject:webView]];
+	if (allProductArray) {
+		[self objects].arrayCompletion(AmiAmiParserStatusSuccess, allProductArray);
+		[SVProgressHUD dismiss];
+		[self freeMemory];
+	} else {
+		[[self objects].parseLock unlock];
+	}
 }
 
-+(void) rankProductsParser : (UIWebView*) webView {
-    
-    NSArray *rankProductArray = [self rankProducts_List:[self TFHppleObject:webView]];
-    if (rankProductArray) {
-        self.objects.arrayCompletion(AmiAmiParserStatusSuccess, rankProductArray);
-        [SVProgressHUD dismiss];
-        [self freeMemory];
-    } else {
-        [self.objects.parseLock unlock];
-    }
-    
++ (void)rankProductsParser:(UIWebView *)webView
+{
+	NSArray *rankProductArray = [self rankProducts_List:[self TFHppleObject:webView]];
+	if (rankProductArray) {
+		[self objects].arrayCompletion(AmiAmiParserStatusSuccess, rankProductArray);
+		[SVProgressHUD dismiss];
+		[self freeMemory];
+	} else {
+		[[self objects].parseLock unlock];
+	}
 }
 
-+(void) productInfoParser : (UIWebView*) webView {
++ (void)productInfoParser:(UIWebView *)webView
+{
+	TFHpple *doc = [self TFHppleObject:webView];
     
-    TFHpple *doc = [self TFHppleObject:webView];
+	dispatch_queue_t myQueue = dispatch_queue_create("tw.com.daidouji", 0);
+	dispatch_group_t group = dispatch_group_create();
     
-    dispatch_queue_t myQueue = dispatch_queue_create("tw.com.daidouji", 0);
+    @weakify(self);
+	dispatch_group_async(group, myQueue, ^{
+        @strongify(self);
+	    [self productInfo_Images:doc];
+	});
     
-    dispatch_group_t group = dispatch_group_create();
+	dispatch_group_async(group, myQueue, ^{
+        @strongify(self);
+	    [self productInfo_Informantion:doc];
+	});
     
-    dispatch_group_async(group, myQueue, ^{
-        [self productInfo_Images:doc];
-    });
+	dispatch_group_async(group, myQueue, ^{
+        @strongify(self);
+	    [self productInfo_Images:doc];
+	});
     
-    dispatch_group_async(group, myQueue, ^{
-        [self productInfo_Informantion:doc];
-    });
+	dispatch_group_async(group, myQueue, ^{
+        @strongify(self);
+	    [self productInfo_Relation:doc];
+	});
     
-    dispatch_group_async(group, myQueue, ^{
-        [self productInfo_Images:doc];
-    });
+	dispatch_group_async(group, myQueue, ^{
+        @strongify(self);
+	    [self productInfo_AlsoBuy:doc];
+	});
     
-    dispatch_group_async(group, myQueue, ^{
-        [self productInfo_Relation:doc];
-    });
+	dispatch_group_async(group, myQueue, ^{
+        @strongify(self);
+	    [self productInfo_AlsoLike:doc];
+	});
     
-    dispatch_group_async(group, myQueue, ^{
-        [self productInfo_AlsoBuy:doc];
-    });
+	dispatch_group_async(group, myQueue, ^{
+        @strongify(self);
+	    [self productInfo_Popular:doc];
+	});
     
-    dispatch_group_async(group, myQueue, ^{
-        [self productInfo_AlsoLike:doc];
-    });
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     
-    dispatch_group_async(group, myQueue, ^{
-        [self productInfo_Popular:doc];
-    });
+	if (([[self objects].relationProductsArray count] == 0 &&
+	     [[self objects].alsoLikeProductArray count] == 0 &&
+	     [[self objects].alsoBuyProductArray count] == 0 &&
+	     [[self objects].popularProductsArray count] == 0) &&
+	    ![self objects].passFlag) {
+		[[self objects].parseLock unlock];
+		return;
+	}
     
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
     
-    if (([self.objects.relationProductsArray count] == 0 &&
-         [self.objects.alsoLikeProductArray count] == 0 &&
-         [self.objects.alsoBuyProductArray count] == 0 &&
-         [self.objects.popularProductsArray count] == 0) &&
-        !self.objects.passFlag) {
-        [self.objects.parseLock unlock];
-        return;
-    }
+	if ([[self objects].productImagesArray count]) {
+        returnDictionary[@"ProductImages"] = [[self objects].productImagesArray mutableCopy];
+	}
     
-    NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
+	if ([[self objects].productInfomationArray count]) {
+        returnDictionary[@"ProductInformation"] = [[self objects].productInfomationArray mutableCopy];
+	}
     
-    if ([self.objects.productImagesArray count]) {
-        [returnDictionary setObject:[self.objects.productImagesArray mutableCopy] forKey:@"ProductImages"];
-    }
+	if ([[self objects].relationProductsArray count]) {
+        returnDictionary[@"Relation"] = [[self objects].relationProductsArray mutableCopy];
+	}
     
-    if ([self.objects.productInfomationArray count]) {
-        [returnDictionary setObject:[self.objects.productInfomationArray mutableCopy] forKey:@"ProductInformation"];
-    }
+	if ([[self objects].alsoLikeProductArray count]) {
+        returnDictionary[@"AlsoLike"] = [[self objects].alsoLikeProductArray mutableCopy];
+	}
     
-    if ([self.objects.relationProductsArray count]) {
-        [returnDictionary setObject:[self.objects.relationProductsArray mutableCopy] forKey:@"Relation"];
-    }
+	if ([[self objects].alsoBuyProductArray count]) {
+        returnDictionary[@"AlsoBuy"] = [[self objects].alsoBuyProductArray mutableCopy];
+	}
     
-    if ([self.objects.alsoLikeProductArray count]) {
-        [returnDictionary setObject:[self.objects.alsoLikeProductArray mutableCopy] forKey:@"AlsoLike"];
-    }
+	if ([[self objects].popularProductsArray count]) {
+        returnDictionary[@"Popular"] = [[self objects].popularProductsArray mutableCopy];
+	}
     
-    if ([self.objects.alsoBuyProductArray count]) {
-        [returnDictionary setObject:[self.objects.alsoBuyProductArray mutableCopy] forKey:@"AlsoBuy"];
-    }
-    
-    if ([self.objects.popularProductsArray count]) {
-        [returnDictionary setObject:[self.objects.popularProductsArray mutableCopy] forKey:@"Popular"];
-    }
-    
-    self.objects.dictionaryCompletion(AmiAmiParserStatusSuccess, returnDictionary);
-    [SVProgressHUD dismiss];
-    [self freeMemory];    
+	[self objects].dictionaryCompletion(AmiAmiParserStatusSuccess, returnDictionary);
+	[SVProgressHUD dismiss];
+	[self freeMemory];
 }
 
 #pragma mark - private
 
-+(void) freeMemory {
-    [self.objects.webViewTimer invalidate];
-    [self.objects.timeoutTimer invalidate];
-    [self.objects.parseLock unlock];
-    objc_removeAssociatedObjects(self);
++ (void)freeMemory
+{
+	[[self objects].webViewTimer invalidate];
+	[[self objects].timeoutTimer invalidate];
+	[[self objects].parseLock unlock];
+	objc_removeAssociatedObjects(self);
 }
 
 @end

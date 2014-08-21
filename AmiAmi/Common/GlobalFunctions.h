@@ -10,12 +10,12 @@
 
 @interface GlobalFunctions : NSObject
 
-+(NSString*) fixProductURL : (NSString*) oriURL;
++ (NSString *)fixProductURL:(NSString *)oriURL;
 
-+(void) imageEffect : (UIView*) view;
-+(void) textEffect : (UIView*) view;
++ (void)imageEffect:(UIView *)view;
++ (void)textEffect:(UIView *)view;
 
-+(void) addToHistory : (NSDictionary*) productInfo;
-+(void) addToFavorite;
++ (void)addToHistory:(NSDictionary *)productInfo;
++ (void)addToFavorite;
 
 @end

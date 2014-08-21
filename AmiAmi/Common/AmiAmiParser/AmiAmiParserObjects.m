@@ -10,23 +10,20 @@
 
 @implementation AmiAmiParserObjects
 
--(id) init {
-    
-    self = [super init];
-    if (self) {
+- (id)init
+{
+	self = [super init];
+	if (self) {
+		self.productImagesArray = [NSMutableArray array];
+		self.productInfomationArray = [NSMutableArray array];
+		self.relationProductsArray = [NSMutableArray array];
+		self.popularProductsArray = [NSMutableArray array];
+		self.alsoLikeProductArray = [NSMutableArray array];
+		self.alsoBuyProductArray = [NSMutableArray array];
         
-        self.productImagesArray = [NSMutableArray array];
-        self.productInfomationArray = [NSMutableArray array];
-        self.relationProductsArray = [NSMutableArray array];
-        self.popularProductsArray = [NSMutableArray array];
-        self.alsoLikeProductArray = [NSMutableArray array];
-        self.alsoBuyProductArray = [NSMutableArray array];
-        
-        self.parseLock = [NSLock new];
-        
-    }
-    return self;
-    
+		self.parseLock = [NSLock new];
+	}
+	return self;
 }
 
 @end
